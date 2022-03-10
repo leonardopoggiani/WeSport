@@ -1,0 +1,59 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="GlassFish 5.1.0" type="GlassfishConfiguration" factoryName="Remote" APPLICATION_SERVER_NAME="GlassFish 5.1.0" ALTERNATIVE_JRE_ENABLED="false" nameIsGenerated="true">
+    <option name="HOST" value="172.18.0.24" />
+    <option name="LOCAL" value="false" />
+    <option name="UPDATING_POLICY" value="hot-swap-classes" />
+    <deployment>
+      <artifact name="user_EJB">
+        <settings />
+      </artifact>
+      <artifact name="WeSport_webapp:war exploded">
+        <settings />
+      </artifact>
+    </deployment>
+    <server-settings>
+      <data>
+        <option name="adminServerHost" value="" />
+        <option name="clusterName" value="" />
+        <option name="credentialAlias" value="d9950137-6a4d-4c62-8464-04a6518c2ce9" />
+        <option name="preserve" value="true" />
+        <option name="secured" value="true" />
+        <option name="stagingRemotePath" value="/root/WeSport_webapp" />
+        <option name="transportHostId" value="a2973219-4d63-4118-b8a7-cc8e7a9ca5d0" />
+        <option name="transportStagingTarget">
+          <TransportTarget>
+            <option name="id" value="e7b67f4c-1529-471c-b2a0-c968f9c64743" />
+            <id>e7b67f4c-1529-471c-b2a0-c968f9c64743</id>
+          </TransportTarget>
+        </option>
+        <option name="uploadWithGlassfish" value="false" />
+        <credential-alias>d9950137-6a4d-4c62-8464-04a6518c2ce9</credential-alias>
+        <preserve>true</preserve>
+        <upload-with-glassfish>false</upload-with-glassfish>
+        <secured>true</secured>
+        <admin-server-host />
+        <cluster-name />
+        <transport-target>
+          <TransportTarget>
+            <option name="id" value="e7b67f4c-1529-471c-b2a0-c968f9c64743" />
+            <id>e7b67f4c-1529-471c-b2a0-c968f9c64743</id>
+          </TransportTarget>
+        </transport-target>
+        <staging-path>/root/WeSport_webapp</staging-path>
+        <host-id>a2973219-4d63-4118-b8a7-cc8e7a9ca5d0</host-id>
+      </data>
+    </server-settings>
+    <predefined_log_file enabled="true" id="GlassFish" />
+    <RunnerSettings RunnerId="Debug">
+      <option name="DEBUG_PORT" value="42667" />
+      <option name="LOCAL" value="false" />
+    </RunnerSettings>
+    <method v="2">
+      <option name="Make" enabled="true" />
+      <option name="BuildArtifacts" enabled="true">
+        <artifact name="user_EJB" />
+        <artifact name="WeSport_webapp:war exploded" />
+      </option>
+    </method>
+  </configuration>
+</component>

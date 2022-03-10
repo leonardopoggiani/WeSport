@@ -2,7 +2,7 @@
              xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
              xsi:schemaLocation="http://java.sun.com/xml/ns/persistence http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd"
              version="2.0">
-    <persistence-unit name="worldPU">
+    <persistence-unit name="wesportPU">
         <jta-data-source>jdbc/wesport_pool</jta-data-source>
         <properties>
             <property name = "hibernate.dialect" value="org.hibernate.dialect.MySQLDialect"/>

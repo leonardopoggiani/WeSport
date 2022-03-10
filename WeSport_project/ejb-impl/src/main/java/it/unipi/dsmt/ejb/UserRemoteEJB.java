@@ -6,18 +6,17 @@ import it.unipi.dsmt.interfaces.UserRemote;
 
 import javax.annotation.Resource;
 import javax.ejb.Stateless;
+import javax.naming.Context;
+import javax.naming.InitialContext;
+import javax.naming.NamingException;
 import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
+import javax.persistence.Persistence;
 import javax.persistence.PersistenceContext;
-import javax.persistence.Query;
 import javax.sql.DataSource;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.sql.*;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 @Stateless
 public class UserRemoteEJB implements UserRemote {
@@ -25,15 +24,17 @@ public class UserRemoteEJB implements UserRemote {
     @Resource(lookup = "jdbc/wesport_pool")
     private DataSource dataSource;
 
-    // step 0: configure your META-INF/persistence.xml file
-
-    // step 1: get a reference of a EntityManager by using the @PersistenceContext annotation
-
     @PersistenceContext
     private EntityManager entityManager;
-    // step 2: create the entity bean Country which maps the database table world.country
 
-    // step 3: implements the methods: listCountriesJPA, findByCodeJPA and saveOrUpdateJPA
+    public UserRemoteEJB() throws NamingException {
+        Context ctx = new InitialContext();
+        dataSource = (DataSource) ctx.lookup("jdbc/wesport_pool");
+        EntityManagerFactory emf = Persistence.createEntityManagerFactory("wesportPU");
+        entityManager = emf.createEntityManager();
+    }
+
+
     @Override
     public List<UserDTO> listUsers(String name) throws Exception {
         Connection connection = null;
@@ -43,6 +44,7 @@ public class UserRemoteEJB implements UserRemote {
         try{
             connection = dataSource.getConnection();
             StringBuilder sqlStringBuilder = new StringBuilder();
+
             sqlStringBuilder.append("select * ");
             sqlStringBuilder.append("from user  ");
             pstm = connection.prepareStatement(sqlStringBuilder.toString());
@@ -77,5 +79,25 @@ public class UserRemoteEJB implements UserRemote {
             }
         }
         return result;
+    }
+
+    @Override
+    public UserDTO getUser(String username) throws SQLException{
+        User user = entityManager.createQuery(
+                        "SELECT u from User u WHERE u.username = :username", User.class).
+                setParameter("username", username).getSingleResult();
+        Connection con = dataSource.getConnection();
+        Statement stmt = con.createStatement();
+        ResultSet rs = stmt.executeQuery("select * from User where user_id='" + user.getUser_id() + "'");
+        ArrayList<String> pets = new ArrayList<>();
+        if(rs.next()){
+            if(rs.getBoolean(2)) pets.add("dog");
+            if(rs.getBoolean(3)) pets.add("cat");
+            if(rs.getBoolean(4)) pets.add("rabbit");
+            if(rs.getBoolean(5)) pets.add("hamster");
+        }
+        UserDTO userDTO = new UserDTO();
+        con.close();
+        return userDTO;
     }
 }
