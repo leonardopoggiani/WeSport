@@ -2,9 +2,11 @@
   <configuration default="false" name="GlassFish 5.1.0" type="GlassfishConfiguration" factoryName="Remote" APPLICATION_SERVER_NAME="GlassFish 5.1.0" ALTERNATIVE_JRE_ENABLED="false" nameIsGenerated="true">
     <option name="HOST" value="172.18.0.24" />
     <option name="LOCAL" value="false" />
+    <option name="UPDATE_ON_FRAME_DEACTIVATION" value="true" />
+    <option name="HOT_SWAP_CLASSES_ON_FRAME_DEACTIVATION" value="true" />
     <option name="UPDATING_POLICY" value="hot-swap-classes" />
     <deployment>
-      <artifact name="user_EJB">
+      <artifact name="project_ejb">
         <settings />
       </artifact>
       <artifact name="WeSport_webapp:war exploded">
@@ -51,8 +53,8 @@
     <method v="2">
       <option name="Make" enabled="true" />
       <option name="BuildArtifacts" enabled="true">
-        <artifact name="user_EJB" />
         <artifact name="WeSport_webapp:war exploded" />
+        <artifact name="project_ejb" />
       </option>
     </method>
   </configuration>

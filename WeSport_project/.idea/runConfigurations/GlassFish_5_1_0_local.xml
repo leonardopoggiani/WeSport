@@ -2,7 +2,7 @@
   <configuration default="false" name="GlassFish 5.1.0 local" type="GlassfishConfiguration" factoryName="Local" APPLICATION_SERVER_NAME="GlassFish 5.1.0" ALTERNATIVE_JRE_ENABLED="false">
     <option name="UPDATING_POLICY" value="restart-server" />
     <deployment>
-      <artifact name="user_EJB">
+      <artifact name="project_ejb">
         <settings />
       </artifact>
       <artifact name="WeSport_webapp:war exploded">
@@ -70,7 +70,7 @@
       <option name="Make" enabled="true" />
       <option name="BuildArtifacts" enabled="true">
         <artifact name="WeSport_webapp:war exploded" />
-        <artifact name="user_EJB" />
+        <artifact name="project_ejb" />
       </option>
     </method>
   </configuration>

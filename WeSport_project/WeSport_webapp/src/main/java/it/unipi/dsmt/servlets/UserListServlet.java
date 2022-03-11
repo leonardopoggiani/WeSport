@@ -2,7 +2,9 @@ package it.unipi.dsmt.servlets;
 
 
 import java.io.IOException;
+import java.util.List;
 
+import it.unipi.dsmt.dto.UserDTO;
 import it.unipi.dsmt.interfaces.UserRemote;
 
 import javax.ejb.EJB;
@@ -24,10 +26,27 @@ public class UserListServlet extends HttpServlet {
 
     }
 
-    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException, ServletException {
-        String targetJSP = "/pages/jsp/userpage.jsp";
-        RequestDispatcher requestDispatcher = request.getRequestDispatcher(targetJSP);
-        requestDispatcher.forward(request,response);
-    }
+  protected void doGet(HttpServletRequest request, HttpServletResponse response)
+      throws IOException, ServletException {
+
+      String resourceURL = null;
+      String action = request.getParameter("action");
+      List<UserDTO> users = null;
+
+      if (action != null) {
+          users = null;
+          try {
+              users = userRemote.listUsers();
+          } catch (Exception e) {
+              e.printStackTrace();
+          }
+      }
+
+      resourceURL = "/pages/jsp/users.jsp";
+      request.setAttribute("users", users);
+
+      RequestDispatcher rd = request.getRequestDispatcher(resourceURL);
+      rd.forward(request, response);
+  }
 }
 

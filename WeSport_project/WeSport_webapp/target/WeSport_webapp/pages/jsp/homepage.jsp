@@ -11,6 +11,10 @@
     <title>Welcome to your homepage</title>
 </head>
 <body>
-    Welcome to your homepage
+    <h1>Welcome to your homepage</h1>
+
+    <p>You can now see the list of user registrated</p>
+    <a href="${pageContext.request.contextPath}/pages/jsp/userpage.jsp">List of user</a>
+
 </body>
 </html>

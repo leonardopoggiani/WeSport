@@ -9,7 +9,7 @@ import java.util.List;
 @Remote
 public interface UserRemote {
 
-    List<UserDTO> listUsers(String name) throws Exception;
+    List<UserDTO> listUsers() throws Exception;
 
     UserDTO getUser(String username) throws SQLException;
 }

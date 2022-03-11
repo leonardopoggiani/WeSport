@@ -36,7 +36,7 @@ public class UserRemoteEJB implements UserRemote {
 
 
     @Override
-    public List<UserDTO> listUsers(String name) throws Exception {
+    public List<UserDTO> listUsers() throws Exception {
         Connection connection = null;
         ResultSet rs = null;
         PreparedStatement pstm = null;
@@ -48,14 +48,16 @@ public class UserRemoteEJB implements UserRemote {
             sqlStringBuilder.append("select * ");
             sqlStringBuilder.append("from user  ");
             pstm = connection.prepareStatement(sqlStringBuilder.toString());
-            if (name != null && !name.isEmpty()) {
-                pstm.setString(1, name);
-            }
             rs = pstm.executeQuery();
             while (rs.next()){
                 UserDTO dto = new UserDTO();
                 dto.setUser_id(rs.getString(1));
-                dto.setName(rs.getString(2));
+                dto.setUsername(rs.getString(2));
+                dto.setName(rs.getString(3));
+                dto.setSurname(rs.getString(4));
+                dto.setEmail(rs.getString(5));
+                dto.setCity(rs.getString(7));
+
                 result.add(dto);
             }
         } catch(Exception ex) {
@@ -74,7 +76,7 @@ public class UserRemoteEJB implements UserRemote {
             if (connection != null) {
                 try {
                     connection.close();
-                } catch (SQLException e) {
+                } catch (SQLException ignored) {
                 }
             }
         }

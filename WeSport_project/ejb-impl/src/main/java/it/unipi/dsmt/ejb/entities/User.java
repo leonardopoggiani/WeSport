@@ -7,10 +7,10 @@ import javax.persistence.Table;
 import java.io.Serializable;
 
 @Entity
-@Table(name="users")
+@Table(name="user")
 public class User implements Serializable {
     @Id
-    @Column(name="user_id")
+    @Column(name="ID")
     private String user_id;
     @Column(name="name")
     private String name;

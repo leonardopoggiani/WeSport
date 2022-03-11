@@ -11,21 +11,55 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>User page</title>
+    <title>List of users</title>
 </head>
 <body>
 <%
-    String requested_user = request.getParameter("username");
+    List<UserDTO> users = (List<UserDTO>)request.getAttribute("users");
     UserRemote userRemoteEJB = null;
-    List<UserDTO> target_user = null;
-    userRemoteEJB = new UserRemoteEJB();
+
     try {
-        target_user = userRemoteEJB.listUsers(requested_user);
-    } catch (SQLException e) {
+        userRemoteEJB = new UserRemoteEJB();
+    } catch (NamingException e) {
         e.printStackTrace();
     }
+    try {
+        assert userRemoteEJB != null;
+        try {
+            users = userRemoteEJB.listUsers();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    } catch (Exception e) {
+        e.printStackTrace();
+    }
+
     String actual_ip = InetAddress.getLocalHost().getHostAddress();
 %>
-Hello world!
+    List of users
+
+    <br>
+    <form action="<%= request.getContextPath()%>/UserListServlet">
+        <label for="username">Username filter:</label><br>
+        <input type="text" id="username" name="username"><br>
+        <input type="submit" value="Filter"/>
+    </form>
+
+    <br>
+
+    <%
+        if (users != null && !users.isEmpty()){ %>
+    <ol>
+        <%  for(UserDTO dto : users) { %>
+        <li><a href="<%=request.getContextPath() %>/UserListServlet?action=load&code=<%= dto.getUser_id() %>"><%= dto.getUsername() %></a> - Name: <%= dto.getName() %> - Surname: <%= dto.getSurname() %></li>
+        <%  } %>
+    </ol>
+    <%
+        }
+    %>
+
 </body>
 </html>
+
+
+<
