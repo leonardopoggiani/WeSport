@@ -31,10 +31,11 @@ public class UserListServlet extends HttpServlet {
 
       String resourceURL = null;
       String action = request.getParameter("action");
+      String name = request.getParameter("name");
+
       List<UserDTO> users = null;
 
       if (action != null) {
-          users = null;
           try {
               users = userRemote.listUsers();
           } catch (Exception e) {
@@ -42,7 +43,7 @@ public class UserListServlet extends HttpServlet {
           }
       }
 
-      resourceURL = "/pages/jsp/users.jsp";
+      resourceURL = "/pages/jsp/userpage.jsp";
       request.setAttribute("users", users);
 
       RequestDispatcher rd = request.getRequestDispatcher(resourceURL);

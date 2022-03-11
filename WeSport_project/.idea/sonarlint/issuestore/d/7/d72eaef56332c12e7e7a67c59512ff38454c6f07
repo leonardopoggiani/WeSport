@@ -1,0 +1,17 @@
+
+j	java:S116"PRename this field "po_id" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(×²èÂûÿÿÿÿ
+e	java:S116"PRename this field "po_us" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(–ÃÈù
+j	java:S116"PRename this field "ps_id" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(€®ø—øÿÿÿÿ
+e	java:S116"PRename this field "ps_us" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ŸÓÔ­
+h	java:S100("NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(±¦•÷ûÿÿÿÿ
+c	java:S100,"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Ÿœ¾»
+h	java:S1000"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(æ–Æžùÿÿÿÿ
+c	java:S1004"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ßèèì
+c	java:S1008"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(í³ƒ¹
+h	java:S100<"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(çÂšÂøÿÿÿÿ
+h	java:S100@"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ÄÄóáÿÿÿÿÿ
+c	java:S100D"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Çõ¶¦
+f	java:S117,"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Ÿœ¾»
+f	java:S1174"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ßèèì
+k	java:S117<"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(çÂšÂøÿÿÿÿ
+f	java:S117D"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Çõ¶¦

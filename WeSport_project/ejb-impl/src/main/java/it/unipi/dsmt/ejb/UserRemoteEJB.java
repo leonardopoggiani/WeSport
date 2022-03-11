@@ -1,5 +1,6 @@
 package it.unipi.dsmt.ejb;
 
+
 import it.unipi.dsmt.dto.UserDTO;
 import it.unipi.dsmt.ejb.entities.User;
 import it.unipi.dsmt.interfaces.UserRemote;
@@ -9,10 +10,7 @@ import javax.ejb.Stateless;
 import javax.naming.Context;
 import javax.naming.InitialContext;
 import javax.naming.NamingException;
-import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
-import javax.persistence.Persistence;
-import javax.persistence.PersistenceContext;
+import javax.persistence.*;
 import javax.sql.DataSource;
 import java.sql.*;
 import java.util.ArrayList;
@@ -85,21 +83,63 @@ public class UserRemoteEJB implements UserRemote {
 
     @Override
     public UserDTO getUser(String username) throws SQLException{
-        User user = entityManager.createQuery(
-                        "SELECT u from User u WHERE u.username = :username", User.class).
-                setParameter("username", username).getSingleResult();
+        Query query =
+            entityManager.createNativeQuery("SELECT * from user WHERE username = :username");
+            query.setParameter("username", username);
+        User user = ((User) query.getSingleResult());
+
         Connection con = dataSource.getConnection();
         Statement stmt = con.createStatement();
-        ResultSet rs = stmt.executeQuery("select * from User where user_id='" + user.getUser_id() + "'");
-        ArrayList<String> pets = new ArrayList<>();
-        if(rs.next()){
-            if(rs.getBoolean(2)) pets.add("dog");
-            if(rs.getBoolean(3)) pets.add("cat");
-            if(rs.getBoolean(4)) pets.add("rabbit");
-            if(rs.getBoolean(5)) pets.add("hamster");
-        }
+        ResultSet rs = stmt.executeQuery("select * from user where ID='" + user.getUser_id() + "'");
         UserDTO userDTO = new UserDTO();
+
+        if(rs.next()){
+            userDTO.setUsername(rs.getString(2));
+        }
         con.close();
         return userDTO;
+    }
+
+    @Override
+    public UserDTO loginUser(String username, String password) throws SQLException{
+
+        Connection connection = null;
+        ResultSet rs = null;
+        PreparedStatement pstm = null;
+        UserDTO logged_user = new UserDTO();
+
+        try{
+            connection = dataSource.getConnection();
+            StringBuilder sqlStringBuilder = new StringBuilder();
+            sqlStringBuilder.append("select ");
+            sqlStringBuilder.append("  *  ");
+            sqlStringBuilder.append("from user ");
+            sqlStringBuilder.append("where username = ?;");
+            pstm = connection.prepareStatement(sqlStringBuilder.toString());
+            if (username != null) {
+                pstm.setString(1, username);
+            }
+            rs = pstm.executeQuery();
+            if (rs.next()){
+                if(rs.getString(6).compareTo(password) == 0){
+                    logged_user.setUsername(rs.getString(2));
+                    logged_user.setName(rs.getString(3));
+                    logged_user.setSurname(rs.getString(4));
+                    logged_user.setEmail(rs.getString(5));
+                    System.err.println("GOOD! NOT NULL USER!");
+
+                    return logged_user;
+                }
+            }
+        } catch (Exception e){
+            e.printStackTrace();
+        } finally{
+            assert connection != null;
+            connection.close();
+            assert pstm != null;
+            pstm.close();
+        }
+
+        return null;
     }
 }

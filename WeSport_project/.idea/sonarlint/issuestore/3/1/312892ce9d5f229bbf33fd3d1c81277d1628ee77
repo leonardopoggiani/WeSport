@@ -1,0 +1,18 @@
+
+C	java:S108M")Either remove or fill this block of code.(‡ÇË¸ıÿÿÿÿ
+[	java:S106"9Replace this use of System.out or System.err by a logger.(¥”…ıÿÿÿÿ8†ÙƒÍ÷/
+L
+java:S1066|"/Merge this if statement with the enclosing one.(‰³Í8‘¯ÈÌ÷/
+k	java:S117m"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ğñ­òşÿÿÿÿ
+V
+java:S2259H"@A "NullPointerException" could be thrown; "rs" is nullable here.(ÅÌ”Ù
+c
+java:S2095+"HUse try-with-resources or close this "Connection" in a "finally" clause.(«’ò¥øÿÿÿÿ
+^
+java:S2095["HUse try-with-resources or close this "Connection" in a "finally" clause.(Æô¬«
+e
+java:S20950"OUse try-with-resources or close this "PreparedStatement" in a "finally" clause.(œ¡£ó
+e
+java:S2095v"OUse try-with-resources or close this "PreparedStatement" in a "finally" clause.(œ¡£ó
+b
+java:S2095\"GUse try-with-resources or close this "Statement" in a "finally" clause.(íñéşÿÿÿÿ

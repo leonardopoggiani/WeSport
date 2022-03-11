@@ -12,4 +12,6 @@ public interface UserRemote {
     List<UserDTO> listUsers() throws Exception;
 
     UserDTO getUser(String username) throws SQLException;
+
+    UserDTO loginUser(String username, String password) throws SQLException;
 }

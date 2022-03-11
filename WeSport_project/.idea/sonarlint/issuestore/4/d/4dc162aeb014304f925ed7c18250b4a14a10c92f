@@ -1,0 +1,26 @@
+
+g	java:S116"RRename this field "user_id" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(„¡Ü
+k	java:S116"VRename this field "postal_code" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ÿ«
+h	java:S100"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ÅÅòùÿÿÿÿ
+b	java:S100"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ã‹³.
+b	java:S100A"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Œ¸æH
+h	java:S100E"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(®ëóàøÿÿÿÿ
+k	java:S117"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ÅÅòùÿÿÿÿ
+k	java:S117E"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(®ëóàøÿÿÿÿ
+f
+java:S1104"PMake name a static final constant or non-public and provide accessors if needed.( şÍ¾
+n
+java:S1104	"SMake surname a static final constant or non-public and provide accessors if needed.(ÅÇÏ•úÿÿÿÿ
+j
+java:S1104
+"TMake username a static final constant or non-public and provide accessors if needed.(Ü±›Ô
+l
+java:S1104"QMake email a static final constant or non-public and provide accessors if needed.(¾Æ†Ëıÿÿÿÿ
+k
+java:S1104"PMake city a static final constant or non-public and provide accessors if needed.(ÎÉâåúÿÿÿÿ
+m
+java:S1104"WMake postal_code a static final constant or non-public and provide accessors if needed.(ÿ«
+r
+java:S1104"WMake description a static final constant or non-public and provide accessors if needed.(¹ÿ†ğÿÿÿÿÿ
+o
+java:S1104"TMake password a static final constant or non-public and provide accessors if needed.(¼şòüÿÿÿÿ

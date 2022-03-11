@@ -1,10 +1,8 @@
 <%@ page import="it.unipi.dsmt.ejb.UserRemoteEJB" %>
 <%@ page import="it.unipi.dsmt.dto.UserDTO" %>
-<%@ page import="java.util.ArrayList" %>
 <%@ page import="it.unipi.dsmt.interfaces.UserRemote" %>
 <%@ page import="java.net.InetAddress" %>
 <%@ page import="javax.naming.NamingException" %>
-<%@ page import="java.sql.SQLException" %>
 <%@ page import="java.util.List" %>
 
 <!DOCTYPE html>
@@ -12,7 +10,10 @@
 <head>
     <meta charset="UTF-8">
     <title>List of users</title>
+    <link href="${pageContext.request.contextPath}/CSS/homepage.css" rel="stylesheet" type="text/css">
+    <link rel="icon" type="image/x-icon" href="${pageContext.request.contextPath}/images/favicon.png">
 </head>
+
 <body>
 <%
     List<UserDTO> users = (List<UserDTO>)request.getAttribute("users");
