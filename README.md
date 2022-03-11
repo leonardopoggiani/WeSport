@@ -22,7 +22,7 @@ Le configurazioni per la run in remoto e in locale si trovano giá all'interno d
 e **NON** si deve avviare **Glassfish** per eseguire la webapp in quanto se ne occuperá Intellij.
 
 Per la configurazione in remoto é necessario connettersi alla vpn, mentre per quella in locale no. La configurazione locale puó essere utile per il debugging
-in quanto é possibile stampare attraverso *System.err.println(qualche_string)* messaggi che appaiono sul **log di Glassfish**.
+in quanto é possibile stampare attraverso *System.err.println(qualche_string)* messaggi che appariranno sul **log di Glassfish** in Intellij.
 
 La configurazione in remoto si occupa di trasferire i file compilati (la cartella *out*) dalla macchina locale al container *172.18.0.24* attraverso SFTP. 
 Potrebbe quindi essere necessario configurare una connessione ssh tramite Intellij se non viene creata automaticamente dalla configurazione. 
