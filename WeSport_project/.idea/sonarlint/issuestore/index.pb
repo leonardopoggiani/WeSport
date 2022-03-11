@@ -9,8 +9,6 @@ s
 Cejb-interfaces/src/main/java/it/unipi/dsmt/dto/FieldBookingDTO.java,0/6/0619d167ca1eecf1ba0e5251a5d09365a1392611
 m
 =ejb-impl/src/main/java/it/unipi/dsmt/ejb/FieldBookingEJB.java,6/4/64e31783dc951d19338c148383108a3a460a48cb
-x
-HWeSport_webapp/src/main/java/it/unipi/dsmt/servlets/HomepageServlet.java,b/2/b2dd4cd6410307c82c723578d7d8e371117eebfd
 _
 /WeSport_webapp/src/main/webapp/CSS/homepage.css,1/f/1fd221bba82158814b84697b266708eb2a0dade0
 u
