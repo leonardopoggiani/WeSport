@@ -29,12 +29,11 @@
 </head>
 <body>
 
-<td><a href="UserListServlet?username=<%=((UserDTO)session.getAttribute("logged_user")).getUsername()%>"><i class="fas fa-user"></i>&nbsp;<%=((UserDTO)session.getAttribute("logged_user")).getUsername()%></a></td>
-
+<p>Username : <%=logged_user.getUsername()%></p>
 <p>Name : <%=logged_user.getName()%></p>
 <p>Surname : <%=logged_user.getSurname()%></p>
 <p>Email : <%=logged_user.getEmail()%></p>
-
+<p>Description : <%=logged_user.getDescription()%></p>
 
 </body>
 </html>

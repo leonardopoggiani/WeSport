@@ -19,7 +19,7 @@
 
                 <div class="project-box-content-header">
                     <a class="box-content-header"
-                       href="${pageContext.request.contextPath}/pages/jsp/userpage.jsp"> List of user
+                       href="${pageContext.request.contextPath}/pages/jsp/userslist.jsp"> List of user
                     </a>
                 </div>
 
@@ -37,7 +37,7 @@
 
                 <div class="project-box-content-header">
                     <a class="box-content-header"
-                       href="${pageContext.request.contextPath}/pages/jsp/booking.jsp">Chat</a>
+                       href="${pageContext.request.contextPath}/pages/jsp/chat.jsp">Chat</a>
                 </div>
             </div>
         </div>

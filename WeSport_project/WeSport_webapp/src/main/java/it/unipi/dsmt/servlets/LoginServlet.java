@@ -32,6 +32,8 @@ public class LoginServlet extends HttpServlet {
         String password_ = request.getParameter("password");
         UserDTO logged_user = null;
 
+        System.err.println("username" + username_);
+
         try {
             userRemoteEJB = new UserRemoteEJB();
             logged_user = userRemoteEJB.loginUser(username_,password_);

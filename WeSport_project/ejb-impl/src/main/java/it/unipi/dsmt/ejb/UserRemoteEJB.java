@@ -83,21 +83,42 @@ public class UserRemoteEJB implements UserRemote {
 
     @Override
     public UserDTO getUser(String username) throws SQLException{
-        Query query =
-            entityManager.createNativeQuery("SELECT * from user WHERE username = :username");
-            query.setParameter("username", username);
-        User user = ((User) query.getSingleResult());
+        Connection connection = null;
+        ResultSet rs = null;
+        PreparedStatement pstm = null;
+        UserDTO logged_user = new UserDTO();
 
-        Connection con = dataSource.getConnection();
-        Statement stmt = con.createStatement();
-        ResultSet rs = stmt.executeQuery("select * from user where ID='" + user.getUser_id() + "'");
-        UserDTO userDTO = new UserDTO();
+        try{
+            connection = dataSource.getConnection();
+            StringBuilder sqlStringBuilder = new StringBuilder();
+            sqlStringBuilder.append("select ");
+            sqlStringBuilder.append("  *  "); // TODO: non *, non devo poter vedere la password con una get
+            sqlStringBuilder.append("from user ");
+            sqlStringBuilder.append("where username = ?;");
+            pstm = connection.prepareStatement(sqlStringBuilder.toString());
 
-        if(rs.next()){
-            userDTO.setUsername(rs.getString(2));
+            if (username != null) {
+                pstm.setString(1, username);
+            }
+            rs = pstm.executeQuery();
+            if (rs.next()){
+                logged_user.setUsername(rs.getString(2));
+                logged_user.setName(rs.getString(3));
+                logged_user.setSurname(rs.getString(4));
+                logged_user.setEmail(rs.getString(5));
+
+                return logged_user;
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally{
+            assert connection != null;
+            connection.close();
+            assert pstm != null;
+            pstm.close();
         }
-        con.close();
-        return userDTO;
+
+        return null;
     }
 
     @Override
@@ -126,7 +147,6 @@ public class UserRemoteEJB implements UserRemote {
                     logged_user.setName(rs.getString(3));
                     logged_user.setSurname(rs.getString(4));
                     logged_user.setEmail(rs.getString(5));
-                    System.err.println("GOOD! NOT NULL USER!");
 
                     return logged_user;
                 }

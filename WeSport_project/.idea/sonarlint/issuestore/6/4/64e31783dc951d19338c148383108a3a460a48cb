@@ -1,0 +1,27 @@
+
+£
+java:S11868"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(ΕΉλ†ύÿÿÿÿ8™―ρχ/
+I
+java:S3010 "'Remove this assignment of "dataSource".(ϊΟπÿÿÿÿÿ8ψ―ρχ/
+R
+java:S14811"0Remove this unused "petowner_us" local variable.(Ξοϋÿÿÿÿ8³°ρχ/
+S
+java:S14812"1Remove this unused "petsitter_us" local variable.(ΐ†²Έόÿÿÿÿ8΄°ρχ/
+H
+java:S11684"+Return an empty collection instead of null.(¥Ήο8»°ρχ/
+a
+java:S1128"DRemove this unused import 'it.unipi.dsmt.ejb.entities.FieldBooking'.(ξ°ΨΗ8Δ°ρχ/
+M
+java:S1128"+Remove this unused import 'java.util.List'.(Υλ±Δψÿÿÿÿ8Δ°ρχ/
+m	java:S117&"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(κφΘ8Κ°ρχ/
+m	java:S117&"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(κφΘ8Κ°ρχ/
+m	java:S117&"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(κφΘ8Λ°ρχ/
+m	java:S117&"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(κφΘ8Μ°ρχ/
+m	java:S117&"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(κφΘ8Μ°ρχ/
+r	java:S1171"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Ξοϋÿÿÿÿ8Μ°ρχ/
+r	java:S1172"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ΐ†²Έόÿÿÿÿ8Ν°ρχ/
+r	java:S1178"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ΕΉλ†ύÿÿÿÿ8Ν°ρχ/
+i
+java:S2095("GUse try-with-resources or close this "Statement" in a "finally" clause.(νριώÿÿÿÿ8ƒ²ρχ/
+e
+java:S2095'"HUse try-with-resources or close this "Connection" in a "finally" clause.(Ζτ¬«8„²ρχ/

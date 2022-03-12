@@ -33,6 +33,7 @@
 <p>Name : <%=logged_user.getName()%></p>
 <p>Surname : <%=logged_user.getSurname()%></p>
 <p>Email : <%=logged_user.getEmail()%></p>
+<p>Description : <%=logged_user.getDescription()%></p>
 
 </body>
 </html>

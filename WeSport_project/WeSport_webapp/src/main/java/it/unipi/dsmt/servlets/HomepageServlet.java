@@ -13,7 +13,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-@WebServlet(name = "HomepageServlet", value = "/HomepageServlet")
+@WebServlet(name = "HomepageServlet", value = "/homepage")
 public class HomepageServlet extends HttpServlet {
 
     @EJB

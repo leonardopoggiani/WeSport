@@ -1,18 +1,20 @@
 
-C	java:S108M")Either remove or fill this block of code.(‡ÇË¸ıÿÿÿÿ
-[	java:S106"9Replace this use of System.out or System.err by a logger.(¥”…ıÿÿÿÿ8†ÙƒÍ÷/
-L
-java:S1066|"/Merge this if statement with the enclosing one.(‰³Í8‘¯ÈÌ÷/
-k	java:S117m"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ğñ­òşÿÿÿÿ
-V
-java:S2259H"@A "NullPointerException" could be thrown; "rs" is nullable here.(ÅÌ”Ù
-c
-java:S2095+"HUse try-with-resources or close this "Connection" in a "finally" clause.(«’ò¥øÿÿÿÿ
+J	java:S108M")Either remove or fill this block of code.(‡ÇË¸ıÿÿÿÿ8ª…éõ÷/
+T
+java:S1135_"2Complete the task associated to this TODO comment.(Ö‘Øøÿÿÿÿ8¬…éõ÷/
 ^
-java:S2095["HUse try-with-resources or close this "Connection" in a "finally" clause.(Æô¬«
-e
-java:S20950"OUse try-with-resources or close this "PreparedStatement" in a "finally" clause.(œ¡£ó
-e
-java:S2095v"OUse try-with-resources or close this "PreparedStatement" in a "finally" clause.(œ¡£ó
-b
-java:S2095\"GUse try-with-resources or close this "Statement" in a "finally" clause.(íñéşÿÿÿÿ
+java:S1128"<Remove this unused import 'it.unipi.dsmt.ejb.entities.User'.(ÏÇ³Áùÿÿÿÿ8¹¨ƒö÷/
+M
+java:S1066‘"/Merge this if statement with the enclosing one.(‰³Í8´…éõ÷/
+r	java:S117Y"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ğñ­òşÿÿÿÿ8´…éõ÷/
+s	java:S117‚"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ğñ­òşÿÿÿÿ8º¨ƒö÷/
+]
+java:S2259H"@A "NullPointerException" could be thrown; "rs" is nullable here.(ÅÌ”Ù8éˆéõ÷/
+l
+java:S20950"OUse try-with-resources or close this "PreparedStatement" in a "finally" clause.(œ¡£ó8ÚŸö÷/
+j
+java:S2095+"HUse try-with-resources or close this "Connection" in a "finally" clause.(«’ò¥øÿÿÿÿ8êˆéõ÷/
+l
+java:S2095b"OUse try-with-resources or close this "PreparedStatement" in a "finally" clause.(œ¡£ó8ÚŸö÷/
+m
+java:S2095‹"OUse try-with-resources or close this "PreparedStatement" in a "finally" clause.(œ¡£ó8êˆéõ÷/
