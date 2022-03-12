@@ -73,13 +73,23 @@ Errori abbastanza tipici facilmente risolvibili:
     *172.18.0.24* tramite:
     `rm -rf WeSport_webapp`
     (Mi raccomando da usare **SOLO E SOLTANTO** sulla VM perché altrimenti si cancella tutta la webapp)
+    
+    Se il problema non si risolve eliminando la cartella, provare a cancellare la cache del browser e a effettuare una *clean and build* con Maven.
+    
+    **UPDATE**: il problema sembra non esserci piú da quando ho disattivato dal file di configurazione della run l'opzione:
+    
+    - [ ] Preserve Sessions Across Redeployment
+    
 - 404 not found: 
     Tipicamente si é sbagliato un indirizzo da qualche parte o ancora manca la pagina.
+    
 - 500 internal state error:
     Tipicamente causato da un'eccezione che viene anche stampata sulla pagina dell'errore. Per vedere di preciso da cosa é causata si possono controllare i log del server.
+    
 - Connection refused: 
     Si sta cercando di far partire l'applicazione con il server giá attivo. Bisogna stoppare il server sulla VM o in locale e basta fare:
     `cd glassfish5/glassfish/bin`
     `./asadmin stop-domain domain1`
+    
 - SSH connection refused:
     Si sta cercando di avviare l'applicazione in remoto senza aver avviato la vpn.

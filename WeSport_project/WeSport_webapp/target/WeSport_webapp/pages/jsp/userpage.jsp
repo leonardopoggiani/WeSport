@@ -1,10 +1,8 @@
 <%@ page import="it.unipi.dsmt.ejb.UserRemoteEJB" %>
 <%@ page import="it.unipi.dsmt.dto.UserDTO" %>
-<%@ page import="java.util.ArrayList" %>
 <%@ page import="it.unipi.dsmt.interfaces.UserRemote" %>
 <%@ page import="java.net.InetAddress" %>
 <%@ page import="javax.naming.NamingException" %>
-<%@ page import="java.sql.SQLException" %>
 <%@ page import="java.util.List" %>
 
 <!DOCTYPE html>

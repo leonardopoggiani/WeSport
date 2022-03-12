@@ -18,7 +18,6 @@
         <option name="adminServerHost" value="" />
         <option name="clusterName" value="" />
         <option name="credentialAlias" value="d9950137-6a4d-4c62-8464-04a6518c2ce9" />
-        <option name="preserve" value="true" />
         <option name="secured" value="true" />
         <option name="stagingRemotePath" value="/root/WeSport_webapp" />
         <option name="transportHostId" value="a2973219-4d63-4118-b8a7-cc8e7a9ca5d0" />
@@ -30,7 +29,6 @@
         </option>
         <option name="uploadWithGlassfish" value="false" />
         <credential-alias>d9950137-6a4d-4c62-8464-04a6518c2ce9</credential-alias>
-        <preserve>true</preserve>
         <upload-with-glassfish>false</upload-with-glassfish>
         <secured>true</secured>
         <admin-server-host />

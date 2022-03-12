@@ -1,9 +1,0 @@
-
-g	java:S116"RRename this field "user_id" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(„ž¡Ü
-k	java:S116"VRename this field "postal_code" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ÛòÛ—
-b	java:S100!"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ã‹³.
-h	java:S100%"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ÅÅòžùÿÿÿÿ
-b	java:S100Q"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Œ¸æH
-h	java:S100U"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(®ëóàøÿÿÿÿ
-k	java:S117%"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ÅÅòžùÿÿÿÿ
-k	java:S117U"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(®ëóàøÿÿÿÿ

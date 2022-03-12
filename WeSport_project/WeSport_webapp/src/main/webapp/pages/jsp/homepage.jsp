@@ -14,8 +14,34 @@
     <% } else { %>
         <h1>Welcome to your homepage</h1>
 
-        <p>You can now see the list of user registrated</p>
-        <a href="${pageContext.request.contextPath}/pages/jsp/userpage.jsp">List of user</a>
+        <div class="container">
+            <div class="row">
+
+                <div class="project-box-content-header">
+                    <a class="box-content-header"
+                       href="${pageContext.request.contextPath}/pages/jsp/userpage.jsp"> List of user
+                    </a>
+                </div>
+
+                <div class="project-box-content-header">
+                    <a class="box-content-header"
+                       href="${pageContext.request.contextPath}/pages/jsp/booking.jsp">Book a field</a>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="project-box-content-header">
+                    <a class="box-content-header"
+                       href="${pageContext.request.contextPath}/pages/jsp/profile.jsp">Personal profile</a>
+                </div>
+
+                <div class="project-box-content-header">
+                    <a class="box-content-header"
+                       href="${pageContext.request.contextPath}/pages/jsp/booking.jsp">Chat</a>
+                </div>
+            </div>
+        </div>
+
     <% } %>
 </body>
 </html>

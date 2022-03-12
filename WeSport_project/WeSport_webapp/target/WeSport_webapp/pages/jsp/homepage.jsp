@@ -1,11 +1,6 @@
-<%@ page import="it.unipi.dsmt.dto.UserDTO" %><%--
-  Created by IntelliJ IDEA.
-  User: poggiolinux
-  Date: 11/03/22
-  Time: 00:27
-  To change this template use File | Settings | File Templates.
---%>
+<%@ page import="it.unipi.dsmt.dto.UserDTO" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+
 <html>
 <head>
     <title>Homepage</title>
@@ -19,8 +14,34 @@
     <% } else { %>
         <h1>Welcome to your homepage</h1>
 
-        <p>You can now see the list of user registrated</p>
-        <a href="${pageContext.request.contextPath}/pages/jsp/userpage.jsp">List of user</a>
+        <div class="container">
+            <div class="row">
+
+                <div class="project-box-content-header">
+                    <a class="box-content-header"
+                       href="${pageContext.request.contextPath}/pages/jsp/userpage.jsp"> List of user
+                    </a>
+                </div>
+
+                <div class="project-box-content-header">
+                    <a class="box-content-header"
+                       href="${pageContext.request.contextPath}/pages/jsp/booking.jsp">Book a field</a>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="project-box-content-header">
+                    <a class="box-content-header"
+                       href="${pageContext.request.contextPath}/pages/jsp/profile.jsp">Personal profile</a>
+                </div>
+
+                <div class="project-box-content-header">
+                    <a class="box-content-header"
+                       href="${pageContext.request.contextPath}/pages/jsp/booking.jsp">Chat</a>
+                </div>
+            </div>
+        </div>
+
     <% } %>
 </body>
 </html>
