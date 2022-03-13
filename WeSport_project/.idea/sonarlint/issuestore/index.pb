@@ -7,8 +7,6 @@ s
 Cejb-interfaces/src/main/java/it/unipi/dsmt/dto/FieldBookingDTO.java,0/6/0619d167ca1eecf1ba0e5251a5d09365a1392611
 D
 META-INF/MANIFEST.MF,2/e/2e8cf92205ec303e7304888d382cb6a8cf5f56ba
-[
-+.idea/runConfigurations/GlassFish_5_1_0.xml,c/7/c79a65028acd43c699be9199417e8ad36a45b4e9
 k
 ;ejb-impl/src/main/java/it/unipi/dsmt/ejb/entities/User.java,f/2/f27638bd5c6dc0e401f86f7fc26b29813c1ce445
 m
@@ -31,15 +29,9 @@ f
 6WeSport_webapp/src/main/webapp/pages/jsp/userslist.jsp,e/1/e16ec3402fcbd7deb8cf745bc57f3e762d2ee4de
 x
 HWeSport_webapp/src/main/java/it/unipi/dsmt/servlets/UserListServlet.java,2/4/2494ab53c9e2ba4a4523c1f51e38bb38ee4199a4
-e
-5WeSport_webapp/src/main/webapp/pages/jsp/homepage.jsp,c/b/cb33a46c85d87a286880385eaf1aa8e9bbd438ff
 d
 4WeSport_webapp/src/main/webapp/pages/jsp/profile.jsp,d/1/d148cfee93740dcb031d6b34867c51f884795732
 u
 EWeSport_webapp/src/main/java/it/unipi/dsmt/servlets/LoginServlet.java,e/c/ec084567488461a3ff1f4bbce9ae6b278375c135
 k
 ;ejb-impl/src/main/java/it/unipi/dsmt/ejb/UserRemoteEJB.java,3/1/312892ce9d5f229bbf33fd3d1c81277d1628ee77
-X
-(WeSport_webapp/src/main/webapp/index.jsp,8/d/8dcc69aacb9ee5ee180566001cb5d37758f08dcd
-_
-/WeSport_webapp/src/main/webapp/CSS/homepage.css,1/f/1fd221bba82158814b84697b266708eb2a0dade0

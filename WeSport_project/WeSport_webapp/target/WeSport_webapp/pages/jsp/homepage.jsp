@@ -9,8 +9,9 @@
 </head>
 <body>
     <%if(session.getAttribute("logged_user") == null) { %>
-        <p>You need to login first!</p>
-        <a href="${pageContext.request.contextPath}/index.jsp">>Login</a>
+        <a class="goback" href="${pageContext.request.contextPath}/index.jsp">
+            <div> Need to login first! </div>
+        </a>
     <% } else { %>
         <h1>Welcome to your homepage</h1>
 

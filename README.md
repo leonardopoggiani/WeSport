@@ -30,7 +30,9 @@ Occorre togliere la spunta dall'opzione:
 [x] Upload with Glassfish 
 nella configurazione e comparirá un menú per la scelta del protocollo da usare e i path da configurare (dovrebbe essere tutto giá fatto).
 
-### Configurazione in locale
+Per imporare le configurazioni é sufficiente imporare il progetto (WeSport_project contenuto all'interno della cartella WeSport).
+
+Configurazione in locale
 
 Per la configurazione in locale é necessario creare il database e il *connection pool* di **Glassfish**, cosa che invece sulla virtual machine *172.18.0.24* é giá fatta. Per creare il db per prima cosa é necessario creare un nuovo utente e garantirgli tutti i privilegi. \\
 
@@ -93,3 +95,7 @@ Errori abbastanza tipici facilmente risolvibili:
     
 - SSH connection refused:
     Si sta cercando di avviare l'applicazione in remoto senza aver avviato la vpn.
+    
+- java.lang.UnsupportedClassVersion:  Questo errore si verifica quando si verifica quando si ha il plugin di Erlang attivo su Intellij. Per risolverlo é sufficiente disattivare il plugin e fare il restart.
+
+- Error running Glassfish 5.1.0: Address already in use: Significa che il server di Glassfish é giá stato eseguito. Per risolvere é sufficiente stoppare il server di Glassfish.
