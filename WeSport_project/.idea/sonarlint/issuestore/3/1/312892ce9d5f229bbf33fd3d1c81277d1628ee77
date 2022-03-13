@@ -10,11 +10,11 @@ r	java:S117Y"QRename this local variable to match the regular expression '^[a-
 s	java:S117‚"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ğñ­òşÿÿÿÿ8º¨ƒö÷/
 ]
 java:S2259H"@A "NullPointerException" could be thrown; "rs" is nullable here.(ÅÌ”Ù8éˆéõ÷/
-l
-java:S20950"OUse try-with-resources or close this "PreparedStatement" in a "finally" clause.(œ¡£ó8ÚŸö÷/
-j
-java:S2095+"HUse try-with-resources or close this "Connection" in a "finally" clause.(«’ò¥øÿÿÿÿ8êˆéõ÷/
-l
-java:S2095b"OUse try-with-resources or close this "PreparedStatement" in a "finally" clause.(œ¡£ó8ÚŸö÷/
 m
 java:S2095‹"OUse try-with-resources or close this "PreparedStatement" in a "finally" clause.(œ¡£ó8êˆéõ÷/
+l
+java:S20950"OUse try-with-resources or close this "PreparedStatement" in a "finally" clause.(œ¡£ó8ÚŸö÷/
+l
+java:S2095b"OUse try-with-resources or close this "PreparedStatement" in a "finally" clause.(œ¡£ó8ÚŸö÷/
+j
+java:S2095+"HUse try-with-resources or close this "Connection" in a "finally" clause.(«’ò¥øÿÿÿÿ8êˆéõ÷/
