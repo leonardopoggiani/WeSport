@@ -99,3 +99,7 @@ Errori abbastanza tipici facilmente risolvibili:
 - java.lang.UnsupportedClassVersion:  Questo errore si verifica quando si verifica quando si ha il plugin di Erlang attivo su Intellij. Per risolverlo é sufficiente disattivare il plugin e fare il restart.
 
 - Error running Glassfish 5.1.0: Address already in use: Significa che il server di Glassfish é giá stato eseguito. Per risolvere é sufficiente stoppare il server di Glassfish.
+
+### Credenziali per fare test
+
+![image-20220313172922643](/home/poggiolinux/snap/typora/57/.config/Typora/typora-user-images/image-20220313172922643.png)
