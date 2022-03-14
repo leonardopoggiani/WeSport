@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" name="it.unipi.dsmt.AppTest" time="0.026" tests="1" errors="0" skipped="0" failures="0">
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" name="it.unipi.dsmt.AppTest" time="0.022" tests="1" errors="0" skipped="0" failures="0">
   <properties>
     <property name="awt.toolkit" value="sun.awt.X11.XToolkit"/>
     <property name="file.encoding.pkg" value="sun.io"/>
@@ -16,7 +16,7 @@
     <property name="user.country" value="CA"/>
     <property name="sun.java.launcher" value="SUN_STANDARD"/>
     <property name="sun.boot.library.path" value="/home/jose/.sdkman/candidates/java/8.0.265-open/jre/lib/amd64"/>
-    <property name="sun.java.command" value="/home/jose/DSMT/tmp/WeSport/WeSport_project/ejb-interfaces/target/surefire/surefirebooter3074370313860883828.jar /home/jose/DSMT/tmp/WeSport/WeSport_project/ejb-interfaces/target/surefire 2022-03-14T23-30-19_644-jvmRun1 surefire8620913678347226442tmp surefire_07042423646280356711tmp"/>
+    <property name="sun.java.command" value="/home/jose/DSMT/tmp/WeSport/WeSport_project/ejb-interfaces/target/surefire/surefirebooter8075107310140893844.jar /home/jose/DSMT/tmp/WeSport/WeSport_project/ejb-interfaces/target/surefire 2022-03-14T23-34-55_767-jvmRun1 surefire548357645332677209tmp surefire_01777237607723002752tmp"/>
     <property name="surefire.test.class.path" value="/home/jose/DSMT/tmp/WeSport/WeSport_project/ejb-interfaces/target/test-classes:/home/jose/DSMT/tmp/WeSport/WeSport_project/ejb-interfaces/target/classes:/home/jose/.m2/repository/junit/junit/4.11/junit-4.11.jar:/home/jose/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar:/home/jose/.m2/repository/javax/ejb/javax.ejb-api/3.2.2/javax.ejb-api-3.2.2.jar:/home/jose/.m2/repository/javax/transaction/javax.transaction-api/1.3/javax.transaction-api-1.3.jar:/home/jose/.m2/repository/jakarta/servlet/jakarta.servlet-api/5.0.0/jakarta.servlet-api-5.0.0.jar:"/>
     <property name="sun.cpu.endian" value="little"/>
     <property name="user.home" value="/home/jose"/>
@@ -29,7 +29,7 @@
     <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
     <property name="java.specification.name" value="Java Platform API Specification"/>
     <property name="java.awt.graphicsenv" value="sun.awt.X11GraphicsEnvironment"/>
-    <property name="surefire.real.class.path" value="/home/jose/DSMT/tmp/WeSport/WeSport_project/ejb-interfaces/target/surefire/surefirebooter3074370313860883828.jar"/>
+    <property name="surefire.real.class.path" value="/home/jose/DSMT/tmp/WeSport/WeSport_project/ejb-interfaces/target/surefire/surefirebooter8075107310140893844.jar"/>
     <property name="sun.boot.class.path" value="/home/jose/.sdkman/candidates/java/8.0.265-open/jre/lib/resources.jar:/home/jose/.sdkman/candidates/java/8.0.265-open/jre/lib/rt.jar:/home/jose/.sdkman/candidates/java/8.0.265-open/jre/lib/sunrsasign.jar:/home/jose/.sdkman/candidates/java/8.0.265-open/jre/lib/jsse.jar:/home/jose/.sdkman/candidates/java/8.0.265-open/jre/lib/jce.jar:/home/jose/.sdkman/candidates/java/8.0.265-open/jre/lib/charsets.jar:/home/jose/.sdkman/candidates/java/8.0.265-open/jre/lib/jfr.jar:/home/jose/.sdkman/candidates/java/8.0.265-open/jre/classes"/>
     <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
     <property name="java.runtime.version" value="1.8.0_265-b01"/>
@@ -58,5 +58,5 @@
     <property name="sun.io.unicode.encoding" value="UnicodeLittle"/>
     <property name="java.class.version" value="52.0"/>
   </properties>
-  <testcase name="shouldAnswerWithTrue" classname="it.unipi.dsmt.AppTest" time="0.001"/>
+  <testcase name="shouldAnswerWithTrue" classname="it.unipi.dsmt.AppTest" time="0.002"/>
 </testsuite>
