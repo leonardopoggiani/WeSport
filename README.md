@@ -49,6 +49,9 @@ Per prima cosa avviare il server:
 
 Connettersi alla admin console all'indirizzo `http://localhost:4848`.
 É necessario creare un *connection pool* (istruzioni presenti anche nel file *Guidelines_etc..* del professore, basta mettere i valori che abbiamo noi):
+
+- Pool Name : wesport_pool
+
 - DatabaseName: wesport
 - User: wesport
 - Password: wesport
