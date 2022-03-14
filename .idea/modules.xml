@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/WeSport_project/WeSport.iml" filepath="$PROJECT_DIR$/WeSport_project/WeSport.iml" />
+      <module fileurl="file://$PROJECT_DIR$/WeSport_project/WeSport_webapp/WeSport_webapp.iml" filepath="$PROJECT_DIR$/WeSport_project/WeSport_webapp/WeSport_webapp.iml" />
+    </modules>
+  </component>
+</project>
