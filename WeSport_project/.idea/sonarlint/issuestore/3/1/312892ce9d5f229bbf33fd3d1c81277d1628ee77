@@ -1,20 +1,10 @@
 
-J	java:S108M")Either remove or fill this block of code.(‡ÇË¸ıÿÿÿÿ8ª…éõ÷/
-T
-java:S1135_"2Complete the task associated to this TODO comment.(Ö‘Øøÿÿÿÿ8¬…éõ÷/
-^
-java:S1128"<Remove this unused import 'it.unipi.dsmt.ejb.entities.User'.(ÏÇ³Áùÿÿÿÿ8¹¨ƒö÷/
-M
-java:S1066‘"/Merge this if statement with the enclosing one.(‰³Í8´…éõ÷/
-r	java:S117Y"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ğñ­òşÿÿÿÿ8´…éõ÷/
-s	java:S117‚"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ğñ­òşÿÿÿÿ8º¨ƒö÷/
-]
-java:S2259H"@A "NullPointerException" could be thrown; "rs" is nullable here.(ÅÌ”Ù8éˆéõ÷/
-m
-java:S2095‹"OUse try-with-resources or close this "PreparedStatement" in a "finally" clause.(œ¡£ó8êˆéõ÷/
-l
-java:S20950"OUse try-with-resources or close this "PreparedStatement" in a "finally" clause.(œ¡£ó8ÚŸö÷/
-l
-java:S2095b"OUse try-with-resources or close this "PreparedStatement" in a "finally" clause.(œ¡£ó8ÚŸö÷/
-j
-java:S2095+"HUse try-with-resources or close this "Connection" in a "finally" clause.(«’ò¥øÿÿÿÿ8êˆéõ÷/
+Q
+java:S1854,"6Remove this useless assignment to local variable "id".(Îüâ˜ÿÿÿÿÿ
+B
+java:S1481,"'Remove this unused "id" local variable.(Îüâ˜ÿÿÿÿÿ
+V	java:S125E"<This block of commented-out lines of code should be removed.(ÇåáÖùÿÿÿÿ
+Q	java:S125v"<This block of commented-out lines of code should be removed.(èâí¡
+N
+java:S1135€"2Complete the task associated to this TODO comment.(Ö‘Øøÿÿÿÿ
+l	java:S117 "QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ğñ­òşÿÿÿÿ

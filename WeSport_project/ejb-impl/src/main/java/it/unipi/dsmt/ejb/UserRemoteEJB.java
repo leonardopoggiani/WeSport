@@ -5,13 +5,10 @@ import it.unipi.dsmt.dto.UserDTO;
 import it.unipi.dsmt.ejb.entities.User;
 import it.unipi.dsmt.interfaces.UserRemote;
 
-import javax.annotation.Resource;
 import javax.ejb.Stateless;
-import javax.naming.Context;
-import javax.naming.InitialContext;
-import javax.naming.NamingException;
-import javax.persistence.*;
-import javax.sql.DataSource;
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
+import javax.persistence.Query;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -19,20 +16,55 @@ import java.util.List;
 @Stateless
 public class UserRemoteEJB implements UserRemote {
 
-    @Resource(lookup = "jdbc/wesport_pool")
-    private DataSource dataSource;
-
     @PersistenceContext
     private EntityManager entityManager;
 
-    public UserRemoteEJB() throws NamingException {
-        Context ctx = new InitialContext();
-        dataSource = (DataSource) ctx.lookup("jdbc/wesport_pool");
-        EntityManagerFactory emf = Persistence.createEntityManagerFactory("wesportPU");
-        entityManager = emf.createEntityManager();
+    @Override
+    public List<UserDTO> listUsers() throws Exception {
+        StringBuilder jpql = new StringBuilder();
+        List<UserDTO> result = new ArrayList<>();
+
+        jpql.append("select ");
+        jpql.append("u.ID, ");
+        jpql.append("u.username, ");
+        jpql.append("u.name, ");
+        jpql.append("u.surname, ");
+        jpql.append("u.email, ");
+        jpql.append("u.city, ");
+        jpql.append("u.postal_code, ");
+        jpql.append("u.description ");
+        jpql.append("from user u");
+
+        Query query = entityManager.createQuery(jpql.toString());
+
+        List<Object[]> userList = query.getResultList();
+        if (userList != null && !userList.isEmpty()) {
+            for(Object[] userInfo: userList){
+                User user = (User)userInfo[0];
+                Integer id = ((Number)userInfo[1]).intValue();
+                UserDTO dto = new UserDTO();
+                dto.setId(user.getId());
+                dto.setUsername(user.getUsername());
+                dto.setName(user.getName());
+                dto.setSurname(user.getSurname());
+                dto.setEmail(user.getEmail());
+                dto.setCity(user.getCity());
+                dto.setPostal_code(user.getPostal_code());
+                dto.setDescription(user.getDescription());
+
+                result.add(dto);
+            }
+        }
+
+        return result;
     }
 
+    @Override
+    public UserDTO getUser(String username) throws SQLException {
+        return null;
+    }
 
+    /*
     @Override
     public List<UserDTO> listUsers() throws Exception {
         Connection connection = null;
@@ -79,8 +111,9 @@ public class UserRemoteEJB implements UserRemote {
             }
         }
         return result;
-    }
+    } */
 
+    /*
     @Override
     public UserDTO getUser(String username) throws SQLException{
         Connection connection = null;
@@ -119,47 +152,25 @@ public class UserRemoteEJB implements UserRemote {
         }
 
         return null;
+    }*/
+
+  @Override
+  public UserDTO loginUser(String username, String password) {
+
+    UserDTO logged_user = new UserDTO();
+    User user = entityManager.find(User.class, username);
+
+    if(user != null && user.getPassword().compareTo(password) == 0) {
+        logged_user.setId(user.getId());
+        logged_user.setUsername(user.getUsername());
+        logged_user.setName(user.getName());
+        logged_user.setSurname(user.getSurname());
+        logged_user.setEmail(user.getEmail());
+        logged_user.setCity(user.getCity());
+        logged_user.setPostal_code(user.getPostal_code());
+        logged_user.setDescription(user.getDescription());
     }
 
-    @Override
-    public UserDTO loginUser(String username, String password) throws SQLException{
-
-        Connection connection = null;
-        ResultSet rs = null;
-        PreparedStatement pstm = null;
-        UserDTO logged_user = new UserDTO();
-
-        try{
-            connection = dataSource.getConnection();
-            StringBuilder sqlStringBuilder = new StringBuilder();
-            sqlStringBuilder.append("select ");
-            sqlStringBuilder.append("  *  ");
-            sqlStringBuilder.append("from user ");
-            sqlStringBuilder.append("where username = ?;");
-            pstm = connection.prepareStatement(sqlStringBuilder.toString());
-            if (username != null) {
-                pstm.setString(1, username);
-            }
-            rs = pstm.executeQuery();
-            if (rs.next()){
-                if(rs.getString(6).compareTo(password) == 0){
-                    logged_user.setUsername(rs.getString(2));
-                    logged_user.setName(rs.getString(3));
-                    logged_user.setSurname(rs.getString(4));
-                    logged_user.setEmail(rs.getString(5));
-
-                    return logged_user;
-                }
-            }
-        } catch (Exception e){
-            e.printStackTrace();
-        } finally{
-            assert connection != null;
-            connection.close();
-            assert pstm != null;
-            pstm.close();
-        }
-
-        return null;
-    }
+    return logged_user;
+  }
 }

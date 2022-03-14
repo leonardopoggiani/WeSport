@@ -1,17 +1,12 @@
 
-œ
-java:S11865"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(Ïû©Öûÿÿÿÿ
-t
-java:S1171"YMove the contents of this initializer to a standard constructor or to field initializers.(ÒÌâ–øÿÿÿÿ
-S	java:S106#"9Replace this use of System.out or System.err by a logger.(Â¹¬ßıÿÿÿÿ
+£
+java:S1186."€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(Ïû©Öûÿÿÿÿ8´³ìÆø/
 u
-java:S1989/"SHandle the following exception that could be thrown by "sendRedirect": IOException.(ûóª£ÿÿÿÿÿ8°©”ø/
+java:S1989("SHandle the following exception that could be thrown by "sendRedirect": IOException.(ûóª£ÿÿÿÿÿ8Å³ìÆø/
 p
-java:S19891"SHandle the following exception that could be thrown by "sendRedirect": IOException.(áÉ‰8°©”ø/
-U
-java:S11615":Add the "@Override" annotation above this method signature(Ïû©Öûÿÿÿÿ
-s
-java:S2226"XRemove this misleading mutable servlet instance field or make it "static" and/or "final"(°˜ ùÿÿÿÿ
-f	java:S117"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(†ß·
-f	java:S117 "QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Ê¿¥–
-k	java:S117!"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.( ¼ı¥üÿÿÿÿ
+java:S1989*"SHandle the following exception that could be thrown by "sendRedirect": IOException.(áÉ‰8Ç³ìÆø/
+\
+java:S1161.":Add the "@Override" annotation above this method signature(Ïû©Öûÿÿÿÿ8É³ìÆø/
+m	java:S117"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(†ß·8Ë³ìÆø/
+m	java:S117"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Ê¿¥–8Ì³ìÆø/
+r	java:S117"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.( ¼ı¥üÿÿÿÿ8Ì³ìÆø/

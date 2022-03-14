@@ -1,6 +1,7 @@
 package it.unipi.dsmt.ejb;
 
 import it.unipi.dsmt.dto.FieldBookingDTO;
+import it.unipi.dsmt.dto.UserDTO;
 import it.unipi.dsmt.ejb.entities.FieldBooking;
 import it.unipi.dsmt.interfaces.FieldBookingRemote;
 
@@ -8,10 +9,7 @@ import javax.ejb.Stateless;
 import javax.naming.Context;
 import javax.naming.InitialContext;
 import javax.naming.NamingException;
-import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
-import javax.persistence.Persistence;
-import javax.persistence.PersistenceContext;
+import javax.persistence.*;
 import javax.sql.DataSource;
 import java.sql.Connection;
 import java.sql.SQLException;
@@ -35,13 +33,10 @@ public class FieldBookingEJB implements FieldBookingRemote {
     }
 
     @Override
-    public void insertPendingBooking(String ps_id,String ps_us,String po_id, String po_us, String from, String to,String pet_str) throws SQLException {
-        Connection con = dataSource.getConnection();
-        Statement stmt = con.createStatement();
-        stmt.executeUpdate("INSERT INTO booking (petowner_id,petowner_username, petsitter_id, petsitter_username, from_date, to_date, pet,status)\n" +
-                "VALUES (" + "'" + po_id + "'," + "'" + po_us + "'," + "'" + ps_id + "'," + "'" + ps_us + "'," + "'" + from + "'," + "'" + to + "'," + "'" + pet_str + "'," + "'pending');");
-
-        con.close();
+    public void insertPendingBooking(String id,String sport) throws SQLException {
+        StringBuilder jpql = new StringBuilder();
+        FieldBookingDTO toPersist = new FieldBookingDTO(id, sport);
+        entityManager.persist(toPersist);
     }
 
     @Override

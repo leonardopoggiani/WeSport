@@ -60,7 +60,7 @@ Connettersi alla admin console all'indirizzo `http://localhost:4848`.
 - serverName: localhost
 - Datasource Classname: **ATTENZIONE** va settato inizialmente a `com.mysql.cj.jdbc.MysqlDataSource` ma potrebbe in seguito dare un errore quando si risetta useSSL a false. In caso dia un errore del tipo *Classpath not found/recognized* va rimesso a `com.mysql.jdbc.jdbc2.optional.MysqlDataSource`.
 
-Bisogna inoltre ricordarsi di copiare il file del *lab_09_resources* (`mysql-connector-java-8.0.18.jar`) nella cartella `glassfish5/glassfish/domains/domain/lib/ext`.
+Bisogna inoltre ricordarsi di copiare il file del *lab_09_resources* (`mysql-connector-java-5.1.47.jar`) nella cartella `glassfish5/glassfish/domains/domain/lib/ext`.
 A questo punto si puó provare a pingare il database, se il ping va a buon fine (*Ping succeded*) si puó passare a creare una risorsa su cui viene esposto il JDBC connection pool (quello che si accede attraverso Java). É sufficiente andare su *Resource* sempre dalla admin console di **Glassfish** e creare una nuova risorsa impostando come nome `jdbc/wesport_pool` e come Pool quello che abbiamo appena creato.
 
 Dopo aver cliccato sul pulsante della run, Intellij si occuperá di eseguire la build e il deployment in maniera automatica e non si dovrá fare altro che aspettare

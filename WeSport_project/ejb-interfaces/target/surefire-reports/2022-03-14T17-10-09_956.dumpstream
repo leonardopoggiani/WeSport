@@ -1,0 +1,24 @@
+# Created at 2022-03-14T17:10:12.093
+java.io.FileNotFoundException: /home/poggiolinux/Documents/GitHub/WeSport/WeSport_project/ejb-interfaces/target/surefire/surefire_08643218342264322481tmp (No such file or directory)
+
+# Created at 2022-03-14T17:10:12.093
+	at java.io.FileInputStream.open0(Native Method)
+
+# Created at 2022-03-14T17:10:12.094
+	at java.io.FileInputStream.open(FileInputStream.java:195)
+
+# Created at 2022-03-14T17:10:12.094
+	at java.io.FileInputStream.<init>(FileInputStream.java:138)
+
+# Created at 2022-03-14T17:10:12.094
+	at org.apache.maven.surefire.booter.SystemPropertyManager.loadProperties(SystemPropertyManager.java:67)
+
+# Created at 2022-03-14T17:10:12.095
+	at org.apache.maven.surefire.booter.SystemPropertyManager.setSystemProperties(SystemPropertyManager.java:73)
+
+# Created at 2022-03-14T17:10:12.096
+	at org.apache.maven.surefire.booter.ForkedBooter.setupBooter(ForkedBooter.java:95)
+
+# Created at 2022-03-14T17:10:12.096
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:417)
+

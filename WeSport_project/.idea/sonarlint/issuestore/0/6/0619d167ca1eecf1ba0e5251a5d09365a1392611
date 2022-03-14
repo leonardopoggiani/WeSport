@@ -1,37 +1,5 @@
 
 o	java:S116"URename this field "booking_id" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(­ìáèþÿÿÿÿ
-j	java:S116"PRename this field "po_id" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(×²èÂûÿÿÿÿ
-j	java:S116	"PRename this field "ps_id" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(€®ø—øÿÿÿÿ
-k	java:S116
-"VRename this field "po_username" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(‡ðÆÖ
-p	java:S116"VRename this field "ps_username" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(´Ýåçýÿÿÿÿ
-i	java:S116"TRename this field "date_from" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ÞÆíÏ
-l	java:S116"RRename this field "date_to" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(—ƒ£‰ÿÿÿÿÿ
-c	java:S100!"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ËÜÏƒ
-c	java:S100%"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Ñö·›
-h	java:S1001"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(±¦•÷ûÿÿÿÿ
-c	java:S1005"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Ÿœ¾»
-c	java:S1009"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(í³ƒ¹
-h	java:S100="NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(çÂšÂøÿÿÿÿ
-h	java:S100A"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ÛÐ®œûÿÿÿÿ
-c	java:S100E"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¾Ð‡¸
-h	java:S100I"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(®´Ýšýÿÿÿÿ
-c	java:S100M"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(üÕáÉ
-f	java:S117"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¦žö®
-f	java:S117"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¦žö®
-f	java:S117"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¦žö®
-f	java:S117"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¦žö®
-f	java:S117%"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Ñö·›
-f	java:S1175"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Ÿœ¾»
-k	java:S117="QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(çÂšÂøÿÿÿÿ
-m
-java:S1104
-"WMake po_username a static final constant or non-public and provide accessors if needed.(‡ðÆÖ
-r
-java:S1104"WMake ps_username a static final constant or non-public and provide accessors if needed.(´Ýåçýÿÿÿÿ
-k
-java:S1104"UMake date_from a static final constant or non-public and provide accessors if needed.(ÞÆíÏ
-n
-java:S1104"SMake date_to a static final constant or non-public and provide accessors if needed.(—ƒ£‰ÿÿÿÿÿ
-o
-java:S1104"TMake accepted a static final constant or non-public and provide accessors if needed.(²£Ä›øÿÿÿÿ
+c	java:S100"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ËÜÏƒ
+c	java:S100"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Ñö·›
+f	java:S117"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Ñö·›

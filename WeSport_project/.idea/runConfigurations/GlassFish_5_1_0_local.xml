@@ -2,6 +2,7 @@
   <configuration default="false" name="GlassFish 5.1.0 local" type="GlassfishConfiguration" factoryName="Local" APPLICATION_SERVER_NAME="GlassFish 5.1.0" ALTERNATIVE_JRE_ENABLED="false">
     <option name="UPDATE_ON_FRAME_DEACTIVATION" value="true" />
     <option name="UPDATE_CLASSES_ON_FRAME_DEACTIVATION" value="true" />
+    <option name="UPDATING_POLICY" value="redeploy-artifacts" />
     <deployment>
       <artifact name="project_ejb">
         <settings />

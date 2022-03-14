@@ -11,7 +11,7 @@ import java.io.Serializable;
 public class User implements Serializable {
     @Id
     @Column(name="ID")
-    private String user_id;
+    private Integer id;
     @Column(name="name")
     private String name;
     @Column(name="surname")
@@ -29,13 +29,12 @@ public class User implements Serializable {
     @Column(name="password")
     private String password;
 
-
-    public String getUser_id() {
-        return user_id;
+    public Integer getId() {
+        return id;
     }
 
-    public void setUser_id(String user_id) {
-        this.user_id = user_id;
+    public void setId(Integer id) {
+        this.id = id;
     }
 
     public String getName() {

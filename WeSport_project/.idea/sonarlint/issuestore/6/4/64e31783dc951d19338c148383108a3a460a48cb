@@ -1,27 +1,20 @@
 
-£
-java:S11868"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(Å¹ë†ıÿÿÿÿ8™¯œñ÷/
-I
-java:S3010 "'Remove this assignment of "dataSource".(úÏğÿÿÿÿÿ8ø¯œñ÷/
-R
-java:S14811"0Remove this unused "petowner_us" local variable.(ÎŸïûÿÿÿÿ8³°œñ÷/
-S
-java:S14812"1Remove this unused "petsitter_us" local variable.(À†²¸üÿÿÿÿ8´°œñ÷/
-H
-java:S11684"+Return an empty collection instead of null.(¥¹ï8»°œñ÷/
-a
-java:S1128"DRemove this unused import 'it.unipi.dsmt.ejb.entities.FieldBooking'.(î°ØÇ8Ä°œñ÷/
-M
-java:S1128"+Remove this unused import 'java.util.List'.(Õë±Äøÿÿÿÿ8Ä°œñ÷/
-m	java:S117&"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(êöÈ8Ê°œñ÷/
-m	java:S117&"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(êöÈ8Ê°œñ÷/
-m	java:S117&"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(êöÈ8Ë°œñ÷/
-m	java:S117&"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(êöÈ8Ì°œñ÷/
-m	java:S117&"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(êöÈ8Ì°œñ÷/
-r	java:S1171"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ÎŸïûÿÿÿÿ8Ì°œñ÷/
-r	java:S1172"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(À†²¸üÿÿÿÿ8Í°œñ÷/
-r	java:S1178"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Å¹ë†ıÿÿÿÿ8Í°œñ÷/
-i
-java:S2095("GUse try-with-resources or close this "Statement" in a "finally" clause.(íñéşÿÿÿÿ8ƒ²œñ÷/
-e
-java:S2095'"HUse try-with-resources or close this "Connection" in a "finally" clause.(Æô¬«8„²œñ÷/
+œ
+java:S11863"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(Å¹ë†ıÿÿÿÿ
+B
+java:S3010"'Remove this assignment of "dataSource".(úÏğÿÿÿÿÿ
+Z
+java:S1854%"8Remove this useless assignment to local variable "jpql".(‰¶Óûÿÿÿÿ8Ø¶İ¾ø/
+K
+java:S1481%")Remove this unused "jpql" local variable.(‰¶Óûÿÿÿÿ8Ù¶İ¾ø/
+K
+java:S1481,"0Remove this unused "petowner_us" local variable.(ÎŸïûÿÿÿÿ
+L
+java:S1481-"1Remove this unused "petsitter_us" local variable.(À†²¸üÿÿÿÿ
+A
+java:S1168/"+Return an empty collection instead of null.(¥¹ï
+D
+java:S1068".Remove this unused "dataSource" private field.(¢Ïßâ
+k	java:S117,"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ÎŸïûÿÿÿÿ
+k	java:S117-"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(À†²¸üÿÿÿÿ
+k	java:S1173"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Å¹ë†ıÿÿÿÿ

@@ -4,6 +4,7 @@
     <root id="root">
       <element id="module-output" name="ejb-impl" />
       <element id="module-output" name="ejb-interfaces" />
+      <element id="jpa-descriptors" facet="ejb-impl/jpa/JPA" />
     </root>
   </artifact>
 </component>
