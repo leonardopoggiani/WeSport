@@ -1,4 +1,4 @@
-<%@ page import="it.unipi.dsmt.ejb.UserRemoteEJB" %>
+<!-- %@ page import="it.unipi.dsmt.ejb.UserRemoteEJB" %-->
 <%@ page import="it.unipi.dsmt.dto.UserDTO" %>
 <%@ page import="it.unipi.dsmt.interfaces.UserRemote" %>
 <%@ page import="java.net.InetAddress" %>
@@ -20,18 +20,19 @@
     String username_filter = (String) request.getParameter("filter");
 
     UserRemote userRemoteEJB = null;
-
+/*
     try {
         userRemoteEJB = new UserRemoteEJB();
     } catch (NamingException e) {
         e.printStackTrace();
     }
+ */
     try {
-        assert userRemoteEJB != null;
+        //assert userRemoteEJB != null;
         try {
             if(username_filter != null && username_filter.compareTo("") != 0) {
                 System.err.println("Filter");
-                UserDTO user = userRemoteEJB.getUser(username_filter);
+                UserDTO user = null;// userRemoteEJB.getUser(username_filter);
                 users.clear();
 
                 if(user != null) {
@@ -39,7 +40,7 @@
                 }
             } else {
                 System.err.println("Just list all users");
-                users = userRemoteEJB.listUsers();
+                //users = userRemoteEJB.listUsers();
             }
         } catch (Exception e) {
             e.printStackTrace();

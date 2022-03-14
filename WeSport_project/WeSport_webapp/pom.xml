@@ -41,21 +41,9 @@
             <version>2.13.0</version>
         </dependency>
         <dependency>
-            <groupId>mysql</groupId>
-            <artifactId>mysql-connector-java</artifactId>
-            <version>8.0.17</version>
-        </dependency>
-        <dependency>
             <groupId>it.unipi.dsmt</groupId>
             <artifactId>ejb-interfaces</artifactId>
             <version>1.0.0-SNAPSHOT</version>
-            <scope>compile</scope>
-        </dependency>
-        <dependency>
-            <groupId>it.unipi.dsmt</groupId>
-            <artifactId>ejb-impl</artifactId>
-            <version>1.0.0-SNAPSHOT</version>
-            <scope>compile</scope>
         </dependency>
         <dependency>
             <groupId>javax.ejb</groupId>

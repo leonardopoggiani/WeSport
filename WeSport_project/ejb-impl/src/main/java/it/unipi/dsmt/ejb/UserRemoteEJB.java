@@ -158,8 +158,15 @@ public class UserRemoteEJB implements UserRemote {
   public UserDTO loginUser(String username, String password) {
 
     UserDTO logged_user = new UserDTO();
-    User user = entityManager.find(User.class, username);
-
+    String jpql = "select u from User u where lower(u.username) = lower(:username)";
+    Query query = entityManager.createQuery(jpql);
+    query.setParameter("username", username);
+    List<User> results = query.getResultList();
+    User user = null;
+    if (results != null && !results.isEmpty()){
+        user = results.get(0);
+        System.out.println("User found " + user.getId());
+    }
     if(user != null && user.getPassword().compareTo(password) == 0) {
         logged_user.setId(user.getId());
         logged_user.setUsername(user.getUsername());

@@ -1,7 +1,6 @@
 package it.unipi.dsmt.servlets;
 
 import it.unipi.dsmt.dto.UserDTO;
-import it.unipi.dsmt.ejb.UserRemoteEJB;
 import it.unipi.dsmt.interfaces.UserRemote;
 
 import javax.ejb.EJB;
@@ -27,7 +26,6 @@ public class LoginServlet extends HttpServlet {
         String password_ = request.getParameter("password");
         UserDTO logged_user = null;
 
-        userRemoteEJB = new UserRemoteEJB();
         try {
             logged_user = userRemoteEJB.loginUser(username_,password_);
         } catch (SQLException e) {

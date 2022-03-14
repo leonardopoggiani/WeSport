@@ -9,9 +9,9 @@
     <packaging>pom</packaging>
     <version>1.0.0-SNAPSHOT</version>
     <modules>
+        <module>ejb-interfaces</module>
         <module>WeSport_webapp</module>
         <module>ejb-impl</module>
-        <module>ejb-interfaces</module>
     </modules>
 
     <properties>

@@ -26,10 +26,10 @@ public class FieldBookingEJB implements FieldBookingRemote {
     private EntityManager entityManager;
 
     public FieldBookingEJB() throws NamingException {
-        Context ctx = new InitialContext();
-        dataSource = (DataSource) ctx.lookup("jdbc/wesport_pool");
-        EntityManagerFactory emf = Persistence.createEntityManagerFactory("wesportPU");
-        entityManager = emf.createEntityManager();
+        //Context ctx = new InitialContext();
+        //dataSource = (DataSource) ctx.lookup("jdbc/wesport_pool");
+        //EntityManagerFactory emf = Persistence.createEntityManagerFactory("wesportPU");
+        //entityManager = emf.createEntityManager();
     }
 
     @Override

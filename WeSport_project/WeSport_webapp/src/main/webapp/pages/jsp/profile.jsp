@@ -1,6 +1,7 @@
 <%@ page import="it.unipi.dsmt.dto.UserDTO" %>
 <%@ page import="it.unipi.dsmt.interfaces.UserRemote" %>
-<%@ page import="it.unipi.dsmt.ejb.UserRemoteEJB" %>
+
+<!-- %@ page import="it.unipi.dsmt.ejb.UserRemoteEJB" % -->
 <%@ page import="javax.naming.NamingException" %>
 <%@ page import="java.net.InetAddress" %><%--
   Created by IntelliJ IDEA.
@@ -12,13 +13,6 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%
     UserDTO logged_user = (UserDTO)session.getAttribute("logged_user");
-    UserRemote userRemoteEJB = null;
-
-    try {
-        userRemoteEJB = new UserRemoteEJB();
-    } catch (NamingException e) {
-        e.printStackTrace();
-    }
     String actual_ip = InetAddress.getLocalHost().getHostAddress();
 %>
 <html>

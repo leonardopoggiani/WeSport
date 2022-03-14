@@ -1,4 +1,4 @@
-/home/poggiolinux/Documents/GitHub/WeSport/WeSport_project/ejb-interfaces/src/main/java/it/unipi/dsmt/interfaces/UserRemote.java
-/home/poggiolinux/Documents/GitHub/WeSport/WeSport_project/ejb-interfaces/src/main/java/it/unipi/dsmt/dto/UserDTO.java
-/home/poggiolinux/Documents/GitHub/WeSport/WeSport_project/ejb-interfaces/src/main/java/it/unipi/dsmt/dto/FieldBookingDTO.java
-/home/poggiolinux/Documents/GitHub/WeSport/WeSport_project/ejb-interfaces/src/main/java/it/unipi/dsmt/interfaces/FieldBookingRemote.java
+/home/jose/DSMT/tmp/WeSport/WeSport_project/ejb-interfaces/src/main/java/it/unipi/dsmt/dto/UserDTO.java
+/home/jose/DSMT/tmp/WeSport/WeSport_project/ejb-interfaces/src/main/java/it/unipi/dsmt/interfaces/UserRemote.java
+/home/jose/DSMT/tmp/WeSport/WeSport_project/ejb-interfaces/src/main/java/it/unipi/dsmt/interfaces/FieldBookingRemote.java
+/home/jose/DSMT/tmp/WeSport/WeSport_project/ejb-interfaces/src/main/java/it/unipi/dsmt/dto/FieldBookingDTO.java
