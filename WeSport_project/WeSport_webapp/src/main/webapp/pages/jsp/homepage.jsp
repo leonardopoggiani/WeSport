@@ -9,39 +9,41 @@
 </head>
 <body>
     <%if(session.getAttribute("logged_user") == null) { %>
-        <p>You need to login first!</p>
-        <a href="../../index.jsp">Login</a>
+        <a class="goback" href="${pageContext.request.contextPath}/index.jsp">
+            <div> Need to login first! </div>
+        </a>
     <% } else { %>
         <h1>Welcome to your homepage</h1>
 
-        <div class="container">
+        <div class="home">
             <div class="row">
 
-                <div class="project-box-content-header">
-                    <a class="box-content-header"
-                       href="${pageContext.request.contextPath}/pages/jsp/userslist.jsp"> List of user
-                    </a>
-                </div>
+                <a class="box-content-header" href="${pageContext.request.contextPath}/pages/jsp/userslist.jsp">
+                    <div class="project-box-content-header"> List of user </div>
+                </a>
 
-                <div class="project-box-content-header">
-                    <a class="box-content-header"
-                       href="${pageContext.request.contextPath}/pages/jsp/booking.jsp">Book a field</a>
-                </div>
+                <a class="box-content-header" href="${pageContext.request.contextPath}/pages/jsp/booking.jsp">
+                    <div class="project-box-content-header"> Book a field </div>
+                </a>
+
             </div>
 
             <div class="row">
-                <div class="project-box-content-header">
-                    <a class="box-content-header"
-                       href="${pageContext.request.contextPath}/pages/jsp/profile.jsp">Personal profile</a>
-                </div>
+                <a class="box-content-header" href="${pageContext.request.contextPath}/pages/jsp/profile.jsp">
+                    <div class="project-box-content-header"> Personal profile </div>
+                </a>
 
-                <div class="project-box-content-header">
-                    <a class="box-content-header"
-                       href="${pageContext.request.contextPath}/pages/jsp/chat.jsp">Chat</a>
-                </div>
+                <a class="box-content-header" href="${pageContext.request.contextPath}/pages/jsp/chat.jsp">
+                    <div class="project-box-content-header"> Chat </div>
+                </a>
             </div>
+
+            <a class="goback" href="${pageContext.request.contextPath}/index.jsp">
+                <div> Go back </div>
+            </a>
         </div>
 
     <% } %>
+
 </body>
 </html>

@@ -32,22 +32,22 @@ public class LoginServlet extends HttpServlet {
         String password_ = request.getParameter("password");
         UserDTO logged_user = null;
 
-        System.err.println("username" + username_);
+        System.err.println("username: " + username_);
 
         try {
             userRemoteEJB = new UserRemoteEJB();
             logged_user = userRemoteEJB.loginUser(username_,password_);
-            System.err.println("LOGIN DONE");
         } catch (NamingException | SQLException e) {
             e.printStackTrace();
         }
 
-        assert logged_user != null;
-        System.err.println("LOGGED USER " + logged_user.getUsername());
-
         HttpSession session = request.getSession();
         session.setAttribute("logged_user", logged_user);
-        response.sendRedirect(request.getContextPath()+"/pages/jsp/homepage.jsp");
+        if(logged_user == null) {
+            response.sendRedirect(request.getContextPath()+"/index.jsp");
+        } else {
+            response.sendRedirect(request.getContextPath()+"/pages/jsp/homepage.jsp");
+        }
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
