@@ -37,7 +37,7 @@ public class LoginServlet extends HttpServlet {
         if(logged_user == null) {
             response.sendRedirect(request.getContextPath()+"/index.jsp");
         } else {
-            response.sendRedirect(request.getContextPath()+"/pages/jsp/homepage.jsp");
+            response.sendRedirect(request.getContextPath()+"/homepage");
         }
     }
 

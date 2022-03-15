@@ -23,7 +23,7 @@ public class User implements Serializable {
     @Column(name="city")
     private String city;
     @Column(name="postal_code")
-    private String postal_code;
+    private Integer postal_code;
     @Column(name="description")
     private String description;
     @Column(name="password")
@@ -77,11 +77,11 @@ public class User implements Serializable {
         this.city = city;
     }
 
-    public String getPostal_code() {
+    public Integer getPostal_code() {
         return postal_code;
     }
 
-    public void setPostal_code(String postal_code) {
+    public void setPostal_code(Integer postal_code) {
         this.postal_code = postal_code;
     }
 
