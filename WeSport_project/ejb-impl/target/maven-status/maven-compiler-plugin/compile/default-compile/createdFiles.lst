@@ -1,4 +1,4 @@
-it/unipi/dsmt/ejb/entities/FieldBooking.class
 it/unipi/dsmt/ejb/entities/User.class
+it/unipi/dsmt/ejb/entities/FieldBooking.class
 it/unipi/dsmt/ejb/UserRemoteEJB.class
 it/unipi/dsmt/ejb/FieldBookingEJB.class

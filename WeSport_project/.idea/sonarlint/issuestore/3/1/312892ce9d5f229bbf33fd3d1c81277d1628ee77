@@ -7,4 +7,5 @@ V	java:S125E"<This block of commented-out lines of code should be removed.(Çåá
 Q	java:S125v"<This block of commented-out lines of code should be removed.(èâí¡
 N
 java:S1135€"2Complete the task associated to this TODO comment.(Ö‘Øøÿÿÿÿ
+[	java:S106¨"9Replace this use of System.out or System.err by a logger.(öîÌ†ûÿÿÿÿ8ì˜åÔø/
 l	java:S117 "QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ğñ­òşÿÿÿÿ

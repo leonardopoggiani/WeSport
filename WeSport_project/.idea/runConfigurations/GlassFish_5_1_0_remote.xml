@@ -1,5 +1,5 @@
 <component name="ProjectRunConfigurationManager">
-  <configuration default="false" name="GlassFish 5.1.0" type="GlassfishConfiguration" factoryName="Remote" APPLICATION_SERVER_NAME="GlassFish 5.1.0" ALTERNATIVE_JRE_ENABLED="false" nameIsGenerated="true">
+  <configuration default="false" name="GlassFish 5.1.0 remote" type="GlassfishConfiguration" factoryName="Remote" APPLICATION_SERVER_NAME="GlassFish 5.1.0" ALTERNATIVE_JRE_ENABLED="false">
     <option name="HOST" value="172.18.0.24" />
     <option name="LOCAL" value="false" />
     <option name="BROWSER_ID" value="a7bb68e0-33c0-4d6f-a81a-aac1fdb870c8" />

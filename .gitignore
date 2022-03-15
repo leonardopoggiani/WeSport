@@ -1,1 +1,3 @@
-/WeSport_project/WeSport_webapp/target/
+/target/
+*/target/**
+**/META-INF/

@@ -1,4 +1,4 @@
-/home/jose/DSMT/tmp/WeSport/WeSport_project/ejb-impl/src/main/java/it/unipi/dsmt/ejb/UserRemoteEJB.java
-/home/jose/DSMT/tmp/WeSport/WeSport_project/ejb-impl/src/main/java/it/unipi/dsmt/ejb/FieldBookingEJB.java
-/home/jose/DSMT/tmp/WeSport/WeSport_project/ejb-impl/src/main/java/it/unipi/dsmt/ejb/entities/User.java
-/home/jose/DSMT/tmp/WeSport/WeSport_project/ejb-impl/src/main/java/it/unipi/dsmt/ejb/entities/FieldBooking.java
+/home/poggiolinux/Documents/GitHub/WeSport/WeSport_project/ejb-impl/src/main/java/it/unipi/dsmt/ejb/entities/User.java
+/home/poggiolinux/Documents/GitHub/WeSport/WeSport_project/ejb-impl/src/main/java/it/unipi/dsmt/ejb/UserRemoteEJB.java
+/home/poggiolinux/Documents/GitHub/WeSport/WeSport_project/ejb-impl/src/main/java/it/unipi/dsmt/ejb/entities/FieldBooking.java
+/home/poggiolinux/Documents/GitHub/WeSport/WeSport_project/ejb-impl/src/main/java/it/unipi/dsmt/ejb/FieldBookingEJB.java

@@ -11,5 +11,8 @@
         <module name="ejb-impl" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="wesport-ejb-impl" target="1.7" />
+    </bytecodeTargetLevel>
   </component>
 </project>

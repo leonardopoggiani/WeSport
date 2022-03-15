@@ -1,4 +1,4 @@
 it/unipi/dsmt/interfaces/UserRemote.class
 it/unipi/dsmt/interfaces/FieldBookingRemote.class
-it/unipi/dsmt/dto/UserDTO.class
 it/unipi/dsmt/dto/FieldBookingDTO.class
+it/unipi/dsmt/dto/UserDTO.class
