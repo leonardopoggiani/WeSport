@@ -3,3 +3,4 @@ out/
 /ejb-impl/target/
 /ejb-interfaces/target/
 /WeSport_webapp/target/
+!/.idea/
