@@ -18,7 +18,7 @@
         <div class="home">
             <div class="row">
 
-                <a class="box-content-header" href="${pageContext.request.contextPath}/pages/jsp/userslist.jsp">
+                <a class="box-content-header" href="${pageContext.request.contextPath}/userlist">
                     <div class="project-box-content-header"> List of user </div>
                 </a>
 

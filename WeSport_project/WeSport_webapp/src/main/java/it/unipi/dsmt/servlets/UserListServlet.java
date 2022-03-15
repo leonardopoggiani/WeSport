@@ -2,6 +2,7 @@ package it.unipi.dsmt.servlets;
 
 
 import java.io.IOException;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -32,39 +33,42 @@ public class UserListServlet extends HttpServlet {
 
         String resourceURL = null;
         String action = request.getParameter("action");
-        String username = request.getParameter("filter");
+        String filter_username = request.getParameter("filter");
         String code = request.getParameter("code");
+
+        System.out.println("[LOG] action: " + action);
+        System.out.println("[LOG] username: " + filter_username);
+        System.out.println("[LOG] code: " + code);
 
         List<UserDTO> users = new ArrayList<>();
 
-        if(action == null || action.compareTo("load") != 0) {
-            if(username != null && username.compareTo("") != 0) {
-                UserDTO user = new UserDTO();
-                try {
-                    user = userRemote.getUser(username);
-                    users.add(user);
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
-            } else if(username == null || username.compareTo("") == 0) {
-                try {
-                    users = userRemote.listUsers();
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
+        if(filter_username != null && filter_username.compareTo("") != 0) {
+            UserDTO user = new UserDTO();
+
+            try {
+                System.out.println("[LOG] filter_username: " + filter_username);
+
+                user = userRemote.getUser(filter_username);
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+
+            users.add(user);
+
+            request.setAttribute("users", users);
+            resourceURL = "/pages/jsp/userslist.jsp";
+
+        } else {
+            try {
+                System.out.println("[LOG] list");
+
+                users = userRemote.listUsers();
+            } catch (Exception e) {
+                e.printStackTrace();
             }
 
             request.setAttribute("users", users);
             resourceURL = "/pages/jsp/userslist.jsp";
-        } else {
-            UserDTO user = new UserDTO();
-            try {
-              user = userRemote.getUser(code);
-            } catch (Exception e) {
-              e.printStackTrace();
-            }
-            request.setAttribute("user", user);
-            resourceURL = "/pages/jsp/userpage.jsp";
         }
 
         RequestDispatcher rd = request.getRequestDispatcher(resourceURL);

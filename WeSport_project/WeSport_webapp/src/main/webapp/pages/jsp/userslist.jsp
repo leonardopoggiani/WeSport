@@ -18,43 +18,11 @@
 <%
     List<UserDTO> users = (List<UserDTO>)request.getAttribute("users");
     String username_filter = (String) request.getParameter("filter");
-
-    UserRemote userRemoteEJB = null;
-/*
-    try {
-        userRemoteEJB = new UserRemoteEJB();
-    } catch (NamingException e) {
-        e.printStackTrace();
-    }
- */
-    try {
-        //assert userRemoteEJB != null;
-        try {
-            if(username_filter != null && username_filter.compareTo("") != 0) {
-                System.err.println("Filter");
-                UserDTO user = null;// userRemoteEJB.getUser(username_filter);
-                users.clear();
-
-                if(user != null) {
-                    users.add(user);
-                }
-            } else {
-                System.err.println("Just list all users");
-                //users = userRemoteEJB.listUsers();
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    } catch (Exception e) {
-        e.printStackTrace();
-    }
-
-    String actual_ip = InetAddress.getLocalHost().getHostAddress();
 %>
     List of users
 
     <br>
-    <form action="<%= request.getContextPath()%>/userlist?action=filter">
+    <form method="get" action="<%= request.getContextPath()%>/userlist?action=filter">
         <label for="filter">Username filter:</label><br>
         <input type="text" id="filter" name="filter"><br>
         <input type="submit" value="Filter"/>
