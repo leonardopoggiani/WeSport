@@ -40,8 +40,6 @@ e
 5WeSport_webapp/src/main/webapp/pages/jsp/homepage.jsp,c/b/cb33a46c85d87a286880385eaf1aa8e9bbd438ff
 f
 6WeSport_webapp/src/main/webapp/pages/jsp/userslist.jsp,e/1/e16ec3402fcbd7deb8cf745bc57f3e762d2ee4de
-x
-HWeSport_webapp/src/main/java/it/unipi/dsmt/servlets/UserListServlet.java,2/4/2494ab53c9e2ba4a4523c1f51e38bb38ee4199a4
 k
 ;ejb-impl/src/main/java/it/unipi/dsmt/ejb/entities/User.java,f/2/f27638bd5c6dc0e401f86f7fc26b29813c1ce445
 k

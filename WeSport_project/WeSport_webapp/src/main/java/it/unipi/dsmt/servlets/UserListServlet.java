@@ -59,16 +59,26 @@ public class UserListServlet extends HttpServlet {
             resourceURL = "/pages/jsp/userslist.jsp";
 
         } else {
-            try {
-                System.out.println("[LOG] list");
+            if(action != null && action.compareTo("load") == 0 && code != null && code.compareTo("") != 0) {
+                System.out.println("[LOG] user: " + code);
+                UserDTO user = null;
+                try {
+                    user = userRemote.getUser(code);
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
+                request.setAttribute("user", user);
+                resourceURL = "/pages/jsp/userpage.jsp";
+            } else {
+                try {
+                  users = userRemote.listUsers();
+                } catch (Exception e) {
+                  e.printStackTrace();
+                }
 
-                users = userRemote.listUsers();
-            } catch (Exception e) {
-                e.printStackTrace();
+                request.setAttribute("users", users);
+                resourceURL = "/pages/jsp/userslist.jsp";
             }
-
-            request.setAttribute("users", users);
-            resourceURL = "/pages/jsp/userslist.jsp";
         }
 
         RequestDispatcher rd = request.getRequestDispatcher(resourceURL);

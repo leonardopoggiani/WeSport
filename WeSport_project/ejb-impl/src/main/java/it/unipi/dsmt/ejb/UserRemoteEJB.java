@@ -27,19 +27,19 @@ public class UserRemoteEJB implements UserRemote {
 
         Query query = entityManager.createQuery(jpql);
 
-        List<User> userList = query.getResultList();
+        List<Object[]> userList = query.getResultList();
+
         if (userList != null && !userList.isEmpty()) {
-            for(User user: userList){
-                Integer id = user.getId();
+            for(Object[] user: userList){
                 UserDTO dto = new UserDTO();
-                dto.setId(user.getId());
-                dto.setUsername(user.getUsername());
-                dto.setName(user.getName());
-                dto.setSurname(user.getSurname());
-                dto.setEmail(user.getEmail());
-                dto.setCity(user.getCity());
-                dto.setPostal_code(user.getPostal_code());
-                dto.setDescription(user.getDescription());
+                dto.setId((Integer) user[0]);
+                dto.setUsername((String) user[1]);
+                dto.setName((String) user[2]);
+                dto.setSurname((String) user[3]);
+                dto.setEmail((String) user[4]);
+                dto.setCity((String) user[5]);
+                dto.setPostal_code((Integer) user[6]);
+                dto.setDescription((String) user[7]);
 
                 result.add(dto);
             }
