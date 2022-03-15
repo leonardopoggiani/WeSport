@@ -27,8 +27,6 @@ x
 HWeSport_webapp/src/main/java/it/unipi/dsmt/servlets/HomepageServlet.java,b/2/b2dd4cd6410307c82c723578d7d8e371117eebfd
 x
 HWeSport_webapp/src/main/java/it/unipi/dsmt/servlets/UserListServlet.java,2/4/2494ab53c9e2ba4a4523c1f51e38bb38ee4199a4
-k
-;ejb-interfaces/src/main/java/it/unipi/dsmt/dto/UserDTO.java,4/d/4dc162aeb014304f925ed7c18250b4a14a10c92f
 }
 Mejb-interfaces/src/main/java/it/unipi/dsmt/interfaces/FieldBookingRemote.java,4/0/40c99c08075f2e31b19db9913faca7ca4dbea793
 s
@@ -38,12 +36,6 @@ Cejb-impl/src/main/java/it/unipi/dsmt/ejb/entities/FieldBooking.java,d/7/d72eae
 m
 =ejb-impl/src/main/java/it/unipi/dsmt/ejb/FieldBookingEJB.java,6/4/64e31783dc951d19338c148383108a3a460a48cb
 u
-EWeSport_webapp/src/main/java/it/unipi/dsmt/servlets/LoginServlet.java,e/c/ec084567488461a3ff1f4bbce9ae6b278375c135
-k
-;ejb-impl/src/main/java/it/unipi/dsmt/ejb/entities/User.java,f/2/f27638bd5c6dc0e401f86f7fc26b29813c1ce445
-u
 Eejb-interfaces/src/main/java/it/unipi/dsmt/interfaces/UserRemote.java,b/b/bb50404b0e1cc6f95ae41a736b6c94a4806f5e39
-k
-;ejb-impl/src/main/java/it/unipi/dsmt/ejb/UserRemoteEJB.java,3/1/312892ce9d5f229bbf33fd3d1c81277d1628ee77
 f
 6WeSport_webapp/src/main/webapp/pages/jsp/userslist.jsp,e/1/e16ec3402fcbd7deb8cf745bc57f3e762d2ee4de
