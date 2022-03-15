@@ -1,34 +1,2 @@
 
-œ
-java:S11863"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(Å¹ë†ýÿÿÿÿ
-]	java:S125"<This block of commented-out lines of code should be removed.(Íóáýÿÿÿÿ8Ø©¡Õø/
-Z
-java:S1854%"8Remove this useless assignment to local variable "jpql".(‰¶ÓŽûÿÿÿÿ8Ø¶Ý¾ø/
-K
-java:S1481%")Remove this unused "jpql" local variable.(‰¶ÓŽûÿÿÿÿ8Ù¶Ý¾ø/
-K
-java:S1481,"0Remove this unused "petowner_us" local variable.(ÎŸïûÿÿÿÿ
-L
-java:S1481-"1Remove this unused "petsitter_us" local variable.(À†²¸üÿÿÿÿ
-A
-java:S1168/"+Return an empty collection instead of null.(¥¹ï
-S
-java:S1128"6Remove this unused import 'it.unipi.dsmt.dto.UserDTO'.(Îûí®8é©¡Õø/
-a
-java:S1128"DRemove this unused import 'it.unipi.dsmt.ejb.entities.FieldBooking'.(î°ØÇ8é©¡Õø/
-N
-java:S1128	"1Remove this unused import 'javax.naming.Context'.(¯‘—³8ê©¡Õø/
-U
-java:S1128
-"8Remove this unused import 'javax.naming.InitialContext'.(Àÿ£ø8ê©¡Õø/
-M
-java:S1128"0Remove this unused import 'java.sql.Connection'.(¥ËôÖ8ë©¡Õø/
-L
-java:S1128"/Remove this unused import 'java.sql.Statement'.(ÏÖÔø8ë©¡Õø/
-M
-java:S1128"+Remove this unused import 'java.util.List'.(Õë±Äøÿÿÿÿ8ë©¡Õø/
-D
-java:S1068".Remove this unused "dataSource" private field.(¢Ïßâ
-k	java:S117,"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ÎŸïûÿÿÿÿ
-k	java:S117-"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(À†²¸üÿÿÿÿ
-k	java:S1173"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Å¹ë†ýÿÿÿÿ
+T	java:S106!"9Replace this use of System.out or System.err by a logger.(©Éƒ8òÇòóø/

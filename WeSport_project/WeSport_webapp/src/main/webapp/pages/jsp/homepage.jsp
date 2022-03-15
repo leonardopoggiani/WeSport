@@ -22,7 +22,7 @@
                     <div class="project-box-content-header"> List of user </div>
                 </a>
 
-                <a class="box-content-header" href="${pageContext.request.contextPath}/pages/jsp/booking.jsp">
+                <a class="box-content-header" href="${pageContext.request.contextPath}/booking">
                     <div class="project-box-content-header"> Book a field </div>
                 </a>
 

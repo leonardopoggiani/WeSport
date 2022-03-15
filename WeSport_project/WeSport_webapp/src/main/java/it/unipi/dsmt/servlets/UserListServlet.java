@@ -36,17 +36,12 @@ public class UserListServlet extends HttpServlet {
         String filter_username = request.getParameter("filter");
         String code = request.getParameter("code");
 
-        System.out.println("[LOG] action: " + action);
-        System.out.println("[LOG] username: " + filter_username);
-        System.out.println("[LOG] code: " + code);
-
         List<UserDTO> users = new ArrayList<>();
 
         if(filter_username != null && filter_username.compareTo("") != 0) {
             UserDTO user = new UserDTO();
 
             try {
-                System.out.println("[LOG] filter_username: " + filter_username);
 
                 user = userRemote.getUser(filter_username);
             } catch (SQLException e) {
@@ -60,7 +55,6 @@ public class UserListServlet extends HttpServlet {
 
         } else {
             if(action != null && action.compareTo("load") == 0 && code != null && code.compareTo("") != 0) {
-                System.out.println("[LOG] user: " + code);
                 UserDTO user = null;
                 try {
                     user = userRemote.getUser(code);

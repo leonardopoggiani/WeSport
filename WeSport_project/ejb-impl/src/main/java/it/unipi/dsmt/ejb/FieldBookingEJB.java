@@ -1,59 +1,63 @@
 package it.unipi.dsmt.ejb;
 
 import it.unipi.dsmt.dto.FieldBookingDTO;
-import it.unipi.dsmt.dto.UserDTO;
-import it.unipi.dsmt.ejb.entities.FieldBooking;
 import it.unipi.dsmt.interfaces.FieldBookingRemote;
 
 import javax.ejb.Stateless;
-import javax.naming.Context;
-import javax.naming.InitialContext;
-import javax.naming.NamingException;
 import javax.persistence.*;
-import javax.sql.DataSource;
-import java.sql.Connection;
+import java.sql.Date;
 import java.sql.SQLException;
-import java.sql.Statement;
+import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.List;
 
 @Stateless
 public class FieldBookingEJB implements FieldBookingRemote {
 
-    private static DataSource dataSource = null;
-
     @PersistenceContext
     private EntityManager entityManager;
 
-    public FieldBookingEJB() throws NamingException {
-        //Context ctx = new InitialContext();
-        //dataSource = (DataSource) ctx.lookup("jdbc/wesport_pool");
-        //EntityManagerFactory emf = Persistence.createEntityManagerFactory("wesportPU");
-        //entityManager = emf.createEntityManager();
-    }
-
     @Override
-    public void insertPendingBooking(String id,String sport) throws SQLException {
-        StringBuilder jpql = new StringBuilder();
-        FieldBookingDTO toPersist = new FieldBookingDTO(id, sport);
+    public void insertBooking(Integer id,String sport) throws SQLException {
+        FieldBookingDTO toPersist = new FieldBookingDTO();
+        toPersist.setBooking_id(id);
+        toPersist.setSport(sport);
         entityManager.persist(toPersist);
     }
 
     @Override
-    public ArrayList<FieldBookingDTO> displayBooking(String username, boolean petsitter, boolean pending) {
-        String petowner_us = null;
-        String petsitter_us = null;
+    public ArrayList<FieldBookingDTO> displayBooking(String username) {
+        String jpql = "select b.id, b.sport, b.day, b.start_hour, b.end_hour, b.booker" +
+                " from FieldBooking b where lower(b.booker) = lower(:username)";
 
-        return null;
+        System.out.println("[LOG] displayBooking: " + username);
+
+        Query query = entityManager.createQuery(jpql);
+        query.setParameter("username", username);
+
+        List<Object[]> bookingList = query.getResultList();
+        ArrayList<FieldBookingDTO> result = new ArrayList<>();
+
+        if (bookingList != null && !bookingList.isEmpty()) {
+            for(Object[] booking: bookingList){
+                FieldBookingDTO dto = new FieldBookingDTO();
+                dto.setBooking_id((Integer) booking[0]);
+                dto.setSport((String) booking[1]);
+                dto.setDay((Date) booking[2]);
+                dto.setStart_hour((Timestamp) booking[3]);
+                dto.setEnd_hour((Timestamp) booking[4]);
+                dto.setBooker((String) booking[5]);
+
+                result.add(dto);
+            }
+        }
+
+        return result;
     }
 
-    @Override
-    public void removePendingBooking(String booking_id, boolean accepted) throws SQLException {
-
-    }
 
     @Override
-    public boolean searchBooking(String owner, String petSitter) throws SQLException {
+    public boolean searchBooking(String username, String sport) throws SQLException {
         return false;
     }
 
