@@ -11,5 +11,5 @@ public interface FieldBookingRemote {
 
     public void insertBooking(Integer id, String sport) throws SQLException;
     public ArrayList<FieldBookingDTO> displayBooking(String username) throws SQLException;
-    boolean searchBooking(String username, String sport) throws SQLException;
+    public ArrayList<FieldBookingDTO> displayBookingForSport(String sport);
 }

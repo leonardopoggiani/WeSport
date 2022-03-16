@@ -16,16 +16,11 @@
     </head>
 <body>
     <h1>Booking portal</h1>
-    <label for="sports">Choose a sport:</label>
-    <select form="<%=request.getContextPath() %>/booking" name="sports" id="sports">
-        <option value="tennis">Tennis</option>
-        <option value="basket">Basket</option>
-        <option value="futsal">Futsal</option>
-        <option value="rugby">Rugby</option>
-    </select>
+
+    <h2>Your bookings:</h2>
 
     <% if(bookings == null) {%>
-        <p> There are no bookings! Be the first one! </p>
+        <p> Such empty! :( </p>
     <%} else {%>
         <table>
         <% for(FieldBookingDTO booking : bookings) { %>
@@ -37,6 +32,14 @@
         <%}%>
         </table>
     <% } %>
+
+    <label for="sports">Choose a sport:</label>
+    <select form="<%=request.getContextPath() %>/booking" name="sports" id="sports">
+        <option value="tennis">Tennis</option>
+        <option value="basket">Basket</option>
+        <option value="futsal">Futsal</option>
+        <option value="rugby">Rugby</option>
+    </select>
 
 </body>
 </html>

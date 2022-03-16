@@ -54,10 +54,34 @@ public class FieldBookingEJB implements FieldBookingRemote {
         return result;
     }
 
-
     @Override
-    public boolean searchBooking(String username, String sport) throws SQLException {
-        return false;
+    public ArrayList<FieldBookingDTO> displayBookingForSport(String sport) {
+        String jpql = "select b.id, b.sport, b.day, b.start_hour, b.end_hour, b.booker" +
+                " from FieldBooking b where lower(b.sport) = lower(:sport)";
+
+        System.out.println("[LOG] displayBookingSport: " + sport);
+
+        Query query = entityManager.createQuery(jpql);
+        query.setParameter("sport", sport);
+
+        List<Object[]> bookingList = query.getResultList();
+        ArrayList<FieldBookingDTO> result = new ArrayList<>();
+
+        if (bookingList != null && !bookingList.isEmpty()) {
+            for(Object[] booking: bookingList){
+                FieldBookingDTO dto = new FieldBookingDTO();
+                dto.setBooking_id((Integer) booking[0]);
+                dto.setSport((String) booking[1]);
+                dto.setDay((Date) booking[2]);
+                dto.setStart_hour((Integer) booking[3]);
+                dto.setEnd_hour((Integer) booking[4]);
+                dto.setBooker((String) booking[5]);
+
+                result.add(dto);
+            }
+        }
+
+        return result;
     }
 
 }
