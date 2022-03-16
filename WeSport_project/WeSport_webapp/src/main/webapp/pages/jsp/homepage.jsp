@@ -19,22 +19,22 @@
             <div class="row">
 
                 <a class="box-content-header" href="${pageContext.request.contextPath}/userlist">
-                    <div class="project-box-content-header"> List of user </div>
+                    <div class="project-box-content-header" id="users"> List of user </div>
                 </a>
 
-                <a class="box-content-header" href="${pageContext.request.contextPath}/pages/jsp/booking.jsp">
-                    <div class="project-box-content-header"> Book a field </div>
+                <a class="box-content-header"  href="${pageContext.request.contextPath}/pages/jsp/booking.jsp">
+                    <div class="project-box-content-header" id="booking"> Book a field </div>
                 </a>
 
             </div>
 
             <div class="row">
                 <a class="box-content-header" href="${pageContext.request.contextPath}/pages/jsp/profile.jsp">
-                    <div class="project-box-content-header"> Personal profile </div>
+                    <div class="project-box-content-header" id="profile"> Personal profile </div>
                 </a>
 
                 <a class="box-content-header" href="${pageContext.request.contextPath}/pages/jsp/chat.jsp">
-                    <div class="project-box-content-header"> Chat </div>
+                    <div class="project-box-content-header" id="chat"> Chat </div>
                 </a>
             </div>
 

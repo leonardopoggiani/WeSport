@@ -55,9 +55,36 @@
     border-radius: 25px;
     box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
     text-decoration: none;
-    color: #374785;
-    background: #e9ebf0;
+    /*color: #374785;*/
+    background: #ffffff;
+    /*background: #e9ebf0;*/
+    /*background-image: url("../images/calendar.jpg");*/
 }
+
+#booking.project-box-content-header{
+    background-image: url("../images/booking.jpg");
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+#users.project-box-content-header{
+    background-image: url("../images/new friends.png");
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+#profile.project-box-content-header{
+    background-image: url("../images/user new.png");
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+#chat.project-box-content-header{
+    background-image: url("../images/chat.jpg");
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
 
 .project-box-content-header:hover{
     opacity: 0.7;
