@@ -5,11 +5,7 @@ P
 java:S1161":Add the "@Override" annotation above this method signature(‹¨¯¿
 P
 java:S1161 ":Add the "@Override" annotation above this method signature(ûÀĞ¶
-Z	java:S106%"9Replace this use of System.out or System.err by a logger.(»ï£ıÿÿÿÿ8ïÖïóø/
-j
-java:S2441."MMake "List" and its parameters serializable or don't store it in the session.(€ÁÀä8”Ÿ³óø/
-~
-java:S19892"aHandle the following exceptions that could be thrown by "forward": ServletException, IOException.(ò¢ë‡8•Ÿ³óø/
-b
-java:S1128"@Remove this unused import 'it.unipi.dsmt.interfaces.UserRemote'.(°Ùîãûÿÿÿÿ8°²óø/
-r	java:S117""QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¼„Õğûÿÿÿÿ8—Ÿ³óø/
+S	java:S106&"9Replace this use of System.out or System.err by a logger.(æÈÅèüÿÿÿÿ
+N	java:S106."9Replace this use of System.out or System.err by a logger.(ÎÄ£
+w
+java:S19894"aHandle the following exceptions that could be thrown by "forward": ServletException, IOException.(ò¢ë‡

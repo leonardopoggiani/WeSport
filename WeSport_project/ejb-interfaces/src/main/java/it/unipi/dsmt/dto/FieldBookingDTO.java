@@ -1,16 +1,16 @@
 package it.unipi.dsmt.dto;
 
 
-import java.sql.Date;
-import java.sql.Timestamp;
+import java.io.Serializable;
+import java.util.Date;
 
-public class FieldBookingDTO {
+public class FieldBookingDTO implements Serializable {
 
     private Integer booking_id;
     private String sport;
     private Date day;
-    private Timestamp start_hour;
-    private Timestamp end_hour;
+    private Integer start_hour;
+    private Integer end_hour;
     private String booker;
 
     @Override
@@ -45,19 +45,19 @@ public class FieldBookingDTO {
         this.day = day;
     }
 
-    public Timestamp getStart_hour() {
+    public Integer getStart_hour() {
         return start_hour;
     }
 
-    public void setStart_hour(Timestamp start_hour) {
+    public void setStart_hour(Integer start_hour) {
         this.start_hour = start_hour;
     }
 
-    public Timestamp getEnd_hour() {
+    public Integer getEnd_hour() {
         return end_hour;
     }
 
-    public void setEnd_hour(Timestamp end_hour) {
+    public void setEnd_hour(Integer end_hour) {
         this.end_hour = end_hour;
     }
 

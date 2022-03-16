@@ -5,8 +5,6 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
 import java.io.Serializable;
-import java.sql.Time;
-import java.sql.Timestamp;
 import java.util.Date;
 
 @Entity
@@ -20,9 +18,9 @@ public class FieldBooking implements Serializable {
     @Column(name="day")
     private Date day;
     @Column(name="start_hour")
-    private Timestamp start_hour;
+    private Integer start_hour;
     @Column(name="end_hour")
-    private Timestamp end_hour;
+    private Integer end_hour;
     @Column(name="booker")
     private String booker;
 
@@ -50,19 +48,19 @@ public class FieldBooking implements Serializable {
         this.day = day;
     }
 
-    public Timestamp getStart_hour() {
+    public Integer getStart_hour() {
         return start_hour;
     }
 
-    public void setStart_hour(Timestamp start_hour) {
+    public void setStart_hour(Integer start_hour) {
         this.start_hour = start_hour;
     }
 
-    public Timestamp getEnd_hour() {
+    public Integer getEnd_hour() {
         return end_hour;
     }
 
-    public void setEnd_hour(Timestamp end_hour) {
+    public void setEnd_hour(Integer end_hour) {
         this.end_hour = end_hour;
     }
 

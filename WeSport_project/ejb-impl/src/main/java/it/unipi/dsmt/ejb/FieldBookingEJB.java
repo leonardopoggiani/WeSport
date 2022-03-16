@@ -5,9 +5,8 @@ import it.unipi.dsmt.interfaces.FieldBookingRemote;
 
 import javax.ejb.Stateless;
 import javax.persistence.*;
-import java.sql.Date;
+import java.util.Date;
 import java.sql.SQLException;
-import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -44,8 +43,8 @@ public class FieldBookingEJB implements FieldBookingRemote {
                 dto.setBooking_id((Integer) booking[0]);
                 dto.setSport((String) booking[1]);
                 dto.setDay((Date) booking[2]);
-                dto.setStart_hour((Timestamp) booking[3]);
-                dto.setEnd_hour((Timestamp) booking[4]);
+                dto.setStart_hour((Integer) booking[3]);
+                dto.setEnd_hour((Integer) booking[4]);
                 dto.setBooker((String) booking[5]);
 
                 result.add(dto);
