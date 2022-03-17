@@ -78,3 +78,15 @@
     background-position: center;
     background-size:contain;
 }
+
+#ilbusy{
+    background-color: red;
+}
+
+#passed{
+    background-color: grey;
+}
+
+.busy{
+    button: disabled;
+}
