@@ -2,6 +2,7 @@
 <%@ page import="java.util.List" %>
 <%@ page import="java.time.LocalDate" %>
 <%@ page import="java.time.Month" %>
+<%@ page import="java.time.format.DateTimeFormatter" %>
 <%--
   Created by IntelliJ IDEA.
   User: poggiolinux
@@ -13,6 +14,8 @@
 <%
     List<FieldBookingDTO> bookings = (List<FieldBookingDTO>)request.getAttribute("bookings");
     boolean[] freeDays = (boolean[])request.getAttribute("freeDays");
+    String[] monthsArray;
+    monthsArray = new String[]{"JANUARY", "FEBRUARY", "MARCH", "APRIL", "MAY", "JUNE", "JULY", "AUGUST", "SEPTEMBER", "OCTOBER", "NOVEMBER", "DECEMBER"};
 %>
                   
 <html>
@@ -24,31 +27,6 @@
     </head>
 <body>
     <h1>Booking portal</h1>
-
-    <h2>Your bookings:</h2>
-
-    <% if(bookings == null) {%>
-        <p> Such empty! :( </p>
-    <%} else {%>
-        <table>
-        <% for(FieldBookingDTO booking : bookings) { %>
-            <tr>
-                <td> <%=booking.getBooking_id()%> </td>
-                <td> <%=booking.getDay()%>  </td>
-                <td> <%=booking.getBooker()%>  </td>
-            </tr>
-        <%}%>
-        </table>
-    <% } %>
-
-    <table>
-        <% for(int i = 0; i < freeDays.length; i++) { %>
-        <tr>
-            <td><%=i + 1%>: <%=freeDays[i]%> </td>
-        </tr>
-        <%}%>
-    </table>
-
     <label for="sports">Choose a sport:</label>
     <select form="<%=request.getContextPath() %>/booking" name="sports" id="sports">
         <option value="tennis">Tennis</option>
@@ -60,19 +38,28 @@
 
 
     <div class="month">
-        <p><i><b>MARCH 2022</b></i></p>
-            <% String month = "MARCH"; %>
-
+        <%
+             DateTimeFormatter dtf = DateTimeFormatter.ofPattern("uuuu/MM/dd");
+             LocalDate now = LocalDate.now();
+             String month = monthsArray[now.getMonthValue()-1];
+             int year = now.getYear();
+             int day = now.getDayOfMonth();
+        %>
+        <p><i><b><%= month + " " + year%></b></i></p>
     </div>
 
     <ul class="days">
         <%
-            int i;
-            for (i=1;i<=31; i++){
-
-            %>
-        <li><button><%= i%></button></li>
-            <%
+            //int i;
+            for( int i = 0; i < freeDays.length; i++){
+                if (i<day){ %>
+                    <li id="passed"><button class="busy"><%= i%></button></li>
+                    <%}
+                else if (!freeDays[i]){ %>
+                    <li id="ilbusy"><button class="busy"><%= i%></button></li>
+                <% } else{  %>
+                    <li><button><%= i%></button></li>
+                <%}
             }%>
     </ul>
 
@@ -80,6 +67,35 @@
         <li id="ilPrevious"><button id="previous"></button></li>
         <li><button id="next"></button></li>
     </ul>
+
+
+    <h2>Your bookings:</h2>
+
+    <% if(bookings == null) {%>
+    <p> Such empty! :( </p>
+    <%} else {%>
+    <table>
+        <% for(FieldBookingDTO booking : bookings) { %>
+        <tr>
+            <td> <%=booking.getBooking_id()%> </td>
+            <td> <%=booking.getDay()%>  </td>
+            <td> <%=booking.getBooker()%>  </td>
+        </tr>
+        <%}%>
+    </table>
+    <% } %>
+
+
+
+    <table>
+        <% for(int i = 0; i < freeDays.length; i++) { %>
+        <tr>
+            <% if (freeDays[i] !=true && freeDays[i] !=false){ %>
+                <td><%=i + 1%>: <%=freeDays[i]%> </td>
+            <%}%>
+        </tr>
+        <%}%>
+    </table>
 
 </body>
 </html>
