@@ -1,0 +1,9 @@
+
+o	java:S116"URename this field "start_hour" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Íðõçþÿÿÿÿ
+m	java:S116"SRename this field "end_hour" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Ê‡ü»ûÿÿÿÿ
+h	java:S1003"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ÌîñÐùÿÿÿÿ
+c	java:S1007"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ª­å—
+h	java:S100;"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(‚Ùãóøÿÿÿÿ
+h	java:S100?"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¶¶¾Èùÿÿÿÿ
+f	java:S1177"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ª­å—
+k	java:S117?"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¶¶¾Èùÿÿÿÿ
