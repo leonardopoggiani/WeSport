@@ -6,6 +6,15 @@
     background-color: var(--app-container);
 }
 
+h1 {
+    background-image: url("../images/header.png");
+    height: 70pt;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    font-size: 34pt
+}
+
 :root {
     --app-container: #A8D0E6;
     --main-color: #F76C6C;
