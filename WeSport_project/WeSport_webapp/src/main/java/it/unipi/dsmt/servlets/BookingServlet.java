@@ -4,6 +4,7 @@ package it.unipi.dsmt.servlets;
 import java.io.IOException;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import it.unipi.dsmt.dto.FieldBookingDTO;
@@ -37,15 +38,20 @@ public class BookingServlet extends HttpServlet {
     List<FieldBookingDTO> bookings = new ArrayList<>();
     System.out.println("[LOG] username: " + user.getUsername());
 
-    try {
-      bookings = fieldBookingRemote.displayBooking(user.getUsername());
-    } catch (SQLException e) {
-      e.printStackTrace();
+    long miliseconds = System.currentTimeMillis();
+    Date date = new Date(miliseconds);
+
+    bookings = fieldBookingRemote.displayBookingForSport("tennis");
+    boolean[] freeDays = fieldBookingRemote.displayBusyDaysForMonth("tennis", date);
+    for(int i = 0; i < freeDays.length; i++) {
+        System.out.println("Day " + (i + 1) + " is free: " + freeDays[i]);
     }
 
     System.out.println("[LOG] bookings retrieved: " + bookings.size());
 
     request.setAttribute("bookings", bookings);
+    request.setAttribute("freeDays", freeDays);
+
     String targetJSP = "/pages/jsp/booking.jsp";
 
     RequestDispatcher requestDispatcher = request.getRequestDispatcher(targetJSP);

@@ -7,7 +7,10 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<%    List<FieldBookingDTO> bookings = (List<FieldBookingDTO>)request.getAttribute("bookings");%>
+<%
+    List<FieldBookingDTO> bookings = (List<FieldBookingDTO>)request.getAttribute("bookings");
+    boolean[] freeDays = (boolean[])request.getAttribute("freeDays");
+%>
 <html>
     <head>
         <title>Booking</title>
@@ -32,6 +35,14 @@
         <%}%>
         </table>
     <% } %>
+
+    <table>
+        <% for(int i = 0; i < freeDays.length; i++) { %>
+        <tr>
+            <td><%=i + 1%>: <%=freeDays[i]%> </td>
+        </tr>
+        <%}%>
+    </table>
 
     <label for="sports">Choose a sport:</label>
     <select form="<%=request.getContextPath() %>/booking" name="sports" id="sports">
