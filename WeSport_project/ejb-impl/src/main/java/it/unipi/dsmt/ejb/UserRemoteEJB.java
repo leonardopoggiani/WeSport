@@ -2,7 +2,6 @@ package it.unipi.dsmt.ejb;
 
 
 import it.unipi.dsmt.dto.UserDTO;
-import it.unipi.dsmt.ejb.entities.User;
 import it.unipi.dsmt.interfaces.UserRemote;
 
 import javax.ejb.Stateless;

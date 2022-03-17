@@ -5,13 +5,16 @@ import it.unipi.dsmt.dto.FieldBookingDTO;
 import javax.ejb.Remote;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.Date;
 
 @Remote
 public interface FieldBookingRemote {
 
-    public void insertPendingBooking(String id, String sport) throws SQLException;
-    public ArrayList<FieldBookingDTO> displayBooking(String username, boolean petsitter, boolean pending) throws SQLException;
-    public void removePendingBooking(String booking_id, boolean accepted) throws SQLException;
+    public void insertBooking(Integer id, String sport) throws SQLException;
+    public ArrayList<FieldBookingDTO> displayBooking(String username) throws SQLException;
+    public ArrayList<FieldBookingDTO> displayBookingForSport(String sport);
+    public ArrayList<FieldBookingDTO> displayBookingNotExpired(String sport);
+    public ArrayList<FieldBookingDTO> displayBookingExpired(String sport);
+    public boolean[] displayBusyDaysForMonth(String sport, Date currentMonth);
 
-    boolean searchBooking(String owner, String petSitter) throws SQLException;
 }

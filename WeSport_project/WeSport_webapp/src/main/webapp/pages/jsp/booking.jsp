@@ -1,3 +1,7 @@
+<%@ page import="it.unipi.dsmt.dto.FieldBookingDTO" %>
+<%@ page import="java.util.List" %>
+<%@ page import="java.time.LocalDate" %>
+<%@ page import="java.time.Month" %>
 <%--
   Created by IntelliJ IDEA.
   User: poggiolinux
@@ -6,10 +10,11 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<%@ page import="java.time.LocalDate" %>
-<%@ page import="java.time.Month" %>
-
-
+<%
+    List<FieldBookingDTO> bookings = (List<FieldBookingDTO>)request.getAttribute("bookings");
+    boolean[] freeDays = (boolean[])request.getAttribute("freeDays");
+%>
+                  
 <html>
     <head>
         <title>Booking</title>
@@ -19,8 +24,33 @@
     </head>
 <body>
     <h1>Booking portal</h1>
+
+    <h2>Your bookings:</h2>
+
+    <% if(bookings == null) {%>
+        <p> Such empty! :( </p>
+    <%} else {%>
+        <table>
+        <% for(FieldBookingDTO booking : bookings) { %>
+            <tr>
+                <td> <%=booking.getBooking_id()%> </td>
+                <td> <%=booking.getDay()%>  </td>
+                <td> <%=booking.getBooker()%>  </td>
+            </tr>
+        <%}%>
+        </table>
+    <% } %>
+
+    <table>
+        <% for(int i = 0; i < freeDays.length; i++) { %>
+        <tr>
+            <td><%=i + 1%>: <%=freeDays[i]%> </td>
+        </tr>
+        <%}%>
+    </table>
+
     <label for="sports">Choose a sport:</label>
-    <select name="sports" id="sports">
+    <select form="<%=request.getContextPath() %>/booking" name="sports" id="sports">
         <option value="tennis">Tennis</option>
         <option value="basket">Basket</option>
         <option value="futsal">Futsal</option>
