@@ -21,32 +21,52 @@
 <html>
 <head>
     <title>Profile</title>
-    <link href="${pageContext.request.contextPath}/CSS/homepage.css" rel="stylesheet" type="text/css">
+    <link href="${pageContext.request.contextPath}/CSS/profile.css" rel="stylesheet" type="text/css">
     <link rel="icon" type="image/x-icon" href="${pageContext.request.contextPath}/images/favicon.png">
 </head>
 <body>
 
-<p>Username : <%=logged_user.getUsername()%></p>
-<p>Name : <%=logged_user.getName()%></p>
-<p>Surname : <%=logged_user.getSurname()%></p>
-<p>Email : <%=logged_user.getEmail()%></p>
-<p>Description : <%=logged_user.getDescription()%></p>
 
-<h2>Your bookings:</h2>
 
-<% if(bookings == null) {%>
-<p> Such empty! :( </p>
-<%} else {%>
-<table>
-    <% for(FieldBookingDTO booking : bookings) { %>
-    <tr>
-        <td> <%=booking.getBooking_id()%> </td>
-        <td> <%=booking.getDay()%>  </td>
-        <td> <%=booking.getBooker()%>  </td>
-    </tr>
-    <%}%>
-</table>
-<% } %>
+
+
+<div class="home">
+    <div class="row">
+
+        <a class="box-content-header" href="${pageContext.request.contextPath}/userlist">
+            <div class="project-box-content-header" id="users">PROFILE
+                <p>Username : <%=logged_user.getUsername()%></p>
+                <p>Name : <%=logged_user.getName()%></p>
+                <p>Surname : <%=logged_user.getSurname()%></p>
+                <p>Email : <%=logged_user.getEmail()%></p>
+                <p>Description : <%=logged_user.getDescription()%></p>
+            </div>
+        </a>
+
+        <a class="box-content-header"  href="${pageContext.request.contextPath}/booking">
+            <div class="project-box-content-header" id="books">Your bookings:
+
+
+                <% if(bookings == null) {%>
+                <p> Such empty! :( </p>
+                <%} else {%>
+
+                    <% for(FieldBookingDTO booking : bookings) { %>
+
+                        <p><%=booking.getDay()%>
+                        <%=booking.getBooker()%> </p>
+
+                    <%}%>
+
+                <% } %>
+
+            </div>
+        </a>
+
+    </div>
+
+</div>
+
 
 </body>
 </html>

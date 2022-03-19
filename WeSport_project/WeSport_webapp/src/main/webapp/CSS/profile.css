@@ -56,8 +56,8 @@ h1 {
 
 .project-box-content-header {
     width: 100%;
-    height: 110%;
-    margin: 0 auto;
+    height: 130%;
+
     order: 1;
     cursor: pointer;
     border-radius: 25px;
@@ -70,13 +70,13 @@ h1 {
 }
 
 #booking.project-box-content-header{
-    background-image: url("../images/booking.jpg");
+    /*background-image: url("../images/booking.jpg");*/
     background-repeat: no-repeat;
     background-position: center;
 }
 
 #users.project-box-content-header{
-    background-image: url("../images/new friends.png");
+   /* background-image: url("../images/new friends.png");*/
     background-repeat: no-repeat;
     background-position: center;
 }
