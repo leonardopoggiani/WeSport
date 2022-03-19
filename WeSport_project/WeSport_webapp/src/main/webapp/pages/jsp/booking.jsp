@@ -32,15 +32,15 @@
     <h1>Booking portal</h1>
     <label for="sports">Choose a sport:</label>
     <select form="<%=request.getContextPath() %>/booking" name="sports" id="sports">
-        <option value="tennis" selected>Tennis</option>
+        <option value="tennis" id="default" selected>Tennis</option>
         <option value="basket">Basket</option>
         <option value="futsal">Futsal</option>
         <option value="rugby">Rugby</option>
     </select>
+    <br><br>
 
 
-
-    <div class="month">
+    <div class="monthClass">
         <%
             /*DateTimeFormatter dtf = DateTimeFormatter.ofPattern("uuuu/MM/dd");
              LocalDate now = LocalDate.now();
@@ -48,14 +48,16 @@
              int year = now.getYear();*/
              int day = LocalDate.now().getDayOfMonth();
         %>
-        <p id="month-year"><i><b>MARCH 2022</b></i></p>
+        <!--p id="month-year"><i><b>MARCH 2022</b></i></p!-->
+        <label id="month">MONTH</label>
+        <label id="year">2022</label>
     </div>
 
     <ul class="days">
         <%
             //int i;
             for( int i = 0; i < freeDays.length; i++){
-                if (i<day ){ %>
+                if (i+1<day ){ %>
                     <li id="passed"><button class="busy"><%= i+1%></button></li>
                     <%}
                 else if (!freeDays[i]){ %>
@@ -67,8 +69,8 @@
     </ul>
 
     <ul class="changeMonth">
-        <li id="ilPrevious"><button id="previous"></button></li>
-        <li><button id="next"></button></li>
+        <li id="ilPrevious"><button onclick="onclickPrevious()" id="previous"></button></li>
+        <li><button onclick="onclickNext()" id="next"></button></li>
     </ul>
 
 
