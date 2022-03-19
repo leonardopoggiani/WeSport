@@ -33,7 +33,7 @@
 <div class="home">
     <div class="row">
 
-        <a class="box-content-header" href="${pageContext.request.contextPath}/userlist">
+        <a class="box-content-header" >
             <div class="project-box-content-header" id="users">PROFILE
                 <p>Username : <%=logged_user.getUsername()%></p>
                 <p>Name : <%=logged_user.getName()%></p>
@@ -44,7 +44,7 @@
         </a>
 
         <a class="box-content-header"  href="${pageContext.request.contextPath}/booking">
-            <div class="project-box-content-header" id="books">Your bookings:
+            <div class="project-box-content-header" id="books">YOUR BOOKINGS
 
 
                 <% if(bookings == null) {%>
