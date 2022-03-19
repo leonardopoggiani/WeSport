@@ -29,7 +29,7 @@
             </div>
 
             <div class="row">
-                <a class="box-content-header" href="${pageContext.request.contextPath}/pages/jsp/profile.jsp">
+                <a class="box-content-header" href="${pageContext.request.contextPath}/profile">
                     <div class="project-box-content-header" id="profile"> Personal profile </div>
                 </a>
 

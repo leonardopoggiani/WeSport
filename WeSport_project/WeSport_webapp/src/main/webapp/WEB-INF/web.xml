@@ -21,6 +21,12 @@
             it.unipi.dsmt.servlets.LoginServlet
         </servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>ProfileServlet</servlet-name>
+        <servlet-class>
+            it.unipi.dsmt.servlets.ProfileServlet
+        </servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>UserListServlet</servlet-name>
         <url-pattern>/userlist</url-pattern>
@@ -33,4 +39,9 @@
         <servlet-name>LoginServlet</servlet-name>
         <url-pattern>/login</url-pattern>
     </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ProfileServlet</servlet-name>
+        <url-pattern>/profile</url-pattern>
+    </servlet-mapping>
+
 </web-app>
