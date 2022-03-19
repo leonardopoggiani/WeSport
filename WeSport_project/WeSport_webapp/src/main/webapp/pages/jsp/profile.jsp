@@ -3,7 +3,9 @@
 
 <!-- %@ page import="it.unipi.dsmt.ejb.UserRemoteEJB" % -->
 <%@ page import="javax.naming.NamingException" %>
-<%@ page import="java.net.InetAddress" %><%--
+<%@ page import="java.net.InetAddress" %>
+<%@ page import="it.unipi.dsmt.dto.FieldBookingDTO" %>
+<%@ page import="java.util.List" %><%--
   Created by IntelliJ IDEA.
   User: poggiolinux
   Date: 12/03/22
@@ -13,6 +15,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%
     UserDTO logged_user = (UserDTO)session.getAttribute("logged_user");
+    List<FieldBookingDTO> bookings = (List<FieldBookingDTO>)request.getAttribute("bookings");
     String actual_ip = InetAddress.getLocalHost().getHostAddress();
 %>
 <html>
@@ -28,6 +31,22 @@
 <p>Surname : <%=logged_user.getSurname()%></p>
 <p>Email : <%=logged_user.getEmail()%></p>
 <p>Description : <%=logged_user.getDescription()%></p>
+
+<h2>Your bookings:</h2>
+
+<% if(bookings == null) {%>
+<p> Such empty! :( </p>
+<%} else {%>
+<table>
+    <% for(FieldBookingDTO booking : bookings) { %>
+    <tr>
+        <td> <%=booking.getBooking_id()%> </td>
+        <td> <%=booking.getDay()%>  </td>
+        <td> <%=booking.getBooker()%>  </td>
+    </tr>
+    <%}%>
+</table>
+<% } %>
 
 </body>
 </html>
