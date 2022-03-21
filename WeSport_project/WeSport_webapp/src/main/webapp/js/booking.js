@@ -4,42 +4,7 @@ function updateNextYearIfNeeded(month, year){
     }
     else return year;
 }
-/*
-function createCalendar(i){
-    window.alert(i);
-    if (parseInt(document.getElementById("year").value) < (new Date()).getFullYear()){
-        var li = document.createElement("li");
-        li.appendChild(document.createTextNode(i));
-        li.setAttribute("id", "passed");
-        var but = document.createElement("button");
-        but.setAttribute("class", "busy" );
-        li.appendChild(but);
-        ul = document.getElementsByClassName("days");
-        ul.appendChild(li);
-    }
-    else if ((parseInt(document.getElementById("year").value)=== (new Date()).getFullYear()) && getMonthNumberFromName(document.getElementById("month").innerText) < (new Date).getMonth()){
-        var li = document.createElement("li");
-        li.appendChild(document.createTextNode(i));
-        li.setAttribute("id", "passed");
-        var but = document.createElement("button");
-        but.setAttribute("class", "busy" );
-        li.appendChild(but);
-        ul = document.getElementsByClassName("days");
-        ul.appendChild(li);
-    }
-    else if ((parseInt(document.getElementById("year").value)=== (new Date()).getFullYear()) && (getMonthNumberFromName(document.getElementById("month").innerText) === (new Date).getMonth()) && i < (new Date).getDay()){
-        var li = document.createElement("li");
-        li.appendChild(document.createTextNode(i));
-        li.setAttribute("id", "passed");
-        var but = document.createElement("button");
-        but.setAttribute("class", "busy" );
-        li.appendChild(but);
-        ul = document.getElementsByClassName("days");
-        ul.appendChild(li);
-    }
 
-}
-*/
 function updateNextMonth(month){
     return (month+1)%12;
 }
@@ -122,7 +87,7 @@ function onchange(e) {
     var year = document.getElementById("year");
     //saveLocalSession(sports=field.value, month=month.value, year=year.value);
     saveLocalSession(sports=field.value, 2, 2022);
-    window.location.reload();
+    //window.location.reload();
 }
 
 function onclickNext(e){
@@ -133,7 +98,7 @@ function onclickNext(e){
     var newMonth = updateNextMonth(month);
     var newYear = updateNextYearIfNeeded(month, year.value);
     saveLocalSession(sports=field.value, month=newMonth, year=newYear);
-    window.location.reload();
+    //window.location.reload();
 }
 
 function onclickPrevious(e){
@@ -144,8 +109,9 @@ function onclickPrevious(e){
     var newMonth = updatePreviousMonth(month);
     var newYear = updatePreviousYearIfNeeded(month, year.value);
     saveLocalSession(sports=field.value, month=newMonth, year=newYear);
-    window.location.reload();
+    ///window.location.reload();
 }
+
 
 document.getElementById('sports').addEventListener('change', onchange);
 document.getElementById("previous").addEventListener("click", onclickPrevious);

@@ -21,7 +21,7 @@
     font-size: 20pt;
     border: none;
     appearance: none;
-    width: fit-content;
+    width:115pt;
 }
 .month p b {
     background:#ffffff;
@@ -75,6 +75,7 @@
     width: 20%;
     margin-left: 1%;
     margin-right:20%;
+
 }
 
 
@@ -104,6 +105,8 @@
     background-repeat: no-repeat;
     background-position: center;
     background-size:contain;
+    height: 30pt;
+    width:30pt;
 }
 
 #ilbusy{

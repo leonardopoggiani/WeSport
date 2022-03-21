@@ -30,8 +30,9 @@
     </head>
 <body onload="onload()">
     <h1>Booking portal</h1>
+    <form method="get" action="<%= request.getContextPath()%>/booking?sport=sports&month=month&year=year">
         <label for="sports">Choose a sport:</label>
-        <select form="<%=request.getContextPath()%>/booking?sport=sports" name="sports" id="sports">
+        <select name="sports" id="sports">
             <option value="tennis" id="default" selected>Tennis</option>
             <option value="basket">Basket</option>
             <option value="futsal">Futsal</option>
@@ -43,30 +44,28 @@
 
 
     <div class="monthClass">
-        <%
-            /*DateTimeFormatter dtf = DateTimeFormatter.ofPattern("uuuu/MM/dd");
-             LocalDate now = LocalDate.now();
-             String month = monthsArray[now.getMonthValue()-1];
-             int year = now.getYear();*/
-             int day = LocalDate.now().getDayOfMonth();
-        %>
-        <!--p id="month-year"><i><b>MARCH 2022</b></i></p!-->
-        <input class="label" form="<%=request.getContextPath()%>/booking" type="text" id="month" name="month" disabled>
-        <input class="label" form="<%=request.getContextPath() %>/booking" type="text" id="year" name="year" disabled><br>
+        <input class="label" type="text" id="month" name="month">
+        <input class="label" type="text" id="year" name="year"><br>
+
     </div>
 
     <ul class="days">
         <script>let j=1;</script>
         <%
-            //int i;
-            for( int i = 0; i < freeDays.length; i++){%>
-                <!--script async type="text/javascript" src="${pageContext.request.contextPath}/js/booking.js">
-                    createCalendar(j);
-                    j=j+1;
-                </script!-->
-                <%
-                if (!freeDays[i]){ %>
-                    <li id="busy"><button class="busy"><%= i+1%></button></li>
+            int month = Integer.parseInt(request.getAttribute("monthNumber").toString());
+            //String month = monthsArray[monthNumber];
+            int year = Integer.parseInt(request.getAttribute("year").toString());
+            LocalDate now = LocalDate.now();
+            int currentMonth = now.getMonthValue()-1;
+            int currentYear = now.getYear();
+            int day = LocalDate.now().getDayOfMonth();
+
+            for( int i = 0; i < freeDays.length; i++){
+                if (year < currentYear || (year==currentYear && month < currentMonth) || (year==currentYear && month==currentMonth && i<day)){ %>
+                    <li id="passed"><button class="busy"><%= i+1%></button></li>
+                <%}
+                else if (!freeDays[i]){ %>
+                    <li id="ilbusy"><button class="busy"><%= i+1%></button></li>
                 <% } else{  %>
                     <li><button><%= i+1%></button></li>
                 <%}
@@ -75,12 +74,12 @@
 
     <ul class="changeMonth">
         <li id="ilPrevious"><button onclick="onclickPrevious()" id="previous"></button></li>
-        <li id="ilSearch"><form method="get" action="<%=request.getContextPath()%>/booking?sport=sports&month=month&year=year">
-            <button type="submit" id="submit"></button>
-        </form></li>
+        <li id="ilSearch">
+            <input type="submit" id="submit" value=" "/>
+    </li>
         <li><button onclick="onclickNext()" id="next"></button></li>
     </ul>
-
+    </form>
 
     <h2>Your bookings:</h2>
 
