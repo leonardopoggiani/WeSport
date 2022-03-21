@@ -1,0 +1,103 @@
+@import url("https://fonts.googleapis.com/css?family=DM+Sans:400,500,700&display=swap");
+
+* {
+    text-align: center;
+    font-family: 'DM Sans', sans-serif;
+    background-color: var(--app-container);
+}
+
+h1 {
+    background-image: url("../images/header.png");
+    height: 70pt;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    font-size: 34pt
+}
+
+:root {
+    --app-container: #A8D0E6;
+    --main-color: #F76C6C;
+    --secondary-color: #374785;
+    --link-color: #F76C6C;
+    --link-color-hover: #da9b9b;
+    --link-color-active: #374785;
+    --link-color-active-bg: #F76C6C;
+    --projects-section: #F8E9A1;
+    --message-box-hover: #374785;
+    --message-box-border: #e9ebf0;
+    --more-list-bg: #374785;
+    --more-list-bg-hover: #5a689b;
+    --more-list-shadow: rgba(209, 209, 209, 0.4);
+    --button-bg: #1f1c24;
+    --search-area-bg: #374785;
+    --star: #1ff1c2e;
+    --message-btn: #212a4f;
+}
+
+.dark:root {
+    --app-container: #111827;
+    --main-color: #fff;
+    --secondary-color: rgba(255,255,255,.8);
+    --projects-section: #1f2937;
+    --link-color: rgba(255,255,255,.8);
+    --link-color-hover: rgba(195, 207, 244, 0.1);
+    --link-color-active-bg: rgba(195, 207, 244, 0.2);
+    --button-bg: #1f2937;
+    --search-area-bg: #1f2937;
+    --message-box-hover: #243244;
+    --message-box-border: rgba(255,255,255,.1);
+    --star: #ffd92c;
+    --light-font: rgba(255,255,255,.8);
+    --more-list-bg: #2f3142;
+    --more-list-bg-hover:  rgba(195, 207, 244, 0.1);
+    --more-list-shadow: rgba(195, 207, 244, 0.1);
+    --message-btn: rgba(195, 207, 244, 0.1);
+}
+
+.user-busy {
+    text-align:center;
+    padding-top: 10px;
+}
+
+.icon {
+    position: relative;
+    top: 5px;
+    left: 5px;
+}
+
+.float-container {
+    box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+    padding: 20px;
+}
+
+.online-users {
+    float: left;
+    padding: 20px;
+    box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+    height: 400px;
+    width: 600px;
+    overflow-y: auto;
+}
+
+.message_box {
+    float: right;
+    padding: 20px;
+    box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+    height: 400px;
+    width: 1000px;
+}
+
+.message-box-title {
+    padding: 20px;
+    box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+}
+
+.submit-button {
+    box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+    padding: 20px;
+}
+
+.top-div {
+    display: block;
+}
