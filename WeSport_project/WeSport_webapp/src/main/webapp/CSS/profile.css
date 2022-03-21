@@ -61,7 +61,6 @@ h1 {
     order: 1;
     cursor: pointer;
     border-radius: 25px;
-    box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
     text-decoration: none;
     /*color: #374785;*/
     background: #ffffff;
@@ -69,38 +68,6 @@ h1 {
     /*background-image: url("../images/calendar.jpg");*/
 }
 
-#booking.project-box-content-header{
-    /*background-image: url("../images/booking.jpg");*/
-    background-repeat: no-repeat;
-    background-position: center;
-}
-
-#users.project-box-content-header{
-   /* background-image: url("../images/new friends.png");*/
-    background-repeat: no-repeat;
-    background-position: center;
-}
-
-#profile.project-box-content-header{
-    background-image: url("../images/user new.png");
-    background-repeat: no-repeat;
-    background-position: center;
-}
-
-#chat.project-box-content-header{
-    background-image: url("../images/chat.jpg");
-    background-repeat: no-repeat;
-    background-position: center;
-}
-
-
-.project-box-content-header:hover{
-    opacity: 0.7;
-    height: 90%;
-    width: 90%;
-    z-index: 1;
-    text-decoration: none;
-}
 
 .box-content-header {
     font-size: 16px;
@@ -131,77 +98,14 @@ h1 {
     font-size: 16px;
 }
 
-.login-page {
-    width: 360px;
-    padding: 8% 0 0;
-    margin: auto;
-}
 
-.form {
-    position: relative;
-    z-index: 1;
-    background: #e9ebf0;
-    max-width: 360px;
-    margin: 0 auto 100px;
-    padding: 45px;
-    text-align: center;
-    box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
-}
-.form input {
-    outline: 0;
-    background: #e9ebf0;
-    width: 100%;
-    border: 1px solid #e9ebf0;
-    padding: 15px;
-    box-sizing: border-box;
-    font-size: 14px;
-}
-.form button {
-    text-transform: uppercase;
-    outline: 0;
-    background: #1f2937;
-    width: 100%;
-    border: 0;
-    padding: 15px;
-    color: #e9ebf0;
-    font-size: 14px;
-    -webkit-transition: all 0.3 ease;
-    transition: all 0.3 ease;
-    cursor: pointer;
-}
-.form button:hover,.form button:active,.form button:focus {
-    background: #243244;
-}
-.form .message {
-    margin: 15px 0 0;
-    color: #b3b3b3;
-    font-size: 12px;
-}
-
-.form .message a {
-    color: #F76C6C;
-    text-decoration: none;
-}
-
-.form .message a:hover {
-    color: #F76C6C;
-    text-decoration: none;
-}
-
-.form .register-form {
-    display: none;
-}
 .container {
     position: relative;
     z-index: 1;
     max-width: 300px;
     margin: 0 auto;
 }
-.container:before, .container:after {
-    content: "";
-    display: block;
-    clear: both;
-}
+
 
 .container .info {
     margin: 50px auto;
