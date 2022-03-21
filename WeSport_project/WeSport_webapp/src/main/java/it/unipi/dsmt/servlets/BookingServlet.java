@@ -2,14 +2,19 @@ package it.unipi.dsmt.servlets;
 
 
 import java.io.IOException;
-import java.sql.SQLException;
+import java.time.LocalDate;
+import java.time.Month;
+import java.time.Year;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 
 import it.unipi.dsmt.dto.FieldBookingDTO;
 import it.unipi.dsmt.dto.UserDTO;
 import it.unipi.dsmt.interfaces.FieldBookingRemote;
+import it.unipi.dsmt.utils.Utils;
+
 
 import javax.ejb.EJB;
 import javax.servlet.RequestDispatcher;
@@ -27,7 +32,7 @@ public class BookingServlet extends HttpServlet {
     private FieldBookingRemote fieldBookingRemote;
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
+        System.out.println("post");
     }
 
   protected void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
@@ -39,10 +44,25 @@ public class BookingServlet extends HttpServlet {
     System.out.println("[LOG] username: " + user.getUsername());
 
     long miliseconds = System.currentTimeMillis();
-    Date date = new Date(miliseconds);
+    Calendar date = Calendar.getInstance();
 
-    bookings = fieldBookingRemote.displayBookingForSport("tennis");
-    boolean[] freeDays = fieldBookingRemote.displayBusyDaysForMonth("tennis", date);
+    String sport = request.getParameter("sports");
+    System.out.println("Sport: " + sport);
+    if (sport == null) sport = "tennis";
+    String month = request.getParameter("month");
+    int monthNumber = (LocalDate.now().getMonthValue())-1;
+    if (month != null){
+      monthNumber = Utils.getCalendarMonth(month);
+    }
+    System.out.println("Mese: " + monthNumber);
+    //int calendarMonth =utils.getCalendarMonth(month);
+    String year = request.getParameter("year");
+    if (year == null) year = Integer.toString(Year.now().getValue());
+    System.out.println("Qui:"+ year);
+    date.set(Calendar.MONTH, monthNumber);
+    date.set(Calendar.YEAR, Integer.parseInt(year));
+    bookings = fieldBookingRemote.displayBookingForSport(sport);
+    boolean[] freeDays = fieldBookingRemote.displayBusyDaysForMonth(sport, date.getTime());
     for(int i = 0; i < freeDays.length; i++) {
         System.out.println("Day " + (i + 1) + " is free: " + freeDays[i]);
     }
@@ -51,6 +71,8 @@ public class BookingServlet extends HttpServlet {
 
     request.setAttribute("bookings", bookings);
     request.setAttribute("freeDays", freeDays);
+    request.setAttribute("monthNumber", monthNumber);
+    request.setAttribute("year", year);
 
     String targetJSP = "/pages/jsp/booking.jsp";
 

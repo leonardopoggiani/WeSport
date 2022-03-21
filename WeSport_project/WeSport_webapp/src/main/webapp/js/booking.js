@@ -72,8 +72,8 @@ function restoreLocalSession(){
     var month = document.getElementById("month");
     var year = document.getElementById("year");
     select.value = sport;
-    month.innerText = getMonthNameFromNumber(monthRestored);
-    year.innerText = yearRestored;
+    month.value = getMonthNameFromNumber(monthRestored);
+    year.value = yearRestored;
 
 }
 
@@ -87,32 +87,33 @@ function onchange(e) {
     var year = document.getElementById("year");
     //saveLocalSession(sports=field.value, month=month.value, year=year.value);
     saveLocalSession(sports=field.value, 2, 2022);
-    window.location.reload();
+    //window.location.reload();
 }
 
 function onclickNext(e){
     var field = document.getElementById("sports");
     var monthName = document.getElementById("month");
-    var month = getMonthNumberFromName(monthName.innerText);
+    var month = getMonthNumberFromName(monthName.value);
     var year = document.getElementById("year");
     var newMonth = updateNextMonth(month);
-    var newYear = updateNextYearIfNeeded(month, year.innerText);
+    var newYear = updateNextYearIfNeeded(month, year.value);
     saveLocalSession(sports=field.value, month=newMonth, year=newYear);
-    window.location.reload();
+    //window.location.reload();
 }
 
 function onclickPrevious(e){
     var field = document.getElementById("sports");
     var monthName = document.getElementById("month");
-    var month = getMonthNumberFromName(monthName.innerText);
+    var month = getMonthNumberFromName(monthName.value);
     var year = document.getElementById("year");
     var newMonth = updatePreviousMonth(month);
-    var newYear = updatePreviousYearIfNeeded(month, year.innerText);
+    var newYear = updatePreviousYearIfNeeded(month, year.value);
     saveLocalSession(sports=field.value, month=newMonth, year=newYear);
-    window.location.reload();
+    ///window.location.reload();
 }
 
+
 document.getElementById('sports').addEventListener('change', onchange);
-document.getElementById("previous").addEventListener("click", onclick);
-document.getElementById("next").addEventListener("click", onclick);
+document.getElementById("previous").addEventListener("click", onclickPrevious);
+document.getElementById("next").addEventListener("click", onclickNext);
 window.addEventListener('load', onload);
