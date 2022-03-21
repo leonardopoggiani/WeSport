@@ -33,7 +33,7 @@
                     <div class="project-box-content-header" id="profile"> Personal profile </div>
                 </a>
 
-                <a class="box-content-header" href="${pageContext.request.contextPath}/pages/jsp/chat.jsp">
+                <a class="box-content-header" href="${pageContext.request.contextPath}/chat">
                     <div class="project-box-content-header" id="chat"> Chat </div>
                 </a>
             </div>
