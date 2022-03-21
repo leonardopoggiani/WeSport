@@ -20,7 +20,7 @@
 <body onload="connect('<%=((UserDTO)session.getAttribute("logged_user")).getUsername()%>')" onunload="disconnect()">
     <h1> Chat</h1>
 
-    <div class="float-container">
+    <div>
         <div class="online-users">
             <div>
                 <%
@@ -42,8 +42,8 @@
             </div>
             <div class="submit-button">
                 <form>
-                    <input type="text" placeholder="Enter your message">
-                    <input type="submit" value="Send"/>
+                    <input class="message-text" type="text" placeholder="Enter your message">
+                    <input class="send-button" type="submit" value=" "/>
                 </form>
             </div>
         </div>
