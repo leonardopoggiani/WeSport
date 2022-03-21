@@ -11,7 +11,7 @@ public class FieldBookingDTO implements Serializable {
     private Date day;
     private Integer start_hour;
     private Integer end_hour;
-    private String booker;
+    private Integer booker;
 
     @Override
     public String toString() {
@@ -61,11 +61,11 @@ public class FieldBookingDTO implements Serializable {
         this.end_hour = end_hour;
     }
 
-    public String getBooker() {
+    public Integer getBooker() {
         return booker;
     }
 
-    public void setBooker(String booker) {
+    public void setBooker(Integer booker) {
         this.booker = booker;
     }
 }

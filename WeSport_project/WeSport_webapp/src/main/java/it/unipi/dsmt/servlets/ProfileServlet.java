@@ -40,7 +40,7 @@ public class ProfileServlet extends HttpServlet {
         Date date = new Date(miliseconds);
 
         try {
-            bookings = fieldBookingRemote.displayBooking(user.getUsername());
+            bookings = fieldBookingRemote.displayBooking(user.getId());
         } catch (SQLException e) {
             e.printStackTrace();
         }

@@ -56,7 +56,7 @@
                 <% for(FieldBookingDTO booking : bookings) { %>
 
                 <a   class="box-content-header" href="${pageContext.request.contextPath}/bookedEvent">
-                 <p><%=booking.getDay()%>
+                 <p class="booking"><%=booking.getDay()%>
                      <%=booking.getBooker()%></p>
                 </a>
                 <%}%>

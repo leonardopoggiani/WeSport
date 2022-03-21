@@ -61,13 +61,13 @@ h1 {
     order: 1;
     cursor: pointer;
     border-radius: 25px;
+    box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
     text-decoration: none;
     /*color: #374785;*/
     background: #ffffff;
     /*background: #e9ebf0;*/
     /*background-image: url("../images/calendar.jpg");*/
 }
-
 
 .box-content-header {
     font-size: 16px;
@@ -76,6 +76,11 @@ h1 {
     height: 80%;
     width: 90%;
     text-decoration: none;
+
+}
+
+.booking:hover{
+    opacity: 0.7;
 }
 
 .button {
@@ -123,15 +128,6 @@ h1 {
 .container .info span {
     color: #4d4d4d;
     font-size: 12px;
-}
-
-.container .info span a {
-    color: #000000;
-    text-decoration: none;
-}
-
-.container .info span .fa {
-    color: #EF3B3A;
 }
 
 .home {

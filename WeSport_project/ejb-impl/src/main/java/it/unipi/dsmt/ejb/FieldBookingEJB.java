@@ -23,14 +23,14 @@ public class FieldBookingEJB implements FieldBookingRemote {
     }
 
     @Override
-    public ArrayList<FieldBookingDTO> displayBooking(String username) {
+    public ArrayList<FieldBookingDTO> displayBooking(Integer user_id) {
         String jpql = "select b.id, b.sport, b.day, b.start_hour, b.end_hour, b.booker" +
-                " from FieldBooking b where lower(b.booker) = lower(:username)";
+                " from FieldBooking b where b.booker = :user_id";
 
-        System.out.println("[LOG] displayBooking: " + username);
+        System.out.println("[LOG] displayBooking: " + user_id);
 
         Query query = entityManager.createQuery(jpql);
-        query.setParameter("username", username);
+        query.setParameter("user_id", user_id);
 
         List<Object[]> bookingList = query.getResultList();
         ArrayList<FieldBookingDTO> result = new ArrayList<>();
@@ -43,7 +43,7 @@ public class FieldBookingEJB implements FieldBookingRemote {
                 dto.setDay((Date) booking[2]);
                 dto.setStart_hour((Integer) booking[3]);
                 dto.setEnd_hour((Integer) booking[4]);
-                dto.setBooker((String) booking[5]);
+                dto.setBooker((Integer) booking[5]);
 
                 result.add(dto);
             }
@@ -73,7 +73,7 @@ public class FieldBookingEJB implements FieldBookingRemote {
                 dto.setDay((Date) booking[2]);
                 dto.setStart_hour((Integer) booking[3]);
                 dto.setEnd_hour((Integer) booking[4]);
-                dto.setBooker((String) booking[5]);
+                dto.setBooker((Integer) booking[5]);
 
                 result.add(dto);
             }
@@ -108,7 +108,7 @@ public class FieldBookingEJB implements FieldBookingRemote {
                 dto.setDay((Date) booking[2]);
                 dto.setStart_hour((Integer) booking[3]);
                 dto.setEnd_hour((Integer) booking[4]);
-                dto.setBooker((String) booking[5]);
+                dto.setBooker((Integer) booking[5]);
 
                 result.add(dto);
             }
@@ -143,7 +143,7 @@ public class FieldBookingEJB implements FieldBookingRemote {
                 dto.setDay((Date) booking[2]);
                 dto.setStart_hour((Integer) booking[3]);
                 dto.setEnd_hour((Integer) booking[4]);
-                dto.setBooker((String) booking[5]);
+                dto.setBooker((Integer) booking[5]);
 
                 result.add(dto);
             }

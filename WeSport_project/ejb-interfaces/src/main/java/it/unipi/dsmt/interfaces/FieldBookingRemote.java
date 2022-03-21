@@ -11,7 +11,7 @@ import java.util.Date;
 public interface FieldBookingRemote {
 
     public void insertBooking(Integer id, String sport) throws SQLException;
-    public ArrayList<FieldBookingDTO> displayBooking(String username) throws SQLException;
+    public ArrayList<FieldBookingDTO> displayBooking(Integer user_id) throws SQLException;
     public ArrayList<FieldBookingDTO> displayBookingForSport(String sport);
     public ArrayList<FieldBookingDTO> displayBookingNotExpired(String sport);
     public ArrayList<FieldBookingDTO> displayBookingExpired(String sport);

@@ -22,7 +22,7 @@ public class FieldBooking implements Serializable {
     @Column(name="end_hour")
     private Integer end_hour;
     @Column(name="booker")
-    private String booker;
+    private Integer booker;
 
     public Integer getId() {
         return id;
@@ -64,11 +64,11 @@ public class FieldBooking implements Serializable {
         this.end_hour = end_hour;
     }
 
-    public String getBooker() {
+    public Integer getBooker() {
         return booker;
     }
 
-    public void setBooker(String booker) {
+    public void setBooker(Integer booker) {
         this.booker = booker;
     }
 }
