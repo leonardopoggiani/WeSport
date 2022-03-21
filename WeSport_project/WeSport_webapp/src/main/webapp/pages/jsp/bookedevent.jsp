@@ -31,22 +31,20 @@
 
 
 <div class="home">
-
     <div class="row">
 
-        <a class="box-content-header">
-                <div class="project-box-content-header" id="users">PROFILE
-                    <p>Username : <%=logged_user.getUsername()%></p>
-                    <p>Name : <%=logged_user.getName()%></p>
-                    <p>Surname : <%=logged_user.getSurname()%></p>
-                    <p>Email : <%=logged_user.getEmail()%></p>
-                    <p>Description : <%=logged_user.getDescription()%></p>
-                </div>
-
+        <a class="box-content-header" >
+            <div class="project-box-content-header" id="users">PROFILE
+                <p>Username : <%=logged_user.getUsername()%></p>
+                <p>Name : <%=logged_user.getName()%></p>
+                <p>Surname : <%=logged_user.getSurname()%></p>
+                <p>Email : <%=logged_user.getEmail()%></p>
+                <p>Description : <%=logged_user.getDescription()%></p>
+            </div>
         </a>
 
-
-            <div class="project-box-content-header" id="books">YOUR BOOKINGS
+        <a class="box-content-header"  >
+            YOUR BOOKINGS
 
 
                 <% if(bookings == null) {%>
@@ -55,23 +53,21 @@
 
                 <% for(FieldBookingDTO booking : bookings) { %>
 
-                <a   class="box-content-header" href="${pageContext.request.contextPath}/bookedEvent">
-                 <p><%=booking.getDay()%>
-                     <%=booking.getBooker()%></p>
-                </a>
+                <div class="project-box-content-header" id="books" href="${pageContext.request.contextPath}/bookedEvent">
+                    <%=booking.getDay()%>
+                    <%=booking.getBooker()%>
+                </div>
+
                 <%}%>
 
                 <% } %>
 
-            </div>
 
+        </a>
 
     </div>
+
 </div>
-
-
-
-
 
 
 </body>
