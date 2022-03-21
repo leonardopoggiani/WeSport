@@ -12,12 +12,16 @@
     font-size: 25pt;
     background-color: #ffffff;
 }
-label {
+.label {
     text-align: center;
     color: #000000;
     font-style: italic;
     font-weight: bold;
     background: none;
+    font-size: 20pt;
+    border: none;
+    appearance: none;
+    width: fit-content;
 }
 .month p b {
     background:#ffffff;
@@ -60,10 +64,19 @@ label {
 
 }
 
+
 #ilPrevious{
     width: 20%;
-    margin-right: 50%;
+    margin-right: 15%;
+    margin-left:0%;
 }
+
+#ilSearch{
+    width: 20%;
+    margin-left: 1%;
+    margin-right:20%;
+}
+
 
 .changeMonth li button {
     background:none;
@@ -81,6 +94,13 @@ label {
 
 #next{
     background-image: url("../images/next.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size:contain;
+}
+
+#submit{
+    background-image: url("../images/search.png");
     background-repeat: no-repeat;
     background-position: center;
     background-size:contain;

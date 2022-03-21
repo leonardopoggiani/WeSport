@@ -27,7 +27,7 @@ public class BookingServlet extends HttpServlet {
     private FieldBookingRemote fieldBookingRemote;
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
+        System.out.println("post");
     }
 
   protected void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
@@ -40,9 +40,12 @@ public class BookingServlet extends HttpServlet {
 
     long miliseconds = System.currentTimeMillis();
     Date date = new Date(miliseconds);
-
+    String sport = request.getParameter("sports");
+    System.out.println("Ecco " + sport);
+    String month = request.getParameter("month");
+    System.out.println("Mese " + month);
     bookings = fieldBookingRemote.displayBookingForSport("tennis");
-    boolean[] freeDays = fieldBookingRemote.displayBusyDaysForMonth("tennis", date);
+    boolean[] freeDays = fieldBookingRemote.displayBusyDaysForMonth(sport, date);
     for(int i = 0; i < freeDays.length; i++) {
         System.out.println("Day " + (i + 1) + " is free: " + freeDays[i]);
     }

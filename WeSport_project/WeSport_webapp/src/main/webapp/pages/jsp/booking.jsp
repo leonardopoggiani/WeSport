@@ -30,13 +30,15 @@
     </head>
 <body onload="onload()">
     <h1>Booking portal</h1>
-    <label for="sports">Choose a sport:</label>
-    <select form="<%=request.getContextPath() %>/booking" name="sports" id="sports">
-        <option value="tennis" id="default" selected>Tennis</option>
-        <option value="basket">Basket</option>
-        <option value="futsal">Futsal</option>
-        <option value="rugby">Rugby</option>
-    </select>
+        <label for="sports">Choose a sport:</label>
+        <select form="<%=request.getContextPath()%>/booking?sport=sports" name="sports" id="sports">
+            <option value="tennis" id="default" selected>Tennis</option>
+            <option value="basket">Basket</option>
+            <option value="futsal">Futsal</option>
+            <option value="rugby">Rugby</option>
+        </select>
+    </ul>
+
     <br><br>
 
 
@@ -49,19 +51,22 @@
              int day = LocalDate.now().getDayOfMonth();
         %>
         <!--p id="month-year"><i><b>MARCH 2022</b></i></p!-->
-        <label id="month">MONTH</label>
-        <label id="year">2022</label>
+        <input class="label" form="<%=request.getContextPath()%>/booking" type="text" id="month" name="month" disabled>
+        <input class="label" form="<%=request.getContextPath() %>/booking" type="text" id="year" name="year" disabled><br>
     </div>
 
     <ul class="days">
+        <script>let j=1;</script>
         <%
             //int i;
-            for( int i = 0; i < freeDays.length; i++){
-                if (i+1<day ){ %>
-                    <li id="passed"><button class="busy"><%= i+1%></button></li>
-                    <%}
-                else if (!freeDays[i]){ %>
-                    <li id="ilbusy"><button class="busy"><%= i+1%></button></li>
+            for( int i = 0; i < freeDays.length; i++){%>
+                <!--script async type="text/javascript" src="${pageContext.request.contextPath}/js/booking.js">
+                    createCalendar(j);
+                    j=j+1;
+                </script!-->
+                <%
+                if (!freeDays[i]){ %>
+                    <li id="busy"><button class="busy"><%= i+1%></button></li>
                 <% } else{  %>
                     <li><button><%= i+1%></button></li>
                 <%}
@@ -70,6 +75,9 @@
 
     <ul class="changeMonth">
         <li id="ilPrevious"><button onclick="onclickPrevious()" id="previous"></button></li>
+        <li id="ilSearch"><form method="get" action="<%=request.getContextPath()%>/booking?sport=sports&month=month&year=year">
+            <button type="submit" id="submit"></button>
+        </form></li>
         <li><button onclick="onclickNext()" id="next"></button></li>
     </ul>
 

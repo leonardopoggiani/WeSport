@@ -4,7 +4,42 @@ function updateNextYearIfNeeded(month, year){
     }
     else return year;
 }
+/*
+function createCalendar(i){
+    window.alert(i);
+    if (parseInt(document.getElementById("year").value) < (new Date()).getFullYear()){
+        var li = document.createElement("li");
+        li.appendChild(document.createTextNode(i));
+        li.setAttribute("id", "passed");
+        var but = document.createElement("button");
+        but.setAttribute("class", "busy" );
+        li.appendChild(but);
+        ul = document.getElementsByClassName("days");
+        ul.appendChild(li);
+    }
+    else if ((parseInt(document.getElementById("year").value)=== (new Date()).getFullYear()) && getMonthNumberFromName(document.getElementById("month").innerText) < (new Date).getMonth()){
+        var li = document.createElement("li");
+        li.appendChild(document.createTextNode(i));
+        li.setAttribute("id", "passed");
+        var but = document.createElement("button");
+        but.setAttribute("class", "busy" );
+        li.appendChild(but);
+        ul = document.getElementsByClassName("days");
+        ul.appendChild(li);
+    }
+    else if ((parseInt(document.getElementById("year").value)=== (new Date()).getFullYear()) && (getMonthNumberFromName(document.getElementById("month").innerText) === (new Date).getMonth()) && i < (new Date).getDay()){
+        var li = document.createElement("li");
+        li.appendChild(document.createTextNode(i));
+        li.setAttribute("id", "passed");
+        var but = document.createElement("button");
+        but.setAttribute("class", "busy" );
+        li.appendChild(but);
+        ul = document.getElementsByClassName("days");
+        ul.appendChild(li);
+    }
 
+}
+*/
 function updateNextMonth(month){
     return (month+1)%12;
 }
@@ -72,8 +107,8 @@ function restoreLocalSession(){
     var month = document.getElementById("month");
     var year = document.getElementById("year");
     select.value = sport;
-    month.innerText = getMonthNameFromNumber(monthRestored);
-    year.innerText = yearRestored;
+    month.value = getMonthNameFromNumber(monthRestored);
+    year.value = yearRestored;
 
 }
 
@@ -93,10 +128,10 @@ function onchange(e) {
 function onclickNext(e){
     var field = document.getElementById("sports");
     var monthName = document.getElementById("month");
-    var month = getMonthNumberFromName(monthName.innerText);
+    var month = getMonthNumberFromName(monthName.value);
     var year = document.getElementById("year");
     var newMonth = updateNextMonth(month);
-    var newYear = updateNextYearIfNeeded(month, year.innerText);
+    var newYear = updateNextYearIfNeeded(month, year.value);
     saveLocalSession(sports=field.value, month=newMonth, year=newYear);
     window.location.reload();
 }
@@ -104,15 +139,15 @@ function onclickNext(e){
 function onclickPrevious(e){
     var field = document.getElementById("sports");
     var monthName = document.getElementById("month");
-    var month = getMonthNumberFromName(monthName.innerText);
+    var month = getMonthNumberFromName(monthName.value);
     var year = document.getElementById("year");
     var newMonth = updatePreviousMonth(month);
-    var newYear = updatePreviousYearIfNeeded(month, year.innerText);
+    var newYear = updatePreviousYearIfNeeded(month, year.value);
     saveLocalSession(sports=field.value, month=newMonth, year=newYear);
     window.location.reload();
 }
 
 document.getElementById('sports').addEventListener('change', onchange);
-document.getElementById("previous").addEventListener("click", onclick);
-document.getElementById("next").addEventListener("click", onclick);
+document.getElementById("previous").addEventListener("click", onclickPrevious);
+document.getElementById("next").addEventListener("click", onclickNext);
 window.addEventListener('load', onload);
