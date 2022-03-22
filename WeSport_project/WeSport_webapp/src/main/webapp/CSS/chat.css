@@ -82,10 +82,11 @@ i {
 
 .online-users {
     margin-top: 20px;
+    margin-left: 60px;
     float: left;
     padding: 30px;
     box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
-    height: 400px;
+    height: 450px;
     width: 600px;
     overflow-y: auto;
 }
