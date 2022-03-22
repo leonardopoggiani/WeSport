@@ -163,6 +163,7 @@ public class FieldBookingEJB implements FieldBookingRemote {
                         "ORDER BY day");
 
         Calendar calendar = Calendar.getInstance();
+        calendar.setTime(date);
 
         System.out.println("date: " + date);
         System.out.println("sport: " + sport);
