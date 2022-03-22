@@ -1,6 +1,7 @@
 package it.unipi.dsmt.ejb;
 
 import it.unipi.dsmt.dto.FieldBookingDTO;
+import it.unipi.dsmt.dto.UserDTO;
 import it.unipi.dsmt.interfaces.FieldBookingRemote;
 
 import javax.ejb.Stateless;
@@ -151,6 +152,8 @@ public class FieldBookingEJB implements FieldBookingRemote {
 
         return result;
     }
+
+
 
     @Override
     public boolean[] displayBusyDaysForMonth(String sport, Date date) {

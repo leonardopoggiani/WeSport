@@ -1,6 +1,7 @@
 package it.unipi.dsmt.ejb;
 
 
+import it.unipi.dsmt.dto.UserBookingDTO;
 import it.unipi.dsmt.dto.UserDTO;
 import it.unipi.dsmt.interfaces.UserRemote;
 
@@ -89,4 +90,24 @@ public class UserRemoteEJB implements UserRemote {
         }
 
     }
+
+    @Override
+    public List<Object[]> displayUsersForEvent(Integer event_id) {
+        List<UserDTO> userDTOS=null;
+
+        System.out.println("[LOG] userBooking: ");
+        String jpql = "select ub.userBookingid,u.id, u.username, u.name, u.surname" +
+                " from User u join UserBooking ub " +
+                " where u.id=ub.userID and ub.bookingID="+event_id;
+
+        Query query = entityManager.createQuery(jpql);
+
+        List<Object[]> userList = query.getResultList();
+
+        System.out.println("[LOG] userBooking: " + userList);
+        return  userList;
+
+
+    }
+
 }

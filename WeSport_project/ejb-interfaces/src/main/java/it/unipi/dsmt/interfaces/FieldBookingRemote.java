@@ -13,6 +13,7 @@ public interface FieldBookingRemote {
     public void insertBooking(Integer id, String sport) throws SQLException;
     public ArrayList<FieldBookingDTO> displayBooking(Integer user_id) throws SQLException;
     public ArrayList<FieldBookingDTO> displayBookingForSport(String sport);
+
     public ArrayList<FieldBookingDTO> displayBookingNotExpired(String sport);
     public ArrayList<FieldBookingDTO> displayBookingExpired(String sport);
     public boolean[] displayBusyDaysForMonth(String sport, Date currentMonth);

@@ -52,6 +52,8 @@ public class BookingServlet extends HttpServlet {
     request.setAttribute("bookings", bookings);
     request.setAttribute("freeDays", freeDays);
 
+
+
     String targetJSP = "/pages/jsp/booking.jsp";
 
     RequestDispatcher requestDispatcher = request.getRequestDispatcher(targetJSP);
