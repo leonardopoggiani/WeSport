@@ -32,8 +32,6 @@ public class BookedEventServlet extends HttpServlet {
     @EJB
     private FieldBookingRemote fieldBookingRemote;
 
-    @EJB
-    private FieldBookingEJB fieldBookingEJB;
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
@@ -45,7 +43,7 @@ public class BookedEventServlet extends HttpServlet {
         UserDTO user = (UserDTO) session.getAttribute("logged_user");
       //  Integer event;
        //session.setAttribute("event", event);
-        Integer bookingID = (Integer) session.getAttribute("event");
+        Integer bookingID = Integer.valueOf(request.getParameter("event"));
         List<FieldBookingDTO> bookings ;
 
 
@@ -66,7 +64,7 @@ public class BookedEventServlet extends HttpServlet {
         String targetJSP = "/pages/jsp/bookedevent.jsp";
 
         System.out.println("[LOG] bookingID: " + bookingID);
-        List<Object[]> friends;
+        ArrayList<UserDTO> friends;
         friends=userRemote.displayUsersForEvent(bookingID);
         request.setAttribute("friends", friends);
 

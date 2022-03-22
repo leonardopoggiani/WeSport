@@ -18,5 +18,5 @@ public interface UserRemote {
 
     UserDTO loginUser(String username, String password) throws SQLException;
 
-    List<Object[]> displayUsersForEvent(Integer event_id);
+    ArrayList<UserDTO> displayUsersForEvent(Integer event_id);
 }
