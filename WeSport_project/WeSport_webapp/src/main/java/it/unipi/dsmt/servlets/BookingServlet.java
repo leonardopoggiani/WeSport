@@ -74,6 +74,8 @@ public class BookingServlet extends HttpServlet {
     request.setAttribute("monthNumber", monthNumber);
     request.setAttribute("year", year);
 
+
+
     String targetJSP = "/pages/jsp/booking.jsp";
 
     RequestDispatcher requestDispatcher = request.getRequestDispatcher(targetJSP);
