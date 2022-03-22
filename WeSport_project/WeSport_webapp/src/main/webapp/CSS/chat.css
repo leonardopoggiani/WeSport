@@ -55,44 +55,59 @@ h1 {
     --message-btn: rgba(195, 207, 244, 0.1);
 }
 
-.user-busy {
-    text-align:center;
-    padding-top: 10px;
+p {
+    text-align: left;
+    cursor: pointer;
+    padding: 0 0 0 20px;
 }
 
-.icon {
-    position: relative;
-    top: 5px;
-    left: 5px;
+i {
+    float: right;
+    margin-right: 20px;
+}
+
+.user-busy {
+    cursor: pointer;
+    width: 100%;
+    border: solid 1px #1f2937;
+    border-radius: 2px;
+}
+
+.box {
+    box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+    width: 100%;
+    height: 60%;
+    background-color: rgba(255,255,255,.8)
 }
 
 .online-users {
+    margin-top: 20px;
+    margin-left: 60px;
     float: left;
-    padding: 20px;
+    padding: 30px;
     box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
-    height: 400px;
+    height: 450px;
     width: 600px;
     overflow-y: auto;
 }
 
 .message_box {
     float: right;
-    padding: 20px;
-    box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
-    height: 400px;
+    height: 800px;
     width: 1000px;
 }
 
 .message-box-title {
     padding: 20px;
     box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+    background-color: rgba(255,255,255,.8)
 }
 
 .submit-button {
     padding: 20px 20px;
     width: 100%;
     height: 120px;
-    margin-top: 500px;
+    margin-top: 100px;
 }
 
 .top-div {

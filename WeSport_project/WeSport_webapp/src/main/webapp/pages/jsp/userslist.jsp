@@ -11,6 +11,7 @@
     <meta charset="UTF-8">
     <title>List of users</title>
     <link href="${pageContext.request.contextPath}/CSS/homepage.css" rel="stylesheet" type="text/css">
+    <link href="${pageContext.request.contextPath}/CSS/navbar.css" rel="stylesheet" type="text/css">
     <link rel="icon" type="image/x-icon" href="${pageContext.request.contextPath}/images/favicon.png">
 </head>
 

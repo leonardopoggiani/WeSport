@@ -25,10 +25,27 @@
         <title>Booking</title>
         <link href="${pageContext.request.contextPath}/CSS/homepage.css" rel="stylesheet" type="text/css">
         <link href="${pageContext.request.contextPath}/CSS/booking.css" rel="stylesheet" type="text/css">
+        <link href="${pageContext.request.contextPath}/CSS/navbar.css" rel="stylesheet" type="text/css">
         <script async src="${pageContext.request.contextPath}/js/booking.js"></script>
+        <script type="text/javascript" src="${pageContext.request.contextPath}/js/navbar.js"></script>
         <link rel="icon" type="image/x-icon" href="${pageContext.request.contextPath}/images/favicon.png">
     </head>
 <body onload="onload()">
+<nav id="menu" class="navbar navbar-default">
+    <div class="container-nav">
+
+        <div id="navbar">
+            <ul class="nav navbar-nav">
+                <li><a href="${pageContext.request.contextPath}/homepage">Homepage</a></li>
+                <li class="active"><a href="${pageContext.request.contextPath}/booking">Booking</a></li>
+                <li><a href="${pageContext.request.contextPath}/profile">Profile</a></li>
+                <li><a href="${pageContext.request.contextPath}/chat">Chat</a></li>
+            </ul>
+        </div>
+
+    </div>
+</nav>
+
     <h1>Booking portal</h1>
     <form method="get" action="<%= request.getContextPath()%>/booking?sport=sports&month=month&year=year">
         <label for="sports">Choose a sport:</label>

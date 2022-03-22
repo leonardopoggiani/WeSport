@@ -22,13 +22,26 @@
 <head>
     <title>Profile</title>
     <link href="${pageContext.request.contextPath}/CSS/profile.css" rel="stylesheet" type="text/css">
+    <link href="${pageContext.request.contextPath}/CSS/navbar.css" rel="stylesheet" type="text/css">
+    <script type="text/javascript" src="${pageContext.request.contextPath}/js/navbar.js"></script>
     <link rel="icon" type="image/x-icon" href="${pageContext.request.contextPath}/images/favicon.png">
 </head>
 <body>
 
+<nav id="menu" class="navbar navbar-default">
+    <div class="container-nav">
 
+        <div id="navbar">
+            <ul class="nav navbar-nav">
+                <li><a href="${pageContext.request.contextPath}/homepage">Homepage</a></li>
+                <li><a href="${pageContext.request.contextPath}/booking">Booking</a></li>
+                <li class="active"><a href="${pageContext.request.contextPath}/profile">Profile</a></li>
+                <li><a href="${pageContext.request.contextPath}/chat">Chat</a></li>
+            </ul>
+        </div>
 
-
+    </div>
+</nav>
 
 <div class="home">
 
