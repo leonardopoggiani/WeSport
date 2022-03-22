@@ -17,7 +17,7 @@ public class FieldBookingEJB implements FieldBookingRemote {
     @Override
     public void insertBooking(String sport, Date date, Integer start_hour, Integer end_hour, Integer booker) throws SQLException {
         FieldBookingDTO toPersist = new FieldBookingDTO();
-        
+
         toPersist.setSport(sport);
         toPersist.setDay(date);
         toPersist.setStart_hour(start_hour);
