@@ -6,7 +6,10 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
+import it.unipi.dsmt.dto.FieldBookingDTO;
+import it.unipi.dsmt.dto.UserBookingDTO;
 import it.unipi.dsmt.dto.UserDTO;
+import it.unipi.dsmt.interfaces.BookingUserRemote;
 import it.unipi.dsmt.interfaces.UserRemote;
 
 import javax.ejb.EJB;
@@ -16,6 +19,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 
 @WebServlet(name = "UserListServlet", value = "/userlist")
@@ -23,6 +27,8 @@ public class UserListServlet extends HttpServlet {
 
     @EJB
     private UserRemote userRemote;
+
+
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
@@ -35,6 +41,9 @@ public class UserListServlet extends HttpServlet {
         String action = request.getParameter("action");
         String filter_username = request.getParameter("filter");
         String code = request.getParameter("code");
+
+        HttpSession session = request.getSession();
+        UserBookingDTO userBookingDTO = (UserBookingDTO) session.getAttribute("event");
 
         List<UserDTO> users = new ArrayList<>();
 
@@ -74,6 +83,11 @@ public class UserListServlet extends HttpServlet {
                 resourceURL = "/pages/jsp/userslist.jsp";
             }
         }
+
+
+
+
+
 
         RequestDispatcher rd = request.getRequestDispatcher(resourceURL);
         rd.forward(request, response);

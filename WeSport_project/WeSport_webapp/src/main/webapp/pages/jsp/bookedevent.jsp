@@ -15,7 +15,8 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%
     UserDTO logged_user = (UserDTO)session.getAttribute("logged_user");
-    List<FieldBookingDTO> bookings = (List<FieldBookingDTO>)request.getAttribute("bookings");
+    List<UserDTO> friends = (List<UserDTO>)request.getAttribute("friends");
+    Integer bookedID = (Integer) session.getAttribute("event");
     String actual_ip = InetAddress.getLocalHost().getHostAddress();
 %>
 <html>
@@ -33,37 +34,23 @@
 <div class="home">
     <div class="row">
 
-        <a class="box-content-header" >
-            <div class="project-box-content-header" id="users">PROFILE
-                <p>Username : <%=logged_user.getUsername()%></p>
-                <p>Name : <%=logged_user.getName()%></p>
-                <p>Surname : <%=logged_user.getSurname()%></p>
-                <p>Email : <%=logged_user.getEmail()%></p>
-                <p>Description : <%=logged_user.getDescription()%></p>
+        <div class="project-box-content-header" id="books">YOUR FRIENDS
+
+
+
+
+        </div>
+
+            <div class="project-box-content-header" id="score"> SCORE
+
+                <p class="booking">
+                    <%=bookedID%></p>
+
+
             </div>
-        </a>
-
-        <a class="box-content-header"  >
-            YOUR BOOKINGS
 
 
-                <% if(bookings == null) {%>
-                <p> Such empty! :( </p>
-                <%} else {%>
 
-                <% for(FieldBookingDTO booking : bookings) { %>
-
-                <div class="project-box-content-header" id="books" href="${pageContext.request.contextPath}/bookedEvent">
-                    <%=booking.getDay()%>
-                    <%=booking.getBooker()%>
-                </div>
-
-                <%}%>
-
-                <% } %>
-
-
-        </a>
 
     </div>
 

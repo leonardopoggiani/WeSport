@@ -1,8 +1,12 @@
 package it.unipi.dsmt.servlets;
 
 import it.unipi.dsmt.dto.FieldBookingDTO;
+import it.unipi.dsmt.dto.UserBookingDTO;
 import it.unipi.dsmt.dto.UserDTO;
+import it.unipi.dsmt.ejb.FieldBookingEJB;
+import it.unipi.dsmt.interfaces.BookingUserRemote;
 import it.unipi.dsmt.interfaces.FieldBookingRemote;
+import it.unipi.dsmt.interfaces.UserRemote;
 
 import javax.ejb.EJB;
 import javax.servlet.RequestDispatcher;
@@ -21,7 +25,15 @@ import java.util.List;
 public class BookedEventServlet extends HttpServlet {
 
     @EJB
+    private UserRemote userRemote;
+    @EJB
+    private BookingUserRemote bookingUserRemote;
+
+    @EJB
     private FieldBookingRemote fieldBookingRemote;
+
+    @EJB
+    private FieldBookingEJB fieldBookingEJB;
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
@@ -31,9 +43,11 @@ public class BookedEventServlet extends HttpServlet {
 
         HttpSession session = request.getSession();
         UserDTO user = (UserDTO) session.getAttribute("logged_user");
+      //  Integer event;
+       //session.setAttribute("event", event);
+        Integer bookingID = (Integer) session.getAttribute("event");
+        List<FieldBookingDTO> bookings ;
 
-        List<FieldBookingDTO> bookings = new ArrayList<>();
-        System.out.println("[LOG] username: " + user.getUsername());
 
         long miliseconds = System.currentTimeMillis();
         Date date = new Date(miliseconds);
@@ -50,6 +64,11 @@ public class BookedEventServlet extends HttpServlet {
         request.setAttribute("freeDays", freeDays);
 
         String targetJSP = "/pages/jsp/bookedevent.jsp";
+
+        System.out.println("[LOG] bookingID: " + bookingID);
+        List<Object[]> friends;
+        friends=userRemote.displayUsersForEvent(bookingID);
+        request.setAttribute("friends", friends);
 
         RequestDispatcher requestDispatcher = request.getRequestDispatcher(targetJSP);
         requestDispatcher.forward(request,response);
