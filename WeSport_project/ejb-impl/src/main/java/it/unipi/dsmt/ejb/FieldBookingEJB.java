@@ -1,6 +1,7 @@
 package it.unipi.dsmt.ejb;
 
 import it.unipi.dsmt.dto.FieldBookingDTO;
+import it.unipi.dsmt.dto.UserDTO;
 import it.unipi.dsmt.interfaces.FieldBookingRemote;
 
 import javax.ejb.Stateless;
@@ -15,10 +16,15 @@ public class FieldBookingEJB implements FieldBookingRemote {
     private EntityManager entityManager;
 
     @Override
-    public void insertBooking(Integer id, String sport) throws SQLException {
+    public void insertBooking(String sport, Date date, Integer start_hour, Integer end_hour, Integer booker) throws SQLException {
         FieldBookingDTO toPersist = new FieldBookingDTO();
-        toPersist.setBooking_id(id);
+
         toPersist.setSport(sport);
+        toPersist.setDay(date);
+        toPersist.setStart_hour(start_hour);
+        toPersist.setEnd_hour(end_hour);
+        toPersist.setBooker(booker);
+
         entityManager.persist(toPersist);
     }
 
@@ -152,6 +158,8 @@ public class FieldBookingEJB implements FieldBookingRemote {
         return result;
     }
 
+
+
     @Override
     public boolean[] displayBusyDaysForMonth(String sport, Date date) {
         Query query = entityManager.createNativeQuery(
@@ -163,6 +171,7 @@ public class FieldBookingEJB implements FieldBookingRemote {
                         "ORDER BY day");
 
         Calendar calendar = Calendar.getInstance();
+        calendar.setTime(date);
 
         System.out.println("date: " + date);
         System.out.println("sport: " + sport);

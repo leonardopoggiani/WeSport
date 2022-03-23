@@ -1,4 +1,4 @@
-$(document).ready(function(){
+jQuery(function(){
     var $navbar_header = $('<div class="navbar-header"></div>');
 
     var $button = $("<button></button>");
@@ -33,7 +33,6 @@ $(document).ready(function(){
     }
 
     $(window).on('resize', _.debounce(navbarDisplay, 0));
-
 
 });
 

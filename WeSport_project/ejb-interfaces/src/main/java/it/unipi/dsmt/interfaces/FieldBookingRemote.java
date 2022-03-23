@@ -10,9 +10,10 @@ import java.util.Date;
 @Remote
 public interface FieldBookingRemote {
 
-    public void insertBooking(Integer id, String sport) throws SQLException;
+    public void insertBooking(String sport, Date date, Integer start_hour, Integer end_hour, Integer booker) throws SQLException;
     public ArrayList<FieldBookingDTO> displayBooking(Integer user_id) throws SQLException;
     public ArrayList<FieldBookingDTO> displayBookingForSport(String sport);
+
     public ArrayList<FieldBookingDTO> displayBookingNotExpired(String sport);
     public ArrayList<FieldBookingDTO> displayBookingExpired(String sport);
     public boolean[] displayBusyDaysForMonth(String sport, Date currentMonth);

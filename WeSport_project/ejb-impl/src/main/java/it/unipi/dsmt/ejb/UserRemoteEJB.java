@@ -89,4 +89,36 @@ public class UserRemoteEJB implements UserRemote {
         }
 
     }
+
+    @Override
+    public ArrayList<UserDTO> displayUsersForEvent(Integer event_id) {
+        ArrayList<UserDTO> userDTOS=new ArrayList<>();
+
+        System.out.println("[LOG] userBooking: ");
+        String jpql = "select ub.userBookingid,u.id, u.username, u.name, u.surname" +
+                " from User u join UserBooking ub " +
+                " where u.id=ub.userID and ub.bookingID="+event_id;
+
+        Query query = entityManager.createQuery(jpql);
+
+        List<Object[]> userList = query.getResultList();
+
+        if (userList != null && !userList.isEmpty()) {
+            for(Object[] userInfo: userList){
+                UserDTO dto = new UserDTO();
+
+                dto.setUsername((String) userInfo[2]);
+                dto.setName((String) userInfo[3]);
+                dto.setSurname((String) userInfo[4]);
+
+                userDTOS.add(dto);
+            }
+        }
+
+        System.out.println("[LOG] userBooking: " + userList);
+        return  userDTOS;
+
+
+    }
+
 }

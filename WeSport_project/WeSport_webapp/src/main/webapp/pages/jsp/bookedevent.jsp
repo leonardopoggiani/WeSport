@@ -5,7 +5,9 @@
 <%@ page import="javax.naming.NamingException" %>
 <%@ page import="java.net.InetAddress" %>
 <%@ page import="it.unipi.dsmt.dto.FieldBookingDTO" %>
-<%@ page import="java.util.List" %><%--
+<%@ page import="java.util.List" %>
+<%@ page import="java.util.Locale" %>
+<%@ page import="java.util.ArrayList" %><%--
   Created by IntelliJ IDEA.
   User: poggiolinux
   Date: 12/03/22
@@ -15,8 +17,10 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%
     UserDTO logged_user = (UserDTO)session.getAttribute("logged_user");
-    List<FieldBookingDTO> bookings = (List<FieldBookingDTO>)request.getAttribute("bookings");
+    ArrayList<UserDTO> friends = (ArrayList<UserDTO>) request.getAttribute("friends");
+    Integer bookedID = (Integer) session.getAttribute("event");
     String actual_ip = InetAddress.getLocalHost().getHostAddress();
+
 %>
 <html>
 <head>
@@ -33,37 +37,34 @@
 <div class="home">
     <div class="row">
 
-        <a class="box-content-header" >
-            <div class="project-box-content-header" id="users">PROFILE
-                <p>Username : <%=logged_user.getUsername()%></p>
-                <p>Name : <%=logged_user.getName()%></p>
-                <p>Surname : <%=logged_user.getSurname()%></p>
-                <p>Email : <%=logged_user.getEmail()%></p>
-                <p>Description : <%=logged_user.getDescription()%></p>
+        <div class="project-box-content-header" id="books">YOUR FRIENDS
+
+            <% if(friends == null) {%>
+            <p> Such empty! :( </p>
+            <%} else {%>
+
+            <% for(UserDTO friend : friends) { %>
+
+            <a>
+                <p class="booking"><%=friend.getName()%></p>
+            </a>
+            <%}%>
+
+            <% } %>
+
+
+
+
+        </div>
+
+            <div class="project-box-content-header" id="score"> SCORE
+
+
+
             </div>
-        </a>
-
-        <a class="box-content-header"  >
-            YOUR BOOKINGS
 
 
-                <% if(bookings == null) {%>
-                <p> Such empty! :( </p>
-                <%} else {%>
 
-                <% for(FieldBookingDTO booking : bookings) { %>
-
-                <div class="project-box-content-header" id="books" href="${pageContext.request.contextPath}/bookedEvent">
-                    <%=booking.getDay()%>
-                    <%=booking.getBooker()%>
-                </div>
-
-                <%}%>
-
-                <% } %>
-
-
-        </a>
 
     </div>
 
