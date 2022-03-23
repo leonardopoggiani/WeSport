@@ -47,7 +47,7 @@
 </nav>
 
     <h1>Booking portal</h1>
-    <form method="get" action="<%= request.getContextPath()%>/booking?sport=sports&month=month&year=year">
+    <form method="get" action="<%= request.getContextPath()%>/booking?sport=sports&month=month&year=year&day=day">
         <label for="sports">Choose a sport:</label>
         <select name="sports" id="sports">
             <option value="tennis" id="default" selected>Tennis</option>
@@ -84,7 +84,7 @@
                 else if (!freeDays[i]){ %>
                     <li id="ilbusy"><button class="busy"><%= i+1%></button></li>
                 <% } else{  %>
-                    <li><button><%= i+1%></button></li>
+                    <li><input type="submit" class="submitDays" name="day" value="<%= i+1%>"></input></li>
                 <%}
             }%>
     </ul>

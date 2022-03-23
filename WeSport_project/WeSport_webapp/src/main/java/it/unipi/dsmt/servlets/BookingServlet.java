@@ -2,6 +2,7 @@ package it.unipi.dsmt.servlets;
 
 
 import java.io.IOException;
+import java.lang.reflect.Field;
 import java.time.LocalDate;
 import java.time.Month;
 import java.time.Year;
@@ -59,25 +60,54 @@ public class BookingServlet extends HttpServlet {
     String year = request.getParameter("year");
     if (year == null) year = Integer.toString(Year.now().getValue());
     System.out.println("Qui:"+ year);
+    String day = request.getParameter("day");
+    System.out.println(day);
+    int dayNum;
+    String targetJSP = "/pages/jsp/booking.jsp";
     date.set(Calendar.MONTH, monthNumber);
     date.set(Calendar.YEAR, Integer.parseInt(year));
-    bookings = fieldBookingRemote.displayBookingForSport(sport);
-    boolean[] freeDays = fieldBookingRemote.displayBusyDaysForMonth(sport, date.getTime());
-    for(int i = 0; i < freeDays.length; i++) {
+    if(day != null){
+      dayNum = Integer.parseInt(day);
+      FieldBookingDTO fieldBooking = new FieldBookingDTO();
+      fieldBooking.setBooker(user.getId());
+      fieldBooking.setSport(sport);
+      date.set(Calendar.DATE, dayNum);
+      fieldBooking.setDay(date.getTime());
+      /*request.setAttribute("sports", sport);
+      request.setAttribute("month", monthNumber);
+      request.setAttribute("year",year);
+      request.setAttribute("day",dayNum);*/
+      /*System.out.println("Nel servlet:"+ sport+ monthNumber+year+dayNum);
+      System.out.println(request.getContextPath());*/
+      session.setAttribute("fieldBooking", fieldBooking);
+      targetJSP = "/pages/jsp/bookfield.jsp";
+      //System.out.println("Day ricevuto");
+      RequestDispatcher requestDispatcher = request.getRequestDispatcher(targetJSP);
+      requestDispatcher.forward(request,response);
+      //response.sendRedirect(request.getContextPath()+"/bookfield");
+    }
+    else{
+      dayNum = date.get(Calendar.DATE);
+      bookings = fieldBookingRemote.displayBookingForSport(sport);
+      boolean[] freeDays = fieldBookingRemote.displayBusyDaysForMonth(sport, date.getTime());
+      for(int i = 0; i < freeDays.length; i++) {
         System.out.println("Day " + (i + 1) + " is free: " + freeDays[i]);
+      }
+
+      System.out.println("[LOG] bookings retrieved: " + bookings.size());
+
+      request.setAttribute("bookings", bookings);
+      request.setAttribute("freeDays", freeDays);
+      request.setAttribute("monthNumber", monthNumber);
+      request.setAttribute("year", year);
+
+      targetJSP = "/pages/jsp/booking.jsp";
+      RequestDispatcher requestDispatcher = request.getRequestDispatcher(targetJSP);
+      requestDispatcher.forward(request,response);
+
     }
 
-    System.out.println("[LOG] bookings retrieved: " + bookings.size());
 
-    request.setAttribute("bookings", bookings);
-    request.setAttribute("freeDays", freeDays);
-    request.setAttribute("monthNumber", monthNumber);
-    request.setAttribute("year", year);
-
-    String targetJSP = "/pages/jsp/booking.jsp";
-
-    RequestDispatcher requestDispatcher = request.getRequestDispatcher(targetJSP);
-    requestDispatcher.forward(request,response);
   }
 }
 
