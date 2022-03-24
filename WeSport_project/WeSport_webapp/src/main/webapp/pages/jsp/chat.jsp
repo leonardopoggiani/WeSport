@@ -15,7 +15,6 @@
     <meta name='viewport' content='width=device-width, initial-scale=1'>
     <link rel="icon" type="image/x-icon" href="${pageContext.request.contextPath}/images/favicon.png">
     <script type="text/javascript" src="${pageContext.request.contextPath}/js/websocket_chat.js"></script>
-    <script type="text/javascript" src="${pageContext.request.contextPath}/js/navbar.js"></script>
     <script src="https://kit.fontawesome.com/36ef34d326.js" crossorigin="anonymous"></script>
 
 </head>
@@ -48,8 +47,8 @@
                         if(item.getUsername().equals(((UserDTO)session.getAttribute("logged_user")).getUsername()))
                             continue;
                 %>
-                <div id="<%=item.getUsername()%>">
-                    <p class="user-busy"> <%=item.getUsername()%> <i class="fa-solid fa-comment-slash"></i> </p>
+                <div onclick="return set_chat_receiver(event)">
+                    <p class="user-busy" id="<%=item.getUsername()%>"> <%=item.getUsername()%> <i class="fa-solid fa-comment-slash"></i> </p>
                 </div>
                 <% } %>
             </div>
@@ -58,13 +57,15 @@
         <div class="top-div">
             <div class="message_box">
                 <h2 class="message-box-title"> Message box</h2>
+                <h3> Chat with: </h3> <h3 id="receiver"> no one actually :( </h3>
+
                 <div class="box">
 
                 </div>
             <div class="submit-button">
                 <form>
                     <input class="message-text" type="text" placeholder="Enter your message">
-                    <input class="send-button" type="submit" value=" "/>
+                    <input class="send-button" type="submit" value=" " onkeypress = "return send_message(event);">
                 </form>
             </div>
         </div>

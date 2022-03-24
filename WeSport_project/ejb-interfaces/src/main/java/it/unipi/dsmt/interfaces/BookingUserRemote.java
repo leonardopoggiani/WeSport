@@ -11,6 +11,4 @@ import java.util.List;
 @Remote
 public interface BookingUserRemote {
 
-
-
 }

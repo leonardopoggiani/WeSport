@@ -6,7 +6,6 @@
     <title>Homepage</title>
     <link href="${pageContext.request.contextPath}/CSS/homepage.css" rel="stylesheet" type="text/css">
     <link href="${pageContext.request.contextPath}/CSS/navbar.css" rel="stylesheet" type="text/css">
-    <script type="text/javascript" src="${pageContext.request.contextPath}/js/navbar.js"></script>
     <link rel="icon" type="image/x-icon" href="${pageContext.request.contextPath}/images/favicon.png">
 </head>
 <body>

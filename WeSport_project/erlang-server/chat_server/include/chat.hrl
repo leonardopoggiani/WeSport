@@ -1,0 +1,2 @@
+-define(ID_HANDLER, id_handler_server).
+-define(SERVER, message_server).

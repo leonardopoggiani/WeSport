@@ -23,8 +23,7 @@
     <link href="${pageContext.request.contextPath}/CSS/bookField.css" rel="stylesheet" type="text/css">
     <link href="${pageContext.request.contextPath}/CSS/navbar.css" rel="stylesheet" type="text/css">
     <script async src="${pageContext.request.contextPath}/js/booking.js"></script>
-    <script type="text/javascript" src="${pageContext.request.contextPath}/js/navbar.js"></script>
-    <link rel="icon" type="image/x-icon" href="${pageContext.request.contextPath}/images/favicon.png"></title>
+    <link rel="icon" type="image/x-icon" href="${pageContext.request.contextPath}/images/favicon.png">
 </head>
 <body>
     <h1>Book a Field</h1>
