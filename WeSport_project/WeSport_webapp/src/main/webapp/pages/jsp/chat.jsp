@@ -47,8 +47,8 @@
                         if(item.getUsername().equals(((UserDTO)session.getAttribute("logged_user")).getUsername()))
                             continue;
                 %>
-                <div onclick="return set_chat_receiver(event)">
-                    <p class="user-busy" id="<%=item.getUsername()%>"> <%=item.getUsername()%> <i class="fa-solid fa-comment-slash"></i> </p>
+                <div name="chatbox_user" onclick="return set_chat_receiver(event);" >
+                    <p class="user-busy" id="<%=item.getUsername()%>"> <%=item.getUsername()%> <i id="icon-<%=item.getUsername()%>" class="fa-solid fa-comment-slash"> </i> </p>
                 </div>
                 <% } %>
             </div>
