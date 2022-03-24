@@ -3,7 +3,6 @@ package it.unipi.dsmt.servlets;
 import it.unipi.dsmt.dto.FieldBookingDTO;
 import it.unipi.dsmt.dto.UserBookingDTO;
 import it.unipi.dsmt.dto.UserDTO;
-import it.unipi.dsmt.ejb.FieldBookingEJB;
 import it.unipi.dsmt.interfaces.BookingUserRemote;
 import it.unipi.dsmt.interfaces.FieldBookingRemote;
 import it.unipi.dsmt.interfaces.UserRemote;

@@ -109,6 +109,12 @@
     width:30pt;
 }
 
+.submitDays{
+    width: 13.6%;
+    background:none;
+    border:none;
+}
+
 #ilbusy{
     background-color: red;
 }

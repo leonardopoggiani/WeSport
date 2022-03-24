@@ -27,7 +27,6 @@
         <link href="${pageContext.request.contextPath}/CSS/booking.css" rel="stylesheet" type="text/css">
         <link href="${pageContext.request.contextPath}/CSS/navbar.css" rel="stylesheet" type="text/css">
         <script async src="${pageContext.request.contextPath}/js/booking.js"></script>
-        <script type="text/javascript" src="${pageContext.request.contextPath}/js/navbar.js"></script>
         <link rel="icon" type="image/x-icon" href="${pageContext.request.contextPath}/images/favicon.png">
     </head>
 <body onload="onload()">
@@ -47,7 +46,7 @@
 </nav>
 
     <h1>Booking portal</h1>
-    <form method="get" action="<%= request.getContextPath()%>/booking?sport=sports&month=month&year=year">
+    <form method="get" action="<%= request.getContextPath()%>/booking?sport=sports&month=month&year=year&day=day">
         <label for="sports">Choose a sport:</label>
         <select name="sports" id="sports">
             <option value="tennis" id="default" selected>Tennis</option>
@@ -84,7 +83,7 @@
                 else if (!freeDays[i]){ %>
                     <li id="ilbusy"><button class="busy"><%= i+1%></button></li>
                 <% } else{  %>
-                    <li><button><%= i+1%></button></li>
+                    <li><input type="submit" class="submitDays" name="day" value="<%= i+1%>"></input></li>
                 <%}
             }%>
     </ul>

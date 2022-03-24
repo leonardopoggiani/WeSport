@@ -15,6 +15,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 @WebServlet(name = "ChatServlet", value = "/chat")
 public class ChatServlet extends HttpServlet {
@@ -27,8 +28,17 @@ public class ChatServlet extends HttpServlet {
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException, ServletException {
-        String targetJSP = "/pages/jsp/chat.jsp";
+        String targetJSP = "";
         List<UserDTO> users = new ArrayList<>();
+
+        HttpSession session = request.getSession();
+        UserDTO logged_user = (UserDTO) session.getAttribute("logged_user");
+
+        if(logged_user == null) {
+            targetJSP = "/index.jsp";
+        } else {
+            targetJSP = "/pages/jsp/chat.jsp";
+        }
 
         try {
             users = userRemote.listUsers();

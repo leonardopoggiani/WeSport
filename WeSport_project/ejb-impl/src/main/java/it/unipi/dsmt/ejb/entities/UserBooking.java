@@ -19,4 +19,7 @@ public class UserBooking implements Serializable{
 
     @Column(name="booking_ID")
     private Integer bookingID;
+
+    @Column(name="score")
+    private Integer score;
 }

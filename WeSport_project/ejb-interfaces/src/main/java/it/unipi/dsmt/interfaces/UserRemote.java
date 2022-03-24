@@ -1,7 +1,4 @@
 package it.unipi.dsmt.interfaces;
-
-import it.unipi.dsmt.dto.FieldBookingDTO;
-import it.unipi.dsmt.dto.UserBookingDTO;
 import it.unipi.dsmt.dto.UserDTO;
 
 import javax.ejb.Remote;

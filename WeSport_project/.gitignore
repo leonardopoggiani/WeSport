@@ -4,3 +4,4 @@ out/
 /ejb-interfaces/target/
 /WeSport_webapp/target/
 !/.idea/
+!/erlang-server/chat_server/_build/

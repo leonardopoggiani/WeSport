@@ -1,0 +1,61 @@
+.players{
+    width: 500px;
+    height: 50px;
+    font-size: 15pt;
+    border-radius: 25px;
+    background: none;
+}
+
+label {
+    text-align: center;
+    color: #000000;
+    font-style: italic;
+    font-weight: bold;
+    background: none;
+    font-size: 20pt;
+    border: none;
+    appearance: none;
+    width:115pt;
+}
+
+li{
+    list-style-type: none;
+    display: inline-block;
+    text-align: center;
+    font-size:20px;
+    background: none;
+}
+
+#insert{
+    background-color: white;
+    margin-right: 100px;
+    margin-left: 100px;
+    border-radius: 25px;
+
+}
+
+.ulInsert{
+    background:none;
+}
+
+.hour{
+    width: 200px;
+    background: none;
+}
+
+.labelHour{
+    font-size:15pt;
+}
+
+form{
+    background: none;
+
+}
+
+#submit{
+    font-size:10pt;
+    border-radius: 25px;
+    width:100px;
+    height: 50px;
+    background-color: #ffffff;
+}
