@@ -180,7 +180,11 @@ function set_chat_receiver(event) {
     var x = document.getElementById("receiver").textContent;
     console.log("Actual receiver: " + x);
 
-    document.getElementById("receiver").textContent = event.target.id;
+    if(event.target.id == null) {
+        document.getElementById("receiver").textContent = "No one actually :(";
+    } else {
+        document.getElementById("receiver").textContent = event.target.id;
+    }
 
     var y = document.getElementById("receiver").textContent;
     console.log("New receiver: " + y);
