@@ -56,13 +56,28 @@ function print_message(sender_name, message, receiver = null) {
 
 function update_online_users(users_list) {
     console.log("UPDATE ONLINE USERS");
+
+    var all_users_list = document.getElementsByName("chatbox_user");
+
+    for(var i = 0; i < all_users_list.length; i++) {
+
+        console.log(all_users_list[i].id);
+
+        for (var j = 0; j < users_list.length - 1; j++) {
+            console.log("ONLINE: " + users_list[j]);
+            if (all_users_list[i].id == users_list[j]) {
+                var online_user = document.getElementById("icon-" + all_users_list[i].id);
+                online_user.setAttribute("class", "fa-solid fa-comment");
+            } else {
+                var offline_user = document.getElementById("icon-" + all_users_list[i].id);
+                offline_user.setAttribute("class", "fa-solid fa-comment-slash");
+            }
+        }
+    }
+
+
+
     /*
-    const receiver_index = document.getElementById("select_receiver").selectedIndex;
-    const previous_selected = document.getElementById("select_receiver").options[receiver_index].value;
-    var previous_selected_is_online = false;
-    var select_block = document.getElementById("select_receiver");
-    while(select_block.lastChild.id != select_block.firstChild.id)
-        select_block.removeChild(select_block.lastChild);
     //insert new list
     var all_users_list = document.getElementsByName("chatbox_user");
     for(var i = 0; i < all_users_list.length; i++){

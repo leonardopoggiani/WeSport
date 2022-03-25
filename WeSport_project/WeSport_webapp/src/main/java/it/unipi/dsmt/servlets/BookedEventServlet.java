@@ -40,7 +40,7 @@ public class BookedEventServlet extends HttpServlet {
 
         HttpSession session = request.getSession();
         UserDTO user = (UserDTO) session.getAttribute("logged_user");
-      //  Integer event;
+        //  Integer event;
        //session.setAttribute("event", event);
         Integer bookingID = Integer.valueOf(request.getParameter("event"));
         List<FieldBookingDTO> bookings ;
@@ -51,6 +51,7 @@ public class BookedEventServlet extends HttpServlet {
 
         bookings = fieldBookingRemote.displayBookingForSport("tennis");
         boolean[] freeDays = fieldBookingRemote.displayBusyDaysForMonth("tennis", date);
+
         for(int i = 0; i < freeDays.length; i++) {
             System.out.println("Day " + (i + 1) + " is free: " + freeDays[i]);
         }
