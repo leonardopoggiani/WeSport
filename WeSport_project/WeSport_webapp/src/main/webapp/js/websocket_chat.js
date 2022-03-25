@@ -58,21 +58,24 @@ function update_online_users(users_list) {
     console.log("UPDATE ONLINE USERS");
 
     var all_users_list = document.getElementsByName("chatbox_user");
-    for(var i = 0; i < all_users_list.length; i++){
-        for(var j = 0; users_list.length - 1; j++) {
-            if(users_list[i] == username) {
-                continue;
-            }
 
-            var online_user = document.getElementById("icon-" + all_users_list[i]);
+    for(var i = 0; i < all_users_list.length; i++) {
 
-            if(all_users_list[i] == users_list[j]) {
+        console.log(all_users_list[i].id);
+
+        for (var j = 0; j < users_list.length - 1; j++) {
+            console.log("ONLINE: " + users_list[j]);
+            if (all_users_list[i].id == users_list[j]) {
+                var online_user = document.getElementById("icon-" + all_users_list[i].id);
                 online_user.setAttribute("class", "fa-solid fa-comment");
             } else {
-                online_user.setAttribute("class", "fa-solid fa-comment-slash");
+                var offline_user = document.getElementById("icon-" + all_users_list[i].id);
+                offline_user.setAttribute("class", "fa-solid fa-comment-slash");
             }
         }
     }
+
+
 
     /*
     //insert new list
