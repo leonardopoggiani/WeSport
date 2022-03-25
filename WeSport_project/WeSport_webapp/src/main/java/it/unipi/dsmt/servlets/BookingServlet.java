@@ -33,7 +33,6 @@ public class BookingServlet extends HttpServlet {
     private FieldBookingRemote fieldBookingRemote;
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        System.out.println("post");
     }
 
   protected void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
