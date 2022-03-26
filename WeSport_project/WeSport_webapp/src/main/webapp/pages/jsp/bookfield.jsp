@@ -58,13 +58,20 @@
                 <br>
                 <%for (int i=0; i<numPlayer; i++){
                     %>
-                    <li><input class ="players" name="player<%=i%>" type="text"></li>
+                    <li><input class ="players" name="<%=i%>" type="text"></li>
 
                 <%}%>
             </ul>
             <br><br>
+            <script>
+                function mostra(){
+                    var input = document.getElementById("hour");
+                    window.alert(input.value);
+                }
+
+            </script>
             <ul class="ulInsert">
-                <li><label class="labelHour">Start hour</label><br><input class="hour" type="time" name="start"></li>
+                <li><label class="labelHour">Start hour</label><br><input class="hour" id="hour" type="time" name="start" onchange="mostra()"></li>
                 <li><label class="labelHour">End hour</label><br><input class="hour" type="time" name="end"></li>
                 <br><br>
             </ul>
