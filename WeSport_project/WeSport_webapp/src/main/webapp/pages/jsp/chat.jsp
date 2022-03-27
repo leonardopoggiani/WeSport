@@ -29,7 +29,7 @@
                 <ul class="nav navbar-nav">
                     <li><a href="${pageContext.request.contextPath}/homepage">Homepage</a></li>
                     <li><a href="${pageContext.request.contextPath}/booking">Booking</a></li>
-                    <li><a href="${pageContext.request.contextPath}/profile">Profile</a></li>
+                    <li><a href="${pageContext.request.contextPath}/profile"><%=((UserDTO)session.getAttribute("logged_user")).getUsername()%></a></li>
                     <li class="active"><a href="${pageContext.request.contextPath}/chat">Chat</a></li>
                 </ul>
             </div>
@@ -47,7 +47,7 @@
                         if(item.getUsername().equals(((UserDTO)session.getAttribute("logged_user")).getUsername()))
                             continue;
                 %>
-                <div onclick="return set_chat_receiver(event);" >
+                <div id="div-<%=item.getUsername()%>" >
                     <p name="chatbox_user" class="user-busy" id="<%=item.getUsername()%>"> <%=item.getUsername()%> <i id="icon-<%=item.getUsername()%>" class="fa-solid fa-comment-slash"> </i> </p>
                 </div>
                 <% } %>
@@ -59,16 +59,18 @@
                 <h2 class="message-box-title"> Message box</h2>
                 <h3> Chat with: </h3> <h3 id="receiver"> no one actually :( </h3>
 
-                <div class="box">
-
+                <div id="box" class="box">
                 </div>
+            </div>
             <div class="submit-button">
-                <form>
-                    <input class="message-text" type="text" placeholder="Enter your message">
-                    <input class="send-button" type="submit" value=" " onclick = "return send_message(event);">
-                </form>
+                <input id="message_text" class="message-text" type="text" placeholder="Enter your message">
+                <input class="send-button" type="submit" value=" " onclick = "return send_message(event);">
+                <a class="goback" href="${pageContext.request.contextPath}/homepage">
+                    <div> Logout from the chat</div>
+                </a>
             </div>
         </div>
+
 
     </div>
 

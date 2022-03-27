@@ -3,6 +3,7 @@
   <component name="WebContextManager">
     <option name="state">
       <map>
+        <entry key="file://$PROJECT_DIR$/WeSport_webapp/src/main/webapp/pages/jsp/chat.jsp" value="file://$PROJECT_DIR$/WeSport_webapp/src/main/webapp/pages/jsp" />
         <entry key="file://$PROJECT_DIR$/WeSport_webapp/src/main/webapp/pages/jsp/userslist.jsp" value="file://$PROJECT_DIR$/WeSport_webapp/src/main/webapp/pages/jsp" />
       </map>
     </option>
