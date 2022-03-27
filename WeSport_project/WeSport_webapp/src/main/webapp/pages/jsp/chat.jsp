@@ -65,8 +65,12 @@
             <div class="submit-button">
                 <input id="message_text" class="message-text" type="text" placeholder="Enter your message">
                 <input class="send-button" type="submit" value=" " onclick = "return send_message(event);">
+                <a class="goback" href="${pageContext.request.contextPath}/homepage">
+                    <div> Logout from the chat</div>
+                </a>
             </div>
         </div>
+
 
     </div>
 

@@ -22,8 +22,14 @@ function print_message(sender_name, message, receiver) {
     var p_message_text;
 
     if(receiver != null) {
+        console.log("RECEIVER: " + receiver);
         //messaggio inviato
         messageDiv.setAttribute("class", "chat-right-message");
+        if(receiver.split(" ").length > 1) {
+            console.log("RETURN");
+            return;
+        }
+
         p_name_text = document.createTextNode("Sent to " + receiver + ":");
         p_message_text = document.createTextNode(message);
     } else {
@@ -34,11 +40,18 @@ function print_message(sender_name, message, receiver) {
             return;
         } else {
             // messaggio da un altro utente
-            messageDiv.setAttribute("class", "chat-left-message");
             p_name_text = document.createTextNode("From: " + sender_name);
             p_message_text = document.createTextNode(message);
+
+            // se il receiver é lo stesso di prima lascio il nome, altrimenti tolgo i messaggi e cambio
             var receiver_tag = document.getElementById("receiver");
-            receiver_tag.textContent = sender_name;
+            if(receiver_tag.textContent == "" || receiver_tag.textContent == "no one actually :(") {
+                receiver_tag.textContent = sender_name;
+            } else if(receiver_tag.textContent != sender_name) {
+                // clean chat and reload messages
+                receiver_tag.textContent = sender_name;
+
+            }
 
         }
     }
@@ -116,7 +129,6 @@ function ws_onMessage(event) {
 
 //logging_user is the username of the user that is entering in the chat page
 function connect(logging_user){
-    console.log("CONNECT");
     username = logging_user;
     websocket = new WebSocket(server_url);
     websocket.onopen = function(){ws_onOpen()};
