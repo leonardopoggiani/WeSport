@@ -1,0 +1,19 @@
+li{
+    list-style-type: none;
+    display: inline-block;
+    text-align: center;
+    font-size:20px;
+    background: none;
+}
+
+.timeslotbox{
+    background-color: white;
+    margin-right: 100px;
+    margin-left: 100px;
+    border-radius: 25px;
+
+}
+
+label{
+    font-size:15px;
+}
