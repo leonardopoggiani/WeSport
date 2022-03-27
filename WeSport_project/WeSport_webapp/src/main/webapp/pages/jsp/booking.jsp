@@ -3,6 +3,7 @@
 <%@ page import="java.time.LocalDate" %>
 <%@ page import="java.time.Month" %>
 <%@ page import="java.time.format.DateTimeFormatter" %>
+<%@ page import="it.unipi.dsmt.dto.UserDTO" %>
 <%--
   Created by IntelliJ IDEA.
   User: poggiolinux
@@ -37,7 +38,7 @@
             <ul class="nav navbar-nav">
                 <li><a href="${pageContext.request.contextPath}/homepage">Homepage</a></li>
                 <li class="active"><a href="${pageContext.request.contextPath}/booking">Booking</a></li>
-                <li><a href="${pageContext.request.contextPath}/profile">Profile</a></li>
+                <li><a href="${pageContext.request.contextPath}/profile"><%=((UserDTO)session.getAttribute("logged_user")).getUsername()%></a></li>
                 <li><a href="${pageContext.request.contextPath}/chat">Chat</a></li>
             </ul>
         </div>
