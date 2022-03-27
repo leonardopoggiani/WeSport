@@ -60,7 +60,6 @@
                 <h3> Chat with: </h3> <h3 id="receiver"> no one actually :( </h3>
 
                 <div id="box" class="box">
-
                 </div>
             </div>
             <div class="submit-button">
