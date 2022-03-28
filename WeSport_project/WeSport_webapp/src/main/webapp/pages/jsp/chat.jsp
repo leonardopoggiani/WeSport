@@ -15,6 +15,7 @@
     <meta name='viewport' content='width=device-width, initial-scale=1'>
     <link rel="icon" type="image/x-icon" href="${pageContext.request.contextPath}/images/favicon.png">
     <script type="text/javascript" src="${pageContext.request.contextPath}/js/websocket_chat.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.0.7/angular.min.js"></script>
     <script src="https://kit.fontawesome.com/36ef34d326.js" crossorigin="anonymous"></script>
 
 </head>
@@ -22,6 +23,7 @@
 <% List<UserDTO> userList = (List<UserDTO>)request.getAttribute("users"); %>
 
 <body onload="connect('<%=((UserDTO)session.getAttribute("logged_user")).getUsername()%>')" onunload="disconnect()">
+
     <nav id="menu" class="navbar navbar-default">
         <div class="container-nav">
 
@@ -37,41 +39,36 @@
         </div>
     </nav>
 
-    <h1> Chat</h1>
-
-    <div>
-        <div class="online-users">
-            <div>
+    <div class='container'>
+        <h1>Chat</h1> <h1 id="receiver"></h1>
+        <div class='chatbox'>
+            <div class='chatbox__user-list'>
+                <h1>User list</h1>
                 <%
                     for(UserDTO item: userList){
                         if(item.getUsername().equals(((UserDTO)session.getAttribute("logged_user")).getUsername()))
                             continue;
                 %>
-                <div id="div-<%=item.getUsername()%>" >
-                    <p name="chatbox_user" class="user-busy" id="<%=item.getUsername()%>"> <%=item.getUsername()%> <i id="icon-<%=item.getUsername()%>" class="fa-solid fa-comment-slash"> </i> </p>
+                <div class="chatbox__user--busy" id="div-<%=item.getUsername()%>" >
+                    <p name="chatbox_user" id="<%=item.getUsername()%>" > <%=item.getUsername()%> </p>
                 </div>
                 <% } %>
+
             </div>
-        </div>
-
-        <div class="top-div">
-            <div class="message_box">
-                <h2 class="message-box-title"> Message box</h2>
-                <h3> Chat with: </h3> <h3 id="receiver"> no one actually :( </h3>
-
-                <div id="box" class="box">
+            <div class="chatbox__messages">
+                <div class="chatbox__messages__user-message">
+                    <div class="chatbox__messages__user-message--ind-message">
+                        <p class="name">{{message.Name}}</p>
+                        <br/>
+                        <p class="message">{{message.Message}}</p>
+                    </div>
                 </div>
             </div>
-            <div class="submit-button">
-                <input id="message_text" class="message-text" type="text" placeholder="Enter your message">
-                <input class="send-button" type="submit" value=" " onclick = "return send_message(event);">
-                <a class="goback" href="${pageContext.request.contextPath}/homepage">
-                    <div> Logout from the chat</div>
-                </a>
+            <div class="submit_button">
+                <input class="message_text" id="message_text" type="text" placeholder="Enter your message">
+                <input class="send_button" type="submit" value=" " onclick = "return send_message(event);">
             </div>
         </div>
-
-
     </div>
 
 </body>
