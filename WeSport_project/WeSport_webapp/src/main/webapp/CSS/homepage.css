@@ -253,6 +253,11 @@ h1 {
     margin-right: auto;
 }
 
+.row-last {
+    justify-items: center;
+    height: 300px;
+}
+
 .goback {
     text-decoration: none;
     padding: 14px 25px;
