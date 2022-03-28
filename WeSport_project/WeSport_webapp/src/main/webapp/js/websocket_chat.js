@@ -71,18 +71,15 @@ function update_online_users(users_list) {
     for(var i = 0; i < all_users_list.length; i++) {
         for (var j = 0; j < users_list.length - 1; j++) {
             if (all_users_list[i].id == users_list[j]) {
-                var online_user = document.getElementById("icon-" + all_users_list[i].id);
-                online_user.setAttribute("class", "fa-solid fa-comment");
+                console.log("ONLINE" + all_users_list[i].id);
 
-                var online_user_box = document.getElementById(all_users_list[i].id);
-                online_user_box.setAttribute("class", "user-online");
-
-                var div_online_user = document.getElementById("div-" + all_users_list[i].id);
-                div_online_user.onclick = set_chat_receiver;
+                var online_user = document.getElementById("div-" + all_users_list[i].id);
+                online_user.setAttribute("class", "chatbox__user--active");
+                online_user.onclick = set_chat_receiver;
                 break;
             } else {
-                var offline_user = document.getElementById("icon-" + all_users_list[i].id);
-                offline_user.setAttribute("class", "fa-solid fa-comment-slash");
+                var offline_user = document.getElementById("div-" + all_users_list[i].id);
+                offline_user.setAttribute("class", "chatbox__user--busy");
             }
         }
     }

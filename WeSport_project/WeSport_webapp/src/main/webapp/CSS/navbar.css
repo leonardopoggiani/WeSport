@@ -1,5 +1,6 @@
 
 * {
+    text-align: center;
     margin: 0;
     padding: 0;
 }
@@ -7,7 +8,6 @@
 .navbar-header{
     position: relative;
     display: none;
-
 }
 
 .navbar-toggle{
@@ -46,6 +46,7 @@
 
 .navbar ul {
     list-style: none;
+    display: inline-block;
 }
 
 .navbar ul li {
