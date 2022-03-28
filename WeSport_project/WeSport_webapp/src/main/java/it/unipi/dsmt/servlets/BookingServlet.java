@@ -79,7 +79,7 @@ public class BookingServlet extends HttpServlet {
       /*System.out.println("Nel servlet:"+ sport+ monthNumber+year+dayNum);
       System.out.println(request.getContextPath());*/
       session.setAttribute("fieldBooking", fieldBooking);
-      targetJSP = "/pages/jsp/bookfield.jsp";
+      targetJSP = "/pages/jsp/bookhour.jsp";
       //System.out.println("Day ricevuto");
       RequestDispatcher requestDispatcher = request.getRequestDispatcher(targetJSP);
       requestDispatcher.forward(request,response);

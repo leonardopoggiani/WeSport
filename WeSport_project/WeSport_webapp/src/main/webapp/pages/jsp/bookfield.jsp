@@ -18,7 +18,7 @@
 
 <html>
 <head>
-    <title>Book a Field</title>
+    <title>Bookfield</title>
     <link href="${pageContext.request.contextPath}/CSS/homepage.css" rel="stylesheet" type="text/css">
     <link href="${pageContext.request.contextPath}/CSS/bookField.css" rel="stylesheet" type="text/css">
     <link href="${pageContext.request.contextPath}/CSS/navbar.css" rel="stylesheet" type="text/css">
