@@ -33,6 +33,14 @@
             it.unipi.dsmt.servlets.ChatServlet
         </servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>BookFieldServlet</servlet-name>
+        <servlet-class>it.unipi.dsmt.servlets.BookFieldServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>TimeslotServlet</servlet-name>
+        <servlet-class>it.unipi.dsmt.servlets.TimeslotServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>UserListServlet</servlet-name>
         <url-pattern>/userlist</url-pattern>
@@ -52,6 +60,14 @@
     <servlet-mapping>
         <servlet-name>ChatServlet</servlet-name>
         <url-pattern>/chat</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>TimeslotServlet</servlet-name>
+        <url-pattern>/timeslot</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>BookFieldServlet</servlet-name>
+        <url-pattern>/bookfield</url-pattern>
     </servlet-mapping>
 
 </web-app>

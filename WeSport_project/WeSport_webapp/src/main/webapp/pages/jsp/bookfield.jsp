@@ -70,11 +70,7 @@
                 }
 
             </script>
-            <ul class="ulInsert">
-                <li><label class="labelHour">Start hour</label><br><input class="hour" id="hour" type="time" name="start" onchange="mostra()"></li>
-                <li><label class="labelHour">End hour</label><br><input class="hour" type="time" name="end"></li>
-                <br><br>
-            </ul>
+            <br><br>
         </div>
         <br><br>
         <input id="submit" type="submit" value="SUBMIT">

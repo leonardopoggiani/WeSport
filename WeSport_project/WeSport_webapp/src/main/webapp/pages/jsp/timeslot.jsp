@@ -34,16 +34,27 @@
     <br><br>
 
     <div class="timeslot">
-        <form method="get" action="$<%= request.getContextPath()%>/booktimeslot?timeslot=timeslot"></form>
-        <ul id="ultime">
+        <br><br>
+        <form method="get" action="<%= request.getContextPath()%>/timeslot?slot=timeslot">
+            <li>
         <%
-            for (int i=0; i<10; i++){%>
-                <li><input type="submit" class="timeslotbox" name="timeslot" value="<%=i+1%>"></li>
+            for (int i=0; i<6; i++){%>
+                <input type="submit" class="timeslotbox" name="timeslot" value="<%= i+7%>"><br>
         <%
             }
         %>
+            </li>
+            <li>
+                <%
+                    for (int i=0; i<6; i++){%>
+                <input type="submit" class="timeslotbox" name="timeslot" value="<%= i+13%>"><br>
+                <%
+                    }
+                %>
+            </li>
         </ul>
         </form>
+        <br><br>
     </div>
 
 </body>

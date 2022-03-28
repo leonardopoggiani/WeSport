@@ -47,7 +47,7 @@ public class BookingServlet extends HttpServlet {
     Calendar date = Calendar.getInstance();
 
     String sport = request.getParameter("sports");
-    System.out.println("Sport: " + sport);
+    //System.out.println("Sport: " + sport);
     if (sport == null) sport = "tennis";
     String month = request.getParameter("month");
     int monthNumber = (LocalDate.now().getMonthValue())-1;
@@ -79,11 +79,11 @@ public class BookingServlet extends HttpServlet {
       /*System.out.println("Nel servlet:"+ sport+ monthNumber+year+dayNum);
       System.out.println(request.getContextPath());*/
       session.setAttribute("fieldBooking", fieldBooking);
-      targetJSP = "/pages/jsp/bookhour.jsp";
+      targetJSP = "/pages/jsp/booktimeslot.jsp";
       //System.out.println("Day ricevuto");
-      RequestDispatcher requestDispatcher = request.getRequestDispatcher(targetJSP);
-      requestDispatcher.forward(request,response);
-      //response.sendRedirect(request.getContextPath()+"/bookfield");
+      /*RequestDispatcher requestDispatcher = request.getRequestDispatcher(targetJSP);
+      requestDispatcher.forward(request,response);*/
+      response.sendRedirect(request.getContextPath()+"/timeslot");
     }
     else{
       dayNum = date.get(Calendar.DATE);
