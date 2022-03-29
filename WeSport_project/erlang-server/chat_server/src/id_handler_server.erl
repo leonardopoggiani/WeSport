@@ -12,7 +12,6 @@ init(_) ->
   Users = ets:new(users_table, [set]),
   {ok, Users}.
 
-
 handle_call({insert_user, NickName, Pid}, _From, Users) ->
   Response = check_and_insert_nick(NickName, Pid, Users),
   {reply, Response, Users};
@@ -31,7 +30,6 @@ handle_call({logout, Pid}, _From, Users) ->
 
 handle_call(_Message, _From, State) ->
   {reply, error, State}.
-
 
 handle_cast(_Message, State) ->
   {noreply, State}.

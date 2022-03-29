@@ -44,6 +44,8 @@
         <servlet-class>
             it.unipi.dsmt.servlets.LogoutServlet
         </servlet-class>
+    </servlet>
+    <servlet>
         <servlet-name>BookFieldServlet</servlet-name>
         <servlet-class>it.unipi.dsmt.servlets.BookFieldServlet</servlet-class>
     </servlet>
@@ -79,7 +81,7 @@
         <servlet-name>LogoutServlet</servlet-name>
         <url-pattern>/logout</url-pattern>
     </servlet-mapping>
-</web-app>
+    <servlet-mapping>
         <servlet-name>TimeslotServlet</servlet-name>
         <url-pattern>/timeslot</url-pattern>
     </servlet-mapping>

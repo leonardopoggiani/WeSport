@@ -8,6 +8,7 @@
 start(_Type, _Args) ->
   {ok, _ControllerPid} = id_handler_server:start_link(),
   {ok, ServerPid} = message_server:start_link(),
+  {ok, SportServerPid} = sport_handler:start_link(),
   io:fwrite("Chat server started successfully!~n"),
   {ok, ServerPid}.
 
