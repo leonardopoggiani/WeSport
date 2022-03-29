@@ -15,9 +15,6 @@
     <meta name='viewport' content='width=device-width, initial-scale=1'>
     <link rel="icon" type="image/x-icon" href="${pageContext.request.contextPath}/images/favicon.png">
     <script type="text/javascript" src="${pageContext.request.contextPath}/js/websocket_chat.js"></script>
-    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.0.7/angular.min.js"></script>
-    <script src="https://kit.fontawesome.com/36ef34d326.js" crossorigin="anonymous"></script>
-
 </head>
 
 <% List<UserDTO> userList = (List<UserDTO>)request.getAttribute("users"); %>
@@ -33,6 +30,7 @@
                     <li><a href="${pageContext.request.contextPath}/booking">Booking</a></li>
                     <li><a href="${pageContext.request.contextPath}/profile"><%=((UserDTO)session.getAttribute("logged_user")).getUsername()%></a></li>
                     <li class="active"><a href="${pageContext.request.contextPath}/chat">Chat</a></li>
+                    <li><a href="${pageContext.request.contextPath}/logout">Logout</a></li>
                 </ul>
             </div>
 
@@ -41,7 +39,7 @@
 
     <div class='container'>
         <h1>Chat</h1> <h1 id="receiver"></h1>
-        <div class='chatbox'>
+        <div class='chatbox' id="chatbox">
             <div class='chatbox__user-list'>
                 <h1>User list</h1>
                 <%
@@ -53,17 +51,8 @@
                     <p name="chatbox_user" id="<%=item.getUsername()%>" > <%=item.getUsername()%> </p>
                 </div>
                 <% } %>
+            </div>
 
-            </div>
-            <div class="chatbox__messages">
-                <div class="chatbox__messages__user-message">
-                    <div class="chatbox__messages__user-message--ind-message">
-                        <p class="name">{{message.Name}}</p>
-                        <br/>
-                        <p class="message">{{message.Message}}</p>
-                    </div>
-                </div>
-            </div>
             <div class="submit_button">
                 <input class="message_text" id="message_text" type="text" placeholder="Enter your message">
                 <input class="send_button" type="submit" value=" " onclick = "return send_message(event);">

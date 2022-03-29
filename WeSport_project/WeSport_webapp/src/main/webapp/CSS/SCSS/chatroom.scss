@@ -1,10 +1,6 @@
 // Variables
 $primary: #A8D0E6;
-$secondary: #A8D0E6;
-
-$active: rgba(23, 190, 187, 0.8);
-$busy: rgba(252, 100, 113, 0.8);
-$away: rgba(255, 253, 130, 0.8);
+$secondary: #25afe8;
 
 // Triangle Mixin
 @mixin triangle($color, $size, $direction) {
@@ -63,7 +59,7 @@ html,body {
   height: 75%;
   border-radius: 0.2em;
   position: relative;
-  box-shadow: 1px 1px 12px rgba(0, 0, 0, 0.1);
+  box-shadow: 2px 2px 12px rgba(0, 0, 0, 0.1);
   overflow-y: auto;
   &__messages {
     &__user-message--ind-message__right {
@@ -137,43 +133,6 @@ html,body {
       }
     }
   }
-  &__user-list {
-    background: rgba(255, 255, 255, 0.1);
-    width: 22%;
-    height: 100%;
-    float: right;
-    border-top-right-radius: 0.2em;
-    border-bottom-right-radius: 0.2em;
-    overflow-y: auto;
-    h1 {
-      background: rgba(255, 255, 255, 0.05);
-      color: rgba(255, 255, 255, 0.9);
-      font-size: 0.9em;
-      padding: 1em;
-      margin: 0;
-      font-weight: 300;
-      text-align: center;
-    }
-  }
-  &__user {
-    width: 0.5em;
-    height: 0.5em;
-    border-radius: 100%;
-    margin: 1em 0.7em;
-    &--active {
-      @extend .chatbox__user;
-      background: $active;
-      cursor: pointer;
-    }
-    &--busy {
-      @extend .chatbox__user;
-      background: $busy;
-    }
-    &--away {
-      @extend .chatbox__user;
-      background: $away;
-    }
-  }
   p {
     float: left;
     text-align: left;
@@ -190,7 +149,7 @@ html,body {
       bottom: 0;
       left: 0;
       border: none;
-      width: 75%;
+      width: 97%;
       padding: 1.2em;
       outline: none;
       color: rgba(255, 255, 255, 0.9);
@@ -204,7 +163,7 @@ html,body {
       background-color: rgba(255, 255, 255, 0.03);
       position: absolute;
       bottom: 0;
-      right: 270px;
+      right: 0;
       border: none;
       width: 32px;
       height: 32px;
