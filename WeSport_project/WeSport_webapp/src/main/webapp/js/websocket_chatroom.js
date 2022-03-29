@@ -1,6 +1,6 @@
 var websocket;
 
-const LOGIN = "&LOGIN";
+const LOGIN = "&CHATROOM_LOGIN";
 const LOGOUT = "&LOGOUT";
 const PING = "&PING";
 const CHATROOM = "&CHATROOM"
@@ -27,7 +27,7 @@ function print_message(sender_name, message, sendOrReceive) {
     var p_message = document.createElement("p");
     p_message.setAttribute("class", "message");
 
-    if(sendOrReceive == null) {
+    if(sendOrReceive == false) {
         console.log("SPORT: " + sport);
         //messaggio inviato
 
@@ -36,18 +36,12 @@ function print_message(sender_name, message, sendOrReceive) {
         p_name.textContent = "Sent to " + sport + " chat:";
         p_message.textContent = message;
     } else {
-        //messaggio in arrivo
-        if (sender_name == null) {
-            // messaggio inviato dal server
-            console.log(message);
-            return;
-        } else {
-            // messaggio da un altro utente
-            p_name.textContent = "From " + sender_name + ":";
-            p_message.textContent = message;
+        // messaggio da un altro utente
+        p_name.textContent = "From " + sender_name + ":";
+        p_message.textContent = message;
 
-            indMessageDiv.setAttribute("class", "chatbox__messages__user-message--ind-message__left");
-        }
+        indMessageDiv.setAttribute("class", "chatbox__messages__user-message--ind-message__left");
+
     }
 
     indMessageDiv.appendChild(p_name);
@@ -71,7 +65,7 @@ function stop_keep_alive(){
 }
 
 function ws_onOpen() {
-    websocket.send(LOGIN + ":" + username);
+    websocket.send(LOGIN + ":" + sport);
     keep_connection_alive();
 }
 
@@ -87,15 +81,8 @@ function ws_onMessage(event) {
 
     if(message_fields.length === 2){
         //normale messaggio inviato da un altro utente
-        print_message(message_fields[0], message_fields[1]);
-    } else {
-        message_fields = event.data.split('|');
-        if(message_fields.length > 1){
-            //the new online users list is arrived
-            // update_online_users(message_fields);
-        } else {
-            // semplice stringa di risposta
-            print_message(null, event.data);
+        if(message_fields[0] != username) {
+            print_message(message_fields[0], message_fields[1], true);
         }
     }
 }
@@ -105,10 +92,12 @@ function change_sport() {
     sport = sport_selected.options[sport_selected.selectedIndex].text;
 
     console.log("SPORT: " + sport);
+    connect();
 }
 
 //logging_user is the username of the user that is entering in the chat page
 function connect(logging_user){
+
     username = logging_user;
 
     var sport_selected = document.getElementById("sports");
@@ -134,9 +123,7 @@ function send_message(event){
 
     var message_text = input_message.value;
     input_message.value = "";
-    console.log("MESSAGE: " + message_text);
 
     websocket.send(CHATROOM + ":" + message_text + ":" + username + ":" + sport);
-    print_message(username, message_text, null);
-
+    print_message(username, message_text, false);
 }

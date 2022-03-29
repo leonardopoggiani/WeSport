@@ -30,16 +30,6 @@ websocket_handle({text, Message}, State) ->
 
     First_param == <<"&PING">> ->
       gen_server:cast(?SERVER, {online_users, self()});
-
-    First_param == <<"&CHATROOM">> ->
-      Chatroom_message = lists:nth(2, Param_list),
-      io:format("Message: ~p ~n",[Chatroom_message]),
-      Sender = lists:nth(3, Param_list),
-      io:format("Sender: ~p ~n",[Sender]),
-      Sport = lists:nth(4, Param_list),
-      io:format("Sport: ~p ~n",[Sport]),
-      gen_server:cast(?SERVER, {send_message_chatroom, {self(), {Sport, Sender}, Chatroom_message}});
-
     true ->
       % L'utente ha inviato un messaggio
       MessageText = First_param,

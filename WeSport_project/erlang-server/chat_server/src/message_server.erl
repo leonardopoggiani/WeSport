@@ -15,7 +15,7 @@ init(_) ->
     {'_', [{'_', websocket_handler, #{}}]}
   ]),
   cowboy:start_clear(my_http_listener,
-    [{port, 3307}],
+    [{port, 3308}],
     #{env=> #{dispatch =>Dispatch}}
   ),
   {ok, ""}.
@@ -43,19 +43,6 @@ handle_cast({send_message, {Pid_sender, {Receiver_NickName, Sender_NickName}, Me
   end,
   {noreply, State};
 
-handle_cast({send_message_chatroom, {Pid_sender, {Sport, Sender_NickName}, Message_Text}}, State) ->
-  io:format("Chatroom: ~p ~n",[Sport]),
-  case gen_server:call(?SPORT_HANDLER, {retrieve_pid, Sport}) of
-    [] ->
-      io:format("Sport not available: ~p ~n",[Sport]),
-      Pid_sender ! {send_message_chatroom, Pid_sender,"Sport not available."};
-    [{_,Pid}] ->
-      io:format("Sport Pid: ~p ~n",[Pid]),
-      FormattedMessage = format_message(Sender_NickName, Message_Text),
-      Pid ! {send_message_chatroom, Pid_sender, FormattedMessage}
-  end,
-  {noreply, State};
-
 handle_cast({login, {Pid, NickName}}, State) ->
   Reply = gen_server:call(?ID_HANDLER, {insert_user, NickName, Pid}),
   case Reply of
@@ -70,7 +57,6 @@ handle_cast({online_users, Pid}, State) ->
   Response = gen_server:call(?ID_HANDLER, {online_users}),
   send(Pid, Response, []),
   {noreply, State}.
-
 
 quit(Pid, _S) ->
   send(Pid, "Goodbye ~p", [Pid]),
