@@ -42,7 +42,7 @@
         </div>
     </nav>
     <br><br>
-    <form method="post" action="<%= request.getContextPath()%>/bookField">
+    <form method="post" action="<%= request.getContextPath()%>/bookfield">
         <div id="insert">
 
         <%
@@ -58,7 +58,7 @@
                 <br>
                 <%for (int i=0; i<numPlayer; i++){
                     %>
-                    <li><input class ="players" name="<%=i%>" type="text"></li>
+                    <li><input class ="players" name="<%=i+1%>" type="text" required></li>
 
                 <%}%>
             </ul>
