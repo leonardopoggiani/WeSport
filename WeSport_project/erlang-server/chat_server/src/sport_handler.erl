@@ -25,8 +25,10 @@ handle_call({retrieve_pid, Sport}, _From, Sports) ->
   io:format("Response: ~p ~n",[Response]),
   {reply, Response, Sports};
 
-handle_call({logout, Pid}, _From, Sports) ->
-  {reply, Pid, Sports};
+  handle_call({logout, Pid}, _From, Sports) ->
+    io:format("Elimino: ~p ~n",[Pid]),
+    Response = ets:match_delete(Sports, {Pid, '_'}),
+    {reply, Response, Sports};
 
 handle_call(_Message, _From, State) ->
   {reply, error, State}.

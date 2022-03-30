@@ -91,8 +91,7 @@ function change_sport() {
     var sport_selected = document.getElementById("sports");
     sport = sport_selected.options[sport_selected.selectedIndex].text;
 
-    console.log("SPORT: " + sport);
-    connect();
+    connect(username);
 }
 
 //logging_user is the username of the user that is entering in the chat page
@@ -102,8 +101,6 @@ function connect(logging_user){
 
     var sport_selected = document.getElementById("sports");
     sport = sport_selected.options[sport_selected.selectedIndex].text;
-
-    console.log("SPORT: " + sport);
 
     websocket = new WebSocket(server_url);
     websocket.onopen = function(){ws_onOpen()};

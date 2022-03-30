@@ -23,6 +23,10 @@ websocket_handle({text, Message}, State) ->
     First_param == <<"&PING">> ->
       gen_server:cast(?SERVER, {online_users, self()});
 
+    First_param == <<"&LOGOUT">> ->
+      io:format("LOGOUT ~n"),
+      gen_server:cast(?CHATROOM_SERVER, {logout, self()});
+
     true ->
       Chatroom_message = lists:nth(2, Param_list),
       io:format("Message: ~p ~n",[Chatroom_message]),

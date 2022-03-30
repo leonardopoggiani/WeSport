@@ -17,7 +17,7 @@
     <script type="text/javascript" src="${pageContext.request.contextPath}/js/websocket_chatroom.js"></script>
 </head>
 
-<body onload="connect('<%=((UserDTO)session.getAttribute("logged_user")).getUsername()%>')">
+<body onload="connect('<%=((UserDTO)session.getAttribute("logged_user")).getUsername()%>')" onunload="disconnect()">
 
 <nav id="menu" class="navbar navbar-default">
     <div class="container-nav">

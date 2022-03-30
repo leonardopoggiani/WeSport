@@ -20,6 +20,16 @@ init(_) ->
   ),
   {ok, ""}.
 
+handle_call({logout, Pid}, _From, State) ->
+  io:format("~p leave_cast! ~n",[Pid]),
+  quit(Pid, State),
+  {noreply, State}.
+
+handle_cast({logout, Pid}, State) ->
+  io:format("~p leave_cast! ~n",[Pid]),
+  quit(Pid, State),
+  {noreply, State};
+
 handle_cast({send_message_chatroom, {Pid_sender, {Sport, Sender_NickName}, Message_Text}}, State) ->
   io:format("Chatroom: ~p ~n",[Sport]),
   io:format("Send to PID sender ~p ~n",[Pid_sender]),
@@ -35,10 +45,6 @@ handle_cast({send_message_chatroom, {Pid_sender, {Sport, Sender_NickName}, Messa
 handle_cast({login, {Pid, Sport}}, State) ->
   gen_server:call(?SPORT_HANDLER, {insert_sport, Sport, Pid}),
   {noreply, State}.
-
-handle_call({logout, Pid}, _From, State) ->
-    io:format("~p leave_cast! ~n",[Pid]),
-    {noreply, State}.
 
 % ---------- UTILITY ------------
 
@@ -72,4 +78,16 @@ send_message_chatroom_member([H|T], Sender_NickName, Message_Text, Pid_sender) -
   end;
 
 send_message_chatroom_member([], _, _, _) ->
+  io:format("Users finished ~n"),
+  ok.
+
+quit(Pid, _S) ->
+  send(Pid, "Goodbye ~p", [Pid]),
+  io:format("~p Left the chat server! ~n", [Pid]),
+  gen_server:call(?SPORT_HANDLER, {logout, Pid}).
+
+% invia una semplice stringa, utilizzata solo per inviare messaggi generati dal server
+send(Pid, Str, Args) ->
+  io:format("~p send! ~n",[Str]),
+  Pid ! {send_message, self(), io_lib:format(Str++"~n", Args)},
   ok.
