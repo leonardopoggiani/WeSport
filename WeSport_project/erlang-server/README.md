@@ -1,4 +1,4 @@
-# Istruzione per avviare il server chat Erlang
+# Istruzioni per avviare il server chat Erlang
 
 - Spostarsi nella cartella chat_server/
 - `rebar3 compile` per compilare i file di Erlang
