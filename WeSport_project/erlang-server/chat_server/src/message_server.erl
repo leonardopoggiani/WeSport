@@ -15,7 +15,7 @@ init(_) ->
     {'_', [{'_', websocket_handler, #{}}]}
   ]),
   cowboy:start_clear(my_http_listener,
-    [{port, 3307}],
+    [{port, 3308}],
     #{env=> #{dispatch =>Dispatch}}
   ),
   {ok, ""}.
@@ -33,6 +33,7 @@ handle_cast({logout, Pid}, State) ->
   {noreply, State};
 
 handle_cast({send_message, {Pid_sender, {Receiver_NickName, Sender_NickName}, Message_Text}}, State) ->
+
   case gen_server:call(?ID_HANDLER, {retrieve_pid, Receiver_NickName}) of
     [] ->
       Pid_sender ! {send_message, Pid_sender,"User not available."};
@@ -56,7 +57,6 @@ handle_cast({online_users, Pid}, State) ->
   Response = gen_server:call(?ID_HANDLER, {online_users}),
   send(Pid, Response, []),
   {noreply, State}.
-
 
 quit(Pid, _S) ->
   send(Pid, "Goodbye ~p", [Pid]),

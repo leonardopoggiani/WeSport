@@ -19,6 +19,22 @@
 
 <body onload="connect('<%=((UserDTO)session.getAttribute("logged_user")).getUsername()%>')" onunload="disconnect()">
 
+<nav id="menu" class="navbar navbar-default">
+    <div class="container-nav">
+
+        <div id="navbar">
+            <ul class="nav navbar-nav">
+                <li><a href="${pageContext.request.contextPath}/homepage">Homepage</a></li>
+                <li><a href="${pageContext.request.contextPath}/booking">Booking</a></li>
+                <li><a href="${pageContext.request.contextPath}/profile"><%=((UserDTO)session.getAttribute("logged_user")).getUsername()%></a></li>
+                <li class="active"><a href="${pageContext.request.contextPath}/chat">Chat</a></li>
+                <li><a href="${pageContext.request.contextPath}/logout">Logout</a></li>
+            </ul>
+        </div>
+
+    </div>
+</nav>
+
 <div class='container'>
     <h1>Chat Room</h1>
 
