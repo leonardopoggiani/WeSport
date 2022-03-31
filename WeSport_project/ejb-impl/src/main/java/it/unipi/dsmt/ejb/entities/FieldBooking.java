@@ -16,7 +16,7 @@ public class FieldBooking implements Serializable {
     @Column(name="sport")
     private String sport;
     @Column(name="day")
-    private Date day;
+    private java.sql.Date day;
     @Column(name="start_hour")
     private Integer start_hour;
     @Column(name="end_hour")
@@ -44,7 +44,7 @@ public class FieldBooking implements Serializable {
         return day;
     }
 
-    public void setDay(Date day) {
+    public void setDay(java.sql.Date day) {
         this.day = day;
     }
 

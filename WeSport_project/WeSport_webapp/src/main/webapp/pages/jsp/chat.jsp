@@ -15,13 +15,12 @@
     <meta name='viewport' content='width=device-width, initial-scale=1'>
     <link rel="icon" type="image/x-icon" href="${pageContext.request.contextPath}/images/favicon.png">
     <script type="text/javascript" src="${pageContext.request.contextPath}/js/websocket_chat.js"></script>
-    <script src="https://kit.fontawesome.com/36ef34d326.js" crossorigin="anonymous"></script>
-
 </head>
 
 <% List<UserDTO> userList = (List<UserDTO>)request.getAttribute("users"); %>
 
 <body onload="connect('<%=((UserDTO)session.getAttribute("logged_user")).getUsername()%>')" onunload="disconnect()">
+
     <nav id="menu" class="navbar navbar-default">
         <div class="container-nav">
 
@@ -29,47 +28,36 @@
                 <ul class="nav navbar-nav">
                     <li><a href="${pageContext.request.contextPath}/homepage">Homepage</a></li>
                     <li><a href="${pageContext.request.contextPath}/booking">Booking</a></li>
-                    <li><a href="${pageContext.request.contextPath}/profile">Profile</a></li>
+                    <li><a href="${pageContext.request.contextPath}/profile"><%=((UserDTO)session.getAttribute("logged_user")).getUsername()%></a></li>
                     <li class="active"><a href="${pageContext.request.contextPath}/chat">Chat</a></li>
+                    <li><a href="${pageContext.request.contextPath}/logout">Logout</a></li>
                 </ul>
             </div>
 
         </div>
     </nav>
 
-    <h1> Chat</h1>
-
-    <div>
-        <div class="online-users">
-            <div>
+    <div class='container'>
+        <h1>Chat</h1> <h1 id="receiver"></h1>
+        <div class='chatbox' id="chatbox">
+            <div class='chatbox__user-list'>
+                <h1>User list</h1>
                 <%
                     for(UserDTO item: userList){
                         if(item.getUsername().equals(((UserDTO)session.getAttribute("logged_user")).getUsername()))
                             continue;
                 %>
-                <div onclick="return set_chat_receiver(event);" >
-                    <p name="chatbox_user" class="user-busy" id="<%=item.getUsername()%>"> <%=item.getUsername()%> <i id="icon-<%=item.getUsername()%>" class="fa-solid fa-comment-slash"> </i> </p>
+                <div class="chatbox__user--busy" id="div-<%=item.getUsername()%>" >
+                    <p name="chatbox_user" id="<%=item.getUsername()%>" > <%=item.getUsername()%> </p>
                 </div>
                 <% } %>
             </div>
-        </div>
 
-        <div class="top-div">
-            <div class="message_box">
-                <h2 class="message-box-title"> Message box</h2>
-                <h3> Chat with: </h3> <h3 id="receiver"> no one actually :( </h3>
-
-                <div class="box">
-
-                </div>
-            <div class="submit-button">
-                <form>
-                    <input class="message-text" type="text" placeholder="Enter your message">
-                    <input class="send-button" type="submit" value=" " onclick = "return send_message(event);">
-                </form>
+            <div class="submit_button">
+                <input class="message_text" id="message_text" type="text" placeholder="Enter your message">
+                <input class="send_button" type="submit" value=" " onclick = "return send_message(event);">
             </div>
         </div>
-
     </div>
 
 </body>

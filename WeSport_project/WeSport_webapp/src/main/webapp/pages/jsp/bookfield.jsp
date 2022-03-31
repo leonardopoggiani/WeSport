@@ -1,4 +1,5 @@
-<%@ page import="it.unipi.dsmt.dto.FieldBookingDTO" %><%--
+<%@ page import="it.unipi.dsmt.dto.FieldBookingDTO" %>
+<%@ page import="it.unipi.dsmt.dto.UserDTO" %><%--
   Created by IntelliJ IDEA.
   User: ZenBook Pro
   Date: 22/03/2022
@@ -18,7 +19,7 @@
 
 <html>
 <head>
-    <title>Book a Field</title>
+    <title>Bookfield</title>
     <link href="${pageContext.request.contextPath}/CSS/homepage.css" rel="stylesheet" type="text/css">
     <link href="${pageContext.request.contextPath}/CSS/bookField.css" rel="stylesheet" type="text/css">
     <link href="${pageContext.request.contextPath}/CSS/navbar.css" rel="stylesheet" type="text/css">
@@ -34,15 +35,16 @@
                 <ul class="nav navbar-nav">
                     <li><a href="${pageContext.request.contextPath}/homepage">Homepage</a></li>
                     <li class="active"><a href="${pageContext.request.contextPath}/booking">Booking</a></li>
-                    <li><a href="${pageContext.request.contextPath}/profile">Profile</a></li>
+                    <li><a href="${pageContext.request.contextPath}/profile"><%=((UserDTO)session.getAttribute("logged_user")).getUsername()%></a></li>
                     <li><a href="${pageContext.request.contextPath}/chat">Chat</a></li>
+                    <li><a href="${pageContext.request.contextPath}/logout">Logout</a></li>
                 </ul>
             </div>
 
         </div>
     </nav>
     <br><br>
-    <form method="post" action="<%= request.getContextPath()%>/bookField">
+    <form method="post" action="<%= request.getContextPath()%>/bookfield">
         <div id="insert">
 
         <%
@@ -58,7 +60,7 @@
                 <br>
                 <%for (int i=0; i<numPlayer; i++){
                     %>
-                    <li><input class ="players" name="<%=i%>" type="text"></li>
+                    <li><input class ="players" name="<%=i+1%>" type="text" required></li>
 
                 <%}%>
             </ul>
@@ -70,11 +72,7 @@
                 }
 
             </script>
-            <ul class="ulInsert">
-                <li><label class="labelHour">Start hour</label><br><input class="hour" id="hour" type="time" name="start" onchange="mostra()"></li>
-                <li><label class="labelHour">End hour</label><br><input class="hour" type="time" name="end"></li>
-                <br><br>
-            </ul>
+            <br><br>
         </div>
         <br><br>
         <input id="submit" type="submit" value="SUBMIT">

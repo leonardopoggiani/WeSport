@@ -3,6 +3,7 @@
 <%@ page import="java.time.LocalDate" %>
 <%@ page import="java.time.Month" %>
 <%@ page import="java.time.format.DateTimeFormatter" %>
+<%@ page import="it.unipi.dsmt.dto.UserDTO" %>
 <%--
   Created by IntelliJ IDEA.
   User: poggiolinux
@@ -19,7 +20,7 @@
 
 
 %>
-                  
+
 <html>
     <head>
         <title>Booking</title>
@@ -37,8 +38,9 @@
             <ul class="nav navbar-nav">
                 <li><a href="${pageContext.request.contextPath}/homepage">Homepage</a></li>
                 <li class="active"><a href="${pageContext.request.contextPath}/booking">Booking</a></li>
-                <li><a href="${pageContext.request.contextPath}/profile">Profile</a></li>
+                <li><a href="${pageContext.request.contextPath}/profile"><%=((UserDTO)session.getAttribute("logged_user")).getUsername()%></a></li>
                 <li><a href="${pageContext.request.contextPath}/chat">Chat</a></li>
+                <li><a href="${pageContext.request.contextPath}/logout">Logout</a></li>
             </ul>
         </div>
 
@@ -77,10 +79,10 @@
             int day = LocalDate.now().getDayOfMonth();
 
             for( int i = 0; i < freeDays.length; i++){
-                if (year < currentYear || (year==currentYear && month < currentMonth) || (year==currentYear && month==currentMonth && i<day)){ %>
+                /*if (year < currentYear || (year==currentYear && month < currentMonth) || (year==currentYear && month==currentMonth && i<day)){ %>
                     <li id="passed"><button class="busy"><%= i+1%></button></li>
                 <%}
-                else if (!freeDays[i]){ %>
+                else */if (!freeDays[i]){ %>
                     <li id="ilbusy"><button class="busy"><%= i+1%></button></li>
                 <% } else{  %>
                     <li><input type="submit" class="submitDays" name="day" value="<%= i+1%>"></input></li>

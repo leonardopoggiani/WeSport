@@ -1,0 +1,190 @@
+// Variables
+$primary: #A8D0E6;
+$secondary: #25afe8;
+
+// Triangle Mixin
+@mixin triangle($color, $size, $direction) {
+  width: 0;
+  height: 0;
+  @if $direction == "up" {
+    border-right: ($size + px) solid transparent;
+    border-left: ($size + px) solid transparent;
+    border-bottom: ($size + px) solid $color;
+  }
+  @if $direction == "down" {
+    border-right: ($size + px) solid transparent;
+    border-left: ($size + px) solid transparent;
+    border-top: ($size + px) solid $color;
+  }
+  @if $direction == "right" {
+    border-top: ($size + px) solid transparent;
+    border-bottom: ($size + px) solid transparent;
+    border-left: ($size + px) solid $color;
+  }
+  @if $direction == "left" {
+    border-top: ($size + px) solid transparent;
+    border-bottom: ($size + px) solid transparent;
+    border-right: ($size + px) solid $color;
+  }
+}
+
+* {
+  margin: 0; padding: 0;
+  box-sizing: border-box;
+  font-family: 'DM Sans', sans-serif;
+}
+
+html,body {
+  background: linear-gradient(120deg, $primary, $secondary);
+  overflow-y: auto;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  height: 100vh;
+  width: 100vw;
+  h1 {
+    margin: 0.5em auto;
+    color: #FFF;
+    text-align: center;
+  }
+}
+
+.chatbox {
+  background: rgba(255, 255, 255, 0.05);
+  width: 1200px;
+  height: 75%;
+  border-radius: 0.2em;
+  position: relative;
+  box-shadow: 2px 2px 12px rgba(0, 0, 0, 0.1);
+  overflow-y: auto;
+  &__messages {
+    &__user-message--ind-message__right {
+      float: right;
+      background: rgba(255, 255, 255, 0.2);
+      padding: 1em 0;
+      height: auto;
+      width: 54%;
+      border-radius: 5px;
+      margin: 2em 1em;
+      overflow: auto;
+      & > p.name {
+        color: #FFF;
+        font-size: 1em;
+        float: left;
+        text-align: left;
+        margin: -0.25em 2em;
+        font-weight: 300;
+        width: 200px;
+      }
+      & > p.message {
+        color: #FFF;
+        font-size: 0.7em;
+        text-align: left;
+        float: left;
+        margin: -0.25em 2em;
+        font-weight: 300;
+        width: 90%;
+        overflow: hidden;
+      }
+      &:after {
+        content: '';
+        position: absolute;
+        margin: -1.5em 0.2em;
+        @include triangle(rgba(255, 255, 255, 0.2), 10, right);
+      }
+    }
+    &__user-message--ind-message__left {
+      float: left;
+      background: rgba(255, 255, 255, 0.2);
+      padding: 1em 0;
+      height: auto;
+      width: 54%;
+      border-radius: 5px;
+      margin: 2em 1em;
+      overflow: auto;
+      & > p.name {
+        color: #FFF;
+        font-size: 1em;
+        float: left;
+        text-align: left;
+        margin: -0.25em 2em;
+        font-weight: 300;
+        width: 200px;
+      }
+      & > p.message {
+        color: #FFF;
+        font-size: 0.7em;
+        text-align: left;
+        float: left;
+        margin: -0.25em 2em;
+        font-weight: 300;
+        width: 90%;
+        overflow: hidden;
+      }
+      &:after {
+        content: '';
+        position: absolute;
+        margin: -1.5em -31.92em;
+        @include triangle(rgba(255, 255, 255, 0.2), 10, left);
+      }
+    }
+  }
+  p {
+    float: left;
+    text-align: left;
+    margin: -0.25em 2em;
+    font-size: 0.7em;
+    font-weight: 300;
+    color: #FFF;
+    width: 200px;
+  }
+  .submit_button {
+    .message_text {
+      background: rgba(255, 255, 255, 0.03);
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      border: none;
+      width: 97%;
+      padding: 1.2em;
+      outline: none;
+      color: rgba(255, 255, 255, 0.9);
+      font-weight: 300;
+    }
+    .send_button {
+      background-image: url("../images/send.png");
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: contain;
+      background-color: rgba(255, 255, 255, 0.03);
+      position: absolute;
+      bottom: 0;
+      right: 0;
+      border: none;
+      width: 32px;
+      height: 32px;
+      cursor: pointer;
+    }
+  }
+}
+
+// Placeholder Styling
+::-webkit-input-placeholder {
+  color: rgba(255, 255, 255, 0.9);
+}
+
+:-moz-placeholder {
+  color: rgba(255, 255, 255, 0.9);
+}
+
+::-moz-placeholder {
+  color: rgba(255, 255, 255, 0.9);
+}
+
+:-ms-input-placeholder {
+  color: rgba(255, 255, 255, 0.9);
+}

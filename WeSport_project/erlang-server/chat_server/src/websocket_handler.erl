@@ -8,7 +8,12 @@ init(Req, Opts) ->
   {cowboy_websocket, Req, Opts}.
 
 websocket_handle({text, Message}, State) ->
+  io:format("message: ~p ~n",[Message]),
+
   Param_list = string:lexemes(Message, ":"),   % scompongo la stringa in arrivo in una lista di stringhe
+
+  io:format("Param_list: ~p ~n",[Param_list]),
+  % example -> Param_list: [<<"&CHATROOM">>,<<"ciao">>,<<"wiza.julia">>,<<"Tennis">>]
 
   First_param = hd(Param_list),
   Last_param = lists:last(Param_list),
@@ -25,7 +30,6 @@ websocket_handle({text, Message}, State) ->
 
     First_param == <<"&PING">> ->
       gen_server:cast(?SERVER, {online_users, self()});
-
     true ->
       % L'utente ha inviato un messaggio
       MessageText = First_param,
@@ -41,6 +45,7 @@ websocket_handle(_Data, State) ->
 
 websocket_info({send_message, _ServerPid, Msg}, State) ->
   {reply, {text, Msg}, State};
+
 websocket_info(_Info, State) ->
   {[], State}.
 

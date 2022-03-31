@@ -6,107 +6,88 @@ const PING = "&PING";
 
 var username = "";
 
-const server_url = "ws://localhost:3307";
+const server_url = "ws://localhost:3308";
 
 var id_timer = null;
 
-function print_message(sender_name, message, receiver = null) {
-    console.log("PRINT MESSAGE");
+function print_message(sender_name, message, receiver) {
 
-    /*
+    var box = document.getElementById("chatbox");
 
-    var externDiv = document.createElement("div");
-    externDiv.setAttribute("class", "chatbox__messages__user-message");
-    //externDiv.style.backgroundColor = "orange";
-    //externDiv.style.background = "orange";
-    var messageDiv = document.createElement("div");
+    var div = document.createElement("div");
+    div.setAttribute("class", "chatbox__messages");
+
+    var indMessageDiv = document.createElement("div");
+
     var p_name = document.createElement("p");
-    var p_name_text;
+    p_name.setAttribute("class", "name");
+
     var p_message = document.createElement("p");
-    var p_message_text;
+    p_message.setAttribute("class", "message");
+
     if(receiver != null) {
+        console.log("RECEIVER: " + receiver);
         //messaggio inviato
-        messageDiv.setAttribute("class", "chatbox__messages__user-message--right-message");
-        p_name_text = document.createTextNode("Sent to " + receiver + ":");
-        p_message_text = document.createTextNode(message);
+
+        if(receiver.split(" ").length > 1) {
+            console.log("RETURN");
+            return;
+        }
+
+        indMessageDiv.setAttribute("class", "chatbox__messages__user-message--ind-message__right");
+
+        p_name.textContent = "Sent to " + receiver + ":";
+        p_message.textContent = message;
     } else {
         //messaggio in arrivo
         if (sender_name == null) {
             // messaggio inviato dal server
-            messageDiv.setAttribute("class", "chatbox__messages__user-message--server-message");
-            p_name_text = document.createTextNode("From: System");
-            p_message_text = document.createTextNode(message);
+            console.log(message);
+            return;
         } else {
             // messaggio da un altro utente
-            messageDiv.setAttribute("class", "chatbox__messages__user-message--left-message");
-            p_name_text = document.createTextNode("From: " + sender_name);
-            p_message_text = document.createTextNode(message);
+            p_name.textContent = "From " + sender_name + ":";
+            p_message.textContent = message;
+
+            indMessageDiv.setAttribute("class", "chatbox__messages__user-message--ind-message__left");
+
+            // se il receiver é lo stesso di prima lascio il nome, altrimenti tolgo i messaggi e cambio
+            var receiver_tag = document.getElementById("receiver");
+            if(receiver_tag.textContent == "" || receiver_tag.textContent == "no one actually :(") {
+                receiver_tag.textContent = sender_name;
+            } else if(receiver_tag.textContent != sender_name) {
+                receiver_tag.textContent = sender_name;
+            }
+
         }
     }
-    p_name.appendChild(p_name_text);
-    p_message.appendChild(p_message_text);
-    messageDiv.appendChild(p_name);
-    messageDiv.appendChild(document.createElement("br"));
-    messageDiv.appendChild(p_message);
-    externDiv.appendChild(messageDiv);
-    document.getElementById("message_box").appendChild(externDiv);
 
-     */
+    indMessageDiv.appendChild(p_name);
+    indMessageDiv.appendChild(document.createElement("br"));
+    indMessageDiv.appendChild(p_message);
+    div.appendChild(indMessageDiv);
+    box.appendChild(div);
 }
 
 function update_online_users(users_list) {
-    console.log("UPDATE ONLINE USERS");
 
     var all_users_list = document.getElementsByName("chatbox_user");
 
     for(var i = 0; i < all_users_list.length; i++) {
-
-        console.log(all_users_list[i].id);
-
         for (var j = 0; j < users_list.length - 1; j++) {
-            console.log("ONLINE: " + users_list[j]);
             if (all_users_list[i].id == users_list[j]) {
-                var online_user = document.getElementById("icon-" + all_users_list[i].id);
-                online_user.setAttribute("class", "fa-solid fa-comment");
+                console.log("ONLINE" + all_users_list[i].id);
+
+                var online_user = document.getElementById("div-" + all_users_list[i].id);
+                online_user.setAttribute("class", "chatbox__user--active");
+                online_user.onclick = set_chat_receiver;
+                break;
             } else {
-                var offline_user = document.getElementById("icon-" + all_users_list[i].id);
-                offline_user.setAttribute("class", "fa-solid fa-comment-slash");
+                var offline_user = document.getElementById("div-" + all_users_list[i].id);
+                offline_user.setAttribute("class", "chatbox__user--busy");
             }
         }
     }
-
-
-
-    /*
-    //insert new list
-    var all_users_list = document.getElementsByName("chatbox_user");
-    for(var i = 0; i < all_users_list.length; i++){
-        all_users_list[i].setAttribute("class", "chatbox__user--busy");
-    }
-    var option;
-    var option_text;
-    for(var i = 0; i < users_list.length - 1; ++i){
-        if(users_list[i] === username)
-            continue;	//the logged user can not send a message to himself!
-        option = document.createElement("option");
-        option.setAttribute("id", users_list[i]);
-        option.setAttribute("value", users_list[i]);
-        option.setAttribute("class", "online_user");
-        if(previous_selected === users_list[i]){
-            // the selcted user is still online
-            option.selected = "selected";
-            previous_selected_is_online = true;
-        }
-        option_text = document.createTextNode(users_list[i]);
-        option.append(option_text);
-        select_block.append(option);
-        //update online users in the list of all the users
-        document.getElementById(users_list[i]).setAttribute("class", "chatbox__user--active");
-    }
-    if(!previous_selected_is_online)
-        document.getElementById("placeholder").selected = "selected";
-
-     */
 }
 
 // WEBSOCKET
@@ -150,7 +131,6 @@ function ws_onMessage(event) {
 
 //logging_user is the username of the user that is entering in the chat page
 function connect(logging_user){
-    console.log("CONNECT");
     username = logging_user;
     websocket = new WebSocket(server_url);
     websocket.onopen = function(){ws_onOpen()};
@@ -165,42 +145,38 @@ function disconnect(){
 }
 
 function send_message(event){
-    var keycode = event.keyCode;
-    if(keycode != 13){
-        return true;
+
+    var input_message = document.getElementById("message_text");
+
+    var message_text = input_message.value;
+    input_message.value = "";
+    console.log("MESSAGE: " + message_text);
+
+    const receiver_username = document.getElementById("receiver").textContent;
+    console.log("RECEIVER: " + receiver_username);
+
+    if(receiver_username != "" || receiver_username != "no one actually :(") {
+        if (message_text != "") {
+            websocket.send(message_text + ":" + username + ":" + receiver_username);
+            print_message(username, message_text, receiver_username);
+        }
     }
-    var message_text = document.getElementById("text_input").value;
-    const receiver_index = document.getElementById("select_receiver").selectedIndex;
-    const receiver_username = document.getElementById("select_receiver").options[receiver_index].value;
-    if(receiver_username == "choose-one") {
-        //the user has not selected a receiver
-        print_message(null, "You must select a receiver!", null);
-        //document.getElementById("text_input").value = "";
-        return false;
-    }
-    if(message_text == ""){
-        print_message(null, "You must write something!", null);
-        document.getElementById("text_input").value = "";
-        return false;
-    }
-    websocket.send(message_text + ":" + username + ":" + receiver_username);
-    print_message(null, message_text, receiver_username);
-    document.getElementById("text_input").value = "";
-    return false;
 }
 
 function set_chat_receiver(event) {
-    console.log("SET CHAT RECEIVER: " + event.target.id);
 
-    var x = document.getElementById("receiver").textContent;
-    console.log("Actual receiver: " + x);
+    var splitted = event.target.id.split("-");
+    var id = "";
+
+    if(splitted.length > 1 && splitted[0] == "icon") {
+        id = splitted[1];
+    } else {
+        id = event.target.id;
+    }
 
     if(event.target.id == null) {
         document.getElementById("receiver").textContent = "No one actually :(";
     } else {
-        document.getElementById("receiver").textContent = event.target.id;
+        document.getElementById("receiver").textContent = id;
     }
-
-    var y = document.getElementById("receiver").textContent;
-    console.log("New receiver: " + y);
 }

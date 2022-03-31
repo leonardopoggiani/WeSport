@@ -94,6 +94,11 @@ h1 {
     background-position: center;
 }
 
+#chatroom.project-box-content-header{
+    background-image: url("../images/forum.png");
+    background-repeat: no-repeat;
+    background-position: center;
+}
 
 .project-box-content-header:hover{
     opacity: 0.7;
@@ -251,6 +256,11 @@ h1 {
     height: 300px;
     margin-left: auto;
     margin-right: auto;
+}
+
+.row-last {
+    justify-items: center;
+    height: 300px;
 }
 
 .goback {

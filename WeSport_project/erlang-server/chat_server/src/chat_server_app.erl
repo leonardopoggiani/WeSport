@@ -10,7 +10,8 @@
 -export([start/2, stop/1]).
 
 start(_StartType, _StartArgs) ->
-    chat_server_sup:start_link().
+    chat_server_sup:start_link(),
+    chatroom_server_sup:start_link().
 
 stop(_State) ->
     ok.
