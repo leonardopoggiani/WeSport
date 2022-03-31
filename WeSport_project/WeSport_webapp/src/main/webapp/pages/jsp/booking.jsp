@@ -79,10 +79,10 @@
             int day = LocalDate.now().getDayOfMonth();
 
             for( int i = 0; i < freeDays.length; i++){
-                if (year < currentYear || (year==currentYear && month < currentMonth) || (year==currentYear && month==currentMonth && i<day)){ %>
+                /*if (year < currentYear || (year==currentYear && month < currentMonth) || (year==currentYear && month==currentMonth && i<day)){ %>
                     <li id="passed"><button class="busy"><%= i+1%></button></li>
                 <%}
-                else if (!freeDays[i]){ %>
+                else */if (!freeDays[i]){ %>
                     <li id="ilbusy"><button class="busy"><%= i+1%></button></li>
                 <% } else{  %>
                     <li><input type="submit" class="submitDays" name="day" value="<%= i+1%>"></input></li>

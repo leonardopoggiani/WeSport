@@ -162,7 +162,7 @@ public class FieldBookingEJB implements FieldBookingRemote {
     }
 
 
-
+    /*
     @Override
     public boolean[] displayBusyDaysForMonth(String sport, Date date) {
         Query query = entityManager.createNativeQuery(
@@ -214,4 +214,49 @@ public class FieldBookingEJB implements FieldBookingRemote {
 
         return freeDays;
     }
+    */
+    @Override
+    public boolean[] displayBusyDaysForMonth(String sport, Date date) {
+        Calendar cal = Calendar.getInstance();
+        cal.setTime(date);
+        int month = cal.get(Calendar.MONTH) +1 ;
+        int year = cal.get(Calendar.YEAR);
+        Query query = entityManager.createQuery("select SUBSTRING(b.day, 9, 2), COUNT(b)" +
+                        " from FieldBooking b  WHERE SUBSTRING(b.day, 6, 2) = ?2 AND b.sport = ?1 " +
+                         "AND SUBSTRING(b.day, 1, 4) = ?3 GROUP BY b.day ORDER BY b.day ASC ");
+        query.setParameter(1, sport);
+        query.setParameter(2, month);
+        query.setParameter(3,year);
+
+        List<Object[]> res = query.getResultList();
+
+        /*int numDays = 31;
+        if (month == 11 || month == 4 || month == 6 || month == 9) numDays = 30;
+        else if (month==2) numDays = 28;*/
+
+        boolean[] freeDays = new boolean[cal.getActualMaximum(Calendar.DAY_OF_MONTH)];
+        System.out.println("LOG mese-giorno"+ cal.get(Calendar.MONTH) + cal.getActualMaximum(Calendar.DAY_OF_MONTH));
+
+
+        if (res.isEmpty()) {
+            System.out.println("[LOG] Nessuna prenotazione trovata");
+            Arrays.fill(freeDays, true);
+        } else {
+            for (int i = 0; i < cal.getActualMaximum(Calendar.DAY_OF_MONTH); i++)
+                for (Object[] booking : res) {
+                    int day = Integer.parseInt(booking[0].toString());
+                    int bookedSlots = Integer.parseInt(booking[1].toString());
+                    if ((day==(i+1)) && bookedSlots==12) {
+                        freeDays[i] = false;
+                        break;
+                    } else {
+                        freeDays[i] = true;
+                    }
+
+                }
+        }
+
+        return freeDays;
+    }
+
 }
