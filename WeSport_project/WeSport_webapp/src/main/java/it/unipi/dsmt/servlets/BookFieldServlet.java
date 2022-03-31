@@ -14,11 +14,13 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
+import java.sql.SQLException;
 import java.sql.Time;
 import java.time.LocalDate;
 import java.time.Year;
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 
 @WebServlet(name = "BookFieldServlet", value = "/bookfield")
@@ -63,7 +65,16 @@ public class BookFieldServlet extends HttpServlet {
             }
         }
 
-        getServletContext().getRequestDispatcher("/pages/jsp/homepage.jsp").forward(request, response);
+        try {
+            fieldBookingRemote.insertBooking(sport, booking.getDay(), booking.getStart_hour(), booking.getEnd_hour(), booking.getBooker());
+            response.sendRedirect(request.getContextPath()+"/homepage");
+        }
+        catch (SQLException e){
+            System.err.println("LOG: Error in insertBooking");
+            response.sendRedirect(request.getContextPath()+"/bookfield");
+            //getServletContext().getRequestDispatcher("/pages/jsp/homepage.jsp").forward(request, response);
+        }
+        //getServletContext().getRequestDispatcher("/pages/jsp/homepage.jsp").forward(request, response);
 
 
     }
