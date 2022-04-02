@@ -12,6 +12,7 @@ import it.unipi.dsmt.dto.UserDTO;
 import it.unipi.dsmt.interfaces.FieldBookingRemote;
 import it.unipi.dsmt.utils.Utils;
 
+
 import javax.ejb.EJB;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -20,6 +21,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+
 
 @WebServlet(name = "BookingServlet", value = "/booking")
 public class BookingServlet extends HttpServlet {
