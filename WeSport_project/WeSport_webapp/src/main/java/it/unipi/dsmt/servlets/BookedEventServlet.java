@@ -30,9 +30,23 @@ public class BookedEventServlet extends HttpServlet {
     @EJB
     private FieldBookingRemote fieldBookingRemote;
 
+    public Integer bookingIdentifier;
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
+        HttpSession session = request.getSession();
+        String score = request.getParameter("inputScore");
+
+        String targetJSP = "/pages/jsp/bookedevent.jsp";
+        Integer bookingID = this.bookingIdentifier;
+        ArrayList<UserDTO> friends;
+        //friends=userRemote.displayUsersForEvent(bookingID);
+        //request.setAttribute("friends", friends);
+        String userID= request.getParameter("userId");
+       // boolean ins=bookingUserRemote.updateScore(bookingUserRemote.displayUserBooking2(userID,2),2);
+        session.getAttribute("inp");
+        RequestDispatcher requestDispatcher = request.getRequestDispatcher(targetJSP);
+        requestDispatcher.forward(request,response);
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
@@ -60,13 +74,18 @@ public class BookedEventServlet extends HttpServlet {
         request.setAttribute("bookings", bookings);
         request.setAttribute("freeDays", freeDays);
 
-        String targetJSP = "/pages/jsp/bookedevent.jsp";
+
 
         System.out.println("[LOG] bookingID: " + bookingID);
+        this.bookingIdentifier=bookingID;
         ArrayList<UserDTO> friends;
         friends=userRemote.displayUsersForEvent(bookingID);
+        //Integer userbookingid=Integer.valueOf(request.getParameter());;
+       // UserBookingDTO userBookingDTO=bookingUserRemote.displayUserBooking(userbookingid);
         request.setAttribute("friends", friends);
+        session.setAttribute("event",bookingID);
 
+        String targetJSP = "/pages/jsp/bookedevent.jsp";
         RequestDispatcher requestDispatcher = request.getRequestDispatcher(targetJSP);
         requestDispatcher.forward(request,response);
     }
