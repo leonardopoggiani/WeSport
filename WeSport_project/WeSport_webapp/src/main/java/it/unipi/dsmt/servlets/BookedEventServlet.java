@@ -29,11 +29,15 @@ public class BookedEventServlet extends HttpServlet {
     private BookingUserRemote bookingUserRemote;
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 =======
 >>>>>>> parent of b3cb4f7 (refactor)
 
 >>>>>>> parent of 4bd11ab (Merge pull request #8 from leonardopoggiani/bookedEventServlet)
+=======
+
+>>>>>>> parent of c6a3122 (refactor)
     @EJB
     private FieldBookingRemote fieldBookingRemote;
 

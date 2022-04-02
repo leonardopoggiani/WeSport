@@ -41,8 +41,11 @@ public class UserBookingEJB implements BookingUserRemote {
 
 <<<<<<< HEAD
 
+
+
 }
 
+<<<<<<< HEAD
 >>>>>>> parent of 4bd11ab (Merge pull request #8 from leonardopoggiani/bookedEventServlet)
 =======
         Query query = entityManager.createQuery(jpql);
@@ -79,3 +82,6 @@ public class UserBookingEJB implements BookingUserRemote {
 
 
 >>>>>>> parent of d110da1 (refactor)
+=======
+
+>>>>>>> parent of c6a3122 (refactor)
