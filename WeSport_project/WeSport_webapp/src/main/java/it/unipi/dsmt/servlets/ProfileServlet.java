@@ -22,7 +22,7 @@ import java.util.List;
 public class ProfileServlet extends HttpServlet {
 
     @EJB
-    private FieldBookingRemote fieldBookingRemote;
+    private FieldBookingRemote fieldBookingEJB;
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
@@ -40,7 +40,7 @@ public class ProfileServlet extends HttpServlet {
         Date date = new Date(miliseconds);
 
         try {
-            bookings = fieldBookingRemote.displayBooking(user.getId());
+            bookings = fieldBookingEJB.displayBooking(user.getId());
         } catch (SQLException e) {
             e.printStackTrace();
         }

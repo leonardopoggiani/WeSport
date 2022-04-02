@@ -10,6 +10,7 @@ import java.util.Date;
 @Entity
 @Table(name="booking")
 public class FieldBooking implements Serializable {
+
     @Id
     @Column(name="ID")
     private Integer id;

@@ -1,11 +1,5 @@
 <%@ page import="it.unipi.dsmt.dto.FieldBookingDTO" %>
-<%@ page import="it.unipi.dsmt.dto.UserDTO" %><%--
-  Created by IntelliJ IDEA.
-  User: ZenBook Pro
-  Date: 22/03/2022
-  Time: 10:25
-  To change this template use File | Settings | File Templates.
---%>
+<%@ page import="it.unipi.dsmt.dto.UserDTO" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%
     FieldBookingDTO fb = (FieldBookingDTO) session.getAttribute("fieldBooking");
@@ -14,7 +8,6 @@
     /*int month = Integer.parseInt(request.getAttribute("month").toString());
     int year = Integer.parseInt(request.getAttribute("year").toString());
     int day = Integer.parseInt(request.getAttribute("day").toString());*/
-
 %>
 
 <html>

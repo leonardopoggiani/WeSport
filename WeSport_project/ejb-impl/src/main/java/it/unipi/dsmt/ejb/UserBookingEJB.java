@@ -1,26 +1,16 @@
 package it.unipi.dsmt.ejb;
 
-
-import it.unipi.dsmt.dto.FieldBookingDTO;
 import it.unipi.dsmt.dto.UserBookingDTO;
-
-import it.unipi.dsmt.interfaces.BookingUserRemote;
-
-
+import it.unipi.dsmt.interfaces.UserBookingRemote;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
-import javax.persistence.criteria.CriteriaBuilder;
 import java.util.ArrayList;
-import java.sql.*;
-
-
-import java.util.Date;
 import java.util.List;
 
 @Stateless
-public class UserBookingEJB implements BookingUserRemote {
+public class UserBookingEJB implements UserBookingRemote {
 
     @PersistenceContext
     private EntityManager entityManager;
@@ -70,16 +60,11 @@ public class UserBookingEJB implements BookingUserRemote {
         List<Integer> bookingList = query.getResultList();
         ArrayList<UserBookingDTO> result = new ArrayList<UserBookingDTO>();
 
-
-
         if (bookingList != null && !bookingList.isEmpty()) {
             userbookingid=(Integer) bookingList.get(0);
 
         }
-
         return userbookingid;
-
-
     }
 
     public boolean updateScore(Integer userBookingID, Integer score){
@@ -94,5 +79,3 @@ public class UserBookingEJB implements BookingUserRemote {
     }
 
 }
-
-

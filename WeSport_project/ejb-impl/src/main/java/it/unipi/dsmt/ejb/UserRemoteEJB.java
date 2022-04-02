@@ -1,6 +1,5 @@
 package it.unipi.dsmt.ejb;
 
-
 import it.unipi.dsmt.dto.UserDTO;
 import it.unipi.dsmt.interfaces.UserRemote;
 
@@ -51,7 +50,7 @@ public class UserRemoteEJB implements UserRemote {
     public UserDTO getUser(String username) throws SQLException {
         String jpql = "select u.id, u.username, u.name, u.surname, u.email, u.password, u.city, u.postal_code, u.description " +
                 "from User u where lower(u.username) = lower(:username)";
-        
+
         Query query = entityManager.createQuery(jpql);
         query.setParameter("username", username);
 
