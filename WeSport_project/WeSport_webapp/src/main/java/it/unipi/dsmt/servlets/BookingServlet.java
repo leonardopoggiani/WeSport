@@ -87,19 +87,10 @@ public class BookingServlet extends HttpServlet {
     }
     else{
       dayNum = date.get(Calendar.DATE);
-<<<<<<< HEAD
-<<<<<<< HEAD
       bookings = fieldBookingRemote.displayBookingForSport(sport);
       System.out.println("[LOG] Di nuovo date: " + date.getTime() );
       boolean[] freeDays = fieldBookingRemote.displayBusyDaysForMonth(sport, date.getTime());
-=======
-      bookings = fieldBookingEJB.displayBookingForSport(sport);
-      boolean[] freeDays = fieldBookingEJB.displayBusyDaysForMonth(sport, date.getTime());
->>>>>>> parent of 668ea8b (Merge branch 'main' into bookedEventServlet)
-=======
       bookings = fieldBookingRemote.displayBookingForSport(sport);
-      boolean[] freeDays = fieldBookingRemote.displayBusyDaysForMonth(sport, date.getTime());
->>>>>>> parent of d110da1 (refactor)
       for(int i = 0; i < freeDays.length; i++) {
         System.out.println("Day " + (i + 1) + " is free: " + freeDays[i]);
       }

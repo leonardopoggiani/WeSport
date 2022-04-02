@@ -27,17 +27,6 @@ public class BookedEventServlet extends HttpServlet {
     private UserRemote userRemote;
     @EJB
     private BookingUserRemote bookingUserRemote;
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-=======
->>>>>>> parent of b3cb4f7 (refactor)
-
->>>>>>> parent of 4bd11ab (Merge pull request #8 from leonardopoggiani/bookedEventServlet)
-=======
-
->>>>>>> parent of c6a3122 (refactor)
     @EJB
     private FieldBookingRemote fieldBookingRemote;
 
@@ -76,17 +65,10 @@ public class BookedEventServlet extends HttpServlet {
         System.out.println("[LOG] bookingID: " + bookingID);
         ArrayList<UserDTO> friends;
         friends=userRemote.displayUsersForEvent(bookingID);
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
+
         //Integer userbookingid=Integer.valueOf(request.getParameter());;
        // UserBookingDTO userBookingDTO=bookingUserRemote.displayUserBooking(userbookingid);
->>>>>>> parent of b3cb4f7 (refactor)
-=======
->>>>>>> parent of 3132b2f (Merge branch 'bookedEventServlet' of https://github.com/leonardopoggiani/WeSport into bookedEventServlet)
-=======
->>>>>>> parent of 82cbc86 (bookedevent)
+
         request.setAttribute("friends", friends);
 
         RequestDispatcher requestDispatcher = request.getRequestDispatcher(targetJSP);
