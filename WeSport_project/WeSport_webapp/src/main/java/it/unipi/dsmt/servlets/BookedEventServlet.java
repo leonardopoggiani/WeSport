@@ -28,7 +28,10 @@ public class BookedEventServlet extends HttpServlet {
     @EJB
     private BookingUserRemote bookingUserRemote;
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
+=======
+>>>>>>> parent of b3cb4f7 (refactor)
 
 >>>>>>> parent of 4bd11ab (Merge pull request #8 from leonardopoggiani/bookedEventServlet)
     @EJB
@@ -69,6 +72,11 @@ public class BookedEventServlet extends HttpServlet {
         System.out.println("[LOG] bookingID: " + bookingID);
         ArrayList<UserDTO> friends;
         friends=userRemote.displayUsersForEvent(bookingID);
+<<<<<<< HEAD
+=======
+        //Integer userbookingid=Integer.valueOf(request.getParameter());;
+       // UserBookingDTO userBookingDTO=bookingUserRemote.displayUserBooking(userbookingid);
+>>>>>>> parent of b3cb4f7 (refactor)
         request.setAttribute("friends", friends);
 
         RequestDispatcher requestDispatcher = request.getRequestDispatcher(targetJSP);
