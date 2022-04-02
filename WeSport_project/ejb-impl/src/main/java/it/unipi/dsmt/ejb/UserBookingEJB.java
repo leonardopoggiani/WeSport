@@ -19,5 +19,11 @@ public class UserBookingEJB implements BookingUserRemote {
     @PersistenceContext
     private EntityManager entityManager;
 
+<<<<<<< HEAD
+=======
+
+
 
 }
+
+>>>>>>> parent of 4bd11ab (Merge pull request #8 from leonardopoggiani/bookedEventServlet)
