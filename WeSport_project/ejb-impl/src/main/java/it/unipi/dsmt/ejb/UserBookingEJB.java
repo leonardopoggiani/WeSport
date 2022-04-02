@@ -20,8 +20,4 @@ public class UserBookingEJB implements BookingUserRemote {
     private EntityManager entityManager;
 
 
-
-
 }
-
-

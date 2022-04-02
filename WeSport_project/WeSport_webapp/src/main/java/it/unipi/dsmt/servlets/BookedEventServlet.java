@@ -27,7 +27,6 @@ public class BookedEventServlet extends HttpServlet {
     private UserRemote userRemote;
     @EJB
     private BookingUserRemote bookingUserRemote;
-
     @EJB
     private FieldBookingRemote fieldBookingRemote;
 
