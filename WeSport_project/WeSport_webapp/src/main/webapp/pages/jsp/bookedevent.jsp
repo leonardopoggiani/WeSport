@@ -4,6 +4,7 @@
 <!-- %@ page import="it.unipi.dsmt.ejb.UserRemoteEJB" % -->
 <%@ page import="javax.naming.NamingException" %>
 <%@ page import="java.net.InetAddress" %>
+<<<<<<< HEAD
 <%@ page import="it.unipi.dsmt.dto.FieldBookingDTO" %>
 <%@ page import="java.util.List" %>
 <%@ page import="java.util.Locale" %>
@@ -15,6 +16,9 @@
 <%@ page import="it.unipi.dsmt.dto.UserBookingDTO" %>
 <%@ page import="javax.persistence.criteria.CriteriaBuilder" %><%--
 >>>>>>> parent of d110da1 (refactor)
+=======
+<%@ page import="java.util.ArrayList" %><%--
+>>>>>>> parent of 3132b2f (Merge branch 'bookedEventServlet' of https://github.com/leonardopoggiani/WeSport into bookedEventServlet)
   Created by IntelliJ IDEA.
   User: poggiolinux
   Date: 12/03/22
@@ -27,6 +31,7 @@
     ArrayList<UserDTO> friends = (ArrayList<UserDTO>) request.getAttribute("friends");
     Integer bookedID = (Integer) session.getAttribute("event");
     String actual_ip = InetAddress.getLocalHost().getHostAddress();
+<<<<<<< HEAD
 
 %>
 <html>
@@ -144,6 +149,33 @@
 
 
 
+=======
+%>
+<html>
+    <head>
+        <title>Profile</title>
+        <link href="${pageContext.request.contextPath}/CSS/profile.css" rel="stylesheet" type="text/css">
+        <link rel="icon" type="image/x-icon" href="${pageContext.request.contextPath}/images/favicon.png">
+        <script type="text/javascript" src="${pageContext.request.contextPath}/js/bookedEvent.js"></script>
+    </head>
+
+    <body>
+
+    <div class="home">
+        <div class="row">
+
+            <div class="project-box-content-header" id="books"> YOUR FRIENDS
+
+                <% if(friends == null) {%>
+                    <p> Such empty! :( </p>
+                <% } else { %>
+                    <% for(UserDTO friend : friends) { %>
+                        <a onclick="handleClick('<%=friend.getName()%>','<%=friend.getSurname()%>','<%=friend.getUsername()%>')" id="customerId" >
+                            <p class="booking"><%=friend.getName()%></p>
+                        </a>
+                    <% } %>
+                <% } %>
+>>>>>>> parent of 3132b2f (Merge branch 'bookedEventServlet' of https://github.com/leonardopoggiani/WeSport into bookedEventServlet)
 
             </div>
 
