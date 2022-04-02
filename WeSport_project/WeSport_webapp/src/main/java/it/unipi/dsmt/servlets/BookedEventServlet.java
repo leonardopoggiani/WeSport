@@ -1,7 +1,6 @@
 package it.unipi.dsmt.servlets;
 
 import it.unipi.dsmt.dto.FieldBookingDTO;
-import it.unipi.dsmt.dto.UserBookingDTO;
 import it.unipi.dsmt.dto.UserDTO;
 import it.unipi.dsmt.interfaces.BookingUserRemote;
 import it.unipi.dsmt.interfaces.FieldBookingRemote;
@@ -41,7 +40,7 @@ public class BookedEventServlet extends HttpServlet {
         HttpSession session = request.getSession();
         UserDTO user = (UserDTO) session.getAttribute("logged_user");
         //  Integer event;
-       //session.setAttribute("event", event);
+        //session.setAttribute("event", event);
         Integer bookingID = Integer.valueOf(request.getParameter("event"));
         List<FieldBookingDTO> bookings ;
 
