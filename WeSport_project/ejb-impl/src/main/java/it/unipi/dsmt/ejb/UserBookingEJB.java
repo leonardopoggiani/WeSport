@@ -3,6 +3,7 @@ package it.unipi.dsmt.ejb;
 import it.unipi.dsmt.dto.UserBookingDTO;
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 import it.unipi.dsmt.dto.UserDTO;
 import it.unipi.dsmt.interfaces.BookingUserRemote;
 import it.unipi.dsmt.interfaces.UserRemote;
@@ -16,11 +17,17 @@ import it.unipi.dsmt.dto.UserDTO;
 import it.unipi.dsmt.interfaces.BookingUserRemote;
 import it.unipi.dsmt.interfaces.UserRemote;
 >>>>>>> parent of 3132b2f (Merge branch 'bookedEventServlet' of https://github.com/leonardopoggiani/WeSport into bookedEventServlet)
+=======
+import it.unipi.dsmt.dto.UserDTO;
+import it.unipi.dsmt.interfaces.BookingUserRemote;
+import it.unipi.dsmt.interfaces.UserRemote;
+>>>>>>> parent of 82cbc86 (bookedevent)
 
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 import java.sql.SQLException;
@@ -30,6 +37,9 @@ import javax.persistence.criteria.CriteriaBuilder;
 =======
 import java.sql.SQLException;
 >>>>>>> parent of 3132b2f (Merge branch 'bookedEventServlet' of https://github.com/leonardopoggiani/WeSport into bookedEventServlet)
+=======
+import java.sql.SQLException;
+>>>>>>> parent of 82cbc86 (bookedevent)
 import java.util.ArrayList;
 import java.util.List;
 
@@ -39,6 +49,7 @@ public class UserBookingEJB implements BookingUserRemote {
     @PersistenceContext
     private EntityManager entityManager;
 
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 =======
@@ -77,6 +88,8 @@ public class UserBookingEJB implements BookingUserRemote {
 
 =======
 >>>>>>> parent of 3132b2f (Merge branch 'bookedEventServlet' of https://github.com/leonardopoggiani/WeSport into bookedEventServlet)
+=======
+>>>>>>> parent of 82cbc86 (bookedevent)
 
 
 

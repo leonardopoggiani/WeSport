@@ -5,6 +5,7 @@ import it.unipi.dsmt.dto.UserBookingDTO;
 import javax.ejb.Remote;
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Date;
@@ -19,10 +20,16 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Date;
 >>>>>>> parent of 3132b2f (Merge branch 'bookedEventServlet' of https://github.com/leonardopoggiani/WeSport into bookedEventServlet)
+=======
+import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.Date;
+>>>>>>> parent of 82cbc86 (bookedevent)
 import java.util.List;
 
 @Remote
 public interface BookingUserRemote {
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 
@@ -35,4 +42,7 @@ public interface BookingUserRemote {
 =======
 
 >>>>>>> parent of 3132b2f (Merge branch 'bookedEventServlet' of https://github.com/leonardopoggiani/WeSport into bookedEventServlet)
+=======
+
+>>>>>>> parent of 82cbc86 (bookedevent)
 }

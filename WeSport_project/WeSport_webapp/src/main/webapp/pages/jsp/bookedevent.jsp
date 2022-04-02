@@ -9,6 +9,7 @@
 <%@ page import="java.util.List" %>
 <%@ page import="java.util.Locale" %>
 <<<<<<< HEAD
+<<<<<<< HEAD
 <%@ page import="java.util.ArrayList" %><%--
 =======
 <%@ page import="java.util.ArrayList" %>
@@ -19,6 +20,9 @@
 =======
 <%@ page import="java.util.ArrayList" %><%--
 >>>>>>> parent of 3132b2f (Merge branch 'bookedEventServlet' of https://github.com/leonardopoggiani/WeSport into bookedEventServlet)
+=======
+<%@ page import="java.util.ArrayList" %><%--
+>>>>>>> parent of 82cbc86 (bookedevent)
   Created by IntelliJ IDEA.
   User: poggiolinux
   Date: 12/03/22
@@ -32,61 +36,37 @@
     Integer bookedID = (Integer) session.getAttribute("event");
     String actual_ip = InetAddress.getLocalHost().getHostAddress();
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> parent of 82cbc86 (bookedevent)
 
 %>
 <html>
 <head>
     <script type="text/javascript">
-        var identificatore;
-        function setRating(rating,userid) {
-            console.log("SETTANDO "+rating);
-
-
+        function setRating() {
+            console.log("SETTANDO");
         }
 
-        function handleClick(name,surname,username,id,i)
+        function handleClick(name,surname,username)
         {
-
-
+            console.log("Dentro handle "+name);
             document.getElementById("tableText").textContent="NAME: "+name.toString();
             document.getElementById("tableText2").textContent="SURNAME: "+surname.toString();
             document.getElementById("tableText3").textContent="USERNAME: "+username.toString();
-            document.getElementById("tableText4").textContent="PLAYER RATING:";
+            document.getElementById("input").textContent="PLAYER RATING:";
             var inptext = document.createElement( "input" );
+
+            var buttonElement = document.createElement( "button" );
+
             inptext.id="inp";
-            identificatore=id;
-            console.log("ident->"+identificatore);
-            inptext.name="inputScore";
-            var buttonElement=document.createElement( "button" );
-            buttonElement.id="enterButton";
-            buttonElement.innerHTML="INVIA";
-            buttonElement.addEventListener("click", function() {
-                console.log(document.getElementById("inp").value);
-                setRating(document.getElementById("inp").value,id);
-            });
+            document.getElementById("input").append(inptext);
+            document.getElementById("input").append(buttonElement);
 
-            <%= logged_user.getId()%>
-            if(document.getElementById("input").value== undefined)
-            {
-                document.getElementById("input").value=1;
-                document.getElementById("input").append(inptext);
-                document.getElementById("input").append(buttonElement);
-            }
 
+            console.log("Dentro handle2");
 
         }
-
-        function passaUrl(){
-            var stringa="http://<%= actual_ip %>:8080/WeSport_webapp/bookedEvent?event=<%=bookedID%>&userId=";
-            var url=stringa+identificatore;
-
-            console.log("url-->"+url);
-            location.assign(url);
-            setRating(document.getElementById("inp").value,id);
-
-            return url;
-        }
-
 
 
     </script>
@@ -109,6 +89,7 @@
             <p> Such empty! :( </p>
             <%} else {%>
 <<<<<<< HEAD
+<<<<<<< HEAD
 
             <% for(UserDTO friend : friends) { %>
 
@@ -120,14 +101,16 @@
             <% } %>
 =======
             <%   i=0;j=0;%>
+=======
+
+>>>>>>> parent of 82cbc86 (bookedevent)
             <% for(UserDTO friend : friends) { %>
 
 
 
-                <a onclick="javascript:handleClick('<%=friend.getName()%>','<%=friend.getSurname()%>','<%=friend.getUsername()%>','<%=friend.getId()%>','<%=i%>')" id="customerId" >
-                    <p class="booking" id="<%=i%>"><%=friend.getName()%><%=friend.getId()%><%=i%></p>
-                </a>
-            <%i++;%>
+            <a onclick="javascript:handleClick('<%=friend.getName()%>','<%=friend.getSurname()%>','<%=friend.getUsername()%>')" id="customerId" >
+                <p class="booking"><%=friend.getName()%></p>
+            </a>
             <%}%>
 
             <% } %>
@@ -140,12 +123,20 @@
 
 
 
+<<<<<<< HEAD
 
         </div>
 
             <div class="project-box-content-header" id="score"> SCORE
 
 
+=======
+                <p type="hidden" id="tableText" ></p>
+                <p type="hidden" id="tableText2" ></p>
+                <p type="hidden" id="tableText3" ></p>
+                <div id="input">
+                </div>
+>>>>>>> parent of 82cbc86 (bookedevent)
 
 
 
