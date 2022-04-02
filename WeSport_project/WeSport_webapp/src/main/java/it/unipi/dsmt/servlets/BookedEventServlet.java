@@ -19,7 +19,6 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-
 @WebServlet(name = "BookedEventServlet", value = "/bookedEvent")
 public class BookedEventServlet extends HttpServlet {
 

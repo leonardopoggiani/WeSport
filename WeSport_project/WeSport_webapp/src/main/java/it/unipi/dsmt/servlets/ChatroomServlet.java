@@ -7,6 +7,7 @@ import java.util.List;
 
 import it.unipi.dsmt.dto.UserDTO;
 
+import javax.ejb.EJB;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
