@@ -2,10 +2,7 @@ package it.unipi.dsmt.servlets;
 
 import it.unipi.dsmt.dto.FieldBookingDTO;
 import it.unipi.dsmt.dto.UserDTO;
-import it.unipi.dsmt.interfaces.FieldBookingRemote;
 
-import javax.ejb.EJB;
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -17,8 +14,6 @@ import java.io.IOException;
 
 @WebServlet(name = "TimeslotServlet", value = "/timeslot")
 public class TimeslotServlet extends HttpServlet {
-    @EJB
-    private FieldBookingRemote fieldBookingRemote;
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
     }

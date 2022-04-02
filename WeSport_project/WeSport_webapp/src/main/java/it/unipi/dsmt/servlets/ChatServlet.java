@@ -21,7 +21,7 @@ import javax.servlet.http.HttpSession;
 public class ChatServlet extends HttpServlet {
 
     @EJB
-    private UserRemote userRemote;
+    private UserRemote userRemoteEJB;
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
@@ -41,7 +41,7 @@ public class ChatServlet extends HttpServlet {
         }
 
         try {
-            users = userRemote.listUsers();
+            users = userRemoteEJB.listUsers();
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -52,4 +52,3 @@ public class ChatServlet extends HttpServlet {
         requestDispatcher.forward(request,response);
     }
 }
-

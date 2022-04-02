@@ -8,8 +8,6 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
 
-import javax.naming.NamingException;
-
 @WebServlet(name = "LogoutServlet",value="/logout")
 public class LogoutServlet extends HttpServlet {
 
