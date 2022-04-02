@@ -110,6 +110,7 @@ public class UserRemoteEJB implements UserRemote {
                 dto.setUsername((String) userInfo[2]);
                 dto.setName((String) userInfo[3]);
                 dto.setSurname((String) userInfo[4]);
+                dto.setId((Integer) userInfo[1]);
 
                 userDTOS.add(dto);
             }

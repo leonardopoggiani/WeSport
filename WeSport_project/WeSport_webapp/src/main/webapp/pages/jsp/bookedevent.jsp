@@ -7,7 +7,10 @@
 <%@ page import="it.unipi.dsmt.dto.FieldBookingDTO" %>
 <%@ page import="java.util.List" %>
 <%@ page import="java.util.Locale" %>
-<%@ page import="java.util.ArrayList" %><%--
+<%@ page import="java.util.ArrayList" %>
+<%@ page import="it.unipi.dsmt.ejb.UserBookingEJB" %>
+<%@ page import="it.unipi.dsmt.dto.UserBookingDTO" %>
+<%@ page import="javax.persistence.criteria.CriteriaBuilder" %><%--
   Created by IntelliJ IDEA.
   User: poggiolinux
   Date: 12/03/22
@@ -19,36 +22,68 @@
     UserDTO logged_user = (UserDTO)session.getAttribute("logged_user");
     ArrayList<UserDTO> friends = (ArrayList<UserDTO>) request.getAttribute("friends");
     Integer bookedID = (Integer) session.getAttribute("event");
+    Integer userID = (Integer) session.getAttribute("userID");
     String actual_ip = InetAddress.getLocalHost().getHostAddress();
-
+    UserBookingDTO userBookingDTO = (UserBookingDTO) request.getAttribute("userBooking");
+    Integer i=0;
+    Integer j=0;
+    Integer friendclick = null;
+    Integer rating2;
 %>
 <html>
 
 <head>
     <script type="text/javascript">
-        function setRating() {
-            console.log("SETTANDO");
+        var identificatore;
+        function setRating(rating,userid) {
+            console.log("SETTANDO "+rating);
+
+
         }
 
-        function handleClick(name,surname,username)
+        function handleClick(name,surname,username,id,i)
         {
-            console.log("Dentro handle "+name);
+
+
             document.getElementById("tableText").textContent="NAME: "+name.toString();
             document.getElementById("tableText2").textContent="SURNAME: "+surname.toString();
             document.getElementById("tableText3").textContent="USERNAME: "+username.toString();
-            document.getElementById("input").textContent="PLAYER RATING:";
+            document.getElementById("tableText4").textContent="PLAYER RATING:";
             var inptext = document.createElement( "input" );
-
-            var buttonElement = document.createElement( "button" );
-
             inptext.id="inp";
-            document.getElementById("input").append(inptext);
-            document.getElementById("input").append(buttonElement);
+            identificatore=id;
+            console.log("ident->"+identificatore);
+            inptext.name="inputScore";
+            var buttonElement=document.createElement( "button" );
+            buttonElement.id="enterButton";
+            buttonElement.innerHTML="INVIA";
+            buttonElement.addEventListener("click", function() {
+                console.log(document.getElementById("inp").value);
+                setRating(document.getElementById("inp").value,id);
+            });
 
+            <%= logged_user.getId()%>
+            if(document.getElementById("input").value== undefined)
+            {
+                document.getElementById("input").value=1;
+                document.getElementById("input").append(inptext);
+                document.getElementById("input").append(buttonElement);
+            }
 
-            console.log("Dentro handle2");
 
         }
+
+        function passaUrl(){
+            var stringa="http://<%= actual_ip %>:8080/WeSport_webapp/bookedEvent?event=<%=bookedID%>&userId=";
+            var url=stringa+identificatore;
+
+            console.log("url-->"+url);
+            location.assign(url);
+            setRating(document.getElementById("inp").value,id);
+
+            return url;
+        }
+
 
 
     </script>
@@ -70,14 +105,15 @@
             <% if(friends == null) {%>
             <p> Such empty! :( </p>
             <%} else {%>
-
+            <%   i=0;j=0;%>
             <% for(UserDTO friend : friends) { %>
 
 
 
-            <a onclick="javascript:handleClick('<%=friend.getName()%>','<%=friend.getSurname()%>','<%=friend.getUsername()%>')" id="customerId" >
-                <p class="booking"><%=friend.getName()%></p>
-            </a>
+                <a onclick="javascript:handleClick('<%=friend.getName()%>','<%=friend.getSurname()%>','<%=friend.getUsername()%>','<%=friend.getId()%>','<%=i%>')" id="customerId" >
+                    <p class="booking" id="<%=i%>"><%=friend.getName()%><%=friend.getId()%><%=i%></p>
+                </a>
+            <%i++;%>
             <%}%>
 
             <% } %>
@@ -92,8 +128,14 @@
                 <p type="hidden" id="tableText" ></p>
                 <p type="hidden" id="tableText2" ></p>
                 <p type="hidden" id="tableText3" ></p>
-                <div id="input">
-                </div>
+                <p type="hidden" id="tableText4" ></p>
+
+
+                <form method="post" action="${pageContext.request.contextPath}/bookedEvent">
+                    <div id="input">
+                    </div>
+                </form>
+
 
 
 
