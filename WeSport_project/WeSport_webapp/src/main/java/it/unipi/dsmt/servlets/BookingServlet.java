@@ -1,21 +1,16 @@
 package it.unipi.dsmt.servlets;
 
-
 import java.io.IOException;
-import java.lang.reflect.Field;
 import java.time.LocalDate;
-import java.time.Month;
 import java.time.Year;
 import java.util.ArrayList;
 import java.util.Calendar;
-import java.util.Date;
 import java.util.List;
 
 import it.unipi.dsmt.dto.FieldBookingDTO;
 import it.unipi.dsmt.dto.UserDTO;
 import it.unipi.dsmt.interfaces.FieldBookingRemote;
 import it.unipi.dsmt.utils.Utils;
-
 
 import javax.ejb.EJB;
 import javax.servlet.RequestDispatcher;
@@ -30,7 +25,7 @@ import javax.servlet.http.HttpSession;
 public class BookingServlet extends HttpServlet {
 
     @EJB
-    private FieldBookingRemote fieldBookingRemote;
+    private FieldBookingRemote fieldBookingEJB;
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
     }
@@ -88,9 +83,9 @@ public class BookingServlet extends HttpServlet {
     }
     else{
       dayNum = date.get(Calendar.DATE);
-      bookings = fieldBookingRemote.displayBookingForSport(sport);
+      bookings = fieldBookingEJB.displayBookingForSport(sport);
+      boolean[] freeDays = fieldBookingEJB.displayBusyDaysForMonth(sport, date.getTime());
       System.out.println("[LOG] Di nuovo date: " + date.getTime() );
-      boolean[] freeDays = fieldBookingRemote.displayBusyDaysForMonth(sport, date.getTime());
       for(int i = 0; i < freeDays.length; i++) {
         System.out.println("Day " + (i + 1) + " is free: " + freeDays[i]);
       }
@@ -111,4 +106,3 @@ public class BookingServlet extends HttpServlet {
 
   }
 }
-
