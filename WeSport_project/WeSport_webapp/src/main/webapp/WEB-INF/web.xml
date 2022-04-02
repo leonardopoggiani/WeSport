@@ -53,11 +53,6 @@
         <servlet-name>TimeslotServlet</servlet-name>
         <servlet-class>it.unipi.dsmt.servlets.TimeslotServlet</servlet-class>
     </servlet>
-    <servlet>
-        <servlet-name>BookedEventServlet</servlet-name>
-        <servlet-class>it.unipi.dsmt.servlets.BookedEventServlet</servlet-class>
-    </servlet>
-
     <servlet-mapping>
         <servlet-name>UserListServlet</servlet-name>
         <url-pattern>/userlist</url-pattern>
@@ -93,10 +88,6 @@
     <servlet-mapping>
         <servlet-name>BookFieldServlet</servlet-name>
         <url-pattern>/bookfield</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>BookedEventServlet</servlet-name>
-        <url-pattern>/bookedEvent</url-pattern>
     </servlet-mapping>
 
 </web-app>

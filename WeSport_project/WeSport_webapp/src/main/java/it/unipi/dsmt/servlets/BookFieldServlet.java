@@ -26,7 +26,7 @@ import java.util.List;
 @WebServlet(name = "BookFieldServlet", value = "/bookfield")
 public class BookFieldServlet extends HttpServlet {
     @EJB
-    private FieldBookingRemote fieldBookingRemoteEJB;
+    private FieldBookingRemote fieldBookingRemote;
 
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -66,7 +66,7 @@ public class BookFieldServlet extends HttpServlet {
         }
 
         try {
-            fieldBookingRemoteEJB.insertBooking(sport, booking.getDay(), booking.getStart_hour(), booking.getEnd_hour(), booking.getBooker());
+            fieldBookingRemote.insertBooking(sport, booking.getDay(), booking.getStart_hour(), booking.getEnd_hour(), booking.getBooker());
             response.sendRedirect(request.getContextPath()+"/homepage");
         }
         catch (SQLException e){
@@ -80,3 +80,4 @@ public class BookFieldServlet extends HttpServlet {
     }
 
 }
+

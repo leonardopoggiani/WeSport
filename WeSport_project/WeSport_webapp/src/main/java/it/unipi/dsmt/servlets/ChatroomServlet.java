@@ -6,6 +6,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import it.unipi.dsmt.dto.UserDTO;
+import it.unipi.dsmt.interfaces.UserRemote;
 
 import javax.ejb.EJB;
 import javax.servlet.RequestDispatcher;
@@ -18,6 +19,9 @@ import javax.servlet.http.HttpSession;
 
 @WebServlet(name = "ChatroomServlet", value = "/chatroom")
 public class ChatroomServlet extends HttpServlet {
+
+    @EJB
+    private UserRemote userRemote;
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
@@ -34,6 +38,12 @@ public class ChatroomServlet extends HttpServlet {
             targetJSP = "/index.jsp";
         } else {
             targetJSP = "/pages/jsp/chatroom.jsp";
+        }
+
+        try {
+            users = userRemote.listUsers();
+        } catch (Exception e) {
+            e.printStackTrace();
         }
 
         request.setAttribute("users", users);

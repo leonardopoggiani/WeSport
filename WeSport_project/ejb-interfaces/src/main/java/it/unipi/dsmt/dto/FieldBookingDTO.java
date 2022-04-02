@@ -1,6 +1,9 @@
 package it.unipi.dsmt.dto;
+
+
 import java.io.Serializable;
 import java.util.Date;
+
 
 public class FieldBookingDTO implements Serializable {
     private Integer booking_id;

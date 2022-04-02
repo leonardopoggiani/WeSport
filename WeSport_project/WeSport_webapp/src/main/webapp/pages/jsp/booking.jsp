@@ -1,14 +1,24 @@
 <%@ page import="it.unipi.dsmt.dto.FieldBookingDTO" %>
 <%@ page import="java.util.List" %>
 <%@ page import="java.time.LocalDate" %>
+<%@ page import="java.time.Month" %>
+<%@ page import="java.time.format.DateTimeFormatter" %>
 <%@ page import="it.unipi.dsmt.dto.UserDTO" %>
+<%--
+  Created by IntelliJ IDEA.
+  User: poggiolinux
+  Date: 12/03/22
+  Time: 12:54
+  To change this template use File | Settings | File Templates.
+--%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-
 <%
     List<FieldBookingDTO> bookings = (List<FieldBookingDTO>)request.getAttribute("bookings");
     boolean[] freeDays = (boolean[])request.getAttribute("freeDays");
     String[] monthsArray;
     monthsArray = new String[] {"JANUARY", "FEBRUARY", "MARCH", "APRIL", "MAY", "JUNE", "JULY", "AUGUST", "SEPTEMBER", "OCTOBER", "NOVEMBER", "DECEMBER"};
+
+
 %>
 
 <html>

@@ -1,5 +1,8 @@
+<%@ page import="it.unipi.dsmt.dto.UserDTO" %>
+<%@ page import="it.unipi.dsmt.interfaces.UserRemote" %>
+<!-- %@ page import="it.unipi.dsmt.ejb.UserRemoteEJB" % -->
+<%@ page import="javax.naming.NamingException" %>
 <%@ page import="java.net.InetAddress" %>
-
 <html>
 <head>
     <title>WeSport</title>
@@ -26,3 +29,4 @@
 
 </body>
 </html>
+

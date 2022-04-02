@@ -1,7 +1,8 @@
 package it.unipi.dsmt.ejb;
 
-
 import it.unipi.dsmt.dto.FieldBookingDTO;
+import it.unipi.dsmt.dto.UserDTO;
+import it.unipi.dsmt.ejb.entities.FieldBooking;
 import it.unipi.dsmt.interfaces.FieldBookingRemote;
 
 import javax.ejb.Stateless;
@@ -17,9 +18,9 @@ public class FieldBookingEJB implements FieldBookingRemote {
 
     @Override
     public void insertBooking(String sport, Date date, Integer start_hour, Integer end_hour, Integer booker) throws SQLException {
-
-        /*FieldBooking toPersist = new FieldBooking();
+        FieldBooking toPersist = new FieldBooking();
         java.sql.Date sqlDate = new java.sql.Date(date.getTime());
+
 
         toPersist.setSport(sport);
         toPersist.setDay(sqlDate);
@@ -28,8 +29,6 @@ public class FieldBookingEJB implements FieldBookingRemote {
         toPersist.setBooker(booker);
 
         entityManager.persist(toPersist);
-
-         */
     }
 
     @Override
@@ -161,6 +160,7 @@ public class FieldBookingEJB implements FieldBookingRemote {
 
         return result;
     }
+
 
     /*
     @Override

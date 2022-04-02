@@ -1,6 +1,9 @@
 package it.unipi.dsmt.dto;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
 
 public class UserBookingDTO implements Serializable {
 
@@ -41,4 +44,8 @@ public class UserBookingDTO implements Serializable {
         this.score = score;
     }
 
+
 }
+
+
+

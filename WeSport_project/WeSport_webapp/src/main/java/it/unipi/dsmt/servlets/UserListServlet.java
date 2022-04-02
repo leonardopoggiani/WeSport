@@ -1,11 +1,15 @@
 package it.unipi.dsmt.servlets;
 
+
 import java.io.IOException;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
+
+import it.unipi.dsmt.dto.FieldBookingDTO;
 import it.unipi.dsmt.dto.UserBookingDTO;
 import it.unipi.dsmt.dto.UserDTO;
+import it.unipi.dsmt.interfaces.BookingUserRemote;
 import it.unipi.dsmt.interfaces.UserRemote;
 
 import javax.ejb.EJB;
@@ -22,7 +26,9 @@ import javax.servlet.http.HttpSession;
 public class UserListServlet extends HttpServlet {
 
     @EJB
-    private UserRemote userRemoteEJB;
+    private UserRemote userRemote;
+
+
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
@@ -46,7 +52,7 @@ public class UserListServlet extends HttpServlet {
 
             try {
 
-                user = userRemoteEJB.getUser(filter_username);
+                user = userRemote.getUser(filter_username);
             } catch (SQLException e) {
                 e.printStackTrace();
             }
@@ -60,7 +66,7 @@ public class UserListServlet extends HttpServlet {
             if(action != null && action.compareTo("load") == 0 && code != null && code.compareTo("") != 0) {
                 UserDTO user = null;
                 try {
-                    user = userRemoteEJB.getUser(code);
+                    user = userRemote.getUser(code);
                 } catch (SQLException e) {
                     e.printStackTrace();
                 }
@@ -68,7 +74,7 @@ public class UserListServlet extends HttpServlet {
                 resourceURL = "/pages/jsp/userpage.jsp";
             } else {
                 try {
-                  users = userRemoteEJB.listUsers();
+                  users = userRemote.listUsers();
                 } catch (Exception e) {
                   e.printStackTrace();
                 }
@@ -88,3 +94,4 @@ public class UserListServlet extends HttpServlet {
     }
 
 }
+
