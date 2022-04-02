@@ -2,7 +2,7 @@ package it.unipi.dsmt.servlets;
 
 import it.unipi.dsmt.dto.FieldBookingDTO;
 import it.unipi.dsmt.dto.UserDTO;
-import it.unipi.dsmt.interfaces.BookingUserRemote;
+import it.unipi.dsmt.interfaces.UserBookingRemote;
 import it.unipi.dsmt.interfaces.FieldBookingRemote;
 import it.unipi.dsmt.interfaces.UserRemote;
 
@@ -23,12 +23,12 @@ import java.util.List;
 public class BookedEventServlet extends HttpServlet {
 
     @EJB
-    private UserRemote userRemote;
+    private UserRemote userRemoteEJB;
     @EJB
-    private BookingUserRemote bookingUserRemote;
+    private UserBookingRemote UserBookingRemoteEJB;
 
     @EJB
-    private FieldBookingRemote fieldBookingRemote;
+    private FieldBookingRemote fieldBookingRemoteEJB;
 
     public Integer bookingIdentifier;
 
@@ -62,8 +62,8 @@ public class BookedEventServlet extends HttpServlet {
         long miliseconds = System.currentTimeMillis();
         Date date = new Date(miliseconds);
 
-        bookings = fieldBookingRemote.displayBookingForSport("tennis");
-        boolean[] freeDays = fieldBookingRemote.displayBusyDaysForMonth("tennis", date);
+        bookings = fieldBookingRemoteEJB.displayBookingForSport("tennis");
+        boolean[] freeDays = fieldBookingRemoteEJB.displayBusyDaysForMonth("tennis", date);
 
         for(int i = 0; i < freeDays.length; i++) {
             System.out.println("Day " + (i + 1) + " is free: " + freeDays[i]);
@@ -79,7 +79,7 @@ public class BookedEventServlet extends HttpServlet {
         System.out.println("[LOG] bookingID: " + bookingID);
         this.bookingIdentifier=bookingID;
         ArrayList<UserDTO> friends;
-        friends=userRemote.displayUsersForEvent(bookingID);
+        friends=userRemoteEJB.displayUsersForEvent(bookingID);
         //Integer userbookingid=Integer.valueOf(request.getParameter());;
        // UserBookingDTO userBookingDTO=bookingUserRemote.displayUserBooking(userbookingid);
         request.setAttribute("friends", friends);
