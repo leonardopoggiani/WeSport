@@ -64,7 +64,6 @@ public class BookingServlet extends HttpServlet {
     int dayNum;
     String targetJSP = "/pages/jsp/booking.jsp";
     date.set(Calendar.MONTH, monthNumber);
-    System.out.println("CalendarMonth:"+ Calendar.MONTH);
     date.set(Calendar.YEAR, Integer.parseInt(year));
     if(day != null){
       dayNum = Integer.parseInt(day);
@@ -91,6 +90,7 @@ public class BookingServlet extends HttpServlet {
       bookings = fieldBookingRemote.displayBookingForSport(sport);
       System.out.println("[LOG] Di nuovo date: " + date.getTime() );
       boolean[] freeDays = fieldBookingRemote.displayBusyDaysForMonth(sport, date.getTime());
+      bookings = fieldBookingRemote.displayBookingForSport(sport);
       /*for(int i = 0; i < freeDays.length; i++) {
         System.out.println("Day " + (i + 1) + " is free: " + freeDays[i]);
       }*/
@@ -111,4 +111,3 @@ public class BookingServlet extends HttpServlet {
 
   }
 }
-

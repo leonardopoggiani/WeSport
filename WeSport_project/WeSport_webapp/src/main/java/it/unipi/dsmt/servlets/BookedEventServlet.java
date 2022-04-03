@@ -27,7 +27,6 @@ public class BookedEventServlet extends HttpServlet {
     private UserRemote userRemote;
     @EJB
     private BookingUserRemote bookingUserRemote;
-
     @EJB
     private FieldBookingRemote fieldBookingRemote;
 
@@ -66,6 +65,10 @@ public class BookedEventServlet extends HttpServlet {
         System.out.println("[LOG] bookingID: " + bookingID);
         ArrayList<UserDTO> friends;
         friends=userRemote.displayUsersForEvent(bookingID);
+
+        //Integer userbookingid=Integer.valueOf(request.getParameter());;
+       // UserBookingDTO userBookingDTO=bookingUserRemote.displayUserBooking(userbookingid);
+
         request.setAttribute("friends", friends);
 
         RequestDispatcher requestDispatcher = request.getRequestDispatcher(targetJSP);
