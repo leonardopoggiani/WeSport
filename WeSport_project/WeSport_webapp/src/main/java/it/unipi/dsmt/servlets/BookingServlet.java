@@ -91,9 +91,9 @@ public class BookingServlet extends HttpServlet {
       bookings = fieldBookingRemote.displayBookingForSport(sport);
       System.out.println("[LOG] Di nuovo date: " + date.getTime() );
       boolean[] freeDays = fieldBookingRemote.displayBusyDaysForMonth(sport, date.getTime());
-      for(int i = 0; i < freeDays.length; i++) {
+      /*for(int i = 0; i < freeDays.length; i++) {
         System.out.println("Day " + (i + 1) + " is free: " + freeDays[i]);
-      }
+      }*/
 
       System.out.println("[LOG] bookings retrieved: " + bookings.size());
 

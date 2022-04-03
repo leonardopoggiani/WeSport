@@ -32,3 +32,12 @@ label{
 form{
     background: none;
 }
+
+.busy{
+    width: 500px;
+    height: 50px;
+    font-size: 15pt;
+    border-radius: 25px;
+    background: red;
+    button: disabled;
+}

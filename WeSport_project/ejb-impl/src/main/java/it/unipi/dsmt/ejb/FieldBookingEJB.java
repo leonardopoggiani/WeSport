@@ -230,12 +230,8 @@ public class FieldBookingEJB implements FieldBookingRemote {
 
         List<Object[]> res = query.getResultList();
 
-        /*int numDays = 31;
-        if (month == 11 || month == 4 || month == 6 || month == 9) numDays = 30;
-        else if (month==2) numDays = 28;*/
-
         boolean[] freeDays = new boolean[cal.getActualMaximum(Calendar.DAY_OF_MONTH)];
-        System.out.println("LOG mese-giorno"+ cal.get(Calendar.MONTH) + cal.getActualMaximum(Calendar.DAY_OF_MONTH));
+        //System.out.println("LOG mese-giorno"+ cal.get(Calendar.MONTH) + cal.getActualMaximum(Calendar.DAY_OF_MONTH));
 
 
         if (res.isEmpty()) {
@@ -257,6 +253,42 @@ public class FieldBookingEJB implements FieldBookingRemote {
         }
 
         return freeDays;
+    }
+
+    public boolean[] displayBusyTimeslotForDay(String sport, Date date ){
+        Calendar cal = Calendar.getInstance();
+        cal.setTime(date);
+        int day = cal.get(Calendar.DATE);
+        Query query = entityManager.createQuery("select b.start_hour" +
+                " from FieldBooking b  WHERE SUBSTRING(b.day, 9, 2) = ?2 AND b.sport = ?1 " +
+                "ORDER BY b.start_hour ASC ");
+        query.setParameter(1, sport);
+        query.setParameter(2, day);
+
+        List<Object> res = query.getResultList();
+        //Integer[] arr = res.toArray(Integer.class, res.size());
+
+        boolean[] freeTimeslot = new boolean[12];
+        if (res.isEmpty()) {
+            System.out.println("[LOG] Nessuna prenotazione trovata");
+            Arrays.fill(freeTimeslot, true);
+        } else {
+            for (int i = 0; i < 12; i++)
+                for (int j=0; j<res.size(); j++) {
+                    System.out.println(res.get(j).toString());
+                    int timeslot = Integer.parseInt(res.get(j).toString());
+                    if (timeslot==(i+7)) {
+                        freeTimeslot[i] = false;
+                        break;
+                    } else {
+                        freeTimeslot[i] = true;
+                    }
+
+                }
+        }
+
+
+        return freeTimeslot;
     }
 
 }

@@ -37,6 +37,8 @@ public class TimeslotServlet extends HttpServlet {
             response.sendRedirect(request.getContextPath()+"/bookfield");
         }
         else{
+            boolean[] freeTimeslot = fieldBookingRemote.displayBusyTimeslotForDay(booking.getSport(), booking.getDay());
+            request.setAttribute("freeTimeslot", freeTimeslot);
             getServletContext().getRequestDispatcher("/pages/jsp/timeslot.jsp").forward(request, response);
         }
     }

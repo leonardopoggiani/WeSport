@@ -17,5 +17,6 @@ public interface FieldBookingRemote {
     public ArrayList<FieldBookingDTO> displayBookingNotExpired(String sport);
     public ArrayList<FieldBookingDTO> displayBookingExpired(String sport);
     public boolean[] displayBusyDaysForMonth(String sport, Date currentMonth);
+    public boolean[] displayBusyTimeslotForDay(String sport, Date selectedDate);
 
 }

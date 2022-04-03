@@ -6,6 +6,11 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+
+<%
+    boolean[] freeTimeslot = (boolean[])request.getAttribute("freeTimeslot");
+
+%>
 <html>
 <head>
     <title>Booktimeslot</title>
@@ -39,20 +44,24 @@
         <form method="get" action="<%= request.getContextPath()%>/timeslot?slot=timeslot">
             <li>
         <%
-            for (int i=0; i<6; i++){%>
+            for (int i=0; i<12; i++){
+                if(!freeTimeslot[i]){%>
+                <button class="busy"><%= i+7%></button><br>
+                <%}else{%>
                 <input type="submit" class="timeslotbox" name="timeslot" value="<%= i+7%>"><br>
         <%
+                }
             }
         %>
             </li>
-            <li>
+            <!--li>
                 <%
-                    for (int i=0; i<6; i++){%>
-                <input type="submit" class="timeslotbox" name="timeslot" value="<%= i+13%>"><br>
+                    //for (int i=0; i<6; i++){%>
+                <input type="submit" class="timeslotbox" name="timeslot" value="<%//= i+13%>"><br>
                 <%
-                    }
+                    //}
                 %>
-            </li>
+            </li!-->
         </ul>
         </form>
         <br><br>
