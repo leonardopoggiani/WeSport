@@ -19,7 +19,7 @@ import java.util.Date;
 import java.util.List;
 
 @Remote
-public interface BookingUserRemote {
+public interface UserBookingRemote {
 
     void setScore(Integer score);
     boolean updateScore(Integer userBookingID, Integer score);

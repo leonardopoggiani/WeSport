@@ -1,15 +1,12 @@
 package it.unipi.dsmt.servlets;
 
-
 import java.io.IOException;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-import it.unipi.dsmt.dto.FieldBookingDTO;
 import it.unipi.dsmt.dto.UserBookingDTO;
 import it.unipi.dsmt.dto.UserDTO;
-import it.unipi.dsmt.interfaces.BookingUserRemote;
 import it.unipi.dsmt.interfaces.UserRemote;
 
 import javax.ejb.EJB;
@@ -28,8 +25,6 @@ public class UserListServlet extends HttpServlet {
     @EJB
     private UserRemote userRemote;
 
-
-
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
     }
@@ -43,7 +38,6 @@ public class UserListServlet extends HttpServlet {
         String code = request.getParameter("code");
 
         HttpSession session = request.getSession();
-        UserBookingDTO userBookingDTO = (UserBookingDTO) session.getAttribute("event");
 
         List<UserDTO> users = new ArrayList<>();
 
@@ -84,14 +78,8 @@ public class UserListServlet extends HttpServlet {
             }
         }
 
-
-
-
-
-
         RequestDispatcher rd = request.getRequestDispatcher(resourceURL);
         rd.forward(request, response);
     }
 
 }
-

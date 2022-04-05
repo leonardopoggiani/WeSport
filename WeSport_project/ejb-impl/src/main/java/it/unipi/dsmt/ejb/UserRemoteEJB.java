@@ -1,6 +1,5 @@
 package it.unipi.dsmt.ejb;
 
-
 import it.unipi.dsmt.dto.UserDTO;
 import it.unipi.dsmt.interfaces.UserRemote;
 
@@ -51,7 +50,7 @@ public class UserRemoteEJB implements UserRemote {
     public UserDTO getUser(String username) throws SQLException {
         String jpql = "select u.id, u.username, u.name, u.surname, u.email, u.password, u.city, u.postal_code, u.description " +
                 "from User u where lower(u.username) = lower(:username)";
-        
+
         Query query = entityManager.createQuery(jpql);
         query.setParameter("username", username);
 
@@ -91,15 +90,17 @@ public class UserRemoteEJB implements UserRemote {
     }
 
     @Override
-    public ArrayList<UserDTO> displayUsersForEvent(Integer event_id) {
-        ArrayList<UserDTO> userDTOS=new ArrayList<>();
+    public ArrayList<UserDTO> displayUsersForEvent(Integer event_id, String logged_user) {
+        ArrayList<UserDTO> userDTOS = new ArrayList<>();
 
-        System.out.println("[LOG] userBooking: ");
         String jpql = "select ub.userBookingid,u.id, u.username, u.name, u.surname" +
                 " from User u join UserBooking ub " +
-                " where u.id=ub.userID and ub.bookingID="+event_id;
+                " where u.id = ub.userID and ub.bookingID = :event_id " +
+                " and u.username <> :logged_user";
 
         Query query = entityManager.createQuery(jpql);
+        query.setParameter("event_id", event_id);
+        query.setParameter("logged_user", logged_user);
 
         List<Object[]> userList = query.getResultList();
 
@@ -107,6 +108,7 @@ public class UserRemoteEJB implements UserRemote {
             for(Object[] userInfo: userList){
                 UserDTO dto = new UserDTO();
 
+                dto.setId((Integer) userInfo[1]);
                 dto.setUsername((String) userInfo[2]);
                 dto.setName((String) userInfo[3]);
                 dto.setSurname((String) userInfo[4]);
@@ -115,9 +117,11 @@ public class UserRemoteEJB implements UserRemote {
             }
         }
 
-        System.out.println("[LOG] userBooking: " + userList);
-        return  userDTOS;
+        for(int i = 0; i < userDTOS.size(); i++) {
+            System.out.println("user " + (i + 1) + ": " + userDTOS.get(i).username);
+        }
 
+        return  userDTOS;
 
     }
 

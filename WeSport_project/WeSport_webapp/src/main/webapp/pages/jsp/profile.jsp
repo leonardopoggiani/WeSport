@@ -57,25 +57,19 @@
                 </div>
 
         </a>
-
-
             <div class="project-box-content-header" id="books">YOUR BOOKINGS
-
 
                 <% if(bookings == null) {%>
                 <p> Such empty! :( </p>
                 <%} else {%>
 
-                <% for(FieldBookingDTO booking : bookings) { %>
+                    <% for(FieldBookingDTO booking : bookings) { %>
 
-                <a   class="box-content-header" href="${pageContext.request.contextPath}/bookedEvent?event=<%=booking.getBooking_id()%>">
-                 <p class="booking"><%=booking.getDay()%>
-                     <%=booking.getBooker()%></p>
-                </a>
-                <%}%>
-
+                        <a   class="box-content-header" href="${pageContext.request.contextPath}/bookedEvent?event=<%=booking.getBooking_id()%>">
+                            <p class="booking"> ID: <%=booking.getBooking_id()%>, <%=booking.getDay()%>: <%=booking.getSport()%> </p>
+                        </a>
+                    <% } %>
                 <% } %>
-
             </div>
 
 

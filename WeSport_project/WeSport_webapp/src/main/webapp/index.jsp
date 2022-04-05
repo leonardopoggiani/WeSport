@@ -20,8 +20,8 @@
             <h2>Login</h2>
             <div class="form">
                 <form method="post" class="login-form" action="http://<%= actual_ip %>:8080/WeSport_webapp/login">
-                    <input type="text" name="username" placeholder="username" required />
-                    <input type="password" name="password" placeholder="password"required />
+                    <input type="text" name="user" placeholder="username" required />
+                    <input type="password" name="password" placeholder="password" required />
                     <button type="submit" class="button">login</button>
                 </form>
             </div>
@@ -29,4 +29,3 @@
 
 </body>
 </html>
-
