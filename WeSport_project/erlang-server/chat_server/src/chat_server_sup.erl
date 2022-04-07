@@ -11,10 +11,10 @@
 
 -export([init/1]).
 
--define(SERVER, ?MODULE).
+-define(CHAT_SERVER, ?MODULE).
 
 start_link() ->
-    supervisor:start_link({local, ?SERVER}, ?MODULE, []).
+    supervisor:start_link({local, ?CHAT_SERVER}, ?MODULE, []).
 
 %% sup_flags() = #{strategy => strategy(),         % optional
 %%                 intensity => non_neg_integer(), % optional

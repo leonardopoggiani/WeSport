@@ -93,7 +93,7 @@ html,body {
       &:after {
         content: '';
         position: absolute;
-        margin: -1.5em 0.2em;
+        margin: -1.5em 0.65em;
         @include triangle(rgba(255, 255, 255, 0.2), 10, right);
       }
     }
@@ -128,7 +128,7 @@ html,body {
       &:after {
         content: '';
         position: absolute;
-        margin: -1.5em -31.92em;
+        margin: -1.5em -40.5em;
         @include triangle(rgba(255, 255, 255, 0.2), 10, left);
       }
     }

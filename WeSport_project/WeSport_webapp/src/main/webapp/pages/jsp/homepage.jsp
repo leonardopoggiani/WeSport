@@ -35,7 +35,7 @@
             <div class="row">
 
                 <a class="box-content-header" href="${pageContext.request.contextPath}/userlist">
-                    <div class="project-box-content-header" id="users"> List of user </div>
+                    <div class="project-box-content-header" id="users"> Registered user</div>
                 </a>
 
                 <a class="box-content-header"  href="${pageContext.request.contextPath}/booking">

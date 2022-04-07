@@ -21,7 +21,7 @@ websocket_handle({text, Message}, State) ->
       gen_server:cast(?CHATROOM_SERVER, {login, {self(), Sport}});
 
     First_param == <<"&PING">> ->
-      gen_server:cast(?SERVER, {online_users, self()});
+      gen_server:cast(?CHAT_SERVER, {online_users, self()});
 
     First_param == <<"&LOGOUT">> ->
       io:format("LOGOUT ~n"),

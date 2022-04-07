@@ -1,4 +1,4 @@
--module(id_handler_server).
+-module(user_handler).
 -behaviour(gen_server).
 
 %% API

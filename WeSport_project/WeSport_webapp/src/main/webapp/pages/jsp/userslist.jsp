@@ -16,11 +16,8 @@
 </head>
 
 <body>
-<%
-    List<UserDTO> users = (List<UserDTO>)request.getAttribute("users");
-    String username_filter = (String) request.getParameter("filter");
-%>
-    List of users
+<% List<UserDTO> users = (List<UserDTO>)request.getAttribute("users");%>
+<h1> List of users </h1>
 
     <br>
     <form method="get" action="<%= request.getContextPath()%>/userlist?action=filter">
@@ -31,16 +28,18 @@
 
     <br>
 
-    <%
-        if (users != null && !users.isEmpty()){ %>
-    <ol>
-        <%  for(UserDTO dto : users) { %>
-        <li><a href="<%=request.getContextPath() %>/userlist?action=load&code=<%= dto.getUsername() %>"><%= dto.getUsername() %></a> - Name: <%= dto.getName() %> - Surname: <%= dto.getSurname() %></li>
-        <%  } %>
-    </ol>
-    <%
-        }
-    %>
+    <div class="userlist">
+        <%
+            if (users != null && !users.isEmpty()){ %>
+        <ol>
+            <%  for(UserDTO dto : users) { %>
+            <li><a href="<%=request.getContextPath() %>/userlist?action=load&code=<%= dto.getUsername() %>"><%= dto.getUsername() %></a> - Name: <%= dto.getName() %> - Surname: <%= dto.getSurname() %></li>
+            <%  } %>
+        </ol>
+        <%
+            }
+        %>
+    </div>
 
 </body>
 </html>

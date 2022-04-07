@@ -1,4 +1,4 @@
--define(ID_HANDLER, id_handler_server).
+-define(USER_HANDLER, user_handler).
 -define(SPORT_HANDLER, sport_handler).
 -define(CHATROOM_SERVER, chatroom_server).
--define(SERVER, message_server).
+-define(CHAT_SERVER, chat_server).

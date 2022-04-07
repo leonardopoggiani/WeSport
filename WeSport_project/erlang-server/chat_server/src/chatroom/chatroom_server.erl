@@ -53,28 +53,22 @@ format_message(NickName, Message) ->
   FormattedMsg.
 
 send_message_chatroom_member([H|T], Sender_NickName, Message_Text, Pid_sender) ->
-  case [H|T] of
+  case H of
     [] ->
       io:format("Users finished ~n"),
       ok;
-    [H|T] ->
-      case H of
-        [] ->
-          io:format("Users finished ~n"),
-          ok;
-        {Pid,_} ->
-          io:format("Send from ~p ~n",[Sender_NickName]),
-          if
-            Pid /= Pid_sender ->
-              io:format("Send to PID ~p ~n",[Pid]),
-              FormattedMessage = format_message(Sender_NickName, Message_Text),
-              Pid ! {send_message_chatroom, Pid, FormattedMessage};
-            true ->
-              ok
-          end,
+    {Pid,_} ->
+      io:format("Send from ~p ~n",[Sender_NickName]),
+      if
+        Pid /= Pid_sender ->
+          io:format("Send to PID ~p ~n",[Pid]),
+          FormattedMessage = format_message(Sender_NickName, Message_Text),
+          Pid ! {send_message_chatroom, Pid, FormattedMessage};
+        true ->
+          ok
+      end,
 
-          send_message_chatroom_member(T,Sender_NickName, Message_Text, Pid_sender)
-      end
+      send_message_chatroom_member(T,Sender_NickName, Message_Text, Pid_sender)
   end;
 
 send_message_chatroom_member([], _, _, _) ->

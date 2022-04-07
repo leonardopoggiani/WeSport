@@ -116,13 +116,7 @@ public class UserRemoteEJB implements UserRemote {
                 userDTOS.add(dto);
             }
         }
-
-        for(int i = 0; i < userDTOS.size(); i++) {
-            System.out.println("user " + (i + 1) + ": " + userDTOS.get(i).username);
-        }
-
         return  userDTOS;
-
     }
 
 }

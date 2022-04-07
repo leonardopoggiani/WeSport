@@ -275,3 +275,15 @@ h1 {
 .goback:hover {
     color: black;
 }
+
+.userlist {
+    width: 1200px;
+    height: 800px;
+    margin: 0 auto;
+    order: 1;
+    border-radius: 25px;
+    box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+    text-decoration: none;
+    background: #ffffff;
+    overflow-y: auto;
+}
