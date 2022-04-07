@@ -60,13 +60,13 @@
         </div>
 
         <div class="project-box-content-header" id="score">
-            <form method="post" id="form">
+            <form method="post" id="form" style=" visibility:hidden;" >
                 <p id="tableText" > </p>
                 <p id="tableText2" > </p>
                 <p id="usernamerating" name="usernamerating" > </p>
                 <p id="tableText4" > </p>
 
-                <div id="input">
+                <div id="input" style=" visibility:hidden;">
                     <input type="text" id="rating" name="rating"><br>
                     <input type="submit" id="button" value="Rate!"/>
                 </div>

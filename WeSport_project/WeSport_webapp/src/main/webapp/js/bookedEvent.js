@@ -24,6 +24,7 @@ function handleClick(name,surname,username,id, ip)
 
     var input = document.getElementById("input");
     input.style.visibility = "visible";
+    style="display:none;"
 
     var form = document.getElementById("form");
     form.action = "http://" + ip + ":8080/WeSport_webapp/bookedEvent?id=" + id;
@@ -39,10 +40,6 @@ function handleClick(name,surname,username,id, ip)
     buttonElement.style.visibility = "visible";
     buttonElement.id = id;
 
-    buttonElement.addEventListener("click", function() {
-        console.log(document.getElementById("inp").value);
-        setRating(document.getElementById("inp").value,id);
-    });
 
     if(document.getElementById("input").value== undefined)
     {
