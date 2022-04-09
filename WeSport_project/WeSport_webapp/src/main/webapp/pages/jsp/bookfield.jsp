@@ -1,12 +1,7 @@
 <%@ page import="it.unipi.dsmt.dto.FieldBookingDTO" %>
-<%@ page import="it.unipi.dsmt.dto.UserDTO" %><%--
-  Created by IntelliJ IDEA.
-  User: ZenBook Pro
-  Date: 22/03/2022
-  Time: 10:25
-  To change this template use File | Settings | File Templates.
---%>
+<%@ page import="it.unipi.dsmt.dto.UserDTO" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+
 <%
     FieldBookingDTO fb = (FieldBookingDTO) session.getAttribute("fieldBooking");
     String sport = fb.getSport();
@@ -37,6 +32,7 @@
                     <li class="active"><a href="${pageContext.request.contextPath}/booking">Booking</a></li>
                     <li><a href="${pageContext.request.contextPath}/profile"><%=((UserDTO)session.getAttribute("logged_user")).getUsername()%></a></li>
                     <li><a href="${pageContext.request.contextPath}/chat">Chat</a></li>
+                    <li><a href="${pageContext.request.contextPath}/chatroom">Chatroom</a></li>
                     <li><a href="${pageContext.request.contextPath}/logout">Logout</a></li>
                 </ul>
             </div>

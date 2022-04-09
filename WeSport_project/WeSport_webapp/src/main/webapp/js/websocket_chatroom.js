@@ -8,7 +8,7 @@ const CHATROOM = "&CHATROOM"
 var username = "";
 var sport = "";
 
-const server_url = "ws://localhost:3307";
+const server_url = "ws://172.18.0.60:3307";
 
 var id_timer = null;
 

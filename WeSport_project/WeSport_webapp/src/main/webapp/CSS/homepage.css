@@ -4,6 +4,7 @@
     text-align: center;
     font-family: 'DM Sans', sans-serif;
     background-color: var(--app-container);
+    text-rendering: optimizeLegibility;
 }
 
 h1 {
@@ -77,13 +78,13 @@ h1 {
 }
 
 #users.project-box-content-header{
-    background-image: url("../images/new friends.png");
+    background-image: url("../images/new_friends.png");
     background-repeat: no-repeat;
     background-position: center;
 }
 
 #profile.project-box-content-header{
-    background-image: url("../images/user new.png");
+    background-image: url("../images/user_new.png");
     background-repeat: no-repeat;
     background-position: center;
 }
@@ -274,16 +275,4 @@ h1 {
 
 .goback:hover {
     color: black;
-}
-
-.userlist {
-    width: 1200px;
-    height: 800px;
-    margin: 0 auto;
-    order: 1;
-    border-radius: 25px;
-    box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
-    text-decoration: none;
-    background: #ffffff;
-    overflow-y: auto;
 }

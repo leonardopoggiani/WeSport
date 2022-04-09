@@ -1,0 +1,67 @@
+* {
+    text-align: center;
+    font-family: 'DM Sans', sans-serif;
+    background: #A8D0E6;
+    text-rendering: optimizeLegibility;
+}
+
+.userlist {
+    width: 1200px;
+    height: 800px;
+    order: 1;
+    border-radius: 25px;
+    box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+    text-decoration: none;
+    overflow-y: auto;
+    display: inline-block;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+h2 {
+    font-size: 24px;
+    font-weight: 700;
+    letter-spacing: -0.05em;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+}
+
+.project-box-content-header-profile {
+    width: 1200px;
+    height: 400px;
+    margin: 0 auto;
+    order: 1;
+    border-radius: 25px;
+    padding: 40px;
+    box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+    text-decoration: none;
+    z-index: 1;
+}
+
+.table {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.userpage {
+    width: 800px;
+    height: 300px;
+    order: 1;
+    border-radius: 25px;
+    box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+    text-decoration: none;
+    overflow-y: auto;
+    display: inline-block;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+label {
+    font-size: 24px;
+    font-weight: 700;
+    letter-spacing: -0.05em;
+    text-align: left;
+}

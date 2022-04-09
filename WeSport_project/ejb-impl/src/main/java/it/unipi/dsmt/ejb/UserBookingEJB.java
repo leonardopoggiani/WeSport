@@ -81,4 +81,39 @@ public class UserBookingEJB implements UserBookingRemote {
         return true;
     }
 
+    public double retrieveScore(String username){
+
+        String jpqlToRetrieveID = "select u.id" +
+                                " from User u " +
+                                " where u.username = :username ";
+
+        Query queryToRetrieveID = entityManager.createQuery(jpqlToRetrieveID);
+        queryToRetrieveID.setParameter("username", username);
+
+        List<Integer> idList = queryToRetrieveID.getResultList();
+        ArrayList<UserBookingDTO> result = new ArrayList<UserBookingDTO>();
+        Integer user_id = 0;
+
+        if (idList != null && !idList.isEmpty()) {
+            user_id = idList.get(0);
+        }
+
+        String jpql = "SELECT SUM(ub.score) AS somma_voti, COUNT(ub.userID) AS numero_voti FROM UserBooking ub WHERE ub.userID = :userID";
+
+        Query query = entityManager.createQuery(jpql);
+        query.setParameter("userID", user_id);
+
+        List<Object[]> scoreList = query.getResultList();
+
+        if (scoreList != null && !scoreList.isEmpty()) {
+            for(Object[] scoreInfo: scoreList){
+                if((Long) scoreInfo[1] != 0) {
+                    return (double) (Long) scoreInfo[0] / (double) (Long) scoreInfo[1];
+                }
+            }
+        }
+
+        return 0;
+    }
+
 }

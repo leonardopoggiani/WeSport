@@ -7,6 +7,7 @@ import java.util.List;
 
 import it.unipi.dsmt.dto.UserBookingDTO;
 import it.unipi.dsmt.dto.UserDTO;
+import it.unipi.dsmt.interfaces.UserBookingRemote;
 import it.unipi.dsmt.interfaces.UserRemote;
 
 import javax.ejb.EJB;
@@ -24,6 +25,9 @@ public class UserListServlet extends HttpServlet {
 
     @EJB
     private UserRemote userRemote;
+
+    @EJB
+    private UserBookingRemote userBookingRemote;
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
@@ -61,9 +65,13 @@ public class UserListServlet extends HttpServlet {
                 UserDTO user = null;
                 try {
                     user = userRemote.getUser(code);
+                    double scoreUser = userBookingRemote.retrieveScore(code);
+                    System.out.println("ScoreUser: " + scoreUser);
+                    request.setAttribute("scoreUser", scoreUser);
                 } catch (SQLException e) {
                     e.printStackTrace();
                 }
+
                 request.setAttribute("user", user);
                 resourceURL = "/pages/jsp/userpage.jsp";
             } else {

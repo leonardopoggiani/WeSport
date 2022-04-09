@@ -18,6 +18,7 @@
                     <li><a href="${pageContext.request.contextPath}/booking">Booking</a></li>
                     <li><a href="${pageContext.request.contextPath}/profile"><%=((UserDTO)session.getAttribute("logged_user")).getUsername()%></a></li>
                     <li><a href="${pageContext.request.contextPath}/chat">Chat</a></li>
+                    <li><a href="${pageContext.request.contextPath}/chatroom">Chatroom</a></li>
                     <li><a href="${pageContext.request.contextPath}/logout">Logout</a></li>
                 </ul>
             </div>
