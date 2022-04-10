@@ -61,7 +61,7 @@
         </div>
 
         <div class="project-box-content-header" id="score">
-            <form method="post" id="form" style=" visibility:hidden;" >
+            <form method="post" id="form" style=" visibility:hidden;position:relative;top:25%;" >
                 <p id="tableText" > </p>
                 <p id="tableText2" > </p>
                 <p id="usernamerating" name="usernamerating" > </p>

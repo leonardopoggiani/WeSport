@@ -19,7 +19,7 @@ function handleClick(name,surname,username,id, ip)
     username_text.style.visibility = "visible";
 
     var rating_text = document.getElementById("tableText4");
-    rating_text.textContent="PLAYER RATING:";
+    rating_text.textContent="PLAYER RATING:(from 0 to 5)";
     rating_text.style.visibility = "visible";
 
     var input = document.getElementById("input");

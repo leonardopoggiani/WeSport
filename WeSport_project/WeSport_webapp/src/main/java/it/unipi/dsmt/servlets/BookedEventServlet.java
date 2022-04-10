@@ -42,6 +42,9 @@ public class BookedEventServlet extends HttpServlet {
         Integer event = (Integer) session.getAttribute("event");
 
         System.out.println("score: " + score);
+        if(!score.isEmpty()){
+            System.out.println("scoreint"+Integer.valueOf(score));
+        }
         System.out.println("scored_id: " + scored_id);
         System.out.println("event: " + event);
 
@@ -53,7 +56,13 @@ public class BookedEventServlet extends HttpServlet {
 
         request.setAttribute("friends", friends);
 
-        boolean ins = userBookingRemoteEJB.updateScore(userBookingRemoteEJB.displayUserBooking2(Integer.valueOf(scored_id),event), Integer.valueOf(score));
+        boolean ins;
+
+        if(!score.isEmpty()) {
+            if (Integer.valueOf(score) >= 0 && Integer.valueOf(score) <= 5)
+                ins = userBookingRemoteEJB.updateScore(userBookingRemoteEJB.displayUserBooking2(Integer.valueOf(scored_id), event), Integer.valueOf(score));
+
+        }
         session.getAttribute("inp");
 
         String targetJSP = "/pages/jsp/bookedevent.jsp";
