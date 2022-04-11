@@ -35,7 +35,7 @@ $secondary: #25afe8;
 }
 
 html,body {
-  background: linear-gradient(120deg, $primary, $secondary);
+  background: $primary;
   overflow-y: auto;
 }
 
