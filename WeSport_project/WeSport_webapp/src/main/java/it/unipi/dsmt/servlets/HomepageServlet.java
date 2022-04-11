@@ -33,6 +33,7 @@ public class HomepageServlet extends HttpServlet {
         if(logged_user == null) {
             targetJSP = "/index.jsp";
         } else {
+            System.out.println("Logged user homepage: " + logged_user.getUsername());
             targetJSP = "/pages/jsp/homepage.jsp";
         }
 

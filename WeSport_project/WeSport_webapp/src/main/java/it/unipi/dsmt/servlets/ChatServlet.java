@@ -34,9 +34,11 @@ public class ChatServlet extends HttpServlet {
         HttpSession session = request.getSession();
         UserDTO logged_user = (UserDTO) session.getAttribute("logged_user");
 
+
         if(logged_user == null) {
             targetJSP = "/index.jsp";
         } else {
+            System.out.println("Logged user chat: " + logged_user.getUsername());
             targetJSP = "/pages/jsp/chat.jsp";
         }
 
@@ -52,4 +54,3 @@ public class ChatServlet extends HttpServlet {
         requestDispatcher.forward(request,response);
     }
 }
-

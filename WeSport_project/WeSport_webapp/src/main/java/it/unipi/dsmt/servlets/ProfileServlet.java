@@ -31,25 +31,23 @@ public class ProfileServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
 
         HttpSession session = request.getSession();
-        UserDTO user = (UserDTO) session.getAttribute("logged_user");
-
+        String targetJSP = "";
         List<FieldBookingDTO> bookings = new ArrayList<>();
-        System.out.println("[LOG] username: " + user.getUsername());
+        UserDTO logged_user = (UserDTO) session.getAttribute("logged_user");
 
-        long miliseconds = System.currentTimeMillis();
-        Date date = new Date(miliseconds);
+        if(logged_user == null) {
+            targetJSP = "/index.jsp";
+        } else {
+            System.out.println("Logged user: " + logged_user.getUsername());
+            targetJSP = "/pages/jsp/profile.jsp";
 
-        try {
-            bookings = fieldBookingRemote.displayBooking(user.getId());
-        } catch (SQLException e) {
-            e.printStackTrace();
+            try {
+                bookings = fieldBookingRemote.displayBooking(logged_user.getId());
+                request.setAttribute("bookings", bookings);
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
         }
-
-        System.out.println("[LOG] bookings retrieved: " + bookings.size());
-
-        request.setAttribute("bookings", bookings);
-
-        String targetJSP = "/pages/jsp/profile.jsp";
 
         RequestDispatcher requestDispatcher = request.getRequestDispatcher(targetJSP);
         requestDispatcher.forward(request,response);
