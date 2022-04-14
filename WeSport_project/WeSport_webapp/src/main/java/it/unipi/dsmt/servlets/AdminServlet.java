@@ -7,10 +7,10 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-@WebServlet(name = "RootServlet", value = "/servlet")
-public class RootServlet extends HttpServlet {
+@WebServlet(name = "AdminServlet", value = "/admin")
+public class AdminServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        request.getServletContext().getRequestDispatcher("/pages/jsp/root.jsp").forward(request, response);
+        request.getServletContext().getRequestDispatcher("/pages/jsp/admin.jsp").forward(request, response);
     }
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {

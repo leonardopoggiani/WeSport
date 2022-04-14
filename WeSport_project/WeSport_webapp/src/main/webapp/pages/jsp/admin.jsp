@@ -18,12 +18,11 @@
 <body>
     <nav id="menu" class="navbar navbar-default">
         <div class="container-nav">
-
             <div id="navbar">
                 <ul class="nav navbar-nav">
-                    <li  class="active"><a href="${pageContext.request.contextPath}/root">Homepage</a></li>
-                    <li><a href="${pageContext.request.contextPath}/removebooking">Remove Booking</a></li>
-                    <li><a href="${pageContext.request.contextPath}/removeuser">Remove User</a></li>
+                    <li  class="active"><a href="${pageContext.request.contextPath}/admin">Homepage</a></li>
+                    <!--li><a href="${pageContext.request.contextPath}/removebooking">Remove Booking</a></li>
+                    <li><a href="${pageContext.request.contextPath}/removeuser">Remove User</a></li!-->
                     <li><a href="${pageContext.request.contextPath}/logout">Logout</a></li>
                 </ul>
             </div>
@@ -37,14 +36,21 @@
         <div class="row">
 
             <a class="box-content-header" href="${pageContext.request.contextPath}/removebooking">
-                <div class="project-box-content-header" id="users"> Remove Booking</div>
+                <div class="project-box-content-header" id="booking"> Remove Booking</div>
             </a>
 
             <a class="box-content-header"  href="${pageContext.request.contextPath}/removeuser">
-                <div class="project-box-content-header" id="booking"> Remove User </div>
+                <div class="project-box-content-header" id="profile"> Remove User </div>
             </a>
 
         </div>
+
+        <div class="row-last">
+            <a class="box-content-header" href="${pageContext.request.contextPath}/chat">
+                <div class="project-box-content-header" id="chat"> Chat </div>
+            </a>
+        </div>
+
 
 </body>
 </html>

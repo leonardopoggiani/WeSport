@@ -1,6 +1,7 @@
 package it.unipi.dsmt.ejb;
 
 import it.unipi.dsmt.dto.UserDTO;
+import it.unipi.dsmt.ejb.entities.User;
 import it.unipi.dsmt.interfaces.UserRemote;
 
 import javax.ejb.Stateless;
@@ -117,6 +118,14 @@ public class UserRemoteEJB implements UserRemote {
             }
         }
         return  userDTOS;
+    }
+
+    @Override
+    public void deleteUser (Integer id){
+
+        User user = entityManager.find(User.class, id );
+        entityManager.remove(user);
+
     }
 
 }

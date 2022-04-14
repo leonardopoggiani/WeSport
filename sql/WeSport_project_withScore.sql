@@ -120,3 +120,5 @@ UNLOCK TABLES;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
 -- Dump completed on 2022-03-24 11:25:55
+-- insert root user
+INSERT INTO `wesport`.`user` (`ID`, `username`, `name`, `surname`, `email`, `password`, `city`, `postal_code`, `description`) VALUES ('0', 'admin', 'admin', 'admin', 'admin@example.com', 'admin', '', '00000', 'admin');

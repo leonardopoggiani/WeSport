@@ -21,9 +21,7 @@
 
       <div id="navbar">
         <ul class="nav navbar-nav">
-          <li  class="active"><a href="${pageContext.request.contextPath}/root">Homepage</a></li>
-          <li><a href="${pageContext.request.contextPath}/removebooking">Remove Booking</a></li>
-          <li><a href="${pageContext.request.contextPath}/removeuser">Remove User</a></li>
+          <li  class="active"><a href="${pageContext.request.contextPath}/admin">Homepage</a></li>
           <li><a href="${pageContext.request.contextPath}/logout">Logout</a></li>
         </ul>
       </div>

@@ -23,17 +23,25 @@
 
     <nav id="menu" class="navbar navbar-default">
         <div class="container-nav">
-
             <div id="navbar">
                 <ul class="nav navbar-nav">
-                    <li><a href="${pageContext.request.contextPath}/homepage">Homepage</a></li>
-                    <li><a href="${pageContext.request.contextPath}/booking">Booking</a></li>
-                    <li><a href="${pageContext.request.contextPath}/profile"><%=((UserDTO)session.getAttribute("logged_user")).getUsername()%></a></li>
-                    <li class="active"><a href="${pageContext.request.contextPath}/chat">Chat</a></li>
-                    <li><a href="${pageContext.request.contextPath}/chatroom">Chatroom</a></li>
-                    <li><a href="${pageContext.request.contextPath}/logout">Logout</a></li>
+                    <%if(!((UserDTO) session.getAttribute("logged_user")).name.equals("admin")) { %>
+                        <li><a href="${pageContext.request.contextPath}/homepage">Homepage</a></li>
+                        <li><a href="${pageContext.request.contextPath}/booking">Booking</a></li>
+                        <li><a href="${pageContext.request.contextPath}/profile"><%=((UserDTO)session.getAttribute("logged_user")).getUsername()%></a></li>
+                        <li class="active"><a href="${pageContext.request.contextPath}/chat">Chat</a></li>
+                        <li><a href="${pageContext.request.contextPath}/chatroom">Chatroom</a></li>
+                        <li><a href="${pageContext.request.contextPath}/logout">Logout</a></li>
+                    <%} else { %>
+                        <li  class="active"><a href="${pageContext.request.contextPath}/admin">Homepage</a></li>
+                        <!--li><a href="${pageContext.request.contextPath}/removebooking">Remove Booking</a></li>
+                        <li><a href="${pageContext.request.contextPath}/removeuser">Remove User</a></li!-->
+                        <li><a href="${pageContext.request.contextPath}/logout">Logout</a></li>
+                    <%}%>
                 </ul>
             </div>
+
+
 
         </div>
     </nav>
