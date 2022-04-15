@@ -12,4 +12,6 @@ public interface UserBookingRemote {
     UserBookingDTO displayUserBooking(Integer user_booking_id);
     Integer displayUserBooking2(Integer user_id, Integer booking_id);
     double retrieveScore(String user_id);
+    public void deleteBooking(Integer id_user_booking);
+    public void insertNewBooking (Integer[] users, Integer idBooking);
 }

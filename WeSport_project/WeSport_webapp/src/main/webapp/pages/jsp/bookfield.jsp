@@ -55,10 +55,15 @@
             <ul class="ulInsert">
                 <br>
                 <%for (int i=0; i<numPlayer; i++){
-                    %>
+                    if(i==0){
+                    //This is the one that is booking%>
+                    <li><input class ="players" name="<%=i+1%>" type="text" value="<%=((UserDTO)session.getAttribute("logged_user")).getUsername()%>" readonly></li>
+
+                    <%}else {%>
                     <li><input class ="players" name="<%=i+1%>" type="text" required></li>
 
-                <%}%>
+                <%}
+                }%>
             </ul>
             <br><br>
             <script>

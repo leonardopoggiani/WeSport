@@ -22,4 +22,36 @@ public class UserBooking implements Serializable{
 
     @Column(name="score")
     private Integer score;
+
+    public Integer getUserBookingid() {
+        return userBookingid;
+    }
+
+    public void setUserBookingid(Integer userBookingid) {
+        this.userBookingid = userBookingid;
+    }
+
+    public Integer getUserID() {
+        return userID;
+    }
+
+    public void setUserID(Integer userID) {
+        this.userID = userID;
+    }
+
+    public Integer getBookingID() {
+        return getBookingID();
+    }
+
+    public void setBookingID(Integer bookingID) {
+        this.bookingID = bookingID;
+    }
+
+    public Integer getScore() {
+        return score;
+    }
+
+    public void setScore(Integer score) {
+        this.score = score;
+    }
 }

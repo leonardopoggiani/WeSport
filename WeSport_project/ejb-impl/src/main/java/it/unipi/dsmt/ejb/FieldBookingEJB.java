@@ -3,6 +3,7 @@ package it.unipi.dsmt.ejb;
 import it.unipi.dsmt.dto.FieldBookingDTO;
 import it.unipi.dsmt.dto.UserDTO;
 import it.unipi.dsmt.ejb.entities.FieldBooking;
+import it.unipi.dsmt.ejb.entities.User;
 import it.unipi.dsmt.interfaces.FieldBookingRemote;
 
 import javax.ejb.Stateless;
@@ -89,6 +90,15 @@ public class FieldBookingEJB implements FieldBookingRemote {
         }
 
         return result;
+    }
+
+    @Override
+    public int lastBookingInserted() {
+        String jpql = "select max(b.id) from FieldBooking b";
+        Query query = entityManager.createQuery(jpql);
+        List<Object> res = query.getResultList();
+        //System.out.println("Max booking is " + res.get(0).toString());
+        return Integer.parseInt(res.get(0).toString());
     }
 
     @Override
@@ -289,6 +299,11 @@ public class FieldBookingEJB implements FieldBookingRemote {
 
 
         return freeTimeslot;
+    }
+
+    public void deleteBooking (Integer idBooking){
+        FieldBooking booking = entityManager.find(FieldBooking.class, idBooking );
+        entityManager.remove(booking);
     }
 
 }

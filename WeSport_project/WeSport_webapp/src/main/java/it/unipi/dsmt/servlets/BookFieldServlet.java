@@ -3,6 +3,8 @@ package it.unipi.dsmt.servlets;
 import it.unipi.dsmt.dto.FieldBookingDTO;
 import it.unipi.dsmt.dto.UserDTO;
 import it.unipi.dsmt.interfaces.FieldBookingRemote;
+import it.unipi.dsmt.interfaces.UserBookingRemote;
+import it.unipi.dsmt.interfaces.UserRemote;
 import it.unipi.dsmt.utils.Utils;
 
 import javax.ejb.EJB;
@@ -27,6 +29,10 @@ import java.util.List;
 public class BookFieldServlet extends HttpServlet {
     @EJB
     private FieldBookingRemote fieldBookingRemote;
+    @EJB
+    private UserBookingRemote userBookingRemote;
+    @EJB
+    private UserRemote userRemote;
 
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -54,6 +60,8 @@ public class BookFieldServlet extends HttpServlet {
             getServletContext().getRequestDispatcher("/pages/jsp/bookfield.jsp").forward(request, response);
         }
 
+        Integer[] usersID = new Integer[numPlayer];
+        UserDTO userDTO = new UserDTO();
         for (int i=0; i<numPlayer; i++){
             String j = String.valueOf(i+1);
             players[i]=request.getParameter(j);
@@ -61,12 +69,21 @@ public class BookFieldServlet extends HttpServlet {
             if(players[i]==null){
                 System.out.println("LOG:" + players[i]);
                 break;
-
+            }
+            else {
+                try {
+                    userDTO = userRemote.getUser(players[i]);
+                    usersID[i] = userDTO.getId();
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
             }
         }
 
         try {
             fieldBookingRemote.insertBooking(sport, booking.getDay(), booking.getStart_hour(), booking.getEnd_hour(), booking.getBooker());
+            Integer idBooking = fieldBookingRemote.lastBookingInserted();
+            userBookingRemote.insertNewBooking(usersID, idBooking );
             response.sendRedirect(request.getContextPath()+"/homepage");
         }
         catch (SQLException e){

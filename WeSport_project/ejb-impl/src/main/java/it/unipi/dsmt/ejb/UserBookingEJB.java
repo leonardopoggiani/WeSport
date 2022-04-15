@@ -1,6 +1,8 @@
 package it.unipi.dsmt.ejb;
 
 import it.unipi.dsmt.dto.UserBookingDTO;
+import it.unipi.dsmt.ejb.entities.FieldBooking;
+import it.unipi.dsmt.ejb.entities.UserBooking;
 import it.unipi.dsmt.interfaces.UserBookingRemote;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
@@ -114,6 +116,22 @@ public class UserBookingEJB implements UserBookingRemote {
         }
 
         return 0;
+    }
+
+    @Override
+    public void deleteBooking(Integer id_user_booking) {
+        UserBooking ub = entityManager.find(UserBooking.class, id_user_booking);
+        entityManager.remove(ub);
+    }
+
+    @Override
+    public void insertNewBooking(Integer[] users, Integer idBooking) {
+        for (int i=0; i<users.length; i++){
+            UserBooking toPersist = new UserBooking();
+            toPersist.setUserID(users[i]);
+            toPersist.setBookingID(idBooking);
+            entityManager.persist(toPersist);
+        }
     }
 
 }
