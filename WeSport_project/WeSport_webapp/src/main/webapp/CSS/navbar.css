@@ -60,15 +60,16 @@
     width: 100%;
     line-height: 60px;
     text-decoration: none;
-    background-color: #1f2937;
+    #background-color: #1f2937;
 }
 
 .navbar ul li.active {
-    background: #1f2937;
+    background: #ffffff;
 }
 
 .navbar ul li.active a {
-    color: #ffffff;
+    #color: #ffffff;
+    background: none;
 }
 
 .navbar select {
