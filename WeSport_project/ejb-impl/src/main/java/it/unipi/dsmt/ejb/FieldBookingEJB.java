@@ -93,6 +93,48 @@ public class FieldBookingEJB implements FieldBookingRemote {
     }
 
     @Override
+    public ArrayList<FieldBookingDTO> displayBookingByFilter(Integer bookerID, String sport) {
+        ArrayList<FieldBookingDTO> ret = new ArrayList<>();
+        if (bookerID == null && sport == null) {
+            return ret;
+        }
+        else if(sport==null){
+            ret = displayBooking(bookerID);
+            return ret;
+        }
+        else if(bookerID==null){
+            ret = displayBookingForSport(sport);
+            return ret;
+        }
+        else {
+            String jpql = "select b.id, b.sport, b.day, b.start_hour, b.end_hour, b.booker from FieldBooking b where b.booker=?1 and b.sport=?2";
+            Query query = entityManager.createQuery(jpql);
+            query.setParameter(1, bookerID);
+            query.setParameter(2, sport);
+
+            List<Object[]> bookingList = query.getResultList();
+
+            if (bookingList != null && !bookingList.isEmpty()) {
+                for (Object[] booking : bookingList) {
+                    FieldBookingDTO dto = new FieldBookingDTO();
+                    dto.setBooking_id((Integer) booking[0]);
+                    dto.setSport((String) booking[1]);
+                    dto.setDay((Date) booking[2]);
+                    dto.setStart_hour((Integer) booking[3]);
+                    dto.setEnd_hour((Integer) booking[4]);
+                    dto.setBooker((Integer) booking[5]);
+
+                    ret.add(dto);
+                }
+
+            }
+        }
+
+        return ret;
+
+    }
+
+    @Override
     public int lastBookingInserted() {
         String jpql = "select max(b.id) from FieldBooking b";
         Query query = entityManager.createQuery(jpql);

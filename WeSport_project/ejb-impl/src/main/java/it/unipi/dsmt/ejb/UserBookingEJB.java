@@ -9,6 +9,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 @Stateless
@@ -132,6 +133,28 @@ public class UserBookingEJB implements UserBookingRemote {
             toPersist.setBookingID(idBooking);
             entityManager.persist(toPersist);
         }
+    }
+
+    @Override
+    public Integer[] retrieveRowsRelatedtoABooking(int bookingID) {
+        String jpql = "select ub.userBookingid from UserBooking ub where ub.bookingID=?1 ";
+        Query query = entityManager.createQuery(jpql);
+        query.setParameter("1", bookingID);
+
+        List<Object> res = query.getResultList();
+        Integer[] ret = null;
+        if (res.isEmpty()) {
+            System.out.println("[LOG] Nothing was found");
+        } else {
+            ret = new Integer[res.size()];
+            for (int i=0; i<res.size(); i++){
+                System.out.println(res.get(i));
+                int id = Integer.parseInt(res.get(i).toString());
+                ret[i] = id;
+            }
+        }
+
+        return ret;
     }
 
 }

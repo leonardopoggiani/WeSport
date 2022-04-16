@@ -14,4 +14,5 @@ public interface UserBookingRemote {
     double retrieveScore(String user_id);
     public void deleteBooking(Integer id_user_booking);
     public void insertNewBooking (Integer[] users, Integer idBooking);
+    public Integer[] retrieveRowsRelatedtoABooking (int bookingID);
 }
