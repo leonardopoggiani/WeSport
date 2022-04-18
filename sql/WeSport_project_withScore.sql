@@ -94,9 +94,9 @@ CREATE TABLE `user_booking` (
   `score` int DEFAULT NULL,
   PRIMARY KEY (`user_booking_ID`),
   KEY `user_booking_booking_ID_fk` (`booking_ID`),
-  KEY `user_booking_user_ID_fk` (`user_ID`),
-  CONSTRAINT `user_booking_booking_ID_fk` FOREIGN KEY (`booking_ID`) REFERENCES `booking` (`ID`) ON DELETE CASCADE ON UPDATE CASCADE,
-  CONSTRAINT `user_booking_user_ID_fk` FOREIGN KEY (`user_ID`) REFERENCES `user` (`ID`) ON DELETE CASCADE ON UPDATE CASCADE
+  KEY `user_booking_user_ID_fk` (`user_ID`)
+  -- CONSTRAINT `user_booking_booking_ID_fk` FOREIGN KEY (`booking_ID`) REFERENCES `booking` (`ID`) ON DELETE CASCADE ON UPDATE CASCADE,
+  -- CONSTRAINT `user_booking_user_ID_fk` FOREIGN KEY (`user_ID`) REFERENCES `user` (`ID`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
