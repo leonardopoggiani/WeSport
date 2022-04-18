@@ -31,7 +31,7 @@
 
       <div id="navbar">
         <ul class="nav navbar-nav">
-          <li  class="active"><a href="${pageContext.request.contextPath}/admin">Homepage</a></li>
+          <li><a href="${pageContext.request.contextPath}/admin">Homepage</a></li>
           <li><a href="${pageContext.request.contextPath}/logout">Logout</a></li>
         </ul>
       </div>

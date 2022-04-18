@@ -80,10 +80,10 @@
             int day = LocalDate.now().getDayOfMonth();
 
             for( int i = 0; i < freeDays.length; i++){
-                /*if (year < currentYear || (year==currentYear && month < currentMonth) || (year==currentYear && month==currentMonth && i<day)){ %>
+                if (year < currentYear || (year==currentYear && month < currentMonth) || (year==currentYear && month==currentMonth && i<day)){ %>
                     <li id="passed"><button class="busy"><%= i+1%></button></li>
                 <%}
-                else */if (!freeDays[i]){ %>
+                else if (!freeDays[i]){ %>
                     <li id="ilbusy"><button class="busy"><%= i+1%></button></li>
                 <% } else{  %>
                     <li><input type="submit" class="submitDays" name="day" value="<%= i+1%>"></input></li>
@@ -100,33 +100,6 @@
     </ul>
     </form>
 
-    <h2>Your bookings:</h2>
-
-    <% if(bookings == null) {%>
-    <p> Such empty! :( </p>
-    <%} else {%>
-    <table>
-        <% for(FieldBookingDTO booking : bookings) { %>
-        <tr>
-            <td> <%=booking.getBooking_id()%> </td>
-            <td> <%=booking.getDay()%>  </td>
-            <td> <%=booking.getBooker()%>  </td>
-        </tr>
-        <%}%>
-    </table>
-    <% } %>
-
-
-
-    <table>
-        <% for(int i = 0; i < freeDays.length; i++) { %>
-        <tr>
-            <% if (freeDays[i] !=true && freeDays[i] !=false){ %>
-                <td><%=i + 1%>: <%=freeDays[i]%> </td>
-            <%}%>
-        </tr>
-        <%}%>
-    </table>
 
 </body>
 </html>

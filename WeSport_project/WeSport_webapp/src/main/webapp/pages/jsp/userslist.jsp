@@ -25,7 +25,7 @@
 
         <div id="navbar">
             <ul class="nav navbar-nav">
-                <li class="active"><a href="${pageContext.request.contextPath}/homepage">Homepage</a></li>
+                <li><a href="${pageContext.request.contextPath}/homepage">Homepage</a></li>
                 <li><a href="${pageContext.request.contextPath}/booking">Booking</a></li>
                 <li><a href="${pageContext.request.contextPath}/profile"><%=((UserDTO)session.getAttribute("logged_user")).getUsername()%></a></li>
                 <li><a href="${pageContext.request.contextPath}/chat">Chat</a></li>

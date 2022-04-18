@@ -22,7 +22,6 @@
     <link rel="icon" type="image/x-icon" href="${pageContext.request.contextPath}/images/favicon.png">
 </head>
 <body>
-    <h1>Book a Field</h1>
     <nav id="menu" class="navbar navbar-default">
         <div class="container-nav">
 
@@ -39,6 +38,7 @@
 
         </div>
     </nav>
+    <h1>Book a Field</h1>
     <br><br>
     <form method="post" action="<%= request.getContextPath()%>/bookfield">
         <div id="insert">

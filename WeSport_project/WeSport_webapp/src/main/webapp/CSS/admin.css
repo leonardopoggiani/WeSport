@@ -79,5 +79,7 @@ form{
 select {
     border-radius: 25px;
     background: none;
+    height: 50px;
+    width: 150px
 }
 

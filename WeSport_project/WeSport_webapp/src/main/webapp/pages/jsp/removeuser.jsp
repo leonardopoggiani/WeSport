@@ -28,7 +28,7 @@
 
       <div id="navbar">
         <ul class="nav navbar-nav">
-          <li  class="active"><a href="${pageContext.request.contextPath}/admin">Homepage</a></li>
+          <li><a href="${pageContext.request.contextPath}/admin">Homepage</a></li>
           <li><a href="${pageContext.request.contextPath}/logout">Logout</a></li>
         </ul>
       </div>
@@ -44,9 +44,11 @@
       <li>
         <% List<UserDTO> users = (List<UserDTO>)request.getAttribute("list_users");
         int length = users.size();
-        for (int i=0; i<length; i++){ %>
-          <input type="submit" class="usernames" name="username" id="username" onclick="changeColor(this)" value="<%= users.get(i).username%>" readonly><br>
-          <% }%>
+        for (int i=0; i<length; i++){
+          if (!users.get(i).username.equals("admin")){%>
+            <input type="submit" class="usernames" name="username" id="username" onclick="changeColor(this)" value="<%= users.get(i).username%>" readonly><br>
+          <%}
+        }%>
       </li>
       </ul>
     </form>

@@ -21,7 +21,6 @@
     <link rel="icon" type="image/x-icon" href="${pageContext.request.contextPath}/images/favicon.png">
 </head>
 <body>
-    <h1>Book your time slot</h1>
     <nav id="menu" class="navbar navbar-default">
         <div class="container-nav">
 
@@ -37,6 +36,7 @@
 
         </div>
     </nav>
+    <h1>Book your time slot</h1>
     <br><br>
 
     <div class="timeslot">

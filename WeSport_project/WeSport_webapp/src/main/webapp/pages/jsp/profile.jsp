@@ -23,6 +23,7 @@
     <title>Profile</title>
     <link href="${pageContext.request.contextPath}/CSS/profile.css" rel="stylesheet" type="text/css">
     <link href="${pageContext.request.contextPath}/CSS/navbar.css" rel="stylesheet" type="text/css">
+    <link href="${pageContext.request.contextPath}/CSS/homepage.css" rel="stylesheet" type="text/css">
     <link rel="icon" type="image/x-icon" href="${pageContext.request.contextPath}/images/favicon.png">
 </head>
 <body>
@@ -43,8 +44,9 @@
 
     </div>
 </nav>
-
+<h1>Profile</h1><br><br>
 <div class="home">
+
 
     <div class="row">
 
