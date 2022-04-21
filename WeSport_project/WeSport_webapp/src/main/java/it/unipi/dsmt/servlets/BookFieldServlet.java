@@ -34,7 +34,6 @@ public class BookFieldServlet extends HttpServlet {
     @EJB
     private UserRemote userRemote;
 
-
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         getServletContext().getRequestDispatcher("/pages/jsp/bookfield.jsp").forward(request, response);
     }
@@ -43,9 +42,7 @@ public class BookFieldServlet extends HttpServlet {
         HttpSession session =  request.getSession();
         UserDTO user = (UserDTO) session.getAttribute("logged_user");
         FieldBookingDTO booking = (FieldBookingDTO) session.getAttribute("fieldBooking");
-        System.out.println("LOG:Nella post bookfield");
         String sport = booking.getSport();
-        System.out.println("Sport:" + sport);
         int numPlayer = 0;
         switch (sport){
             case "tennis": numPlayer = 2; break;
@@ -55,7 +52,6 @@ public class BookFieldServlet extends HttpServlet {
 
         String players[] = new String[numPlayer];
         players[0]=request.getParameter("1");
-        System.out.println("LOG:Player" + players[0]);
         if(players[0]==null){
             getServletContext().getRequestDispatcher("/pages/jsp/bookfield.jsp").forward(request, response);
         }
@@ -65,9 +61,7 @@ public class BookFieldServlet extends HttpServlet {
         for (int i=0; i<numPlayer; i++){
             String j = String.valueOf(i+1);
             players[i]=request.getParameter(j);
-            System.out.println("LOG:" + players[i] + " ," + j);
             if(players[i]==null){
-                System.out.println("LOG:" + players[i]);
                 break;
             }
             else {
@@ -89,11 +83,7 @@ public class BookFieldServlet extends HttpServlet {
         catch (SQLException e){
             System.err.println("LOG: Error in insertBooking");
             response.sendRedirect(request.getContextPath()+"/bookfield");
-            //getServletContext().getRequestDispatcher("/pages/jsp/homepage.jsp").forward(request, response);
         }
-        //getServletContext().getRequestDispatcher("/pages/jsp/homepage.jsp").forward(request, response);
-
-
     }
 
 }

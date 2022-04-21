@@ -51,7 +51,6 @@ function print_message(sender_name, message, receiver) {
 
             indMessageDiv.setAttribute("class", "chatbox__messages__user-message--ind-message__left");
 
-            // se il receiver é lo stesso di prima lascio il nome, altrimenti tolgo i messaggi e cambio
             var receiver_tag = document.getElementById("receiver");
             if(receiver_tag.textContent == "" || receiver_tag.textContent == "no one actually :(") {
                 receiver_tag.textContent = sender_name;
@@ -115,21 +114,17 @@ function ws_onClose() {
 function ws_onMessage(event) {
     var message_fields = event.data.split(':');
     if(message_fields.length === 2){
-        //normale messaggio inviato da un altro utente
         print_message(message_fields[0], message_fields[1]);
     } else {
         message_fields = event.data.split('|');
         if(message_fields.length > 1){
-            //the new online users list is arrived
             update_online_users(message_fields);
         } else {
-            // semplice stringa di risposta
             print_message(null, event.data);
         }
     }
 }
 
-//logging_user is the username of the user that is entering in the chat page
 function connect(logging_user){
     username = logging_user;
     websocket = new WebSocket(server_url);

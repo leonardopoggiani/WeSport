@@ -37,7 +37,6 @@ public class ChatroomServlet extends HttpServlet {
         if(logged_user == null) {
             targetJSP = "/index.jsp";
         } else {
-            System.out.println("Logged user chat: " + logged_user.getUsername());
             targetJSP = "/pages/jsp/chatroom.jsp";
         }
 

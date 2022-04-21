@@ -1,11 +1,5 @@
 <%@ page import="it.unipi.dsmt.dto.UserDTO" %>
-<%@ page import="java.util.List" %><%--
-  Created by IntelliJ IDEA.
-  User: poggiolinux
-  Date: 12/03/22
-  Time: 15:30
-  To change this template use File | Settings | File Templates.
---%>
+<%@ page import="java.util.List" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
@@ -34,8 +28,6 @@
                         <li><a href="${pageContext.request.contextPath}/logout">Logout</a></li>
                     <%} else { %>
                         <li  class="active"><a href="${pageContext.request.contextPath}/admin">Homepage</a></li>
-                        <!--li><a href="${pageContext.request.contextPath}/removebooking">Remove Booking</a></li>
-                        <li><a href="${pageContext.request.contextPath}/removeuser">Remove User</a></li!-->
                         <li><a href="${pageContext.request.contextPath}/logout">Logout</a></li>
                     <%}%>
                 </ul>

@@ -32,8 +32,8 @@ public class RemoveBookingServlet extends HttpServlet {
             fieldBookingRemote.deleteBooking(Integer.parseInt(delete_booking));
             Integer[] user_booking_ids = userBookingRemote.retrieveRowsRelatedtoABooking(Integer.parseInt(delete_booking));
             if (user_booking_ids != null){
-                for (int i=0; i<user_booking_ids.length; i++){
-                    userBookingRemote.deleteBooking(user_booking_ids[i]);
+                for (Integer user_booking_id : user_booking_ids) {
+                    userBookingRemote.deleteBooking(user_booking_id);
                 }
 
             }

@@ -66,7 +66,6 @@ public class UserListServlet extends HttpServlet {
                 try {
                     user = userRemote.getUser(code);
                     double scoreUser = userBookingRemote.retrieveScore(code);
-                    System.out.println("ScoreUser: " + scoreUser);
                     request.setAttribute("scoreUser", scoreUser);
                 } catch (SQLException e) {
                     e.printStackTrace();

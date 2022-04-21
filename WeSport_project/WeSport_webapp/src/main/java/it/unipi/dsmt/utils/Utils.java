@@ -4,7 +4,6 @@ import java.util.Calendar;
 
 public class Utils {
     public static int getCalendarMonth(String month) {
-        //System.out.println("Nella getCalendarMonth");
         switch (month) {
             case "JANUARY":
                 return Calendar.JANUARY;

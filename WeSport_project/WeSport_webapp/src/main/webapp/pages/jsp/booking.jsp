@@ -4,21 +4,9 @@
 <%@ page import="java.time.Month" %>
 <%@ page import="java.time.format.DateTimeFormatter" %>
 <%@ page import="it.unipi.dsmt.dto.UserDTO" %>
-<%--
-  Created by IntelliJ IDEA.
-  User: poggiolinux
-  Date: 12/03/22
-  Time: 12:54
-  To change this template use File | Settings | File Templates.
---%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%
-    List<FieldBookingDTO> bookings = (List<FieldBookingDTO>)request.getAttribute("bookings");
     boolean[] freeDays = (boolean[])request.getAttribute("freeDays");
-    String[] monthsArray;
-    monthsArray = new String[] {"JANUARY", "FEBRUARY", "MARCH", "APRIL", "MAY", "JUNE", "JULY", "AUGUST", "SEPTEMBER", "OCTOBER", "NOVEMBER", "DECEMBER"};
-
-
 %>
 
 <html>
@@ -57,10 +45,7 @@
             <option value="futsal">Futsal</option>
             <option value="rugby">Rugby</option>
         </select>
-    </ul>
-
     <br><br>
-
 
     <div class="monthClass">
         <input class="label" type="text" id="month" name="month">
@@ -72,7 +57,6 @@
         <script>let j=1;</script>
         <%
             int month = Integer.parseInt(request.getAttribute("monthNumber").toString());
-            //String month = monthsArray[monthNumber];
             int year = Integer.parseInt(request.getAttribute("year").toString());
             LocalDate now = LocalDate.now();
             int currentMonth = now.getMonthValue()-1;

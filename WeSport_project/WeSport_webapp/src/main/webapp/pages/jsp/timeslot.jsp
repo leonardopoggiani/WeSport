@@ -1,10 +1,4 @@
-<%@ page import="it.unipi.dsmt.dto.UserDTO" %><%--
-  Created by IntelliJ IDEA.
-  User: ZenBook Pro
-  Date: 25/03/2022
-  Time: 12:51
-  To change this template use File | Settings | File Templates.
---%>
+<%@ page import="it.unipi.dsmt.dto.UserDTO" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 
 <%
@@ -42,26 +36,19 @@
     <div class="timeslot">
         <br><br>
         <form method="get" action="<%= request.getContextPath()%>/timeslot?slot=timeslot">
+        <ul>
             <li>
-        <%
-            for (int i=0; i<12; i++){
-                if(!freeTimeslot[i]){%>
-                <button class="busy"><%= i+7%></button><br>
-                <%}else{%>
-                <input type="submit" class="timeslotbox" name="timeslot" value="<%= i+7%>"><br>
-        <%
-                }
-            }
-        %>
-            </li>
-            <!--li>
                 <%
-                    //for (int i=0; i<6; i++){%>
-                <input type="submit" class="timeslotbox" name="timeslot" value="<%//= i+13%>"><br>
+                    for (int i=0; i<12; i++){
+                        if(!freeTimeslot[i]){%>
+                        <button class="busy"><%= i+7%></button><br>
+                        <%}else{%>
+                        <input type="submit" class="timeslotbox" name="timeslot" value="<%= i+7%>"><br>
                 <%
-                    //}
+                        }
+                    }
                 %>
-            </li!-->
+            </li>
         </ul>
         </form>
         <br><br>

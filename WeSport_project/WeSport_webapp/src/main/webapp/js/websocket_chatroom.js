@@ -29,19 +29,16 @@ function print_message(sender_name, message, sendOrReceive) {
 
     if(sendOrReceive == false) {
         console.log("SPORT: " + sport);
-        //messaggio inviato
 
         indMessageDiv.setAttribute("class", "chatbox__messages__user-message--ind-message__right");
 
         p_name.textContent = "Sent to " + sport + " chat:";
         p_message.textContent = message;
     } else {
-        // messaggio da un altro utente
         p_name.textContent = "From " + sender_name + ":";
         p_message.textContent = message;
 
         indMessageDiv.setAttribute("class", "chatbox__messages__user-message--ind-message__left");
-
     }
 
     indMessageDiv.appendChild(p_name);
@@ -80,7 +77,6 @@ function ws_onMessage(event) {
     var message_fields = event.data.split(':');
 
     if(message_fields.length === 2){
-        //normale messaggio inviato da un altro utente
         if(message_fields[0] != username) {
             print_message(message_fields[0], message_fields[1], true);
         }
@@ -94,7 +90,6 @@ function change_sport() {
     connect(username);
 }
 
-//logging_user is the username of the user that is entering in the chat page
 function connect(logging_user){
 
     username = logging_user;

@@ -5,11 +5,6 @@
 <%
     FieldBookingDTO fb = (FieldBookingDTO) session.getAttribute("fieldBooking");
     String sport = fb.getSport();
-    //String sport =request.getAttribute("sports").toString() ;
-    /*int month = Integer.parseInt(request.getAttribute("month").toString());
-    int year = Integer.parseInt(request.getAttribute("year").toString());
-    int day = Integer.parseInt(request.getAttribute("day").toString());*/
-
 %>
 
 <html>

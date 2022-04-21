@@ -4,16 +4,8 @@
 <%@ page import="it.unipi.dsmt.dto.UserBookingDTO" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%
-    UserDTO logged_user = (UserDTO)session.getAttribute("logged_user");
     ArrayList<UserDTO> friends = (ArrayList<UserDTO>) request.getAttribute("friends");
-    Integer bookedID = (Integer) session.getAttribute("event");
-    Integer userID = (Integer) session.getAttribute("userID");
     String actual_ip = InetAddress.getLocalHost().getHostAddress();
-    UserBookingDTO userBookingDTO = (UserBookingDTO) request.getAttribute("userBooking");
-    Integer i=0;
-    Integer j=0;
-    Integer friendclick = null;
-    Integer rating2;
 %>
 <html>
 
@@ -55,7 +47,6 @@
                     <div onclick="handleClick('<%=friend.getName()%>','<%=friend.getSurname()%>','<%=friend.getUsername()%>','<%=friend.getId()%>', '<%=actual_ip%>')" id="customerId" >
                         <p class="booking" id="<%=friend.getId()%>"> <%=friend.getUsername()%> </p>
                     </div>
-                    <%i++;%>
                 <% } %>
             <% } %>
         </div>

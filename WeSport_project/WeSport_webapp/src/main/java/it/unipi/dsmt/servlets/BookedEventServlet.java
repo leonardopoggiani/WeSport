@@ -33,21 +33,11 @@ public class BookedEventServlet extends HttpServlet {
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-        System.out.println("DOPOST ");
-
         HttpSession session = request.getSession();
         UserDTO user = (UserDTO) session.getAttribute("logged_user");
         String score = request.getParameter("inputScore");
         String scored_id = request.getParameter("id");
         Integer event = (Integer) session.getAttribute("event");
-
-        System.out.println("score: " + score);
-        if(!score.isEmpty()){
-            System.out.println("scoreint"+Integer.valueOf(score));
-        }
-        System.out.println("scored_id: " + scored_id);
-        System.out.println("event: " + event);
-
 
         Integer bookingID = this.bookingIdentifier;
         ArrayList<UserDTO> friends;
@@ -60,7 +50,7 @@ public class BookedEventServlet extends HttpServlet {
 
         if(!score.isEmpty()) {
             if (Integer.valueOf(score) >= 0 && Integer.valueOf(score) <= 5)
-                ins = userBookingRemoteEJB.updateScore(userBookingRemoteEJB.displayUserBooking2(Integer.valueOf(scored_id), event), Integer.valueOf(score));
+                ins = userBookingRemoteEJB.updateScore(userBookingRemoteEJB.displayUserBooking(Integer.valueOf(scored_id), event), Integer.valueOf(score));
 
         }
         session.getAttribute("inp");
@@ -76,7 +66,6 @@ public class BookedEventServlet extends HttpServlet {
         UserDTO user = (UserDTO) session.getAttribute("logged_user");
 
         Integer bookingID = Integer.valueOf(request.getParameter("event"));
-        System.out.println("event: " + bookingID);
 
         List<FieldBookingDTO> bookings ;
 
@@ -85,23 +74,13 @@ public class BookedEventServlet extends HttpServlet {
 
         bookings = fieldBookingRemoteEJB.displayBookingForSport("tennis");
 
-        System.out.println("[LOG] bookings retrieved: " + bookings.size());
-
         request.setAttribute("bookings", bookings);
 
-        System.out.println("[LOG] bookingID: " + bookingID);
         this.bookingIdentifier = bookingID;
 
         ArrayList<UserDTO> friends;
         friends = userRemoteEJB.displayUsersForEvent(bookingID, user.getUsername());
-        //Integer userbookingid = Integer.valueOf(request.getParameter());
-        //UserBookingDTO userBookingDTO = userBookingRemoteEJB.displayUserBooking(userbookingid);
         request.setAttribute("friends", friends);
-
-        for(int i = 0; i < friends.size(); i++) {
-            System.out.println("friends " + (i + 1) + ": " + friends.get(i));
-        }
-
         session.setAttribute("event",bookingID);
 
         String targetJSP = "/pages/jsp/bookedevent.jsp";

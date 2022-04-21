@@ -38,7 +38,6 @@ public class ProfileServlet extends HttpServlet {
         if(logged_user == null) {
             targetJSP = "/index.jsp";
         } else {
-            System.out.println("Logged user: " + logged_user.getUsername());
             targetJSP = "/pages/jsp/profile.jsp";
 
             try {

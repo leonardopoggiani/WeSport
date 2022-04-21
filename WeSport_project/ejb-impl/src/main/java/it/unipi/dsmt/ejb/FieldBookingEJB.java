@@ -22,7 +22,6 @@ public class FieldBookingEJB implements FieldBookingRemote {
         FieldBooking toPersist = new FieldBooking();
         java.sql.Date sqlDate = new java.sql.Date(date.getTime());
 
-
         toPersist.setSport(sport);
         toPersist.setDay(sqlDate);
         toPersist.setStart_hour(start_hour);
@@ -36,8 +35,6 @@ public class FieldBookingEJB implements FieldBookingRemote {
     public ArrayList<FieldBookingDTO> displayBooking(Integer user_id) {
         String jpql = "select b.id, b.sport, b.day, b.start_hour, b.end_hour, b.booker" +
                 " from FieldBooking b where b.booker = :user_id";
-
-        System.out.println("[LOG] displayBooking: " + user_id);
 
         Query query = entityManager.createQuery(jpql);
         query.setParameter("user_id", user_id);
@@ -66,8 +63,6 @@ public class FieldBookingEJB implements FieldBookingRemote {
     public ArrayList<FieldBookingDTO> displayBookingForSport(String sport) {
         String jpql = "select b.id, b.sport, b.day, b.start_hour, b.end_hour, b.booker" +
                 " from FieldBooking b where lower(b.sport) = lower(:sport)";
-
-        System.out.println("[LOG] displayBookingSport: " + sport);
 
         Query query = entityManager.createQuery(jpql);
         query.setParameter("sport", sport);
@@ -139,7 +134,6 @@ public class FieldBookingEJB implements FieldBookingRemote {
         String jpql = "select max(b.id) from FieldBooking b";
         Query query = entityManager.createQuery(jpql);
         List<Object> res = query.getResultList();
-        //System.out.println("Max booking is " + res.get(0).toString());
         return Integer.parseInt(res.get(0).toString());
     }
 
@@ -150,9 +144,6 @@ public class FieldBookingEJB implements FieldBookingRemote {
 
         String jpql = "select b.id, b.sport, b.day, b.start_hour, b.end_hour, b.booker" +
                 " from FieldBooking b where lower(b.sport) = lower(:sport) and b.day > :date";
-
-        System.out.println("[LOG] displayBooking: " + sport);
-        System.out.println("[LOG] date: " + date);
 
         Query query = entityManager.createQuery(jpql);
         query.setParameter("sport", sport);
@@ -186,9 +177,6 @@ public class FieldBookingEJB implements FieldBookingRemote {
         String jpql = "select b.id, b.sport, b.day, b.start_hour, b.end_hour, b.booker" +
                 " from FieldBooking b where lower(b.sport) = lower(:sport) and b.day < :date";
 
-        System.out.println("[LOG] displayBooking: " + sport);
-        System.out.println("[LOG] date: " + date);
-
         Query query = entityManager.createQuery(jpql);
         query.setParameter("sport", sport);
         query.setParameter("date", date);
@@ -213,60 +201,6 @@ public class FieldBookingEJB implements FieldBookingRemote {
         return result;
     }
 
-
-    /*
-    @Override
-    public boolean[] displayBusyDaysForMonth(String sport, Date date) {
-        Query query = entityManager.createNativeQuery(
-                "SELECT * " +
-                        "FROM wesport.booking " +
-                        "WHERE sport = ?1 " +
-                        "AND MONTH(day) = ?2 " +
-                        "AND YEAR(day) = ?3 " +
-                        "ORDER BY day");
-
-        Calendar calendar = Calendar.getInstance();
-        calendar.setTime(date);
-
-        System.out.println("date: " + date);
-        System.out.println("sport: " + sport);
-        System.out.println("calendar.get(Calendar.MONTH): " + (calendar.get(Calendar.MONTH) + 1));
-        System.out.println("calendar.get(Calendar.YEAR): " + calendar.get(Calendar.YEAR));
-
-        query.setParameter(1, sport);
-        query.setParameter(2, calendar.get(Calendar.MONTH) + 1);
-        query.setParameter(3, calendar.get(Calendar.YEAR));
-
-        List<Object[]> bookingList = query.getResultList();
-
-        System.out.println("[LOG] prenotazioni del mese: " + bookingList.size());
-        System.out.println("[LOG] giorni del mese: " +  calendar.getActualMaximum(Calendar.DAY_OF_MONTH));
-
-        // in questo modo ho trovato le prenotazioni di questo mese in questo anno
-        boolean[] freeDays = new boolean[calendar.getActualMaximum(Calendar.DAY_OF_MONTH)];
-
-        if (bookingList.isEmpty()) {
-            System.out.println("[LOG] Nessuna prenotazione trovata");
-            Arrays.fill(freeDays, true);
-        } else {
-            for (int i = 0; i < calendar.getActualMaximum(Calendar.DAY_OF_MONTH); i++)
-                for (Object[] booking : bookingList) {
-                    Calendar calendarBooking = Calendar.getInstance();
-                    calendarBooking.setTime((Date) booking[2]);
-
-                    if (i == (calendarBooking.get(Calendar.DAY_OF_MONTH) - 1)) {
-                        freeDays[i] = false;
-                        break;
-                    } else {
-                        freeDays[i] = true;
-                    }
-
-                }
-        }
-
-        return freeDays;
-    }
-    */
     @Override
     public boolean[] displayBusyDaysForMonth(String sport, Date date) {
         Calendar cal = Calendar.getInstance();
@@ -283,11 +217,8 @@ public class FieldBookingEJB implements FieldBookingRemote {
         List<Object[]> res = query.getResultList();
 
         boolean[] freeDays = new boolean[cal.getActualMaximum(Calendar.DAY_OF_MONTH)];
-        //System.out.println("LOG mese-giorno"+ cal.get(Calendar.MONTH) + cal.getActualMaximum(Calendar.DAY_OF_MONTH));
-
 
         if (res.isEmpty()) {
-            System.out.println("[LOG] Nessuna prenotazione trovata");
             Arrays.fill(freeDays, true);
         } else {
             for (int i = 0; i < cal.getActualMaximum(Calendar.DAY_OF_MONTH); i++)
@@ -318,11 +249,9 @@ public class FieldBookingEJB implements FieldBookingRemote {
         query.setParameter(2, day);
 
         List<Object> res = query.getResultList();
-        //Integer[] arr = res.toArray(Integer.class, res.size());
 
         boolean[] freeTimeslot = new boolean[12];
         if (res.isEmpty()) {
-            System.out.println("[LOG] Nessuna prenotazione trovata");
             Arrays.fill(freeTimeslot, true);
         } else {
             for (int i = 0; i < 12; i++)
@@ -335,10 +264,8 @@ public class FieldBookingEJB implements FieldBookingRemote {
                     } else {
                         freeTimeslot[i] = true;
                     }
-
                 }
         }
-
 
         return freeTimeslot;
     }

@@ -1,11 +1,5 @@
 <%@ page import="it.unipi.dsmt.dto.UserDTO" %>
-<%@ page import="java.util.List" %><%--
-  Created by IntelliJ IDEA.
-  User: ZenBook Pro
-  Date: 10/04/2022
-  Time: 19:05
-  To change this template use File | Settings | File Templates.
---%>
+<%@ page import="java.util.List" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
@@ -41,21 +35,20 @@
   <div class="userbox">
     <br><br>
     <form method="get" action="<%= request.getContextPath()%>/removeuser?username=username">
-      <li>
-        <% List<UserDTO> users = (List<UserDTO>)request.getAttribute("list_users");
-        int length = users.size();
-        for (int i=0; i<length; i++){
-          if (!users.get(i).username.equals("admin")){%>
-            <input type="submit" class="usernames" name="username" id="username" onclick="changeColor(this)" value="<%= users.get(i).username%>" readonly><br>
-          <%}
-        }%>
-      </li>
+      <ul>
+        <li>
+          <% List<UserDTO> users = (List<UserDTO>)request.getAttribute("list_users");
+          int length = users.size();
+          for (int i=0; i<length; i++){
+            if (!users.get(i).username.equals("admin")){%>
+              <input type="submit" class="usernames" name="username" id="username" onclick="changeColor(this)" value="<%= users.get(i).username%>" readonly><br>
+            <%}
+          }%>
+        </li>
       </ul>
     </form>
     <br><br>
   </div>
-
-
 
 </body>
 </html>

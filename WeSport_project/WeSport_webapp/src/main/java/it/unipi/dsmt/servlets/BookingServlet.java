@@ -41,7 +41,6 @@ public class BookingServlet extends HttpServlet {
     UserDTO user = (UserDTO) session.getAttribute("logged_user");
 
     List<FieldBookingDTO> bookings = new ArrayList<>();
-    System.out.println("[LOG] username: " + user.getUsername());
 
     long miliseconds = System.currentTimeMillis();
     Calendar date = Calendar.getInstance();
@@ -54,13 +53,10 @@ public class BookingServlet extends HttpServlet {
     if (month != null){
       monthNumber = Utils.getCalendarMonth(month);
     }
-    System.out.println("Mese: " + monthNumber);
     //int calendarMonth =utils.getCalendarMonth(month);
     String year = request.getParameter("year");
     if (year == null) year = Integer.toString(Year.now().getValue());
-    System.out.println("Qui:"+ year);
     String day = request.getParameter("day");
-    System.out.println(day);
     int dayNum;
     String targetJSP = "/pages/jsp/booking.jsp";
     date.set(Calendar.MONTH, monthNumber);
@@ -72,30 +68,14 @@ public class BookingServlet extends HttpServlet {
       fieldBooking.setSport(sport);
       date.set(Calendar.DATE, dayNum);
       fieldBooking.setDay(date.getTime());
-      /*request.setAttribute("sports", sport);
-      request.setAttribute("month", monthNumber);
-      request.setAttribute("year",year);
-      request.setAttribute("day",dayNum);*/
-      /*System.out.println("Nel servlet:"+ sport+ monthNumber+year+dayNum);
-      System.out.println(request.getContextPath());*/
       session.setAttribute("fieldBooking", fieldBooking);
-      targetJSP = "/pages/jsp/booktimeslot.jsp";
-      //System.out.println("Day ricevuto");
-      /*RequestDispatcher requestDispatcher = request.getRequestDispatcher(targetJSP);
-      requestDispatcher.forward(request,response);*/
       response.sendRedirect(request.getContextPath()+"/timeslot");
     }
     else{
       dayNum = date.get(Calendar.DATE);
       bookings = fieldBookingRemote.displayBookingForSport(sport);
-      System.out.println("[LOG] Di nuovo date: " + date.getTime() );
       boolean[] freeDays = fieldBookingRemote.displayBusyDaysForMonth(sport, date.getTime());
       bookings = fieldBookingRemote.displayBookingForSport(sport);
-      /*for(int i = 0; i < freeDays.length; i++) {
-        System.out.println("Day " + (i + 1) + " is free: " + freeDays[i]);
-      }*/
-
-      System.out.println("[LOG] bookings retrieved: " + bookings.size());
 
       request.setAttribute("bookings", bookings);
       request.setAttribute("freeDays", freeDays);

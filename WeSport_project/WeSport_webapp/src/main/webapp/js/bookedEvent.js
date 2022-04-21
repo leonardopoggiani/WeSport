@@ -48,14 +48,3 @@ function handleClick(name,surname,username,id, ip)
         document.getElementById("input").append(buttonElement);
     }
 }
-
-function passaUrl(){
-    var stringa="http://<%= actual_ip %>:8080/WeSport_webapp/bookedEvent?event=<%=bookedID%>&userId=";
-    var url=stringa+identificatore;
-
-    console.log("url-->"+url);
-    location.assign(url);
-    setRating(document.getElementById("inp").value,id);
-
-    return url;
-}

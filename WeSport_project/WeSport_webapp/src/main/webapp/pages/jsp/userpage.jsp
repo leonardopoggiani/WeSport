@@ -1,5 +1,4 @@
 <%@ page import="it.unipi.dsmt.dto.UserDTO" %>
-<%@ page import="java.nio.DoubleBuffer" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 
 <%

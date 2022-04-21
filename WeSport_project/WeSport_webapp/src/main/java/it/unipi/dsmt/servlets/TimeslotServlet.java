@@ -28,7 +28,6 @@ public class TimeslotServlet extends HttpServlet {
         UserDTO user = (UserDTO) session.getAttribute("logged_user");
         FieldBookingDTO booking = (FieldBookingDTO) session.getAttribute("fieldBooking");
         String timeslot = request.getParameter("timeslot");
-        System.out.println("LOG: DoGet click "+timeslot);
         if(timeslot !=null){
             int time = Integer.parseInt(timeslot);
             booking.setStart_hour(time);

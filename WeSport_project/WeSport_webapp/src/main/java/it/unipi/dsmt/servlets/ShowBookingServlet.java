@@ -29,9 +29,7 @@ public class ShowBookingServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String sport = request.getParameter("sports");
         ArrayList<FieldBookingDTO> ret = new ArrayList<>();
-        System.out.println("nella doGet");
         if (request.getParameter("username") == null || request.getParameter("username").equals("") || request.getParameter("username").equals(" ")){
-            System.out.println("Non ho ricevuto l'username");
             ret = fieldBookingRemote.displayBookingByFilter(null, sport);
 
         }
@@ -41,14 +39,12 @@ public class ShowBookingServlet extends HttpServlet {
                 Integer id = user.getUser(username).getId();
                 ret = fieldBookingRemote.displayBookingByFilter(id, sport);
             } catch (Exception e) {
-                System.out.println("[LOG] User not found");
                 request.setAttribute("list_bookings", ret);
             }
 
         }
 
         request.setAttribute("list_bookings", ret);
-
 
         request.getServletContext().getRequestDispatcher("/pages/jsp/removebooking.jsp").forward(request, response);
     }

@@ -85,9 +85,7 @@ function onchange(e) {
     var field = document.getElementById("sports");
     var month = document.getElementById("month");
     var year = document.getElementById("year");
-    //saveLocalSession(sports=field.value, month=month.value, year=year.value);
     saveLocalSession(sports=field.value, 2, 2022);
-    //window.location.reload();
 }
 
 function onclickNext(e){
@@ -98,7 +96,6 @@ function onclickNext(e){
     var newMonth = updateNextMonth(month);
     var newYear = updateNextYearIfNeeded(month, year.value);
     saveLocalSession(sports=field.value, month=newMonth, year=newYear);
-    //window.location.reload();
 }
 
 function onclickPrevious(e){
@@ -109,7 +106,6 @@ function onclickPrevious(e){
     var newMonth = updatePreviousMonth(month);
     var newYear = updatePreviousYearIfNeeded(month, year.value);
     saveLocalSession(sports=field.value, month=newMonth, year=newYear);
-    ///window.location.reload();
 }
 
 

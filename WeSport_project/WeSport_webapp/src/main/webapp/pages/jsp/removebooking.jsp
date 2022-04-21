@@ -1,12 +1,5 @@
 <%@ page import="it.unipi.dsmt.dto.FieldBookingDTO" %>
 <%@ page import="java.util.List" %>
-<%@ page import="java.util.ArrayList" %><%--
-  Created by IntelliJ IDEA.
-  User: ZenBook Pro
-  Date: 10/04/2022
-  Time: 19:03
-  To change this template use File | Settings | File Templates.
---%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
@@ -63,18 +56,19 @@
   <div class="showBookings">
     <br><br>
     <form method="get" action="<%= request.getContextPath()%>/removebooking?bookingid=bookingid">
-      <li>
-        <% List<FieldBookingDTO> bookings = (List<FieldBookingDTO>)request.getAttribute("list_bookings");
-          if(bookings!=null && !bookings.isEmpty() ){
-            int length = bookings.size();
-            for (int i=0; i<length; i++){
-              String print_str = bookings.get(i).getSport().toString() + ", " + bookings.get(i).getDay().toString();
-        %>
-              <input type="submit" class="bookingsid" name="bookingid" id="bookingid" onclick="changeColor(this)" value="<%=bookings.get(i).getBooking_id() %>" readonly>
-              <input type="text" class="bookings" name="booking" id="booking<%=bookings.get(i).getBooking_id()%>" value="<%=print_str %>" readonly><br>
-        <%  }
-          }%>
-      </li>
+      <ul>
+        <li>
+          <% List<FieldBookingDTO> bookings = (List<FieldBookingDTO>)request.getAttribute("list_bookings");
+            if(bookings!=null && !bookings.isEmpty() ){
+              int length = bookings.size();
+              for (int i=0; i<length; i++){
+                String print_str = bookings.get(i).getSport().toString() + ", " + bookings.get(i).getDay().toString();
+          %>
+                <input type="submit" class="bookingsid" name="bookingid" id="bookingid" onclick="changeColor(this)" value="<%=bookings.get(i).getBooking_id() %>" readonly>
+                <input type="text" class="bookings" name="booking" id="booking<%=bookings.get(i).getBooking_id()%>" value="<%=print_str %>" readonly><br>
+          <%  }
+            }%>
+        </li>
       </ul>
     </form>
   </div>
