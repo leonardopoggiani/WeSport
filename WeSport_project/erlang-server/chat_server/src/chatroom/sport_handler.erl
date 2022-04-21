@@ -14,21 +14,15 @@ init(_) ->
 
 handle_call({insert_sport, Sport, Pid}, _From, Sports) ->
     Response = check_and_insert_sport(Sport, Pid, Sports),
-    io:format("PID Sport inserito: ~p ~n",[Pid]),
     {reply, Response, Sports};
 
 handle_call({retrieve_pid, Sport}, _From, Sports) ->
-  io:format("Sport cercato: ~p ~n",[Sport]),
-  All_table = ets:match_object(Sports, {'$0', '$1'}),
-  io:format("all_table: ~p ~n",[All_table]),
   Response = ets:match_object(Sports, {'_', Sport}),
-  io:format("Response: ~p ~n",[Response]),
   {reply, Response, Sports};
 
-  handle_call({logout, Pid}, _From, Sports) ->
-    io:format("Elimino: ~p ~n",[Pid]),
-    Response = ets:match_delete(Sports, {Pid, '_'}),
-    {reply, Response, Sports};
+handle_call({logout, Pid}, _From, Sports) ->
+  Response = ets:match_delete(Sports, {Pid, '_'}),
+  {reply, Response, Sports};
 
 handle_call(_Message, _From, State) ->
   {reply, error, State}.

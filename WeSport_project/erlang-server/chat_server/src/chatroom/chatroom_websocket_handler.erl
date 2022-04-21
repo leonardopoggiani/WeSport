@@ -8,10 +8,7 @@ init(Req, Opts) ->
   {cowboy_websocket, Req, Opts}.
 
 websocket_handle({text, Message}, State) ->
-  Param_list = string:lexemes(Message, ":"),   % scompongo la stringa in arrivo in una lista di stringhe
-
-  io:format("Param_list: ~p ~n",[Param_list]),
-
+  Param_list = string:lexemes(Message, ":"),
   First_param = hd(Param_list),
   Last_param = lists:last(Param_list),
 
@@ -29,11 +26,8 @@ websocket_handle({text, Message}, State) ->
 
     true ->
       Chatroom_message = lists:nth(2, Param_list),
-      io:format("Message: ~p ~n",[Chatroom_message]),
       Sender = lists:nth(3, Param_list),
-      io:format("Sender: ~p ~n",[Sender]),
       Sport = lists:nth(4, Param_list),
-      io:format("Sport: ~p ~n",[Sport]),
       gen_server:cast(?CHATROOM_SERVER, {send_message_chatroom, {self(), {Sport, Sender}, Chatroom_message}})
   end,
   {ok, State};

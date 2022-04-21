@@ -8,37 +8,29 @@ init(Req, Opts) ->
   {cowboy_websocket, Req, Opts}.
 
 websocket_handle({text, Message}, State) ->
-  io:format("message: ~p ~n",[Message]),
-
-  Param_list = string:lexemes(Message, ":"),   % scompongo la stringa in arrivo in una lista di stringhe
-
-  io:format("Param_list: ~p ~n",[Param_list]),
-
+  Param_list = string:lexemes(Message, ":"), 
   First_param = hd(Param_list),
   Last_param = lists:last(Param_list),
 
   if
     First_param == <<"&LOGIN">> ->
-      % L'utente ha fatto l'accesso alla pagina di chat
       NickName = Last_param,
       gen_server:cast(?CHAT_SERVER, {login, {self(), NickName}});
 
     First_param == <<"&LOGOUT">> ->
-      % L'utente non vuole piu chattare
       gen_server:cast(?CHAT_SERVER, {logout, self()});
 
     First_param == <<"&PING">> ->
       gen_server:cast(?CHAT_SERVER, {online_users, self()});
+
     true ->
-      % L'utente ha inviato un messaggio
       MessageText = First_param,
-      % l'ultimo parametro è il destinatario del messaggio
       Receiver_NickName = Last_param,
-      % il secondo parametro è il mittente
       Sender_NickName = lists:nth(2, Param_list),
       gen_server:cast(?CHAT_SERVER, {send_message, {self(), {Receiver_NickName, Sender_NickName}, MessageText}})
   end,
   {ok, State};
+  
 websocket_handle(_Data, State) ->
   {[], State}.
 

@@ -22,18 +22,17 @@ init(_) ->
 
 
 handle_call({logout, Pid}, _From, State) ->
-  io:format("~p leave_cast call! ~n",[Pid]),
+  io:format("~p leave_call! ~n",[Pid]),
   quit(Pid, State),
   {noreply, State}.
 
 
 handle_cast({logout, Pid}, State) ->
-  io:format("~p leave_cast cast! ~n",[Pid]),
+  io:format("~p leave_cast! ~n",[Pid]),
   quit(Pid, State),
   {noreply, State};
 
 handle_cast({send_message, {Pid_sender, {Receiver_NickName, Sender_NickName}, Message_Text}}, State) ->
-
   case gen_server:call(?USER_HANDLER, {retrieve_pid, Receiver_NickName}) of
     [] ->
       Pid_sender ! {send_message, Pid_sender,"User not available."};
@@ -47,9 +46,9 @@ handle_cast({login, {Pid, NickName}}, State) ->
   Reply = gen_server:call(?USER_HANDLER, {insert_user, NickName, Pid}),
   case Reply of
     nickname_in_use ->
-      send(Pid, "The chosen NickName is already in use", []);
+      send(Pid, "User already logged in the chat", []);
     ok ->
-      send(Pid, "~p Welcome in the chat!", [binary_to_list(NickName)])
+      send(Pid, "~p welcome in the chat!", [binary_to_list(NickName)])
   end,
   {noreply, State};
 
@@ -63,14 +62,9 @@ quit(Pid, _S) ->
   io:format("~p Left the chat server! ~n", [Pid]),
   gen_server:call(?USER_HANDLER, {logout, Pid}).
 
-
-% invia una semplice stringa, utilizzata solo per inviare messaggi generati dal server
 send(Pid, Str, Args) ->
-  io:format("~p send! ~n",[Str]),
   Pid ! {send_message, self(), io_lib:format(Str++"~n", Args)},
   ok.
-
-% ---------- UTILITY ------------
 
 format_message(NickName, Message) ->
   FormattedMsg = binary_to_list(NickName) ++ ":" ++ binary_to_list(Message),

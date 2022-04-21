@@ -13,7 +13,7 @@ init(_) ->
   {ok, Users}.
 
 handle_call({insert_user, NickName, Pid}, _From, Users) ->
-  Response = check_and_insert_nick(NickName, Pid, Users),
+  Response = check_and_insert_user(NickName, Pid, Users),
   {reply, Response, Users};
 
 handle_call({retrieve_pid, NickName}, _From, Users) ->
@@ -34,7 +34,7 @@ handle_call(_Message, _From, State) ->
 handle_cast(_Message, State) ->
   {noreply, State}.
 
-check_and_insert_nick(NickName, Pid, Users) ->
+check_and_insert_user(NickName, Pid, Users) ->
   case ets:insert_new(Users, {NickName, Pid}) of
     true -> ok;
     false -> nickname_in_use
