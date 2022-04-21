@@ -70,10 +70,6 @@
                         <td>
                             <%= dto.getSurname() %>
                         </td>
-
-                        <td>
-                            <%= %>
-                        </td>
                     </tr>
                 <% } %>
             <% } else { %>

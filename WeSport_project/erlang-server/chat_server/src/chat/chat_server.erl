@@ -22,13 +22,13 @@ init(_) ->
 
 
 handle_call({logout, Pid}, _From, State) ->
-  io:format("~p leave_cast! ~n",[Pid]),
+  io:format("~p leave_cast call! ~n",[Pid]),
   quit(Pid, State),
   {noreply, State}.
 
 
 handle_cast({logout, Pid}, State) ->
-  io:format("~p leave_cast! ~n",[Pid]),
+  io:format("~p leave_cast cast! ~n",[Pid]),
   quit(Pid, State),
   {noreply, State};
 
