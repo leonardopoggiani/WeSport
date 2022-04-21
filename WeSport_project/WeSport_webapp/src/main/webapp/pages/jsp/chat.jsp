@@ -41,16 +41,15 @@
                 </ul>
             </div>
 
-
-
         </div>
     </nav>
 
+    <h1 id="receiver"> Chat </h1>
+
     <div class='container'>
-        <h1>Chat</h1> <h1 id="receiver"></h1>
         <div class='chatbox' id="chatbox">
             <div class='chatbox__user-list'>
-                <h1>User list</h1>
+                <h2>User list</h2>
                 <%
                     for(UserDTO item: userList){
                         if(item.getUsername().equals(((UserDTO)session.getAttribute("logged_user")).getUsername()))

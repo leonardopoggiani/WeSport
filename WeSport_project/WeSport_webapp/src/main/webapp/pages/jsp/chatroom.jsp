@@ -35,9 +35,9 @@
 
     </div>
 </nav>
+<h1>Chat Room</h1>
 
 <div class='container'>
-    <h1>Chat Room</h1>
 
     <label for="sports">Choose a sport:</label>
     <select name="sports" id="sports" onchange=" return change_sport();">
