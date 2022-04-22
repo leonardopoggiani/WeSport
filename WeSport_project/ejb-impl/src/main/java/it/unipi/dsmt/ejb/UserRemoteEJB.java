@@ -30,6 +30,11 @@ public class UserRemoteEJB implements UserRemote {
 
         if (userList != null && !userList.isEmpty()) {
             for(Object[] user: userList){
+
+                if( ((String) user[1]).compareTo("admin") == 0) {
+                    continue;
+                }
+
                 UserDTO dto = new UserDTO();
                 dto.setId((Integer) user[0]);
                 dto.setUsername((String) user[1]);
