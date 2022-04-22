@@ -58,7 +58,7 @@ public class BookFieldServlet extends HttpServlet {
 
         Integer[] usersID = new Integer[numPlayer];
         UserDTO userDTO = new UserDTO();
-        for (int i=0; i<numPlayer; i++){
+        for (int i=0; i < numPlayer; i++){
             String j = String.valueOf(i+1);
             players[i]=request.getParameter(j);
             if(players[i]==null){
@@ -69,7 +69,8 @@ public class BookFieldServlet extends HttpServlet {
                     userDTO = userRemote.getUser(players[i]);
                     usersID[i] = userDTO.getId();
                 } catch (SQLException e) {
-                    e.printStackTrace();
+                    System.err.println("LOG: Error in insertBooking");
+                    response.sendRedirect(request.getContextPath()+"/bookfield");
                 }
             }
         }

@@ -3,7 +3,6 @@
 
 <%
     boolean[] freeTimeslot = (boolean[])request.getAttribute("freeTimeslot");
-
 %>
 <html>
 <head>
@@ -36,7 +35,7 @@
     <div class="timeslot">
         <br><br>
         <form method="get" action="<%= request.getContextPath()%>/timeslot?slot=timeslot">
-        <ul>
+        <ul id="ultime">
             <li>
                 <%
                     for (int i=0; i<12; i++){

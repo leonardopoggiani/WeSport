@@ -100,6 +100,7 @@ public class UserBookingEJB implements UserBookingRemote {
             UserBooking toPersist = new UserBooking();
             toPersist.setUserID(users[i]);
             toPersist.setBookingID(idBooking);
+            toPersist.setScore(0);
             entityManager.persist(toPersist);
         }
     }
