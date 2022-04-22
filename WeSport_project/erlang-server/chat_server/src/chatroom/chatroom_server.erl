@@ -31,8 +31,6 @@ handle_cast({logout, Pid}, State) ->
   {noreply, State};
 
 handle_cast({send_message_chatroom, {Pid_sender, {Sport, Sender_NickName}, Message_Text}}, State) ->
-  io:format("Chatroom: ~p ~n",[Sport]),
-  io:format("Send to PID sender ~p ~n",[Pid_sender]),
 
   case gen_server:call(?SPORT_HANDLER, {retrieve_pid, Sport}) of
     [] ->

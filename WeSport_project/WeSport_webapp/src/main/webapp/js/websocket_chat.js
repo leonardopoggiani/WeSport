@@ -26,11 +26,9 @@ function print_message(sender_name, message, receiver) {
     p_message.setAttribute("class", "message");
 
     if(receiver != null) {
-        console.log("RECEIVER: " + receiver);
         //messaggio inviato
 
         if(receiver.split(" ").length > 1) {
-            console.log("RETURN");
             return;
         }
 
@@ -42,7 +40,6 @@ function print_message(sender_name, message, receiver) {
         //messaggio in arrivo
         if (sender_name == null) {
             // messaggio inviato dal server
-            console.log(message);
             return;
         } else {
             // messaggio da un altro utente
@@ -75,7 +72,6 @@ function update_online_users(users_list) {
     for(var i = 0; i < all_users_list.length; i++) {
         for (var j = 0; j < users_list.length - 1; j++) {
             if (all_users_list[i].id == users_list[j]) {
-                console.log("ONLINE" + all_users_list[i].id);
 
                 var online_user = document.getElementById("div-" + all_users_list[i].id);
                 online_user.setAttribute("class", "chatbox__user--active");
@@ -145,10 +141,8 @@ function send_message(event){
 
     var message_text = input_message.value;
     input_message.value = "";
-    console.log("MESSAGE: " + message_text);
 
     const receiver_username = document.getElementById("receiver").textContent;
-    console.log("RECEIVER: " + receiver_username);
 
     if(receiver_username != "" || receiver_username != "no one actually :(") {
         if (message_text != "") {
